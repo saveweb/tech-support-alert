@@ -3,4 +3,4 @@ A BACKUP of [Gizmo's Tech Support Alert - Gizmo's Freeware](www.techsupportalert
 
 View: https://saveweb.github.io/tech-support-alert/
 
-Made by [Save the web project](https://saveweb.othing.xyz)
+Made by <[Save the web project Team](https://saveweb.othing.xyz)>
