@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en" dir="ltr"><!--<![endif]-->
+<head>
+   <!--[if IE]><![endif]-->
+<meta charset="utf-8" />
+<meta name="description" content="Make your Windows last longer. Find out how partitioning can avoid an unpleasant reinstall of Windows. Read prt 2 of this interesting 2015 article. You will also find many more freeware reviews in countless categories at Gizmo&#039;s." />
+<link rel="shortcut icon" href="sites/all/themes/gizmoslist/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="In this second part of this multi-part series Gizmo shows you how to partition your hard drive into a system drive and a data drive using free tools Part 1 Part 3 Warning: Drive partitioning is an inherently risky process. If something goes wrong you may lose all your data and you PC may become unbootable. Do not attempt any of the following procedures unless your data is full" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="partitioning-hard-drives-2.htm" />
+<link rel="shortlink" href="https://www.techsupportalert.com/node/141" />
+<meta property="og:site_name" content="Gizmo&#039;s Freeware" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.techsupportalert.com/partitioning-hard-drives-2.htm" />
+<meta property="og:title" content="Never Re-install Windows Again Part 2: Partitioning your hard drive" />
+<meta property="og:description" content="In this second part of this multi-part series Gizmo shows you how to partition your hard drive into a system drive and a data drive using free tools Part 1 Part 3 Warning: Drive partitioning is an inherently risky process. If something goes wrong you may lose all your data and you PC may become unbootable. Do not attempt any of the following procedures unless your data is full backed up and you have a Windows installation disk available. If you have any doubts about your technical ability to successfully carry out these procedures then don&#039;t; the risk is too great." />
+<meta property="og:updated_time" content="2020-11-25T11:58:54+00:00" />
+<meta property="article:published_time" content="2008-04-15T06:32:19+00:00" />
+<meta property="article:modified_time" content="2020-11-25T11:58:54+00:00" />
+   <title>Never Re-install Windows Again Part 2: Partitioning your hard drive | Gizmo's Freeware</title>
+   <link type="text/css" rel="stylesheet" href="files/advagg_css/css__K1Zxkb7B9uRMTvKGWwqJbpPSUxPwhcczKcp6degok28__HeSIUBSByKemgY9AJL8p07c1i2IHEDyYO6cKTWBN3Pw__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.css" media="all" />
+
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="https://www.techsupportalert.com/files/advagg_css/css__I8Q7DkdK2zJceaJBCwEwz0vYYbloOjCrssUsWAaHyIM__qjMhJvPdluz-vOJRX3dztEqH8G31Y32rQ_NKwUhoC1Y__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.css" media="screen" />
+<![endif]-->
+   <!--[if lt IE 9]>
+   <link rel=stylesheet type=text/css href=/sites/all/themes/gizmoslist/css/ie7-and-down.css />
+   <![endif]-->
+   <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript" src="files/advagg_js/js__B1KiKqJbKO-n3ZXTCs35IBdGFYs11f-fUM6Y72B9wEg__5zx4JiTNwUOifd--hiFOiQb-OZHPEiMORfGWeCF9Yyk__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.techsupportalert.com/files/googleanalytics/analytics.js?qv3qpt","ga");ga("create", "UA-279220-2", {"cookieDomain":"auto"});ga("require", "linkid", "linkid.js");ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"gizmoslist","theme_token":"mB7gu9YuJXClXZ0fanMfd3AM4u5oZMF-bq5iAyKbtz8","jquery_version":"1.7","css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/aggregator\/aggregator.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/google_cse\/google_cse.css":1,"modules\/node\/node.css":1,"modules\/poll\/poll.css":1,"modules\/search\/search.css":1,"sites\/all\/modules\/slidead\/slidead.css":1,"modules\/user\/user.css":1,"modules\/forum\/forum.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/comment_notify\/comment_notify.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/panels\/css\/panels.css":1,"sites\/all\/modules\/print\/print_ui\/css\/print_ui.theme.css":1,"public:\/\/spamicide\/user_pw.css":1,"sites\/all\/modules\/fivestar\/css\/fivestar.css":1,"sites\/all\/modules\/fivestar\/widgets\/oxygen\/oxygen.css":1,"sites\/all\/libraries\/superfish\/css\/superfish.css":1,"sites\/all\/libraries\/superfish\/css\/superfish-navbar.css":1,"sites\/all\/libraries\/superfish\/style\/graphite.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.settings.style.headings.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.settings.style.image.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.layout.css":1,"sites\/all\/themes\/gizmoslist\/color\/colors.css":1,"sites\/all\/themes\/pixture_reloaded\/css\/pixture_reloaded.css":1,"sites\/all\/themes\/pixture_reloaded\/css\/pixture_reloaded.settings.style.css":1,"sites\/all\/themes\/gizmoslist\/css\/styles.custom.css":1,"sites\/all\/themes\/gizmoslist\/generated_files\/gizmoslist.custom.css":1,"sites\/all\/themes\/gizmoslist\/fonts\/gizmoslogo\/gizmoslogo.css":1,"sites\/all\/themes\/gizmoslist\/fonts\/font-awesome\/font-awesome.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.responsive.layout.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.fonts.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.responsive.styles.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.lt-ie9.layout.css":1},"js":{"\/\/s.skimresources.com\/js\/91960x1545845.skimlinks.js":1,"sites\/all\/modules\/google_cse\/google_cse.js":1,"sites\/all\/modules\/slidead\/slidead.js":1,"sites\/all\/modules\/comment_notify\/comment_notify.js":1,"sites\/all\/themes\/gizmoslist\/script\/bootstrap.min.js":1,"sites\/all\/themes\/gizmoslist\/script\/enscroll-0.4.0.min.js":1,"sites\/all\/themes\/gizmoslist\/script\/script.js":1,"sites\/all\/modules\/adsense\/contrib\/adsense_click\/adsense_click.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"misc\/progress.js":1,"sites\/all\/modules\/fivestar\/js\/fivestar.ajax.js":1,"sites\/all\/modules\/fivestar\/js\/fivestar.js":1,"sites\/all\/libraries\/superfish\/supposition.js":1,"sites\/all\/libraries\/superfish\/superfish.js":1,"sites\/all\/modules\/superfish\/superfish.js":1,"https:\/\/ws.sharethis.com\/button\/buttons.js":1,"sites\/all\/modules\/jquery_update\/replace\/jquery\/1.7\/jquery.min.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery-html-prefilter-3.5.0-backport.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/all\/modules\/jquery_update\/replace\/misc\/jquery.form.min.js":1,"misc\/ajax.js":1,"sites\/all\/modules\/jquery_update\/js\/jquery_update.js":1}},"googleCSE":{"cx":"partner-pub-4337260311855789:5365410881","language":"","resultsWidth":400,"domain":"www.google.com","showWaterMark":true},"slideAd":{"width":"300"},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"},"urlIsAjaxTrusted":{"\/search\/node":true,"\/partitioning-hard-drives-2.htm":true,"\/partitioning-hard-drives-2.htm?destination=node\/141":true,"\/system\/ajax":true},"superfish":{"1":{"id":"1","sf":{"animation":{"opacity":"show","height":"show"},"speed":"\u0027fast\u0027","autoArrows":false,"dropShadows":true,"disableHI":false},"plugins":{"supposition":true,"bgiframe":false}}},"ajax":{"edit-vote--2":{"callback":"fivestar_ajax_submit","event":"change","url":"\/system\/ajax","submit":{"_triggering_element_name":"vote"}}},"adaptivetheme":{"gizmoslist":{"layout_settings":{"bigscreen":"three-col-grail","tablet_landscape":"three-col-grail","tablet_portrait":"one-col-vert","smalltouch_landscape":"one-col-vert","smalltouch_portrait":"one-col-stack"},"media_query_settings":{"bigscreen":"only screen and (min-width:1025px)","tablet_landscape":"only screen and (min-width:769px) and (max-width:1024px)","tablet_portrait":"only screen and (min-width:481px) and (max-width:768px)","smalltouch_landscape":"only screen and (min-width:321px) and (max-width:480px)","smalltouch_portrait":"only screen and (max-width:320px)"}}}});
+//--><!]]>
+</script>
+   <!--[if lt IE 9]>
+<script src="https://www.techsupportalert.com/sites/all/themes/adaptivetheme/at_core/scripts/html5.js?qv3qpt"></script>
+<![endif]-->
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" /> <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script> <script> window.addEventListener("load", function(){ window.cookieconsent.initialise({ "palette": { "popup": { "background": "#edeff5", "text": "#838391" }, "button": { "background": "#4b81e8" } } })}); </script>
+   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+   <script data-ad-client="ca-pub-1584315025436785" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+   <meta name="wot-verification" content="22efc80013d585910ca0"/>
+   <meta name="propeller" content="3dda2330fd32fcfca29de21325f076f3">
+</head>
+
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-141 node-type-article site-name-hidden site-name-gizmoamp039s-freeware section-partitioning-hard-drives-2htm color-scheme-custom gizmoslist bs-n bb-n mb-dd mbp-l rc-0">
+   <div id=skip-link class=nocontent><a href="partitioning-hard-drives-2.htm#main-content" class="element-invisible element-focusable">Skip to main content</a></div>
+      <div class="texture-overlay">
+<div id="page" class="container page ssc-n ssw-n ssa-l sss-n btc-n btw-b bta-l bts-n ntc-n ntw-b nta-l nts-n ctc-n ctw-b cta-l cts-n ptc-n ptw-b pta-l pts-n">
+<header id="header" class="clearfix" role="banner" data-position="fixed">
+<div class="header-inner clearfix">
+<div id="mobile-menu">
+<span class="mobile-socialmenu">social</span>
+<span class="mobile-search">search</span>
+</div>
+<span id="mobile-nav">Menu</span>
+<div id="branding" class="branding-elements clearfix">
+<div id="logo">
+<a href="index.html" title="Go to our home page..." class="active" style="text-decoration:none"><div class="icon-Final-freeware" style="color:#f0f0f0;font-size:68px;padding-bottom:8px"></div></a>
+</div>
+<div id="logomobile">
+<a href="index.html" title="Go to our home page..." class="active" style="text-decoration:none"><div class="icon-Final-freeware" style="color:#f0f0f0;font-size:40px;padding-left:8px"></div></a>
+</div>
+<div id="name-and-slogan" class="element-invisible h-group" id="name-and-slogan">
+<h1 id="site-name" class="element-invisible" id="site-name"><a href="index.html" title="Home page">Gizmo&#039;s Freeware</a></h1>
+</div>
+</div>
+<div class="region region-header"><div class="region-inner clearfix"><div id="block-block-58" class="clearfix block block-block no-title odd first block-count-1 block-region-header block-58">
+<a href="partitioning-hard-drives-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div id="header-middle"><a href="http://www.xmarks.com/site/www.techsupportalert.com/#r"><img alt="" src="files/images/icons/_thumb_13506.png" /> </a><a href="http://www.pcmag.com/article2/0,2817,2367733,00.asp"> <img alt="" src="files/images/icons/_thumb_13505.png" /></a></div>
+</div>
+</div><div id="block-block-57" class="clearfix block block-block no-title even block-count-2 block-region-header block-57">
+<a href="partitioning-hard-drives-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<p><a href="http://feeds.feedburner.com/gizmosbest" title="Go to our RSS feeds..."><i class="fa fa-rss-square fa-2x" style="color: #ffb300;"></i></a>&nbsp;&nbsp; <a href="http://feedburner.google.com/fb/a/mailverify?uri=gizmosbest" title="Subscribe to email..."><i class="fa fa-envelope fa-2x" style="color: #f0f0f0;"></i></a>&nbsp;&nbsp; <a href="http://www.facebook.com/pages/Gizmos-Freeware/114026985301900" title="Follow us on Facebook..."><i class="fa fa-facebook-square fa-2x" style="color: #d0d0ff;"></i></a>&nbsp;&nbsp; <a href="http://twitter.com/GizmosFreeware" title="Follow us on Twitter..."><i class="fa fa-twitter-square fa-2x" style="color: #70c0f0;"></i></a></p>
+</div>
+</div><div id="block-search-form" class="clearfix block block-search no-title odd block-count-3 block-region-header block-form" role="search">
+<a href="partitioning-hard-drives-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<form action="partitioning-hard-drives-2.htm" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="search" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-dUAIykbgikizIMKi0y_vMBDWu77Fn4-DM8HoDLBZWLE" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form></div>
+</div><div id="block-user-login" class="clearfix block block-user even last block-count-4 block-region-header block-login" role="form">
+<a href="partitioning-hard-drives-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Login / Register</h2>
+<div class="content" class="block-content content">
+<form action="https://www.techsupportalert.com/partitioning-hard-drives-2.htm?destination=node/141" method="post" id="user-login-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">Username <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-name" name="name" value="" size="15" maxlength="60" class="form-text required" />
+</div>
+<div class="form-item form-type-password form-item-pass">
+  <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" id="edit-pass" name="pass" size="15" maxlength="128" class="form-text required" />
+</div>
+<div class="item-list"><ul><li class="even first"><a href="user/register" title="Create a new user account.">Create new account</a></li><li class="odd last"><a href="https://www.techsupportalert.com/user/password" title="Request new password via e-mail.">Request new password</a></li></ul></div><input type="hidden" name="form_build_id" value="form-1IqqcAGC2J2NMXVx2jsMGQr7CP2EuAJ6Zu_EKSpMqT8" />
+<input type="hidden" name="form_id" value="user_login_block" />
+<div class="edit-user-pw-wrapper"><div class="form-item form-type-textfield form-item-user-pw">
+  <label for="edit-user-pw">user pw </label>
+ <input type="text" id="edit-user-pw" name="user_pw" value="" size="20" maxlength="128" class="form-text" />
+<div class="description">Do not type anything in this box</div>
+</div>
+</div><div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Log in" class="form-submit" /></div></div></form></div>
+</div></div></div></div>
+</header>
+   <!-- Start: Ad blocker check
+   <style>#svCYxPorrige{display:none;margin-bottom:0px;padding:20px 10px;background:#D30000;text-align:center;font-weight:bold;color:#fff;border-radius: 0px;}</style>
+   <div id="svCYxPorrige">Oops, it looks like you are using an ad blocker.<br>We work hard to provide you our software news and we keep our ads non-intrusive.<br>Please support us keeping our content free by disabling your ad blocker.</div>
+   <script src="/ads.js" type="text/javascript"></script>
+   <script type="text/javascript">if(!document.getElementById('YzIkKlMbayUm')){document.getElementById('svCYxPorrige').style.display='block';}</script>
+   End: Ad blocker check -->
+<div id="menu-bar" class="nav clearfix"><div id="block-superfish-1" class="clearfix block block-superfish menu-wrapper menu-bar-wrapper clearfix odd first last block-count-5 block-region-menu-bar block-1">
+<a href="partitioning-hard-drives-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="element-invisible block-title" class="block-title">Main menu</h2>
+<div class="content" class="block-content content clearfix">
+<ul id="superfish-1" class="menu sf-menu sf-main-menu sf-navbar sf-style-graphite sf-total-items-12 sf-parent-items-5 sf-single-items-7"><li id="menu-175-1" class="first odd sf-item-1 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="index.html" title="This site&#039;s home page" class="sf-depth-1 menuparent">Home</a><ul><li id="menu-13310-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="index.html" title="The front page of Gizmo&#039;s Freeware" class="sf-depth-2">Homepage</a></li><li id="menu-13306-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="user/login" title="Login to Gizmos using your site account" class="sf-depth-2">Login</a></li><li id="menu-13307-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="user" title="Login to Gizmos using your site account. Here you can change your password or store bookmarks" class="sf-depth-2">My account/Change PW</a></li><li id="menu-13309-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="user/register" title="Create an account at Gizmos Freeware so you can post comments to articles and in the forum" class="sf-depth-2">Register</a></li></ul></li><li id="menu-12522-1" class="middle even sf-item-2 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="windows" title="The Best Free Windows Programs" class="sf-depth-1 menuparent">Windows</a><ul><li id="menu-12538-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="windows" title="The best free Windows desktop software by category plus our Editors&#039; Choice selections" class="sf-depth-2">Desktop Software</a></li><li id="menu-12539-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="best-free-windows-apps.htm" title="The best free Windows apps as selected by our editors" class="sf-depth-2">Windows Apps</a></li><li id="menu-12540-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="best-free-portable-programs.htm" title="Our Editor&#039;s Choice Selections of the Best Free Portable Apps" class="sf-depth-2">Portable Apps</a></li><li id="menu-12541-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="best-free-windows7-vista-64-bit-software.htm" title="Our Editor&#039;s selections of the best free Windows 64 bit software" class="sf-depth-2">Windows 64 bit Software</a></li></ul></li><li id="menu-12523-1" class="middle odd sf-item-3 sf-depth-1 sf-no-children"><a href="content/best-free-software-mac-os.htm" title="The Best Free Mac OS X Programs" class="sf-depth-1">Mac</a></li><li id="menu-12524-1" class="middle even sf-item-4 sf-depth-1 sf-no-children"><a href="linux" title="The Best Free Linux Programs" class="sf-depth-1">Linux</a></li><li id="menu-12526-1" class="middle odd sf-item-5 sf-depth-1 sf-no-children"><a href="android" title="The Best Free Android Apps" class="sf-depth-1">Android</a></li><li id="menu-12525-1" class="middle even sf-item-6 sf-depth-1 sf-no-children"><a href="ios" title="The Best Free Apps for iPhone and iPad" class="sf-depth-1">iOS</a></li><li id="menu-13312-1" class="middle odd sf-item-7 sf-depth-1 sf-no-children"><a href="content/best-free-online-applications-and-services.htm" title="Best web based applications and services" class="sf-depth-1">Online Apps</a></li><li id="menu-9299-1" class="middle even sf-item-8 sf-depth-1 sf-no-children"><a href="free-ebooks-audio-books-read-online-download.htm" title="Here&#039;s a list of dozens of articles on this showing you the best places to get free eBooks and Audio Books" class="sf-depth-1">eBooks</a></li><li id="menu-12530-1" class="middle odd sf-item-9 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="view/hot_expanded" title="New and recently updated articles" class="sf-depth-1 menuparent">New</a><ul><li id="menu-3760-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="view/hot_expanded" title="The Most Recent Additions to Gizmo&#039;s Freeware" class="sf-depth-2">New Articles</a></li><li id="menu-3761-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="tracker_updated_only" title="Articles we have recently revised or re-written" class="sf-depth-2">Recently Updated Articles</a></li><li id="menu-3759-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="https://www.techsupportalert.com/recent-comments" title="Comments on reviews and articles posted by our users" class="sf-depth-2">Recent Comments</a></li><li id="menu-105-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="all-articles-by-rating" title="The articles our users have given the highest ratings" class="sf-depth-2">Highest Rated</a></li></ul></li><li id="menu-210-1" class="middle even sf-item-10 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent"><a href="freeware-updates.htm" title="The latest freeware releases and news from 10 top freeware sites" class="sf-depth-1 menuparent">Resources</a><ul><li id="menu-9285-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="freeware-updates.htm" title="The latest product updates and news from the web&#039;s most popular download sites" class="sf-depth-2">News</a></li><li id="menu-12533-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="view/tips" title="Handy Windows Tips and Tricks" class="sf-depth-2">Tips</a></li><li id="menu-14525-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="videos.htm" title="Keep up to date with tech the easy way by watching these interesting videos" class="sf-depth-2">Tech videos</a></li><li id="menu-9287-1" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="sec" title="Want to clean a malware infection from your computer? Want to keep it clean and safe in the future? Then check out these guides." class="sf-depth-2">Security Guides &amp; Articles</a></li><li id="menu-9286-1" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="tutorials" title="Want to know how to do something? You may well find it here." class="sf-depth-2">How-to Guides &amp; Tutorials</a></li><li id="menu-9283-1" class="middle even sf-item-6 sf-depth-2 sf-no-children"><a href="content/best-freeware-download-sites.htm" title="The safest and most reliable places to download freeware" class="sf-depth-2">Best Download Sites</a></li><li id="menu-9284-1" class="last odd sf-item-7 sf-depth-2 sf-no-children"><a href="content/best-free-technical-support-sites.htm" title="Got a hardware or software problem? Try one of these free support sites" class="sf-depth-2">Best Tech Support Sites</a></li></ul></li><li id="menu-1139-1" class="middle odd sf-item-11 sf-depth-1 sf-no-children"><a href="https://www.techsupportalert.com/freeware-forum" title="Got a computer question to ask?  Then this is the place and it&#039;s 100% free." class="sf-depth-1">Forum</a></li><li id="menu-109-1" class="last even sf-item-12 sf-depth-1 sf-total-children-6 sf-parent-children-0 sf-single-children-6 menuparent"><a href="about-this-site" class="sf-depth-1 menuparent">About</a><ul><li id="menu-12560-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="about-this-site" title="How this site started and what it attempts to achieve" class="sf-depth-2">About</a></li><li id="menu-12559-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="content/contact-us.htm" title="How to contact Gizmo&#039;s Freeware / Press" class="sf-depth-2">Contact</a></li><li id="menu-12552-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="faq" title="Answers to the most common questions we get asked" class="sf-depth-2">FAQ</a></li><li id="menu-13311-1" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="contribute" title="Several ways you can help this community website" class="sf-depth-2">Contribute</a></li><li id="menu-12554-1" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="privacy_policy.htm" title="The Privacy Policy of the Gizmo&#039;s Freeware Website" class="sf-depth-2">Privacy Policy</a></li><li id="menu-12553-1" class="last even sf-item-6 sf-depth-2 sf-no-children"><a href="terms-and-conditions.htm" title="These are the conditions we offer and you accept for the use of this site" class="sf-depth-2">Condition of Use</a></li></ul></li></ul></div>
+</div></div><div id="columns">
+<div class="columns-inner clearfix">
+<div id="content-column">
+<div class="content-inner">
+<section id="main-content" role="main">
+<header id="main-content-header" class="clearfix">
+<h1 id="page-title">Never Re-install Windows Again Part 2: Partitioning your hard drive</h1>
+</header>
+<div id="content">
+
+
+<div id="block-system-main" class="clearfix block block-system no-title odd first last block-count-6 block-region-content block-main">
+<a href="partitioning-hard-drives-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<article id="node-141" class="node node-article article odd node-full ia-n clearfix" role="article">
+  
+  
+      <footer class="submitted">
+            <!-- <p class="author-datetime">Submitted by <a href="/users/gizmorichards" title="View user profile." class="username">gizmo.richards</a> on <time datetime="2008-04-15T06:32:19+0000">15. April 2008 - 6:32</time></p> -->
+      <p class="author-datetime">Last updated by <a href="https://www.techsupportalert.com/users/gizmorichards" title="View user profile." class="username">gizmo.richards</a> on 25. November 2020 - 11:58</p>
+    </footer>
+  
+  <div class="node-content">
+    <div class="sharethis-buttons"><div class="sharethis-wrapper"><span st_url="https://www.techsupportalert.com/partitioning-hard-drives-2.htm" st_title="Never%20Re-install%20Windows%20Again%20Part%202%3A%20Partitioning%20your%20hard%20drive" class="st_facebook"></span>
+<span st_url="https://www.techsupportalert.com/partitioning-hard-drives-2.htm" st_title="Never%20Re-install%20Windows%20Again%20Part%202%3A%20Partitioning%20your%20hard%20drive" class="st_twitter" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/partitioning-hard-drives-2.htm" st_title="Never%20Re-install%20Windows%20Again%20Part%202%3A%20Partitioning%20your%20hard%20drive" class="st_linkedin" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/partitioning-hard-drives-2.htm" st_title="Never%20Re-install%20Windows%20Again%20Part%202%3A%20Partitioning%20your%20hard%20drive" class="st_email" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/partitioning-hard-drives-2.htm" st_title="Never%20Re-install%20Windows%20Again%20Part%202%3A%20Partitioning%20your%20hard%20drive" class="st_sharethis" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/partitioning-hard-drives-2.htm" st_title="Never%20Re-install%20Windows%20Again%20Part%202%3A%20Partitioning%20your%20hard%20drive" class="st_pinterest" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/partitioning-hard-drives-2.htm" st_title="Never%20Re-install%20Windows%20Again%20Part%202%3A%20Partitioning%20your%20hard%20drive" class="st_fblike" st_via="" st_username=""></span>
+</div></div>
+<div class="field field-name-body field-type-text-with-summary field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p><font size="2"><i><font>In this second part of this multi-part series Gizmo shows you how to partition your hard drive into a system drive and a data drive using free tools  <a href="partitioning-hard-drives-1.htm">Part 1</a></font></i></font>   <font size="2"><i><font><a href="partitioning-hard-drives-3.htm">Part 3</a></font></i></font></p>
+<p><font size="2"><font><b>Warning:</b> Drive partitioning is an inherently risky process. If something goes wrong you may lose all your data and you PC may become unbootable. Do not attempt any of the following procedures unless your data is full backed up and you have a Windows installation disk available. If you have any doubts about your technical ability to successfully carry out these procedures then don't; the risk is too great.</font></font></p>
+<hr />
+<p><font size="2"><font>In this article I'll show you how to partition (or divide) your current C: drive into two smaller drives (partitions) so that the first partition C: will contain your Windows operating system (and some of your data) while the second partition will contain just data. <br />
+	<br />
+	The process involves creating a second partition using the free space on your C: drive then, after the partition is created, moving some of your data from the C: drive to the new partition. </font></font></p>
+<h3>
+	<font size="2"><b><font color="#800000">Step 1: Determine your free disk space</font></b></font></h3>
+<p><font size="2"><font>The first thing you need to do is determine whether you have enough free disk to allow partitioning. If you don't, you can't partition your drive without first moving some of your data off your C: drive to an external USB drive, CD/DVD or online backup service..<br />
+	<br />
+	Go to My Computer and note the size of your C: drive and the amount of free space available. In the following example the C: drive is 186 GB drive and has 169 GB of free space. The difference between them is 17GB; that' s the amount of space currently being used. </font></font></p>
+<p><font size="2"><font><img alt="" border="0" height="186" src="files/images/articles/imaging/mycomp1.gif" width="550" /><br />
+	<br />
+	What this means is that I can create a large partition of up to 169 GB using the free space and have plenty of room on the second partition to move my data from the first partition.</font></font></p>
+<p><font size="2"><font>If your drive is like this and has more free space than space used then you don't have a problem. You can go straight to Step 2 below.<br />
+	<br />
+	But what if you don't have that much free space?. For example what if you had 100 GB used and only 86 GB of free space? On the face of it it may appear that there's not enough room but in fact it's still possible.<br />
+	<br />
+	That's because you don't need  to move all the 100 GB that's currently on the C: drive onto the second partition.<br />
+	<br />
+	Let's work out how much data you actually need to move. More specifically we are going to work out what you not going to move and subtract that from the total amount of data on your C: drive. The difference is the amount of data you are going to move.<br />
+	<br />
+	From My Computer double click on the C: drive. You should now see all the folders on the C: drive.<br />
+	<br />
+	Now right click on the Windows folder and select Properties. The folder size will then be calculated. Write down the final calculated figure for "Size on disk."<br />
+	<br />
+	Do the same for the "Documents and Settings" and the "Program files" folders and then add the total disk space taken by these three folders. For example let's us say you came up with these figures:</font></font></p>
+<p> </p>
+<table border="0" cellpadding="5" style="border-collapse: collapse;" width="38%">
+	<tbody>
+		<tr>
+			<td width="150">
+				<font size="2">Windows</font></td>
+			<td>
+				<font size="2">4.2 GB</font></td>
+		</tr>
+		<tr>
+			<td width="150">
+				<font size="2">Documents and Settings</font></td>
+			<td>
+				<font size="2">7.6 GB </font></td>
+		</tr>
+		<tr>
+			<td width="150">
+				<font size="2">Program Files</font></td>
+			<td>
+				<font size="2">4.7 GB</font></td>
+		</tr>
+		<tr>
+			<td width="150">
+				<b><font size="2">Total ("system space")</font></b></td>
+			<td>
+				<b><font size="2">16.6 GB</font></b></td>
+		</tr>
+	</tbody>
+</table>
+<p> </p>
+<p><font size="2"><font>Let's call the total the "system space."  Your system space could be anywhere from 4GB to 20GB depending on the number of programs on your PC and the amount of data you have accumulated.</font></font></p>
+<p><font size="2"><font>We won't be moving any of the files in the system space to our new partition so we don't need to allow for that space on that new partition.<br />
+	<br />
+	So subtract the system space from the disk space used on the C: drive. The difference is the amount of data you have to move to the new partition.<br />
+	<br />
+	Here's the calculation for our example using a 186 GB drive with 100 GB used and 86 GB of free space:<br />
+	<br />
+	Data to be moved = 100 GB - 16.5 GB = 83.5 GB<br />
+	<br />
+	So we have to move 83.5 GB to move. As we have 86 GB of free space that's enough. That's means we can create a 86 GB partition and have enough room on that partition to move onto it all our data we need to move..<br />
+	<br />
+	If when you do the calculation for your PC you get a similar result, i.e. plenty of room, then you can stop reading now and move on to step 2.<br />
+	<br />
+	If you still don't have enough spare disk space then I'm afraid you will have to backup some of your data onto a USB hard drive, flash drive CD / DVD or online backup service and then delete it from your hard drive.<br />
+	<br />
+	The amount of data you need to backup and delete can easily be calculated by the formula:<br />
+	<br />
+	Data to be backed up and deleted from C: = (total drive space used - drive free space - system space) divided by 2.<br />
+	<br />
+	So if our 186GB drive has 150GB used and only 36GB free the amount of data to be backed up and then deleted from C: would be:<br />
+	<br />
+	(150-36-16.5)/2 or 48.75GB.<br />
+	<br />
+	That's quite a lot of data to backup and deleted but I'm afraid that's what's necessary if you want to partition your drive. Don't move on to step 2 until you have freed up this disk space.</font></font></p>
+<p><font size="2"><font><b><font color="#800000">Step 2: Download the partitioning software and burn it to a CD</font></b><br />
+	<br />
+	<b>Download the software:</b> The freeware product we will be using is the GParted Live CD. Download the 51.2MB file called gparted-livecd-0.3.4-10.iso from <a href="http://gparted-livecd.tuxfamily.org/">here</a>.<br />
+	<br />
+	<b>Burn the ISO file </b> You must burn the ISO file you downloaded to a CD. Most CD burners will allow ISO burning but if yours doesn't then you can find a freeware ISO burner <a href="http://isorecorder.alexfeinman.com/isorecorder.htm">here</a> along with instructions how to use it.<br />
+	<br />
+	Test your newly burnt CD by putting it in your CD drive and rebooting. Your PC should boot from the CD and bring up the Gnome Partition Editor boot options screen (see screenshot below). If your GParted CD boots fine then remove the CD from the tray and boot back into Windows. You can now go to Step 3.  </font></font></p>
+<p><font size="2"><font>If your CD doesn't boot then the most likely problem is that you didn't burn the ISO correctly so try again. A common mistake is to copy the ISO file to the CD rather than burn the image to the CD. Read your burner instructions for help.</font></font></p>
+<p><font size="2"><font>It's also possible you BIOS is not set properly for CD booting. If so, you may find<a href="http://www.hiren.info/pages/bios-boot-cdrom"> this guide</a> useful.<br />
+	<br />
+	<br />
+	<font color="#800000"><b>Step 3: Prepare your hard drive for partitioning</b></font></font></font></p>
+<p><font size="2"><font><b>Check your C drive for errors:</b> From Windows go to My Computer, right click on your C: drive and select Properties / Tools / Error checking / Check now  and then check both boxes and press Start. Windows will ask if you want to schedule the disk check next time you restart Windows. Answer "Yes" and reboot. The disk check could take some time; anything from 5 minutes to two hours depending on your drive size and the number of files on the drive.<br />
+	<br />
+	<b>Defragment your disk:</b> After the disk check has completed Windows should reboot. From Windows you should now defragment your drive. You can use the defragmentation program built into Windows but you'll get better results using a third party defragger. For this application I recommend JKDefrag which you can download for free from <a href="http://www.kessels.com/JkDefrag/">here</a> . </font></font></p>
+<p><font size="2"><font>JKDefrag does not require installation; it can be run directly from the .exe file. In fact that's all you have to do. Just double click the .exe file and the defragmentation will start.</font></font></p>
+<p><font size="2"><font>Defragmentation may take anything from a few minutes to a few hours depending on the size of your hard drive, the number of files on it and the degree of fragmentation. JKDefrag shows you its progress so you can decide yourself whether you should hang around or take the dog for a walk.</font></font></p>
+<p><br />
+	<font size="2"><b><font color="#800000">Step 4: Partition your drive</font></b></font></p>
+<p><font size="2"><font>We are now ready for partitioning. In this step I'll show you how to:</font></font></p>
+<ul>
+	<li>
+		<ul>
+			<li>
+				<p><font size="2"><font>Start the GParted partitioning program</font></font></p>
+			</li>
+			<li>
+				<p><font size="2"><font>Reduce the size of your C: partition</font></font></p>
+			</li>
+			<li>
+				<p><font size="2"><font>Use the spare disk space to create an extended partition</font></font></p>
+			</li>
+			<li>
+				<p><font size="2"><font>Create a logical drive for your data within the extended partition</font></font></p>
+			</li>
+		</ul>
+	</li>
+</ul>
+<p><font size="2"><font><b>Start the GParted partitioning program</b>: </font></font></p>
+<p><font size="2"><font>Put the GParted CD you created in step 2 in your PC's CD tray and reboot. Once the PC boots from the CD you should get a screen that looks like this: (<i>apologies for the quality - I had to use a digital camera</i>)</font></font></p>
+<p><font size="2"><img alt="" border="0" height="296" src="files/images/articles/imaging/gparted-start.jpg" width="400" /></font></p>
+<div>
+	<font size="2"> </font></div>
+<p><font size="2"><font>Press &lt;Enter&gt; to accept the default "auto-configuration" boot option. As the boot proceeds press &lt;Enter&gt; when asked; once to accept the default keyboard and again for the default language. </font></font></p>
+<p><font size="2"><font>Finally when the boot has completed GParted should come up the desktop. It will look something like this.  </font></font></p>
+<p><font size="2"><img alt="" border="0" height="247" src="files/images/articles/imaging/gparted.jpeg" width="400" /></font></p>
+<p><font size="2"><font>This display for my test PC shows a single line for a hard drive called "hda1" of 186.3 GB capacity with 17.28GB used. Your figures will of course be different.  </font></font></p>
+<p><font size="2"><font>The name "hda1" is the Linux way of referring to your hard drive. It's roughly equivalent to  "C:" in Windows. </font></font></p>
+<p><font size="2"><font>If more than one line appears on this display and you know you have only one physical hard disk in your PC then your drive is already partitioned and you should abandon any attempt at further partitioning. That's for experts only.</font></font></p>
+<p><font size="2"><font>Computer hardware vendors like Dell quite often put "hidden partitions" on the the disks of the computers they sell. They do this for support reasons: a customer's computer can be restored to its original state from the hidden partition.</font></font></p>
+<p><font size="2"><font>These hidden partitions may be "hidden" from Windows but they will show up in GParted. So don't be surprised if you find one of these partitions, they are common. If you do, it's time to bail out as adding further partitions or deleting the hidden partition may have unknown consequences. </font></font></p>
+<p><font size="2"><font><b>Reduce the size of your C: partition: </b></font></font></p>
+<p><font size="2"><font>Right click on the disk drive (that's the line starting with /dev/hda1) and select "Resize/Move" from the menu.</font></font></p>
+<p><font size="2"><font>Enter in the "New Size" box the desired size of your system partition in megabytes. This figure should be the used space plus an allowance of 1000-2000MB rounded up to the nearest 1000. The extra space is to allow for the possibility your paging file may grow and other general contingencies.  If your space is really tight just round up to the nearest 1000</font></font></p>
+<p><font size="2"><font>So in the example from Step 1 above, our used space was 17000MB (17GB). Lets take this up to 20000MB (20GB) . To do this we would enter 20000 in the "New Size" box.</font></font></p>
+<p><font size="2"><font>After entering the size of the system partition click in the box below labeled "Free Space Following."  GParted will then calculate the free space for you.  Your screen should look like the one below though obviously the figures will be different..</font></font></p>
+<p><font size="2"><img alt="" border="0" height="135" src="files/images/articles/imaging/gparted2.jpg" width="300" /></font></p>
+<p><font size="2"><font> Now click the Resize/Move button. You should see something similar to this:</font></font></p>
+<p><font size="2"><img alt="" border="0" height="247" src="files/images/articles/imaging/gparted3.jpg" width="400" /></font></p>
+<p><font size="2"><font><b>Use the spare disk space to create an extended partition:</b>  Right click on the "Unallocated" bar and select "New."  From the pull down menu next to "Create as" select "Extended Partition." Your screen should look like the one below. </font></font></p>
+<p><font size="2"><img alt="" border="0" height="120" src="files/images/articles/imaging/gparted4.jpg" width="300" /></font></p>
+<p><font size="2"><font> Now press the Add button. You should now see something like this:</font></font></p>
+<p><font size="2"><img alt="" border="0" height="247" src="files/images/articles/imaging/gparted5.jpg" width="400" /></font></p>
+<p><font size="2"><b><font>Create a logical drive for your data within the extended partition: </font></b> <font> Right click on the "unallocated" bar and select "New."  Check that the number in the "New Size" box is the same as the "Maximum Size" shown at the top of the screen. If not change the maximum size.  From the pull down menu next to "Create as" select "Logical Partition." From the pull down menu next to "Filesystem" select "ntfs." You screen should look like the one below. </font></font></p>
+<p><font size="2"><img alt="" border="0" height="120" src="files/images/articles/imaging/gparted6.jpg" width="300" /></font></p>
+<p><font size="2"><font> Now press the Add button. You screen should now look like this:</font></font></p>
+<p><font size="2"><img alt="" border="0" height="247" src="files/images/articles/imaging/gparted7.jpg" width="400" /></font></p>
+<p><font size="2"><font>We are now ready to put our changes into effect.  If you feel something is not quite right then now is the time to bail out as no changes have been made to your disk. You can safely exit GParted, remove the CD from the tray and reboot Windows.</font></font></p>
+<p><font size="2"><font>If you are happy things are as they should be then select "Edit" from the top menu bar and then "Apply All Operations." You will be asked then asked to confirm the request. If you are happy that you have your data securely backed up select "Apply"</font></font></p>
+<p><font size="2"><font>GParted will now shrink your system partition and create your data partition. The process will take a few minutes so be patient. Once completed select "Close."  GParted will then rescan your disks. When completed select "GParted  / Quit." and your system will now reboot into Windows. Remember to remove the GParted CD from your CD tray! </font></font></p>
+<p><font size="2"><font>Rebooting Windows may take a long time as Windows will insist on doing a thorough disk check of your new partitions. This is a good thing so please don't abort the disk check due to impatience.  </font></font></p>
+<p><font size="2"><font>After rebooting Windows go to My Computer. You now should see two hard disk drives. One will be your reduced-size C: drive and the other be your new data partition.  The letter assigned to the new drive will depend on what CD drives and other devices you have installed. Here's how my test PC looked after partitioning. </font></font></p>
+<p><font size="2"><img alt="" border="0" height="166" src="files/images/articles/imaging/mycomp2.gif" width="484" /></font></p>
+<p><font size="2"><font>Compare this to the first screen shot at the top of this page.</font></font></p>
+<p><font size="2"><font>The C: disk has been reduced from 186GB to 19.5GB with 2.25GB of free space. The F: disk is the new partition. It's 166 GB in size and has all of that available as free space. That's because there is nothing on it!</font></font></p>
+<p><font size="2"><font>Not for long. We are now going to move some of your data from the C: drive to the new partition.</font></font></p>
+<p><font size="2"><b><font color="#800000">Step 5: Move some of your data to the new hard drive</font></b></font></p>
+<p><font size="2"><font>Ideally you should move all your user data from the C: drive to your new data partition. However with Windows it's extremely difficult to cleanly separate all your data from the operating system.</font></font></p>
+<p><font size="2"><font>Rather than adopt a purist approach I recommend a practical one: I suggest you only move data that's easy to move and won't cause any few subsequent operational problems.</font></font></p>
+<p><font size="2"><font>The three categories of data I suggest you move are the My Documents folder, any stand-alone data folders and your email files.</font></font></p>
+<p><font size="2"><font><b>Moving the My Documents folder.  </b>This is not complicated but you have to make sure you get the drive letter assigned to your new partition correct. In the screen shot shown above the new drive letter was F but on your system it could be something different. I'm going to use F in the following instructions but you should substitute the correct letter for your system.</font></font></p>
+<p><font size="2"><font>What we are going to do is relocate My Documents to the folder F:/My Documents. Here's how to do it:</font></font></p>
+<p><font size="2">Go to <font size="2" style="font-size: 10pt;">My Documents and select Properties. </font></font></p>
+<p><font size="2"><font size="2" style="font-size: 10pt;">When you've clicked on Properties, select "Move" and then navigate to your new partition. That's F in my case. Then click "Make New Folder." Enter "My Documents" as the folder name and hit Enter and then OK. Windows will then ask you whether you want to move your documents; click Yes.</font></font></p>
+<p><font size="2"><font size="2" style="font-size: 10pt;">Moving your documents make take some time. Once moved, though, you can access them normally from the "My Documents" icon on the desktop or elsewhere.</font></font></p>
+<p><font size="2"><font size="2" style="font-size: 10pt;">In the process you'll free up a lot of room on your C: drive. Defrag the drive so it can be utilized by Windows in the most effective manner.</font></font></p>
+<p><font size="2"><font size="2" style="font-size: 10pt;">For more information you can consult this Microsoft document. <a href="http://support.microsoft.com/?id=310147" target="other"> http://support.microsoft.com/?id=310147</a></font></font></p>
+<p><font size="2"><font size="2"><b>Moving Stand-alone Data Folders  </b>Most users have created folders on their C: drive for storing MP3 files, videos, digital photos and other files. There is no reason these files can't be moved to your new partition.</font></font></p>
+<p><font size="2"><font size="2">Go through each of the folders on your C: drive and decide which can be moved. Folders containing installed programs should not be moved only folders containing data. If in doubt, don't move it.</font></font></p>
+<p><font size="2"><font size="2">When you move your data folders you may have to change the settings in some of your programs. For example if you move a media library you'll need to change your media player settings to let it know where your library is now located.</font></font></p>
+<p><font size="2"><font size="2">Moving files from C: to your new drive is easy. From My Computer click in the C: drive then right folder on the folder you want to move and select "Cut." Then from My Computer click on your new drive, then in a blank space right click and select "Paste."</font></font></p>
+<p><font size="2"><font size="2">If you are moving large quantities of data you may want to consider installing the freeware program <a href="http://www.ruahine.com/">YCopy</a> that allows you copy without being in attendance to answer Windows copy dialog questions.</font></font></p>
+<p><font size="2"><b>Moving Your Email Files.  </b>This is an optional step as it'snot quite as simple as moving the My Documents folder or your data folders. The reason I suggest it at all is because email files are extremely valuable to most users and they change often. If you ever have to restore Windows you would probably not want to write over your email files with an older version. Moving your email to another partition prevents your email data being over-written.</font></p>
+<p><font size="2">However you can achieve a similar result by regularly backing up your email. If you then have to restore Windows you will lose your most recent email but will still have the capacity to recover that email from the backup copy.</font></p>
+<p><font size="2">My suggestion is that if it's easy to move your email to another partition then do so. Otherwise skip this step and put in a backup plan for your email instead.  </font></p>
+<p><font size="2">Some email programs are easier to move than others. That's because they store their email files in different ways and in different locations. As a result I can't give general instructions for moving your email files. Instead I'll give you some links to guides that show you how to move the email files for the most common email clients. If your email client is not shown then do a Google search or speak with your vendor. </font></p>
+<p><font size="2">If you can't understand the instructions in the following guides then simply don't move your email files. It's not the end of the world if they stay on the C: drive. Do however, back them up regularly.</font></p>
+<p><font size="2">Microsoft Outlook Express: <a href="http://www.insideoutlookexpress.com/faqs/how.htm#movestore"> http://www.insideoutlookexpress.com/faqs/how.htm#movestore</a></font></p>
+<p><font size="2">Microsoft Outlook: <a href="http://www.slipstick.com/config/movepst.htm"> http://www.slipstick.com/config/movepst.htm</a></font></p>
+<p><font size="2">Mozilla Thunderbird: <a href="http://kb.mozillazine.org/Thunderbird_:_FAQs_:_Changing_Profile_Folder_Location"> http://kb.mozillazine.org/Thunderbird_:_FAQs_:_Changing_Profile_Folder_Location</a></font></p>
+<p><font size="2"><b><font color="#800000">In the Next Part of this Series</font></b></font></p>
+<p><font size="2"><font>With your drive now partitioned and your key data files moved your PC should work quite normally so feel free to use it.</font></font></p>
+<p><font size="2"><font>In the <a href="partitioning-hard-drives-3.htm">part 3</a> I'll show you how to reduce the size of your system partition. That done we can then look at the actual imaging process.</font></font></p>
+<p><font size="2">However before we get into imaging <font size="2">I want you to do some preparation in advance.<br />
+	<br />
+	The preparation involves the creation of a UBCD4Win boot CD. Don't panic; I've set out instructions how to do this <a href="create-bootable-rescue-cd.htm">here</a> so there's your homework :&gt;)</font></font></p>
+<div>
+	<strong>Gizmo</strong></div>
+<p><strong><font size="2">TIP: </font></strong><font size="2">If you run into problems partitioning your drive with GParted post your problem to the GParted forum. <a href="http://gparted-forum.surf4.info/"> http://gparted-forum.surf4.info/</a></font></p>
+<p><br />
+	<font size="2"><font size="2"><a href="partitioning-hard-drives-1.htm">Never Re-install Windows Again: Part 1</a></font></font></p>
+<p><font size="2"><font size="2"><a href="partitioning-hard-drives-3.htm">Never Re-install Windows Again: Part 3</a></font></font></p>
+</div></div></div><section class="field field-name-field-vote field-type-fivestar field-label-above view-mode-full"><h2 class="field-label">Please rate this article:&nbsp;</h2><div class="field-items"><div class="field-item even"><form class="fivestar-widget" action="partitioning-hard-drives-2.htm" method="post" id="fivestar-custom-widget" accept-charset="UTF-8"><div><div  class="clearfix  fivestar-combo-text fivestar-combo-stars fivestar-form-item fivestar-oxygen"><div class="form-item form-type-fivestar form-item-vote">
+ <div class="form-item form-type-select form-item-vote">
+ <select id="edit-vote--2" name="vote" class="form-select"><option value="-">Select rating</option><option value="20">Give Never Re-install Windows Again Part 2: Partitioning your hard drive 1/5</option><option value="40">Give Never Re-install Windows Again Part 2: Partitioning your hard drive 2/5</option><option value="60">Give Never Re-install Windows Again Part 2: Partitioning your hard drive 3/5</option><option value="80">Give Never Re-install Windows Again Part 2: Partitioning your hard drive 4/5</option><option value="100">Give Never Re-install Windows Again Part 2: Partitioning your hard drive 5/5</option><option value="0" selected="selected">Cancel rating</option></select>
+<div class="description"><div class="fivestar-summary fivestar-summary-user"><span class="user-rating">Your rating: <span>None</span></span></div></div>
+</div>
+<div class="fivestar-static-form-item"><div class="form-item form-type-item">
+  <div class="fivestar-oxygen"><div class="fivestar-widget-static fivestar-widget-static-vote fivestar-widget-static-5 clearfix"><div class="star star-1 star-odd star-first"><span class="on">4.38182</span></div><div class="star star-2 star-even"><span class="on"></span></div><div class="star star-3 star-odd"><span class="on"></span></div><div class="star star-4 star-even"><span class="on"></span></div><div class="star star-5 star-odd star-last"><span class="on" style="width: 38.182%"></span></div></div></div>
+<div class="description"><div class="fivestar-summary fivestar-summary-average-count"><span class="average-rating">Average: <span >4.4</span></span> <span class="total-votes">(<span >55</span> votes)</span></div></div>
+</div>
+</div>
+</div>
+</div><input class="fivestar-submit form-submit" type="submit" id="edit-fivestar-submit" name="op" value="Rate" /><input type="hidden" name="form_build_id" value="form-7__tGE5JFKZ0Gngtqb18GMXkfKLr7tpNa_QXw6KRNcA" />
+<input type="hidden" name="form_id" value="fivestar_custom_widget" />
+</div></form></div></div></section><div class="likebtn_container"><!-- LikeBtn.com BEGIN -->
+<span class="likebtn-wrapper" data-identifier="node_141" data-engine="drupal"  data-engine_v="7.80"  data-plugin_v="1.12"  data-item_url="https://www.techsupportalert.com/node/141"  data-item_title="Never Re-install Windows Again Part 2: Partitioning your hard drive"  data-item_date="2008-04-15T06:32:19+00:00" ></span>
+<script type="text/javascript">if (typeof(LikeBtn) != "undefined") { LikeBtn.init(); }</script>
+<!-- LikeBtn.com END --></div>  </div>
+
+      <nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first"><span><a href="https://www.techsupportalert.com/user/login?destination=node/141%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/141%23comment-form">register</a> to post comments</span></li><li class="print_html last"><a href="https://www.techsupportalert.com/print/partitioning-hard-drives-2.htm" title="Display a printer-friendly version of this page." class="print-page" rel="nofollow"><img class="print-icon print-icon-margin image-style-none" src="sites/all/modules/print/icons/print_icon.png" width="16px" height="16px" alt="Printer-friendly version" title="Printer-friendly version" />Printer-friendly version</a></li></ul></nav>
+  
+  
+  </article>
+</div>
+</div></div>
+</section>
+<div class="region region-content-aside"><div class="region-inner clearfix"><div id="block-block-74" class="clearfix block block-block no-title odd first block-count-7 block-region-content-aside block-74">
+<a href="partitioning-hard-drives-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div id="rc-widget-4c49f0" data-rc-widget data-widget-host="habitat" data-endpoint="//trends.revcontent.com" data-widget-id="179478"></div>
+<script type="text/javascript" src="https://assets.revcontent.com/master/delivery.js" defer="defer"></script></div>
+</div><div id="block-block-47" class="clearfix block block-block even block-count-8 block-region-content-aside block-47">
+<a href="partitioning-hard-drives-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Gizmo&#039;s Freeware Featured Articles</h2>
+<div class="content" class="block-content content">
+<div class="index-block">
+<div>
+		<a href="best-free-anti-virus-software.htm"><span class="fa fa-shield fa-3x fa-fw" style="color: #DC143C;"> </span><span>Best Free Antivirus</span></a></div>
+<div>
+		<a href="https://www.techsupportalert.com/free-books-kindle"><span class="fa fa-book fa-3x fa-fw" style="color: #00FF00;"> </span><span>Free Kindle Books</span></a></div>
+<div>
+		<a href="content/best-vpn-services.htm"><span class="fa fa-lock fa-3x fa-fw" style="color: #0000CD;"> </span><span>Best Paid VPN Service</span></a></div>
+<div>
+		<a href="content/best-free-antivirus-app-android.htm"><span class="fa fa-shield fa-3x fa-fw" style="color: #B22222;"> </span><span>Best Free Antivirus for Android</span></a></div>
+<div>
+		<a href="best-free-dvd-ripper.htm"><span class="fa fa-file-video-o fa-3x fa-fw" style="color: #2F4F4F;"> </span><span>Best Free DVD Ripper</span></a></div>
+<div>
+		<a href="best-free-live-wallpapers-android.htm"><span class="fa fa-android fa-3x fa-fw" style="color: green;"> </span><span>Best Free Live Wallpaper for Android</span></a></div>
+</div>
+<p style="clear:both;"> </p>
+</div>
+</div><div id="block-block-31" class="clearfix block block-block no-title odd block-count-9 block-region-content-aside block-31">
+<a href="partitioning-hard-drives-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div style="border-top: 1px solid #999999; border-bottom: 1px solid #999999; padding: 8px;">
+<p style="font-size: 14px; font-weight: bold;">Gizmo's Freeware is Recruiting</p>
+<p><img alt="Gizmos Needs You" src="files/images/logos/Gizmos-Freeware-63-84.png" style="width: 63px; height: 84px; float: left; padding: 0px 8px 8px 0px;" />We are looking for people with skills or interest in the following areas:<br />
+		 -  Mobile Platform App Reviews for Android and iOS<br />
+		 -  Windows, Mac and Linux software reviews</p>
+<p><strong>Interested?</strong> <a href="we-need-you.htm">Click here</a></p>
+</div>
+<p> </p>
+</div>
+</div><div id="block-block-70" class="clearfix block block-block no-title even last block-count-10 block-region-content-aside block-70">
+<a href="partitioning-hard-drives-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<script async='async' data-cfasync='false' src='https://upgulpinon.com/1?z=3924060'></script></div>
+</div></div></div></div>
+</div>
+<div class="region region-sidebar-second sidebar"><div class="region-inner clearfix"><div id="block-block-22" class="clearfix block block-block odd first block-count-11 block-region-sidebar-second block-22">
+<a href="partitioning-hard-drives-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Best Freeware Lists</h2>
+<div class="content" class="block-content content">
+<div class="content" class="block-content content">
+<style type="text/css">
+.swlist-sidebar a {display:block; width:100%; margin-top:8px; min-height:36px;}
+.swlist-sidebar span.fa, span.fa-stack {height:28px; padding:4px 8px 4px 8px; width:28px; text-align:center; float:left;}
+.swlist-sidebar span.swtitle-sidebar {display:table-cell; height:36px; vertical-align: middle;}
+.swlist-sidebar div {display:table-row;}
+</style>
+<div class="swlist-sidebar">
+<div><a href="software-finder"><span class="fa fa-search fa-2x" style="color: #4b5cc3;"></span> <span class="swtitle-sidebar">Search with Software Finder</span></a></div>
+<div><a href="best-free-windows-desktop-software.htm"><span class="fa fa-windows fa-2x" style="color: #70c0f0;"></span> <span class="swtitle-sidebar">Windows Desktop Software</span></a></div>
+<div><a href="best-free-windows-apps.htm"> <span class="fa fa-windows fa-2x" style="color: #70c0f0;"></span> <span class="swtitle-sidebar">Windows Apps</span></a></div>
+<div><a href="best-free-portable-programs.htm"> <span class="fa fa-check-square-o fa-2x" style="color: #70c0f0;"></span> <span class="swtitle-sidebar">Windows Portable Apps</span></a></div>
+<div><a href="content/best-free-software-mac-os.htm"> <span class="fa fa-apple fa-2x" style="color: #1653a8;"></span> <span class="swtitle-sidebar">Mac Software</span></a></div>
+<div><a href="content/best-free-software-linux.htm"> <span class="fa fa-linux fa-2x" style="color: #404040;"></span> <span class="swtitle-sidebar">Linux Software</span></a></div>
+<div><a href="best-free-android-apps.htm"> <span class="fa fa-android fa-2x" style="color: #a2c43b;"></span> <span class="swtitle-sidebar">Android Apps</span></a></div>
+<div><a href="best-free-ipad-apps.htm"> <span class="fa fa-tablet fa-2x" style="color: #404040;"></span> <span class="swtitle-sidebar">iPad Apps</span></a></div>
+<div><a href="best-free-iphone-apps.htm"> <span class="fa fa-mobile fa-2x" style="color: #404040;"></span> <span class="swtitle-sidebar">iPhone Apps</span></a></div>
+<div><a href="content/best-free-online-applications-and-services.htm"> <span class="fa fa-globe fa-2x" style="color: #006600;"></span> <span class="swtitle-sidebar">Online Apps</span></a></div>
+<div><a href="https://www.techsupportalert.com/content/50-places-free-books-online.htm"> <span class="fa fa-book fa-2x" style="color: #990000;"></span> <span class="swtitle-sidebar">eBooks /Audiobooks</span></a></div>
+<div><a href="content/probably-best-free-security-list-world.htm"> <span class="fa fa-exclamation-triangle fa-2x" style="color: #FF3300;"></span> <span class="swtitle-sidebar">Security Software</span></a></div>
+</div>
+<div style="clear:both;">&nbsp;</div>
+</div>
+<style type="text/css">
+.imgContainer{float:left;}
+</style>
+<p><strong>Support Gizmo's Freeware By</strong></p>
+<div>
+    <div class="imgContainer"><a href="donate.htm"><img src="files/images/aa/Donating-125-350e.png" height="auto" width="125"/></a></div>
+    <div class="imgContainer"><a href="become-a-reviewer.htm"><img class="middle-img" src="files/images/aa/Reviewing-125-350e.png" style="margin-left:2px;" height="auto" width="125"/></a></div>
+</div>
+<div style="clear:both;"></div></div>
+</div><div id="block-block-61" class="clearfix block block-block even block-count-12 block-region-sidebar-second block-61">
+<a href="partitioning-hard-drives-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Get Notified of New Finds</h2>
+<div class="content" class="block-content content">
+<div>
+   <p>
+      <!-- <a href="http://feedburner.google.com/fb/a/mailverify?uri=gizmosbest" title="Subscribe to email..."><i class="fa fa-envelope fa-3x" style="color: #00cc99;"></i></a>&nbsp; -->
+      <a href="http://feeds.feedburner.com/gizmosbest" title="Go to our RSS feeds..."><i class="fa fa-rss-square fa-3x" style="color: #ffb300;"></i></a>&nbsp;
+      <a href="http://www.facebook.com/pages/Gizmos-Freeware/114026985301900" title="Follow us on Facebook..."><i class="fa fa-facebook-square fa-3x" style="color: #3b5889;"></i></a>&nbsp;
+      <a href="http://twitter.com/GizmosFreeware" title="Follow us on Twitter..."><i class="fa fa-twitter-square fa-3x" style="color: #55acee;"></i></a>
+   </p>
+</div>
+<style>
+#block-block-61 { text-align:center; }
+#block-block-61 a { display:inline-block; }
+#block-block-61 a.dropdown-toggle { display: none; }
+#block-block-61 .content{
+   background:#f9f9f9;
+   padding: 10px 10px 5px 10px;
+   margin-top: 10px;
+   margin-right:10px;
+   -webkit-border-radius: 12px;
+   -moz-border-radius: 12px;
+   border-radius: 12px;
+   border:1px solid #ccc;
+}
+#block-block-61 h3 { margin:10px 0; }
+</style>
+
+<div id="right-slidead-popup" style="display:block;">
+   <form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=gizmosbest', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+      <p class="bold-text">Get notified by email of our latest finds:</p>
+      <p><input type="text" style="width:120px" placeholder="Enter email" name="email">
+         <input type="hidden" value="gizmosbest" name="uri">
+         <input type="hidden" name="loc" value="en_US">
+         <input type="submit" value="Subscribe">
+      </p>
+   </form>
+</div>
+</div><div id="block-views-5c6f20eccafaaae472f19682f8491590" class="clearfix block block-views odd block-count-13 block-region-sidebar-second block-5c6f20eccafaaae472f19682f8491590">
+<a href="partitioning-hard-drives-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Currently Popular</h2>
+<div class="content" class="block-content content">
+<div class="view view-currently-popular-customized view-id-currently_popular_customized view-display-id-block_1 curr-pop view-dom-id-98e2d762e08ef6101d772197d0a3e998">
+<div class="view-content">
+<table  class="views-table cols-0">
+       <tbody>
+          <tr  class="odd views-row-first">
+                  <td  class="views-field views-field-title">
+            <a href="content/best-free-software-linux.htm">Best Free Software for Linux</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="es/mejores-aplicaciones-y-servicios-gratuitos-online.htm">Mejores Aplicaciones y Servicios Gratuitos Online</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/mejor-software-gratuito-de-64-bits-para-windows-7vista.htm">Mejor Software Gratuito para Windows de 64 bits</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="es/mejor-software-para-linux-gratuito.htm">Mejor Software para Linux Gratuito</a>          </td>
+              </tr>
+          <tr  class="odd views-row-last">
+                  <td  class="views-field views-field-title">
+            <a href="content/gizmo-retiring-gizmo-s-freeware-goes.htm">Gizmo is Retiring but Gizmo’s Freeware Goes On</a>          </td>
+              </tr>
+      </tbody>
+</table>
+</div>
+
+<div class="more-link">
+  <a href="currently-popular-customized.htm">
+    more  </a>
+</div>
+</div>
+</div>
+</div><div id="block-views-articles-by-user-block-1" class="clearfix block block-views even last block-count-14 block-region-sidebar-second block-articles-by-user-block-1">
+<a href="partitioning-hard-drives-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Top Rated</h2>
+<div class="content" class="block-content content">
+<div class="view view-articles-by-user view-id-articles_by_user view-display-id-block_1 view-currently-popular-customized more-link curr-pop view-dom-id-d672b2dc018891e078a5869d2d097815">
+<div class="view-content">
+<table  class="views-table cols-1">
+         <thead>
+      <tr>
+                  <th  class="views-field views-field-title" scope="col">
+            <a href="https://www.techsupportalert.com/partitioning-hard-drives-2.htm?order=title&amp;sort=asc" title="sort by " class="active"></a>          </th>
+              </tr>
+    </thead>
+    <tbody>
+          <tr  class="odd views-row-first">
+                  <td  class="views-field views-field-title">
+            <a href="content/amazing-act-generosity.htm">An Amazing Act of Generosity</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/jpg-optimizer-works-entirely-your-browser.htm">This JPG Optimizer Works Entirely in Your Browser</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/create-your-own-blob-opera-google-s-new-musical-experiment.htm">Create Your Own “Blob Opera” with Google’s New Musical Experiment</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/instantly-add-color-black-and-white-photos-image-colorizer.htm">Instantly Add Color to Black and White Photos with Image Colorizer</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/fond-farewell-me.htm">A Fond Farewell From Me</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/get-authoritative-answers-all-your-questions-online-encyclopedia.htm">Get Authoritative Answers to All Your Questions With This Online Encyclopedia</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/rain-alarm-be-notified-approaching-rain-or-snow.htm">Rain Alarm - Be Notified of Approaching Rain or Snow</a>          </td>
+              </tr>
+          <tr  class="even views-row-last">
+                  <td  class="views-field views-field-title">
+            <a href="content/get-easy-access-frequently-used-symbols-not-your-keyboard.htm">Get Easy Access to Frequently Used Symbols Not on Your Keyboard</a>          </td>
+              </tr>
+      </tbody>
+</table>
+</div>
+
+<div class="more-link">
+  <a href="https://www.techsupportalert.com/articles-user">
+    more  </a>
+</div>
+</div>
+</div>
+</div></div></div></div>
+</div>
+<footer id="footer" role="contentinfo">
+<div id="footer-inner" class="clearfix">
+<div class="region region-footer"><div class="region-inner clearfix"><div id="block-block-3" class="clearfix block block-block no-title odd first last block-count-15 block-region-footer block-3">
+<a href="partitioning-hard-drives-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<p class="rtecenter"><a href="terms-and-conditions.htm">Terms &amp; Conditions</a> | <a href="https://www.techsupportalert.com/privacy-policy.htm">Privacy Policy</a> | <a href="content/contact-us.htm">Contact</a> | <a href="about-this-site">About</a></p>
+</div>
+</div></div></div><p class="attribute-creator"></p>
+</div>
+</footer>
+</div>
+</div>
+<style type="text/css">.invis{visibility:hidden;display:none}.vis{visibility:visible;display:inline}#more{display:none}#show,#hide{text-decoration:none;cursor:pointer;color:#3452c9;font-weight:bold;padding-left:20px}#show{background:transparent url(files/images/icons/down.png) no-repeat left}#hide{background:transparent url(files/images/icons/up.png) no-repeat left}select.dropdown{border:1px solid #cbcec3;background-color:#f2f6f9;font-size:1.1em;height:2em}select.dropdown-width{width:50%}@media only screen and (max-width:1024px){select.dropdown-width{width:100%}}span.cat-title{height:58px;display:table;font-size:1.3em;font-weight:bold}span.vert-align{display:table-cell;vertical-align:middle}img.cat-icon{width:82px;height:58px;float:left;padding-right:15px}.show-more{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:120px;padding:0 4px 0 4px}.show-review{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:120px;padding:0 4px 0 4px}.show-comments{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#eef0f8;border:1px solid #009;border-radius:2px;width:140px;padding:4px 8px 4px 8px}.gizmoslist-button{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:130px;padding:0 4px 0 4px}.gizmoslist-button:hover{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#e8e8e8;border:1px solid #999;border-radius:2px;width:130px;padding:0 4px 0 4px}</style>
+<script language="javascript" type="text/javascript">/*<![CDATA[*/var cn="invis";var ids=new Array("pg01","pg02","pg03","pg04","pg05","pg06","pg07","pg08","pg09","pg10","pg11","pg12");function doSwap(){cn=="vis"?cn="invis":cn="vis";for(var a=0;a<ids.length;a++){document.getElementById(ids[a]).className=cn}}jQuery(document).ready(function(){jQuery("#page_select").bind("change",function(){var a=jQuery(this).val();if(a){window.location.replace(a)}return false});jQuery("#category_select").bind("change",function(){var a=jQuery(this).val();if(a){window.location=a}return false})});jQuery(document).ready(function(){jQuery(".hidden").hide();jQuery(".show-more").html("Show more...");jQuery(".show-review").html("Show review...");jQuery(".show-comments").html("Hide Comments...");jQuery(".toggle").click(function(){jQuery("#show").toggle();jQuery("#more").toggle()});jQuery(".show-more").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).prev().slideUp();jQuery(this).removeClass("clicked");jQuery(this).html("Show more...")}else{jQuery(this).addClass("clicked");jQuery(this).prev().slideDown();jQuery(this).html("...Show less")}});jQuery(".show-review").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).prev().slideUp();jQuery(this).removeClass("clicked");jQuery(this).html("Show review...")}else{jQuery(this).addClass("clicked");jQuery(this).prev().slideDown();jQuery(this).html("...Hide review")}});jQuery(".show-comments").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).next().slideDown();jQuery(this).removeClass("clicked");jQuery(this).html("Hide Comments...")}else{jQuery(this).addClass("clicked");jQuery(this).next().slideUp();jQuery(this).html("Show Comments...")}})});jQuery(document).ready(function(){var a=jQuery("[rel~=tooltip]"),c=false,b=false,d=false;a.bind("mouseenter",function(){c=jQuery(this);tip=c.attr("title");b=jQuery('<div id="tooltip"></div>');if(!tip||tip==""){return false}c.removeAttr("title");b.css("opacity",0).html(tip).appendTo("body");var f=function(){if(jQuery(window).width()<b.outerWidth()*1.5){b.css("max-width",jQuery(window).width()/2)}else{b.css("max-width",340)}var g=c.offset().left+(c.outerWidth()/2)-(b.outerWidth()/2),h=c.offset().top-b.outerHeight()-20;if(g<0){g=c.offset().left+c.outerWidth()/2-20;b.addClass("left")}else{b.removeClass("left")}if(g+b.outerWidth()>jQuery(window).width()){g=c.offset().left-b.outerWidth()+c.outerWidth()/2+20;b.addClass("right")}else{b.removeClass("right")}if(h<0){var h=c.offset().top+c.outerHeight();b.addClass("top")}else{b.removeClass("top")}b.css({left:g,top:h}).animate({top:"+=10",opacity:1},50)};f();jQuery(window).resize(f);var e=function(){b.animate({top:"-=10",opacity:0},50,function(){jQuery(this).remove()});c.attr("title",tip)};c.bind("mouseleave",e);b.bind("click",e)})});/*]]>*/</script>   <script type="text/javascript" src="https://s.skimresources.com/js/91960x1545845.skimlinks.js"></script>
+<script type="text/javascript" src="files/advagg_js/js__TMbgkTyBUQQ_HgBfUgRbT7qnkhUF67VaeCPrRurSSyQ__R579VV3CWa_6pCbnNdQK0EGL-QIicH7Gtzh0Mu2GPDY__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var switchTo5x = true;var __st_loadLate = true;var useFastShare = 0;
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+if (typeof stLight !== 'undefined') { stLight.options({"publisher":"dr-cb3fca8f-ba75-779c-5a90-b433fac7efb0","version":"5x","newOrZero":"zero","shorten":"false","servicePopup":true,"lang":"en"}); }
+//--><!]]>
+</script>
+<script type="text/javascript" src="files/advagg_js/js__8q4Ri8u0Oy1si5uwfNTlks0A6nMFTDjDszJiNP4i5uA__tV1Gvr51dciEodFNuAL3X5GplamBbcIkiRUEhk_oOdE__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(d, e, s) {a = d.createElement(e);m = d.getElementsByTagName(e)[0];a.async = 1;a.src = s;m.parentNode.insertBefore(a, m)})(document, 'script', '//w.likebtn.com/js/w/widget.js'); if (typeof(LikeBtn) != "undefined") { LikeBtn.init(); }
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var skimlinks_domain = "exit.techsupportalert.com";
+//--><!]]>
+</script>
+</body>
+</html>

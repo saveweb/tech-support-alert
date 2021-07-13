@@ -1,0 +1,2242 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en" dir="ltr"><!--<![endif]-->
+<head>
+   <!--[if IE]><![endif]-->
+<meta charset="utf-8" />
+<meta name="robots" content="nofollow,noindex" />
+<link rel="shortcut icon" href="../sites/all/themes/gizmoslist/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Want to know what happens when Windows starts? This article is an overview of Windows startup with a flowchart and a couple of examples of the startup phases with immediate user logon and delayed user logon. My goal is to make Windows startup more easily understood by the average user. So I have provided a couple of supporting articles on basic terms used to describe how" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="workspace-remah.htm" />
+<link rel="shortlink" href="https://www.techsupportalert.com/node/3299" />
+<meta property="og:site_name" content="Gizmo&#039;s Freeware" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.techsupportalert.com/content/workspace-remah.htm" />
+<meta property="og:title" content="workspace-remah" />
+<meta property="og:description" content="Want to know what happens when Windows starts? This article is an overview of Windows startup with a flowchart and a couple of examples of the startup phases with immediate user logon and delayed user logon. My goal is to make Windows startup more easily understood by the average user. So I have provided a couple of supporting articles on basic terms used to describe how Windows works and an overview of many of the main components of Windows. This article will be most useful to confident users because it provides clarity and detail that is quite difficult to find elsewhere." />
+<meta property="og:updated_time" content="2020-11-25T12:00:50+00:00" />
+<meta property="article:published_time" content="2011-07-12T20:29:58+00:00" />
+<meta property="article:modified_time" content="2020-11-25T12:00:50+00:00" />
+   <title>workspace-remah | Gizmo's Freeware</title>
+   <link type="text/css" rel="stylesheet" href="../files/advagg_css/css__K1Zxkb7B9uRMTvKGWwqJbpPSUxPwhcczKcp6degok28__HeSIUBSByKemgY9AJL8p07c1i2IHEDyYO6cKTWBN3Pw__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.css" media="all" />
+
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="https://www.techsupportalert.com/files/advagg_css/css__I8Q7DkdK2zJceaJBCwEwz0vYYbloOjCrssUsWAaHyIM__qjMhJvPdluz-vOJRX3dztEqH8G31Y32rQ_NKwUhoC1Y__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.css" media="screen" />
+<![endif]-->
+   <!--[if lt IE 9]>
+   <link rel=stylesheet type=text/css href=/sites/all/themes/gizmoslist/css/ie7-and-down.css />
+   <![endif]-->
+   <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript" src="../files/advagg_js/js__B1KiKqJbKO-n3ZXTCs35IBdGFYs11f-fUM6Y72B9wEg__5zx4JiTNwUOifd--hiFOiQb-OZHPEiMORfGWeCF9Yyk__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.techsupportalert.com/files/googleanalytics/analytics.js?qv3qpt","ga");ga("create", "UA-279220-2", {"cookieDomain":"auto"});ga("require", "linkid", "linkid.js");ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"gizmoslist","theme_token":"sMutjGUCXObydgDCWxNBoYqBg2z49zsxnyfJ4lk_r6M","jquery_version":"1.7","css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/aggregator\/aggregator.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/google_cse\/google_cse.css":1,"modules\/node\/node.css":1,"modules\/poll\/poll.css":1,"modules\/search\/search.css":1,"sites\/all\/modules\/slidead\/slidead.css":1,"modules\/user\/user.css":1,"modules\/forum\/forum.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/comment_notify\/comment_notify.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/panels\/css\/panels.css":1,"sites\/all\/modules\/print\/print_ui\/css\/print_ui.theme.css":1,"public:\/\/spamicide\/user_pw.css":1,"sites\/all\/modules\/fivestar\/css\/fivestar.css":1,"sites\/all\/modules\/fivestar\/widgets\/oxygen\/oxygen.css":1,"sites\/all\/libraries\/superfish\/css\/superfish.css":1,"sites\/all\/libraries\/superfish\/css\/superfish-navbar.css":1,"sites\/all\/libraries\/superfish\/style\/graphite.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.settings.style.headings.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.settings.style.image.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.layout.css":1,"sites\/all\/themes\/gizmoslist\/color\/colors.css":1,"sites\/all\/themes\/pixture_reloaded\/css\/pixture_reloaded.css":1,"sites\/all\/themes\/pixture_reloaded\/css\/pixture_reloaded.settings.style.css":1,"sites\/all\/themes\/gizmoslist\/css\/styles.custom.css":1,"sites\/all\/themes\/gizmoslist\/generated_files\/gizmoslist.custom.css":1,"sites\/all\/themes\/gizmoslist\/fonts\/gizmoslogo\/gizmoslogo.css":1,"sites\/all\/themes\/gizmoslist\/fonts\/font-awesome\/font-awesome.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.responsive.layout.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.fonts.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.responsive.styles.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.lt-ie9.layout.css":1},"js":{"\/\/s.skimresources.com\/js\/91960x1545845.skimlinks.js":1,"sites\/all\/modules\/google_cse\/google_cse.js":1,"sites\/all\/modules\/slidead\/slidead.js":1,"sites\/all\/modules\/comment_notify\/comment_notify.js":1,"sites\/all\/themes\/gizmoslist\/script\/bootstrap.min.js":1,"sites\/all\/themes\/gizmoslist\/script\/enscroll-0.4.0.min.js":1,"sites\/all\/themes\/gizmoslist\/script\/script.js":1,"sites\/all\/modules\/adsense\/contrib\/adsense_click\/adsense_click.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"misc\/progress.js":1,"sites\/all\/modules\/fivestar\/js\/fivestar.ajax.js":1,"sites\/all\/modules\/fivestar\/js\/fivestar.js":1,"sites\/all\/libraries\/superfish\/supposition.js":1,"sites\/all\/libraries\/superfish\/superfish.js":1,"sites\/all\/modules\/superfish\/superfish.js":1,"https:\/\/ws.sharethis.com\/button\/buttons.js":1,"sites\/all\/modules\/jquery_update\/replace\/jquery\/1.7\/jquery.min.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery-html-prefilter-3.5.0-backport.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/all\/modules\/jquery_update\/replace\/misc\/jquery.form.min.js":1,"misc\/ajax.js":1,"sites\/all\/modules\/jquery_update\/js\/jquery_update.js":1}},"googleCSE":{"cx":"partner-pub-4337260311855789:5365410881","language":"","resultsWidth":400,"domain":"www.google.com","showWaterMark":true},"slideAd":{"width":"300"},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"},"urlIsAjaxTrusted":{"\/search\/node":true,"\/content\/workspace-remah.htm":true,"\/content\/workspace-remah.htm?destination=node\/3299":true,"\/system\/ajax":true},"superfish":{"1":{"id":"1","sf":{"animation":{"opacity":"show","height":"show"},"speed":"\u0027fast\u0027","autoArrows":false,"dropShadows":true,"disableHI":false},"plugins":{"supposition":true,"bgiframe":false}}},"ajax":{"edit-vote--2":{"callback":"fivestar_ajax_submit","event":"change","url":"\/system\/ajax","submit":{"_triggering_element_name":"vote"}}},"adaptivetheme":{"gizmoslist":{"layout_settings":{"bigscreen":"three-col-grail","tablet_landscape":"three-col-grail","tablet_portrait":"one-col-vert","smalltouch_landscape":"one-col-vert","smalltouch_portrait":"one-col-stack"},"media_query_settings":{"bigscreen":"only screen and (min-width:1025px)","tablet_landscape":"only screen and (min-width:769px) and (max-width:1024px)","tablet_portrait":"only screen and (min-width:481px) and (max-width:768px)","smalltouch_landscape":"only screen and (min-width:321px) and (max-width:480px)","smalltouch_portrait":"only screen and (max-width:320px)"}}}});
+//--><!]]>
+</script>
+   <!--[if lt IE 9]>
+<script src="https://www.techsupportalert.com/sites/all/themes/adaptivetheme/at_core/scripts/html5.js?qv3qpt"></script>
+<![endif]-->
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" /> <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script> <script> window.addEventListener("load", function(){ window.cookieconsent.initialise({ "palette": { "popup": { "background": "#edeff5", "text": "#838391" }, "button": { "background": "#4b81e8" } } })}); </script>
+   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+   <script data-ad-client="ca-pub-1584315025436785" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+   <meta name="wot-verification" content="22efc80013d585910ca0"/>
+   <meta name="propeller" content="3dda2330fd32fcfca29de21325f076f3">
+</head>
+
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-3299 node-type-article site-name-hidden site-name-gizmoamp039s-freeware section-content color-scheme-custom gizmoslist bs-n bb-n mb-dd mbp-l rc-0">
+   <div id=skip-link class=nocontent><a href="workspace-remah.htm#main-content" class="element-invisible element-focusable">Skip to main content</a></div>
+      <div class="texture-overlay">
+<div id="page" class="container page ssc-n ssw-n ssa-l sss-n btc-n btw-b bta-l bts-n ntc-n ntw-b nta-l nts-n ctc-n ctw-b cta-l cts-n ptc-n ptw-b pta-l pts-n">
+<header id="header" class="clearfix" role="banner" data-position="fixed">
+<div class="header-inner clearfix">
+<div id="mobile-menu">
+<span class="mobile-socialmenu">social</span>
+<span class="mobile-search">search</span>
+</div>
+<span id="mobile-nav">Menu</span>
+<div id="branding" class="branding-elements clearfix">
+<div id="logo">
+<a href="../index.html" title="Go to our home page..." class="active" style="text-decoration:none"><div class="icon-Final-freeware" style="color:#f0f0f0;font-size:68px;padding-bottom:8px"></div></a>
+</div>
+<div id="logomobile">
+<a href="../index.html" title="Go to our home page..." class="active" style="text-decoration:none"><div class="icon-Final-freeware" style="color:#f0f0f0;font-size:40px;padding-left:8px"></div></a>
+</div>
+<div id="name-and-slogan" class="element-invisible h-group" id="name-and-slogan">
+<h1 id="site-name" class="element-invisible" id="site-name"><a href="../index.html" title="Home page">Gizmo&#039;s Freeware</a></h1>
+</div>
+</div>
+<div class="region region-header"><div class="region-inner clearfix"><div id="block-block-58" class="clearfix block block-block no-title odd first block-count-1 block-region-header block-58">
+<a href="workspace-remah.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div id="header-middle"><a href="http://www.xmarks.com/site/www.techsupportalert.com/#r"><img alt="" src="../files/images/icons/_thumb_13506.png" /> </a><a href="http://www.pcmag.com/article2/0,2817,2367733,00.asp"> <img alt="" src="../files/images/icons/_thumb_13505.png" /></a></div>
+</div>
+</div><div id="block-block-57" class="clearfix block block-block no-title even block-count-2 block-region-header block-57">
+<a href="workspace-remah.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<p><a href="http://feeds.feedburner.com/gizmosbest" title="Go to our RSS feeds..."><i class="fa fa-rss-square fa-2x" style="color: #ffb300;"></i></a>&nbsp;&nbsp; <a href="http://feedburner.google.com/fb/a/mailverify?uri=gizmosbest" title="Subscribe to email..."><i class="fa fa-envelope fa-2x" style="color: #f0f0f0;"></i></a>&nbsp;&nbsp; <a href="http://www.facebook.com/pages/Gizmos-Freeware/114026985301900" title="Follow us on Facebook..."><i class="fa fa-facebook-square fa-2x" style="color: #d0d0ff;"></i></a>&nbsp;&nbsp; <a href="http://twitter.com/GizmosFreeware" title="Follow us on Twitter..."><i class="fa fa-twitter-square fa-2x" style="color: #70c0f0;"></i></a></p>
+</div>
+</div><div id="block-search-form" class="clearfix block block-search no-title odd block-count-3 block-region-header block-form" role="search">
+<a href="workspace-remah.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<form action="workspace-remah.htm" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="search" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-qAm_LBWrTuFzhgB1q1760Qg-GjCfYi5lxR_fEku2l4g" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form></div>
+</div><div id="block-user-login" class="clearfix block block-user even last block-count-4 block-region-header block-login" role="form">
+<a href="workspace-remah.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Login / Register</h2>
+<div class="content" class="block-content content">
+<form action="https://www.techsupportalert.com/content/workspace-remah.htm?destination=node/3299" method="post" id="user-login-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">Username <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-name" name="name" value="" size="15" maxlength="60" class="form-text required" />
+</div>
+<div class="form-item form-type-password form-item-pass">
+  <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" id="edit-pass" name="pass" size="15" maxlength="128" class="form-text required" />
+</div>
+<div class="item-list"><ul><li class="even first"><a href="../user/register" title="Create a new user account.">Create new account</a></li><li class="odd last"><a href="https://www.techsupportalert.com/user/password" title="Request new password via e-mail.">Request new password</a></li></ul></div><input type="hidden" name="form_build_id" value="form-yWGghcVw675HnSliXqmBIGbEmemhLIIHmk2FaHGHv4I" />
+<input type="hidden" name="form_id" value="user_login_block" />
+<div class="edit-user-pw-wrapper"><div class="form-item form-type-textfield form-item-user-pw">
+  <label for="edit-user-pw">user pw </label>
+ <input type="text" id="edit-user-pw" name="user_pw" value="" size="20" maxlength="128" class="form-text" />
+<div class="description">Do not type anything in this box</div>
+</div>
+</div><div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Log in" class="form-submit" /></div></div></form></div>
+</div></div></div></div>
+</header>
+   <!-- Start: Ad blocker check
+   <style>#svCYxPorrige{display:none;margin-bottom:0px;padding:20px 10px;background:#D30000;text-align:center;font-weight:bold;color:#fff;border-radius: 0px;}</style>
+   <div id="svCYxPorrige">Oops, it looks like you are using an ad blocker.<br>We work hard to provide you our software news and we keep our ads non-intrusive.<br>Please support us keeping our content free by disabling your ad blocker.</div>
+   <script src="/ads.js" type="text/javascript"></script>
+   <script type="text/javascript">if(!document.getElementById('YzIkKlMbayUm')){document.getElementById('svCYxPorrige').style.display='block';}</script>
+   End: Ad blocker check -->
+<div id="menu-bar" class="nav clearfix"><div id="block-superfish-1" class="clearfix block block-superfish menu-wrapper menu-bar-wrapper clearfix odd first last block-count-5 block-region-menu-bar block-1">
+<a href="workspace-remah.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="element-invisible block-title" class="block-title">Main menu</h2>
+<div class="content" class="block-content content clearfix">
+<ul id="superfish-1" class="menu sf-menu sf-main-menu sf-navbar sf-style-graphite sf-total-items-12 sf-parent-items-5 sf-single-items-7"><li id="menu-175-1" class="first odd sf-item-1 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="../index.html" title="This site&#039;s home page" class="sf-depth-1 menuparent">Home</a><ul><li id="menu-13310-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../index.html" title="The front page of Gizmo&#039;s Freeware" class="sf-depth-2">Homepage</a></li><li id="menu-13306-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="../user/login" title="Login to Gizmos using your site account" class="sf-depth-2">Login</a></li><li id="menu-13307-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="../user" title="Login to Gizmos using your site account. Here you can change your password or store bookmarks" class="sf-depth-2">My account/Change PW</a></li><li id="menu-13309-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="../user/register" title="Create an account at Gizmos Freeware so you can post comments to articles and in the forum" class="sf-depth-2">Register</a></li></ul></li><li id="menu-12522-1" class="middle even sf-item-2 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="../windows" title="The Best Free Windows Programs" class="sf-depth-1 menuparent">Windows</a><ul><li id="menu-12538-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../windows" title="The best free Windows desktop software by category plus our Editors&#039; Choice selections" class="sf-depth-2">Desktop Software</a></li><li id="menu-12539-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="../best-free-windows-apps.htm" title="The best free Windows apps as selected by our editors" class="sf-depth-2">Windows Apps</a></li><li id="menu-12540-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="../best-free-portable-programs.htm" title="Our Editor&#039;s Choice Selections of the Best Free Portable Apps" class="sf-depth-2">Portable Apps</a></li><li id="menu-12541-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="../best-free-windows7-vista-64-bit-software.htm" title="Our Editor&#039;s selections of the best free Windows 64 bit software" class="sf-depth-2">Windows 64 bit Software</a></li></ul></li><li id="menu-12523-1" class="middle odd sf-item-3 sf-depth-1 sf-no-children"><a href="best-free-software-mac-os.htm" title="The Best Free Mac OS X Programs" class="sf-depth-1">Mac</a></li><li id="menu-12524-1" class="middle even sf-item-4 sf-depth-1 sf-no-children"><a href="../linux" title="The Best Free Linux Programs" class="sf-depth-1">Linux</a></li><li id="menu-12526-1" class="middle odd sf-item-5 sf-depth-1 sf-no-children"><a href="../android" title="The Best Free Android Apps" class="sf-depth-1">Android</a></li><li id="menu-12525-1" class="middle even sf-item-6 sf-depth-1 sf-no-children"><a href="../ios" title="The Best Free Apps for iPhone and iPad" class="sf-depth-1">iOS</a></li><li id="menu-13312-1" class="middle odd sf-item-7 sf-depth-1 sf-no-children"><a href="best-free-online-applications-and-services.htm" title="Best web based applications and services" class="sf-depth-1">Online Apps</a></li><li id="menu-9299-1" class="middle even sf-item-8 sf-depth-1 sf-no-children"><a href="../free-ebooks-audio-books-read-online-download.htm" title="Here&#039;s a list of dozens of articles on this showing you the best places to get free eBooks and Audio Books" class="sf-depth-1">eBooks</a></li><li id="menu-12530-1" class="middle odd sf-item-9 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="../view/hot_expanded" title="New and recently updated articles" class="sf-depth-1 menuparent">New</a><ul><li id="menu-3760-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../view/hot_expanded" title="The Most Recent Additions to Gizmo&#039;s Freeware" class="sf-depth-2">New Articles</a></li><li id="menu-3761-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="../tracker_updated_only" title="Articles we have recently revised or re-written" class="sf-depth-2">Recently Updated Articles</a></li><li id="menu-3759-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="https://www.techsupportalert.com/recent-comments" title="Comments on reviews and articles posted by our users" class="sf-depth-2">Recent Comments</a></li><li id="menu-105-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="../all-articles-by-rating" title="The articles our users have given the highest ratings" class="sf-depth-2">Highest Rated</a></li></ul></li><li id="menu-210-1" class="middle even sf-item-10 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent"><a href="../freeware-updates.htm" title="The latest freeware releases and news from 10 top freeware sites" class="sf-depth-1 menuparent">Resources</a><ul><li id="menu-9285-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../freeware-updates.htm" title="The latest product updates and news from the web&#039;s most popular download sites" class="sf-depth-2">News</a></li><li id="menu-12533-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="../view/tips" title="Handy Windows Tips and Tricks" class="sf-depth-2">Tips</a></li><li id="menu-14525-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="../videos.htm" title="Keep up to date with tech the easy way by watching these interesting videos" class="sf-depth-2">Tech videos</a></li><li id="menu-9287-1" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="../sec" title="Want to clean a malware infection from your computer? Want to keep it clean and safe in the future? Then check out these guides." class="sf-depth-2">Security Guides &amp; Articles</a></li><li id="menu-9286-1" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="../tutorials" title="Want to know how to do something? You may well find it here." class="sf-depth-2">How-to Guides &amp; Tutorials</a></li><li id="menu-9283-1" class="middle even sf-item-6 sf-depth-2 sf-no-children"><a href="best-freeware-download-sites.htm" title="The safest and most reliable places to download freeware" class="sf-depth-2">Best Download Sites</a></li><li id="menu-9284-1" class="last odd sf-item-7 sf-depth-2 sf-no-children"><a href="best-free-technical-support-sites.htm" title="Got a hardware or software problem? Try one of these free support sites" class="sf-depth-2">Best Tech Support Sites</a></li></ul></li><li id="menu-1139-1" class="middle odd sf-item-11 sf-depth-1 sf-no-children"><a href="https://www.techsupportalert.com/freeware-forum" title="Got a computer question to ask?  Then this is the place and it&#039;s 100% free." class="sf-depth-1">Forum</a></li><li id="menu-109-1" class="last even sf-item-12 sf-depth-1 sf-total-children-6 sf-parent-children-0 sf-single-children-6 menuparent"><a href="../about-this-site" class="sf-depth-1 menuparent">About</a><ul><li id="menu-12560-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../about-this-site" title="How this site started and what it attempts to achieve" class="sf-depth-2">About</a></li><li id="menu-12559-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="contact-us.htm" title="How to contact Gizmo&#039;s Freeware / Press" class="sf-depth-2">Contact</a></li><li id="menu-12552-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="../faq" title="Answers to the most common questions we get asked" class="sf-depth-2">FAQ</a></li><li id="menu-13311-1" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="../contribute" title="Several ways you can help this community website" class="sf-depth-2">Contribute</a></li><li id="menu-12554-1" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="../privacy_policy.htm" title="The Privacy Policy of the Gizmo&#039;s Freeware Website" class="sf-depth-2">Privacy Policy</a></li><li id="menu-12553-1" class="last even sf-item-6 sf-depth-2 sf-no-children"><a href="../terms-and-conditions.htm" title="These are the conditions we offer and you accept for the use of this site" class="sf-depth-2">Condition of Use</a></li></ul></li></ul></div>
+</div></div><div id="columns">
+<div class="columns-inner clearfix">
+<div id="content-column">
+<div class="content-inner">
+<section id="main-content" role="main">
+<header id="main-content-header" class="clearfix">
+<h1 id="page-title">workspace-remah</h1>
+</header>
+<div id="content">
+
+
+<div id="block-system-main" class="clearfix block block-system no-title odd first last block-count-6 block-region-content block-main">
+<a href="workspace-remah.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<article id="node-3299" class="node node-article article odd node-full ia-n clearfix" role="article">
+  
+  
+      <footer class="submitted">
+            <!-- <p class="author-datetime">Submitted by <a href="/users/remah" title="View user profile." class="username">Remah</a> on <time datetime="2011-07-12T20:29:58+0000">12. July 2011 - 20:29</time></p> -->
+      <p class="author-datetime">Last updated by <a href="https://www.techsupportalert.com/users/remah" title="View user profile." class="username">Remah</a> on 25. November 2020 - 12:00</p>
+    </footer>
+  
+  <div class="node-content">
+    <div class="sharethis-buttons"><div class="sharethis-wrapper"><span st_url="https://www.techsupportalert.com/content/workspace-remah.htm" st_title="workspace-remah" class="st_facebook"></span>
+<span st_url="https://www.techsupportalert.com/content/workspace-remah.htm" st_title="workspace-remah" class="st_twitter" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/workspace-remah.htm" st_title="workspace-remah" class="st_linkedin" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/workspace-remah.htm" st_title="workspace-remah" class="st_email" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/workspace-remah.htm" st_title="workspace-remah" class="st_sharethis" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/workspace-remah.htm" st_title="workspace-remah" class="st_pinterest" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/workspace-remah.htm" st_title="workspace-remah" class="st_fblike" st_via="" st_username=""></span>
+</div></div>
+<div class="field field-name-body field-type-text-with-summary field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><!-- #### BEGIN: Introduction #### -->
+<h2 class="header1">
+	Want to know what happens when Windows starts?<a name="article-top" id="article-top"></a></h2>
+<p>This article is an overview of Windows startup with a flowchart and a couple of examples of the startup phases with immediate user logon and delayed user logon.</p>
+<!--break-->
+<p>My goal is to make Windows startup more easily understood by the average user. So I have provided a couple of supporting articles on <a href="windows-startup-terminology.htm" target="_blank" title="Terms used to describe Windows features">basic terms used to describe how Windows works</a> and an overview of <a href="windows-7-components-startup.htm" target="_blank" title="Components started when Windows starts">many of the main components of Windows</a>.</p>
+<p>This article will be most useful to confident users because it provides clarity and detail that is quite difficult to find elsewhere. All the information in this article can be found on the Web but you will find that there are no easy overviews. Most of the sources conflate (mix together) Windows components, features, and versions.</p>
+<p>As of June 2017, the detailed processing steps are separated out into a separate article <a href="windows-7-startup-detail.htm" target="_blank">Windows 7 Startup Detail</a> because the article was just too big. It now contains:</p>
+<ul>
+	<li>
+		Descriptions of the major components.</li>
+	<li>
+		Detailed sequences of activities for each process.</li>
+	<li>
+		Example registry keys and values.</li>
+</ul>
+<h3>
+	Caveats</h3>
+<p>These articles have several caveats:</p>
+<ul>
+	<li>
+		The articles are always going to be an overview rather than a complete description.</li>
+	<li>
+		The articles are now unlikely to have more detail added.</li>
+	<li>
+		The articles may have errors but wherever possible I have confirmed the steps in a real example. I've still had to rely on other commentaries as I've only used the tools that would be used by a confident user. That's why there is no mention of advanced tools for programmers like kernel debuggers or the special debug version of Windows (a checked build).</li>
+	<li>
+		These articles are not not a troubleshooting guide although I have included some pointers for where to look for solutions to some problems.</li>
+	<li>
+		These articles are not a guide to altering your system start-up processes. They should not be relied upon for making any changes to your system. Instead you should confirm any change through the relevant support channels for Microsoft Windows or the particular application you are dealing with.</li>
+	<li>
+		These articles do not include starting Windows 8 or 10, installing Windows, resuming Windows from sleep or hibernation, or using safe mode and the other startup options. If you do want more detail in some area then let me know by registering with this site and leaving a comment.</li>
+</ul>
+<h3>
+	These articles only looks at Windows 7 64-bit</h3>
+<p>Windows 7 is a good compromise between old and new versions of Windows. Although it is very similar to Vista there are major differences in the startup processes. I have pointed out some of those differences where it improves this article. For any thing else related to earlier version of Windows you will have to look elsewhere.</p>
+<p>The examples I am using are based on startup traces I ran on my test PC running Windows 7 64-bit. I used 64-bit Windows because it was the future at the time. Plus I need to highlight how 64-bit Windows handles 32-bit processes.</p>
+<p>The traces provide some timings to give you a relative indication of the time taken by the startup phases and it also provides you with the option to compare it with your own Windows startup. Just be aware that there are several reasons why your relative timings may be considerably different to mine.</p>
+<h3>
+	Icons highlight key issues</h3>
+<p>I have included icons to highlight various topics of interest so you can scan the detail more easily.</p>
+<p>32-bit and 64-bit Windows have some significant differences:<br />
+	<span style="color: white; background-color: grey; font-weight: bold" title="Windows 32-bit">32</span> applies to 32-bit Windows only.<br />
+	<span style="color: white; background-color: #752a2c; font-weight: bold" title="Windows 64-bit">64</span> applies to 64-bit Windows only.</p>
+<p>Where the startup feature was changed from Windows Vista:<br />
+	<span style="color: white; background-color: green; font-weight: bold" title="New to Windows 7"> 7 </span> indicates a new feature for Windows 7.</p>
+<p>On the very few occasions where the Windows Edition is relevant:<br />
+	<span style="color: white; background-color: blue; font-weight: bold" title="Differs by Windows Edition"> Δ </span> indicates differences between Windows Editions.</p>
+<p>If you are troubleshooting then look for these icons:<br />
+	<span style="color: black; background-color: yellow; font-weight: bold" title="Troubleshooting issue"> ! </span> indicates a known troubleshooting issue.<br />
+	<span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span> indicates a critical process (processes set this status themselves) which can crash or halt Windows if it fails.<br />
+	<span style="color: white; background-color: purple; font-weight: bold" title="Diagnostic info"> § </span> provides information on diagnostic tools and their output.  <br />
+	<span style="color: white; background-color: orange; font-weight: bold" title="Runs until Windows stops"> ∞ </span> indicates a process that normally runs until Windows stops.</p>
+<h3>
+	How to view and print the larger tables and diagrams</h3>
+<p>I am trying to pack a lot of information into some of the tables and diagrams so they look better in a display that is 1600 pixels wide. If your display is smaller, particularly if it is below 1200 pixels wide, then you can use the '<a href="http://www.techsupportalert.com/print/content/windows-7-startup.htm" target="_blank" title="See tables and diagrams more easily">Printer-friendly view</a>' to remove the sidebars so you can read them more easily.</p>
+<p>The diagrams are not digital images such as bitmaps or vector-based drawings. They are only HTML characters and HTML/CSS formatting. This means that you may have to change your web browser settings:</p>
+<ul>
+	<li>
+		Set the page encoding to Unicode or Auto-detect so the arrows and other symbols are visible.</li>
+	<li>
+		Set the page or print settings to print the background colours and table borders. For example, in Firefox this is under the Menu | Page Setup dialog | "Format and Options" tab | "Print background color (colors &amp; images)" checkbox.</li>
+</ul>
+<p>In the tables I have placed a blank line between each filename and registry key to keep them separate. Where a registry key is too long to fit in one line of a table then I have also inserted line breaks to break it up. </p>
+<p> </p>
+<!-- #### END: Introduction #### --><!-- #### BEGIN: What you should know #### -->
+<h2 class="header1">
+	What you should know</h2>
+<h3>
+	Kernel mode has to start before User mode</h3>
+<p>You should understand that Windows has two modes of operation which largely determine the sequence of startup activities:</p>
+<ul>
+	<li>
+		<strong>User mode</strong> is what we work with. It runs our applications programs on top of layers of services and subsystems that are mainly provided by the Windows Kernel mode.</li>
+	<li>
+		<strong>Kernel mode</strong> sits between the hardware and our application programs, supervises the running of the computer, and provides subsystems and services for User-mode programs to use. Kernel mode startup roughly corresponds to the time that the "Starting Windows" splash screen is displayed.</li>
+</ul>
+<p>User mode depends upon Kernel mode so the Windows Kernel has to be loaded first and only later in the startup process are the User-mode sub-systems and services loaded. During Kernel-mode startup there is very little for you to see apart from the Starting Windows screen. During User-mode startup the logon screen and the desktop screens are almost always visible.</p>
+<h3>
+	Windows does some things to spread the startup load</h3>
+<p>Windows startup processing is more sequential at the start and becomes more parallel. An important attribute of this division is that Kernel mode is mainly sequential because there are many dependent processes and prerequisites. So the Kernel-mode sub-systems are largely built up in a specific order. Whereas User mode is a virtual explosion of processes spawning other processes and almost always running in parallel because most of the dependencies are incorporated in the Kernel mode.</p>
+<p>Windows also has ReadyBoot and prefetch to ensure that needed components are ready to memory when needed to load or start.</p>
+<p>To maintain responsiveness, Windows delays the starting of many programs. Services and drivers good examples of this:</p>
+<ul>
+	<li>
+		Boot start and system start drivers start during the kernel-mode phase.</li>
+	<li>
+		Auto start and on demand services start later in the user-mode when the Service Control Manager (SCM) is running.</li>
+	<li>
+		Some services have a delayed-start attribute or have dependencies so SCM delays their start until 2 minutes after the SCM starts. In the meantime, other startup processes like user logon have started more quickly.</li>
+</ul>
+<h3>
+	Critical processes must keep running</h3>
+<p>Windows has many critical processes that cause Windows to crash if they fail. That is unless Windows has booted in debugging mode in which case the debugger will appear:</p>
+<ul>
+	<li>
+		System process for the Kernel (NTOSKrnl.exe) <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span></li>
+	<li>
+		The Session Manager Sub-System (SMSS.exe) <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span></li>
+	<li>
+		Client Server Runtime Sub-System (CSRSS.exe) <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span></li>
+	<li>
+		Windows Logon (WinLogon.exe) <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span></li>
+	<li>
+		Windows Init (WinInit.exe) <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span></li>
+	<li>
+		Windows Logon User Interface Host (LogonUI.exe) for RDP only <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span></li>
+	<li>
+		Local Security Authority Process (lsass.exe) <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span></li>
+	<li>
+		Service Control Manager (Services.exe) <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span></li>
+	<li>
+		Service Host (svchost.exe) with RPCSS or Dcom/PnP <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span></li>
+	<li>
+		Desktop Window Manager (DWM.exe) <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span></li>
+	<li>
+		plus other optional processes such as performance monitoring <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span> or Internet Information Server (ISS) <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span></li>
+</ul>
+<p>In practice it is possible to engineer Windows to start without many of these processes but this is not something that the average user should be considering.</p>
+<p> </p>
+<!-- #### END: What you should know #### --><!-- #### BEGIN: Computer Startup #### -->
+<h2 class="header1">
+	Computer Startup</h2>
+<p> </p>
+<h3>
+	Startup flowchart</h3>
+<p>Diagram 1 is a simple flowchart of the major programs that control the sequence of a normal Windows startup. There are many more essential programs that are initialised and run by these programs. I didn't include any of them although many are listed in the more detailed startup steps later in this article.</p>
+<p>This diagram matches Diagram 2, <a href="workspace-remah.htm#DiagramImmediateLogon" title="To the startup phases diagram for immediate or auto logon">'Phases of Windows Startup for immediate logon'</a>. The colors here largely match the Boot Phase scheme in Diagram 2. As do the times on the left which startup trace times in seconds. Until the user logon screen appears at 35.8 seconds, this diagram also matches Diagram 3, <a href="workspace-remah.htm#DiagramDelayedLogon" title="To the startup phases diagram for delayed logon">'Phases of Windows Startup for a delayed logon'</a>.</p>
+<p> </p>
+<table class="review-details" summary="How Windows runs a program" width="100%">
+	<thead>
+		<tr>
+			<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="8" valign="middle" width="100%">
+				<strong><a id="diagram-windows-startup" name="diagram-windows-startup"></a>Diagram 1 - An overview of Windows startup</strong></td>
+		</tr>
+		<tr>
+			<td align="center" width="8%">
+				 </td>
+			<td align="center" width="20%">
+				 </td>
+			<td align="center" width="4%">
+				 </td>
+			<td align="center" width="20%">
+				 </td>
+			<td align="center" width="4%">
+				 </td>
+			<td align="center" width="20%">
+				 </td>
+			<td align="center" width="4%">
+				 </td>
+			<td align="center" width="20%">
+				 </td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr valign="top">
+			<td>
+				<h3 class="rteright">
+					 </h3>
+			</td>
+			<td class="rtecenter bordered">
+				Firmware boot<br />
+				(BIOS or UEFI)<br />
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+		</tr>
+		<tr valign="top">
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td class="rtecenter">
+				↘</td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+		</tr>
+		<tr valign="top">
+			<td>
+				<h3 class="rteright">
+					–</h3>
+			</td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td bgcolor="#000000" class="rtecenter bordered">
+				<strong><font color="white">Windows Boot Manager<br />
+				(BootMgr.exe)</font></strong></td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+		</tr>
+		<tr valign="top">
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td class="rtecenter">
+				↓</td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+		</tr>
+		<tr valign="top">
+			<td>
+				<h3 class="rteright">
+					<font color="#000080">0.0s</font></h3>
+			</td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td bgcolor="#000080" class="rtecenter bordered">
+				<strong><font color="white">Windows OS Loader<br />
+				WinLoad.exe <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span></font></strong></td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+		</tr>
+		<tr valign="top">
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td class="rtecenter" valign="middle">
+				↘</td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+		</tr>
+		<tr valign="top">
+			<td>
+				<h3 class="rteright">
+					<font color="#0000ff">0.2s</font></h3>
+			</td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td bgcolor="#0000ff" class="rtecenter bordered">
+				<strong><font color="white">Kernel &amp; Kernel-Mode<br />
+				NTOSKrnl.exe <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span><br />
+				0.2s to </font></strong><span style="color: white; background-color: orange; font-weight: bold" title="Runs until Windows stops"> ∞ </span></td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+		</tr>
+		<tr valign="top">
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td class="rtecenter">
+				↓</td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+		</tr>
+		<tr valign="top">
+			<td>
+				<h3 class="rteright">
+					<font color="#c0c000">11.2</font></h3>
+			</td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td bgcolor="#c0c000" class="rtecenter bordered">
+				<strong><font color="white">Session Manager Sub-System<br />
+				SMSS.exe <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span><br />
+				11.2s to </font></strong><font color="white"><span style="color: white; background-color: orange; font-weight: bold" title="Runs until Windows stops"> ∞ </span></font></td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+		</tr>
+		<tr valign="top">
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td class="rtecenter">
+				↙</td>
+			<td>
+				 </td>
+			<td class="rtecenter">
+				↘</td>
+			<td>
+				 </td>
+		</tr>
+		<tr valign="top">
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td bgcolor="#c0c000" class="rtecenter bordered">
+				<strong><font color="white">Non-interactive session 0 instance<br />
+				SMSS.exe <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span><br />
+				15.3s to </font></strong><span style="color: white; background-color: orange; font-weight: bold" title="Runs until Windows stops"> ∞ </span></td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				↘</td>
+		</tr>
+		<tr valign="top">
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td class="rtecenter" valign="middle">
+				↓</td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				            ↘</td>
+		</tr>
+		<tr valign="top">
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td bgcolor="#c0c000" class="rtecenter bordered">
+				<strong><font color="white">Client-Server Runtime Sub-System<br />
+				CSRSS.exe <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span><br />
+				15.3s to </font></strong><span style="color: white; background-color: orange; font-weight: bold" title="Runs until Windows stops"> ∞ </span></td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td bgcolor="#c0c000" class="rtecenter bordered">
+				<strong><font color="white">Interactive session 1 instance<br />
+				SMSS.exe <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span><br />
+				17.0s to </font></strong><span style="color: white; background-color: orange; font-weight: bold" title="Runs until Windows stops"> ∞ </span></td>
+		</tr>
+		<tr valign="top">
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td class="rtecenter" valign="middle">
+				↓</td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td class="rtecenter">
+				↓</td>
+		</tr>
+		<tr valign="top">
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td bgcolor="#c0c000" class="rtecenter bordered">
+				<strong><font color="white">Windows Initialization<br />
+				WinInit.exe <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span><br />
+				17.0s to </font></strong><span style="color: white; background-color: orange; font-weight: bold" title="Runs until Windows stops"> ∞ </span></td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td bgcolor="#c0c000" class="rtecenter bordered">
+				<strong><font color="white">Client-Server Runtime Sub-System<br />
+				CSRSS.exe <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span><br />
+				17.1s to </font></strong><span style="color: white; background-color: orange; font-weight: bold" title="Runs until Windows stops"> ∞ </span></td>
+		</tr>
+		<tr valign="top">
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td class="rtecenter">
+				↙</td>
+			<td class="rtecenter" valign="middle">
+				↓</td>
+			<td class="rtecenter">
+				↘</td>
+			<td class="rtecenter">
+				 </td>
+			<td>
+				 </td>
+			<td class="rtecenter">
+				↓</td>
+		</tr>
+		<tr valign="top">
+			<td>
+				 </td>
+			<td bgcolor="#c0c000" class="rtecenter bordered">
+				<strong><font color="white">Services Control Manager<br />
+				SCM.exe </font></strong><strong><font color="white"><span style="color: black; background-color: red;" title="Critical process"> ! </span></font></strong><br />
+				<strong><font color="white">17.4s to </font></strong><span style="color: white; background-color: orange; font-weight: bold" title="Runs until Windows stops"> ∞ </span></td>
+			<td>
+				 </td>
+			<td bgcolor="#c0c000" class="rtecenter bordered">
+				<strong><font color="white">Local Security Authority Sub-System<br />
+				LSASS.exe <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span><br />
+				17.7s to </font></strong><span style="color: white; background-color: orange; font-weight: bold" title="Runs until Windows stops"> ∞ </span></td>
+			<td>
+				 </td>
+			<td bgcolor="#c0c000" class="rtecenter bordered">
+				<strong><font color="white">Local Session Manager<br />
+				LSM.exe </font></strong><strong><font color="white"><span style="color: black; background-color: red;" title="Critical process"> ! </span></font></strong><br />
+				<strong><font color="white">17.7s to </font></strong><span style="color: white; background-color: orange; font-weight: bold" title="Runs until Windows stops"> ∞ </span></td>
+			<td>
+				 </td>
+			<td class="rtecenter">
+				<br />
+				↓</td>
+		</tr>
+		<tr valign="top">
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td class="rtecenter">
+				↓</td>
+		</tr>
+		<tr valign="top">
+			<td>
+				<h3 class="rteright">
+					<font color="#ff8000">17.7s</font></h3>
+			</td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td bgcolor="#ff8000" class="rtecenter bordered">
+				<strong><font color="white">Windows Logon<br />
+				WinLogon.exe <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span><br />
+				17.7s to </font></strong><span style="color: white; background-color: orange; font-weight: bold" title="Runs until Windows stops"> ∞ </span></td>
+		</tr>
+		<tr valign="top">
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td class="rtecenter">
+				↙↗</td>
+			<td class="rtecenter">
+				↓</td>
+		</tr>
+		<tr valign="top">
+			<td>
+				<h3 class="rteright">
+					<font color="#ff0000">21.0s</font></h3>
+			</td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td bgcolor="#ff0000" class="rtecenter bordered">
+				<strong><font color="white">Logon User Interface<br />
+				LogonUI.exe<br />
+				20.1s to logon</font></strong></td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+		</tr>
+		<tr valign="top">
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td class="rtecenter">
+				↓↑</td>
+			<td>
+				 </td>
+			<td class="rtecenter">
+				↓</td>
+		</tr>
+		<tr valign="top">
+		</tr>
+		<tr valign="top">
+			<td>
+				<h3 class="rteright">
+					 </h3>
+			</td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td class="rtecenter bordered">
+				User logon</td>
+			<td>
+				 </td>
+			<td class="rtecenter">
+				<br />
+				↓</td>
+		</tr>
+		<tr>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td class="rtecenter">
+				↓</td>
+		</tr>
+		<tr valign="top">
+			<td>
+				<h3 class="rteright">
+					<font color="#ff8080">35.8s</font></h3>
+			</td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td bgcolor="#ff8080" class="rtecenter bordered">
+				<strong><font color="white">User Initialization<br />
+				UserInit.exe </font></strong><strong><font color="white"><span style="color: black; background-color: red;" title="Critical process"> ! </span></font></strong><br />
+				<strong><font color="white">35.8s </font></strong></td>
+		</tr>
+		<tr valign="top">
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td class="rtecenter">
+				↓</td>
+		</tr>
+		<tr valign="top">
+			<td>
+				<h3 class="rteright">
+					<font color="#ff0080">54s</font></h3>
+			</td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td bgcolor="#ff0080" class="rtecenter bordered">
+				<strong><font color="white">Windows Explorer<br />
+				Explorer.exe<br />
+				54s to logoff</font></strong><br />
+				 </td>
+		</tr>
+		<tr valign="top">
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+		</tr>
+		<tr valign="top">
+			<td>
+				<h3 class="rteright">
+					<font color="#800080">100s</font></h3>
+			</td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td class="rtecenter bordered">
+				Windows startup is complete but boot start services usually continue to load.</td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+		</tr>
+		<tr valign="top">
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+		</tr>
+		<tr valign="top">
+			<td>
+				<h3 class="rteright">
+					200s</h3>
+			</td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td>
+				 </td>
+			<td class="rtecenter bordered">
+				User startup is complete when there is no startup disk activity for 10 seconds.</td>
+		</tr>
+	</tbody>
+</table>
+<p> </p>
+<p>Important points to note:</p>
+<ul>
+	<li>
+		The three processes started by WinInit - SCM, LSASS and LSM - all start about the same time (17.4 and 17.7 seconds) as WinLogon (17.7 seconds) but I have chosen to separate them to emphasize the separation of non-interactive and interactive sessions.</li>
+	<li>
+		Some processes end when they pass control to the next process in the flowchart. But most processes continue to run for longer and many run until Windows is shutdown - I've indicated these with the infinity icon (<span style="color: white; background-color: orange; font-weight: bold" title="Runs until Windows stops"> ∞ </span>): NTOSKrnl, SMSS, CSRSS, SCM, LSASS, LSM, WinLogon.<br />
+		Explorer would also be in this list except that it only runs when a user logs on to an interactive session.</li>
+	<li>
+		I have indicated critical processes (<span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span>) that must run so Windows will run. You will notice that the processes that interact directly with users (LogonUI and Explorer) are not critical so if they fail they do not automatically crash Windows.</li>
+	<li>
+		Much of the time until the user logon screen (LogonUI) appears looks like it is spent starting the Session Manager (SCM) and creating the non-interactive and interactive sessions. But this is also the time when many kernel-mode sub-systems, the Windows APIs and the registry are also starting.</li>
+</ul>
+<p> </p>
+<h3>
+	Booting your computer</h3>
+<p>For the sake of completeness I include this section as an overview of the process that takes place when you turn on your computer but before Windows is started. It won't be discussed again in the more detailed discussion of Windows startup.</p>
+<div class="hidden">
+	<p>When you turn on the power switch of your computer there is a standardized process for your computer to know what to do without any input from yourself. This is called bootstrapping or, as it is commonly known, booting. It is based on the idea of pulling yourself up by the bootstraps of the boots that you are wearing. For a computer, booting means running a small program stored in a specific address in memory. This program is very simple and mainly works to load a larger more complex program called a boot loader which can then itself load a larger more complex program such as the Windows boot loader. Again that Windows boot loader loads the much more complex Windows kernel-mode which eventually leads to the Windows operating system being loaded for you to use in User mode.</p>
+	<p> </p>
+	<h3>
+		Two types of firmware</h3>
+	<p>The bootstrap loader is stored in a memory chip that does not lose its data when the computer power is turned off. This combination of non-volatile memory and program code is called firmware. Currently there are two main firmware interfaces that have been standardized for Windows computers. The old version which was used on the original IBM PC is called the BIOS (Basic Input/Output System). The other more modern design of firmware is called UEFI (Unified Extensible Firmware Interface) and has only been widely used since 2010.</p>
+	<h4>
+		BIOS startup</h4>
+	<p>The main steps are as follows and are similar to the simplest UEFI steps:</p>
+	<ol>
+		<li>
+			Identify if quick/fast boot is enabled. If so skip some tests.</li>
+		<li>
+			Run a POST (Power-On Self-Test) to check the motherboard components and any installed adapters.</li>
+		<li>
+			Identify and initialize hardware devices</li>
+	</ol>
+	<ul class="rteindent1">
+		<li>
+			Including the AHCI (Advanced Host Controller Interface) settings to access SATA hard disk drives.</li>
+	</ul>
+	<ol start="4">
+		<li>
+			The BIOS boot loader attempts to load a boot loader from a suitable system disk.</li>
+	</ol>
+	<ul class="rteindent1">
+		<li>
+			Identify the device boot order which can include fixed disk drives, removable disk drives like CD and DVD drives, USB drives, and Network Interface Cards (NIC).</li>
+		<li>
+			Identify if PXE (Preboot eXecution Environment) boot is enabled to boot by obtaining a bootstrap program from the NIC.</li>
+		<li>
+			Otherwise detect a valid system disk.</li>
+		<li>
+			Load the bootstrap program in the Master Boot Record (MBR) on sector 0 of the system disk. It is loaded into memory at the address 0x00007C00 and it is executed or run.</li>
+		<li>
+			Normally the bootstrap program will load the VBR (Volume Boot Record) from the first startable partition on the system disk.</li>
+	</ul>
+	<ol start="5">
+		<li>
+			Load the Windows Boot Manager. Initially, a real-mode stub is which then passes control to a 32-bit protected mode Boot Manager. The Windows Boot Manager can provide a boot option menu for you to select from.</li>
+	</ol>
+	<h4>
+		UEFI startup</h4>
+	<p>The UEFI has a lot more options than the BIOS. It is called the Extensible Firmware Interface (EFI) because has the capacity to run other programs and it can confirm the software and hardware to prevent untrusted components from operating.</p>
+	<ol>
+		<li>
+			Identify if secure boot is enabled. If so use the TPM (Trusted Platform Module) to enhance security.</li>
+		<li>
+			Identify if BIOS-compatibility is enabled. This does not mean that it runs like a BIOS only that it uses the same interface.</li>
+		<li>
+			Identify and initialize hardware devices. This initialization includes the secure boot verification of hardware:</li>
+	</ol>
+	<ul class="rteindent1">
+		<li>
+			  Initialize CPU</li>
+		<li>
+			  Initialize chipset</li>
+		<li>
+			  Initialize motherboard, RAM and other interfaces</li>
+	</ul>
+	<ol start="4">
+		<li>
+			Load the Driver execution environment (DXE) for discovered resources</li>
+	</ol>
+	<ul class="rteindent1">
+		<li>
+			  IO bus</li>
+		<li>
+			  Option ROMs on adapter cards including on NICs</li>
+	</ul>
+	<ol start="5">
+		<li>
+			Load the UEFI boot manager which has a boot menu option which the BIOS does not have.</li>
+	</ol>
+	<ul class="rteindent1">
+		<li>
+			  Read the BootOrderEFI variable.</li>
+		<li>
+			  Identify if PXE boot is enabled to obtain a bootstrap program from a UEFI extension or a NIC.</li>
+		<li>
+			  Locate the EFI System Partition on whatever device it is configured for. It is not limited to a disk drive or a NIC.</li>
+	</ul>
+	<ol start="6">
+		<li>
+			Load the Windows Boot Manager which also has a boot menu that often confuses users who do not realize that the UEFI boot manager has one too.</li>
+	</ol>
+</div>
+<div class="show-more">
+	[show-hide toggle]</div>
+<p> </p>
+<h3>
+	The Windows Boot Manager</h3>
+<p>The Windows Boot Manager, bootmgr.exe, reads the Boot Configuration Data (BCD) to determine the installed versions of Windows and what there startup options are. The Boot Manager can display a boot menu but I am describing the simplest startup process so those options are not discussed here. It is also not timed so it is not included in discussions of the example trace.</p>
+<h4>
+	Boot Manager locates the Boot Configuration Data (BCD)</h4>
+<p>There remains one distinction which is where the Boot Manager locates the BCD:</p>
+<ul>
+	<li>
+		The BIOS locates the configuration in "\Boot\BCD" on the system volume.</li>
+	<li>
+		The EFI locates the configuration in the "\EFI\Microsoft\Boot\" directory on the EFI system partition.</li>
+</ul>
+<h4>
+	Boot Manager locates the Boot Status Data Log (BootStat.dat)</h4>
+<p>There are boot status data logs for the Boot Manager and for each installed version of Windows. The Boot Manager log is BootStart.dat in the Windows directory or the \Boot directory of the system partition. This location can be set in the BCD.</p>
+<p>If the previous start failed then the Boot Manager displays its boot menu. As I'm not looking at failed starts this is not discussed here.</p>
+<h4>
+	Boot Manager runs any boot-time utilities</h4>
+<p>The Boot Manager can run utility programs to diagnosis problems or to perform maintenance. The Microsoft memory tester, memtest.exe, is probably the most useful example.</p>
+<h4>
+	Boot Manager displays a boot menu if required</h4>
+<p>The Boot Manager also displays a boot menu if more than one option is to be presented to the user. Again, I am not discussing this feature.</p>
+<p> </p>
+<!-- #### END: Computer Startup #### --><!-- #### BEGIN: Traced Startup #### -->
+<h2 class="header1">
+	Make sense of the Windows startup phases</h2>
+<p> </p>
+<h3>
+	There are several schemes for describing startup phases</h3>
+<p>The starting point for the following discussion of Windows startup is after the Windows Boot Manager, bootmgr.exe, has been loaded and control has been passed from the computer firmware, whether it was the BIOS or UEFI. Up until the point where the Windows Boot Manager hands over control to the Windows Loader there is no record of the time.</p>
+<p>Form this point there are several ways of describing the Windows startup phases. You may find that the differing intervals and terminology are a hindrance when either reading articles about Windows startup or trying to interpret the diagnostic results from various tools. The remainder of this section illustrates the similarities and differences between these schemes before I discuss the startup components in more detail.</p>
+<p> </p>
+<h3>
+	Startup phase schemes</h3>
+<p>Here is a description of each category used in Diagrams 2 &amp; 3. You could say that they move from user-oriented on the left to more technical on the right but really only the first category is accessible to most users.</p>
+<p><strong>Visible to Users</strong> is what you see on your screen. These events normally occur some time after the start of the interval.</p>
+<p><strong>Boot Time</strong> is used in the Windows Event Manager and those statistics are available at any time.</p>
+<p><strong>Windows Focus</strong> indicates the process that is currently awaiting input and is usually visible. Focus is the graphical equivalent of the text-based cursor.</p>
+<p><strong>Boot Interval</strong> is used in the Boot Phase analysis of Windows Performance Analysis (WPA) when summarizing trace data provided by Windows Performance Recorder (WPR). It is very similar to the Boot Phase analysis which is different only in that the Pre Session interval is divided into the OS Loader and Kernel-mode initialization.</p>
+<p><strong>Boot Phase</strong> is widely used in Microsoft tutorials on analysing Windows startup. It is probably the most useful to understand simply because it is often used to describe what is happens when you delve more deeply into Windows startup.</p>
+<p>The <strong>Drivers &amp; Services</strong> category, as I've called it, is focused on kernel mode Plug and Play (PnP) Manager which loads devices and drivers in three main phases which correspond to the three categories of devices and drivers:</p>
+<ul>
+	<li>
+		BootStart devices and drivers are those that are run before the Windows Kernel mode is completely running.</li>
+	<li>
+		SystemStart devices and drivers are those that are run when the supporting Windows Kernel-mode components are running.</li>
+	<li>
+		AutoStart devices and drivers are all those that are started for user sessions.</li>
+	<li>
+		The remainder are OnDemand devices and drivers. They are run when they are required so they are not part of the startup phases.</li>
+</ul>
+<h3>
+	What happens when we logon immediately or use auto logon</h3>
+<p>Diagram 2, "Phases of Windows Startup - immediate logon", approximates what happens when I logon immediately the prompt appears, i.e. within 10 seconds. There is now no separation of the user logon activities from the system startup activities and the phase overlaps change.</p>
+<p>I say the timings are approximate because under normal circumstances Windows startup changes every time it runs. Not only does Windows optimize the startup process but a slight delay in one process can cascade further delays to other activities. In practice that is exactly what happened. For some reason the MachinePolicyApplication was delayed 1.178 seconds and Windows generated an Event 107 record so I could see this in Event Viewer.</p>
+<p> </p>
+<table align="center" class="review-details" summary="An overview of the various schemes for categorizing Windows Startup" width="100%">
+	<thead>
+		<tr>
+			<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="7" valign="middle" width="100%">
+				<strong><a id="diagram-immediate-logon" name="diagram-immediate-logon"></a>Diagram 2 - Phases of Windows Startup - immediate logon</strong></td>
+		</tr>
+		<tr valign="top">
+			<td class="rtecenter bordered" width="10%">
+				<strong>Start Time<br />
+				Example<br />
+				[second]</strong></td>
+			<td class="rtecenter bordered" width="15%">
+				<strong>Visible<br />
+				to Users</strong></td>
+			<td class="rtecenter bordered" width="15%">
+				<strong>Boot Time<sup>1</sup></strong></td>
+			<td class="rtecenter bordered" width="15%">
+				<strong>Windows<br />
+				Focus</strong></td>
+			<td class="rtecenter bordered" width="15%">
+				<strong>Boot Interval</strong></td>
+			<td class="rtecenter bordered" width="15%">
+				<strong>Boot Phase</strong></td>
+			<td class="rtecenter bordered" width="15%">
+				<strong>Drivers &amp; Services</strong></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#000080">0.0</font></h3>
+			</td>
+			<td bgcolor="#000080" class="rtecenter">
+				<p><strong><font color="white">Blank screen</font></strong></p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p>none<sup>2</sup></p>
+			</td>
+			<td bgcolor="#000080" class="rtecenter">
+				<p><strong><font color="white">Pre Session<br />
+					(Pre SMSS Init)</font></strong></p>
+			</td>
+			<td bgcolor="#000080" class="rtecenter">
+				<p><strong><font color="white">OS Loader</font></strong></p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#0000ff">0.2</font></h3>
+			</td>
+			<td bgcolor="#000080" class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#000080" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#0000ff" class="rtecenter">
+				<p><strong><font color="white">Kernel<br />
+					Initialization</font></strong></p>
+			</td>
+			<td bgcolor="#0000ff" class="rtecenter">
+				<p><strong><font color="white">BootStart</font></strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#0080ff">2.7</font></h3>
+			</td>
+			<td bgcolor="#0080ff" class="rtecenter">
+				<p><strong><font color="white">'Starting Windows'<br />
+					message</font></strong></p>
+			</td>
+			<td bgcolor="#0080ff" class="rtecenter">
+				<p><strong><font color="white">MainPath-<br />
+					BootTime</font></strong></p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#000080" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#0000ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#0000ff" class="rtecenter">
+				<p> </p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#00c0c0">8.7</font></h3>
+			</td>
+			<td bgcolor="#0080ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#0080ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#000080" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#0000ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#00c0c0" class="rtecenter">
+				<p><strong><font color="white">SystemStart</font></strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#00ff00">11.1</font></h3>
+			</td>
+			<td bgcolor="#0080ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#0080ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#000080" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#0000ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#00ff00" class="rtecenter">
+				<p><strong><font color="white">Remainder</font></strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#c0c000">11.2</font></h3>
+			</td>
+			<td bgcolor="#0080ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#0080ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#c0c000" class="rtecenter">
+				<p><strong><font color="white">Session Init<br />
+					(SMSS Init)</font></strong></p>
+			</td>
+			<td bgcolor="#c0c000" class="rtecenter">
+				<p><strong><font color="white">Session<br />
+					Initialization</font></strong></p>
+			</td>
+			<td bgcolor="#00ff00" class="rtecenter">
+				<p> </p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#ff8000">17.7</font></h3>
+			</td>
+			<td bgcolor="#0080ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#0080ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#ff8000" class="rtecenter">
+				<p><strong><font color="white">Winlogon Init</font></strong></p>
+			</td>
+			<td bgcolor="#ff8000" class="rtecenter">
+				<p><strong><font color="white">WinLogon<br />
+					Initialization</font></strong></p>
+			</td>
+			<td bgcolor="#00ff00" class="rtecenter">
+				<p> </p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#ff0000">21.0</font></h3>
+			</td>
+			<td bgcolor="#ff0000" class="rtecenter">
+				<p><strong><font color="white">Blank screen just before logon</font></strong></p>
+			</td>
+			<td bgcolor="#0080ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#ff0000" class="rtecenter">
+				<p><strong><font color="white">logonui.exe</font></strong></p>
+			</td>
+			<td bgcolor="#ff8000" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#ff8000" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#00ff00" class="rtecenter">
+				<p> </p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#ff8080">35.8</font></h3>
+			</td>
+			<td bgcolor="#ff8080" class="rtecenter">
+				<p><strong><font color="white"> Logon appears </font><font color="white">[Logon immediately in 10 seconds]</font></strong></p>
+			</td>
+			<td bgcolor="#ff8080" class="rtecenter">
+				<p><strong><font color="white">BootPost-<br />
+					BootTime</font></strong></p>
+			</td>
+			<td bgcolor="#ff0000" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#ff8000" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#ff8000" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#00ff00" class="rtecenter">
+				<p> </p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#ff0080">~54</font><br />
+					 </h3>
+			</td>
+			<td bgcolor="#ff0080" class="rtecenter">
+				<p><strong><font color="white">User logs on;<br />
+					'Welcome' message</font></strong></p>
+			</td>
+			<td bgcolor="#ff8080" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#ff0000" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#ff0080" class="rtecenter">
+				<p><strong><font color="white">Explorer Init</font></strong></p>
+			</td>
+			<td bgcolor="#ff0080" class="rtecenter">
+				<p><strong><font color="white">Explorer Initialization</font></strong></p>
+			</td>
+			<td bgcolor="#00ff00" class="rtecenter">
+				<p> </p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#ff00ff">~70</font></h3>
+			</td>
+			<td bgcolor="#ff00ff" class="rtecenter">
+				<p><strong><font color="white">Desktop is visible and usable in 5 seconds</font></strong></p>
+			</td>
+			<td bgcolor="#ff8080" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#ff00ff" class="rtecenter">
+				<p><strong><font color="white">explorer.exe</font></strong></p>
+			</td>
+			<td bgcolor="#ff00ff" class="rtecenter">
+				<p><strong><font color="white">Post Boot</font></strong></p>
+			</td>
+			<td bgcolor="#ff00ff" class="rtecenter">
+				<p><strong><font color="white">Post Boot<br />
+					Activity</font></strong></p>
+			</td>
+			<td bgcolor="#00ff00" class="rtecenter">
+				<p> </p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#800080">~100</font></h3>
+			</td>
+			<td bgcolor="#ff00ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#ff8080" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#ff00ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p>Trace tail<strong><sup>3</sup></strong></p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#00ff00" class="rtecenter">
+				<p> </p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#800080">~140</font></h3>
+			</td>
+			<td bgcolor="#ff00ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#ff00ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#00ff00" class="rtecenter">
+				<p> </p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					~200</h3>
+			</td>
+			<td class="rtecenter">
+				<p>Startup disk activity stops 10 seconds earlier</p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<p>~202</p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p>Trace ends</p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p><sup>1</sup> TotalBootTime = MainPathBootTime + BootPostBootTime. BootPostBootTime doesn't follow the usual naming convention because that would have led to PostBootBootTime and they obviously didn't like the repetition of boot.</p>
+<p><sup>2</sup> Technically, there can be no <a href="http://en.wikipedia.org/wiki/Focus_%28computing%29" target="_blank" title="Wikipedia article on Focus">focus</a> until the graphical user interface (GUI) appears.<br />
+	<sup>3</sup> The Trace Tail is not coloured because it is not part of a normal startup. It runs from the the end of the Post Boot Phase to the end of the trace.</p>
+<p> </p>
+<h3>
+	What happens when we don't logon immediately</h3>
+<p>If you don't logon the first time you are prompted then you allow the system startup activities to complete more quickly. There isn't much change in the startup phases and the number of steps remains the same. The major difference is that the BootPostBootTime and the auto_start driver initialization both finish before you start logon. The obvious advantage is that when you logon you will avoid waiting for other startup activities to finish so your system is more responsive right from when the desktop appears.</p>
+<p> </p>
+<table align="center" class="review-details" height="100" summary="An overview of the various schemes for categorizing Windows Startup" width="100%">
+	<thead>
+		<tr>
+			<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="7" valign="middle" width="100%">
+				<strong><a id="diagram-delayed-logon" name="diagram-delayed-logon"></a>Diagram 3 - Phases of Windows Startup - delayed logon</strong></td>
+		</tr>
+		<tr valign="top">
+			<td class="rtecenter bordered" width="10%">
+				<strong>Start Time<br />
+				Example<br />
+				[second]</strong></td>
+			<td class="rtecenter bordered" width="15%">
+				<strong>Visible<br />
+				to Users</strong></td>
+			<td class="rtecenter bordered" width="15%">
+				<strong>Boot Time<sup>1</sup></strong></td>
+			<td class="rtecenter bordered" width="15%">
+				<strong>Windows<br />
+				Focus</strong></td>
+			<td class="rtecenter bordered" width="15%">
+				<strong>Boot Interval</strong></td>
+			<td class="rtecenter bordered" width="15%">
+				<strong>Boot Phase</strong></td>
+			<td class="rtecenter bordered" width="15%">
+				<strong>Drivers &amp; Services</strong></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#000080">0.0</font></h3>
+			</td>
+			<td bgcolor="#000080" class="rtecenter">
+				<p><strong><font color="white">Blank screen</font></strong></p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p>none</p>
+			</td>
+			<td bgcolor="#000080" class="rtecenter">
+				<p><strong><font color="white">Pre Session<br />
+					(Pre SMSS Init)</font></strong></p>
+			</td>
+			<td bgcolor="#000080" class="rtecenter">
+				<p><strong><font color="white">OS Loader</font></strong></p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#0000ff">0.2</font></h3>
+			</td>
+			<td bgcolor="#000080" class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#000080" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#0000ff" class="rtecenter">
+				<p><strong><font color="white">Kernel<br />
+					Initialization</font></strong></p>
+			</td>
+			<td bgcolor="#0000ff" class="rtecenter">
+				<p><strong><font color="white">BootStart</font></strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#0080ff">2.7</font></h3>
+			</td>
+			<td bgcolor="#0080ff" class="rtecenter">
+				<p><strong><font color="white">'Starting Windows'<br />
+					message</font></strong></p>
+			</td>
+			<td bgcolor="#0080ff" class="rtecenter">
+				<p><strong><font color="white">MainPath-<br />
+					BootTime</font></strong></p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#000080" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#0000ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#0000ff" class="rtecenter">
+				<p> </p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#00c0c0">8.7</font></h3>
+			</td>
+			<td bgcolor="#0080ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#0080ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#000080" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#0000ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#00c0c0" class="rtecenter">
+				<p><strong><font color="white">SystemStart</font></strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#00ff00">11.1</font></h3>
+			</td>
+			<td bgcolor="#0080ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#0080ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#000080" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#0000ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#00ff00" class="rtecenter">
+				<p><strong><font color="white">Remainder</font></strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#c0c000">11.2</font></h3>
+			</td>
+			<td bgcolor="#0080ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#0080ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#c0c000" class="rtecenter">
+				<p><strong><font color="white">Session Init<br />
+					(SMSS Init)</font></strong></p>
+			</td>
+			<td bgcolor="#c0c000" class="rtecenter">
+				<p><strong><font color="white">Session<br />
+					Initialization</font></strong></p>
+			</td>
+			<td bgcolor="#00ff00" class="rtecenter">
+				<p> </p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#ff8000">17.7</font></h3>
+			</td>
+			<td bgcolor="#0080ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#0080ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#ff8000" class="rtecenter">
+				<p><strong><font color="white">Winlogon Init</font></strong></p>
+			</td>
+			<td bgcolor="#ff8000" class="rtecenter">
+				<p><strong><font color="white">WinLogon<br />
+					Initialization</font></strong></p>
+			</td>
+			<td bgcolor="#00ff00" class="rtecenter">
+				<p> </p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#ff0000">21.0</font></h3>
+			</td>
+			<td bgcolor="#ff0000" class="rtecenter">
+				<p><strong><font color="white">Blank screen just before logon</font></strong></p>
+			</td>
+			<td bgcolor="#0080ff" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#ff0000" class="rtecenter">
+				<p><strong><font color="white">logonui.exe</font></strong></p>
+			</td>
+			<td bgcolor="#ff8000" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#ff8000" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#00ff00" class="rtecenter">
+				<p> </p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#ff8080">35.8</font></h3>
+			</td>
+			<td bgcolor="#ff8080" class="rtecenter">
+				<p><strong><font color="white">Logon appears</font></strong></p>
+			</td>
+			<td bgcolor="#ff8080" class="rtecenter">
+				<p><strong><font color="white">BootPost-<br />
+					BootTime</font></strong></p>
+			</td>
+			<td bgcolor="#ff0000" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#ff8000" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#ff8000" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#00ff00" class="rtecenter">
+				<p> </p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#ff0080">122.3</font></h3>
+			</td>
+			<td bgcolor="#ff8080" class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p>[Delay logon 20 minutes = 1,200 seconds]</p>
+			</td>
+			<td bgcolor="#ff0000" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#ff8000" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#ff8000" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#00ff00" class="rtecenter">
+				<p> </p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#ff00ff">1,243</font></h3>
+			</td>
+			<td bgcolor="#ff00ff" class="rtecenter">
+				<p><strong><font color="white">User logs on;<br />
+					'Welcome' message</font></strong></p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#ff0000" class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#ff00ff" class="rtecenter">
+				<p><strong><font color="white">Explorer Init</font></strong></p>
+			</td>
+			<td bgcolor="#ff00ff" class="rtecenter">
+				<p><strong><font color="white">Explorer Initialization</font></strong></p>
+			</td>
+			<td bgcolor="#00ff00" class="rtecenter">
+				<p> </p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					<font color="#800080">1,249</font></h3>
+			</td>
+			<td bgcolor="#800080" class="rtecenter">
+				<p><strong><font color="white">Desktop is usable</font></strong></p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#800080" class="rtecenter">
+				<p><strong><font color="white">explorer.exe</font></strong></p>
+			</td>
+			<td bgcolor="#800080" class="rtecenter">
+				<p><strong><font color="white">Post Boot</font></strong></p>
+			</td>
+			<td bgcolor="#800080" class="rtecenter">
+				<p><strong><font color="white">Post Boot<br />
+					Activity</font></strong></p>
+			</td>
+			<td bgcolor="#00ff00" class="rtecenter">
+				<p> </p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				<h3>
+					1,378</h3>
+			</td>
+			<td class="rtecenter">
+				<p>Startup disk activity stops 10 seconds earlier</p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#800080" class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p>Trace Trail<sup>2</sup></p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+		</tr>
+		<tr>
+			<td class="rteright">
+				1.382</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td bgcolor="#800080" class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p>Trace ends</p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+			<td class="rtecenter">
+				<p> </p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p><sup>1</sup> Again, the TotalBootTime = MainPathBootTime + BootPostBootTime but it is now about 18 seconds shorter than in Diagram 2 due to some of the user logon activities being delayed because I didn't log on for 20 minutes.</p>
+<p><sup>2</sup> The Trace Trail runs from the end of the Post Boot activities to the end of the boot trace that I setup to record Windows startup activities.</p>
+<p> </p>
+<h3>
+	Other startup phase timings</h3>
+<p>There are other useful startup phases that I didn't include in Diagrams 2 &amp; 3 these are single phases that focus on one startup process:</p>
+<p><strong>Services Autostart</strong> which is when most Windows services start to load just before Explorer is initialized until just before PostBoot Activity starts. In delayed logon that is from 18.9 to 49.9 seconds and it is not much different for immediate logon.</p>
+<p>It is worth noting that various activities started and stopped while I was delayed my login. In an immediate logon they would not be included as they are configured to run after the Windows startup process. The longest delay was for Adobe Flash Player Update Service which ran 900 seconds (15 minutes) after Services Autostart ended.</p>
+<p><strong>ReadyBoot</strong>, the Windows startup prefetcher (prefetch gets items before they are needed), optimizes the loading of Windows components from disk drives. ReadyBoot uses the easily-confused ReadyBoost caching driver. These are turned off if your disk drive is fast enough, for example, if it is a solid-state drive (SSD). In the example, ReadyBoot in delayed logon runs from 2.1 to 102 seconds, finishing just before Session Initialization. It runs slightly longer at 105 seconds for immediate logon because there are more activities running at the same time.</p>
+<p> </p>
+<!-- #### END: Startup components #### --><!-- #### BEGIN: FAQs #### -->
+<h2 class="header1">
+	<a id="FAQ" name="FAQ"></a>FAQ: Answers to more questions about Windows startup</h2>
+<h3>
+	Where does the kernel run?</h3>
+<p>The kernel mode runs in the system process On every started Windows system there are two permanent processes that must be running:</p>
+<ul>
+	<li>
+		Idle is always process 0 which is used when the processor has nothing to process</li>
+	<li>
+		System is always process 4 which includes most of the kernel mode threads and only kernel-mode subsystems. This process owns all system threads but take note that device drivers can create system threads in any process.</li>
+</ul>
+<h3>
+	Why can't I find a service?</h3>
+<p>Services can have three different names which can confuse you:</p>
+<ul>
+	<li>
+		The process name which is most visible</li>
+	<li>
+		The registry name which is used internally</li>
+	<li>
+		The display name visible in the Services Administration Tool. If this is blank then it defaults to the registry name.</li>
+</ul>
+<h3>
+	How does running with lower privileges affect startup?</h3>
+<p>The answer to this question will be added in a later update.</p>
+<h3>
+	What difference does the Windows edition make to startup?</h3>
+<p>Remember this article only looks at Windows 7.</p>
+<h4>
+	Client versus server versions</h4>
+<p>Desktops need fast desktop response times so interactive users are not waiting. Whereas servers generally need high performance for the applications but have little need to respond quickly to interactive users. That's why desktop and server versions are optimized differently and have different specifications particularly the limits for CPUs, memory and storage.</p>
+<p>You can determine the edition by looking in the registry to see some of the supported features. The product policy details are a copy of Tokens.dat.</p>
+<p>HKLM\System\CurrentControlSet\Control\ProductOptions\ProductType =<br />
+	Client, WINNT<br />
+	ServerL ServerNT, LANMan.NT</p>
+<p> </p>
+<!-- #### END: FAQs #### --><!-- #### BEGIN: Related Links #### -->
+<h2 class="header1">
+	Related Links</h2>
+<ul>
+	<li>
+		<a href="windows-7-startup-detail.htm" target="_blank">Windows 7 Startup Detail</a> is a companion article that provides a detailed example of the startup steps for each component.</li>
+	<li>
+		<a href="windows-startup-terminology.htm" target="_blank" title="Read this article first">Windows Startup Terminology</a> summarises terms that are used in this article. The terms generally relate to running programs so there is section on how programs start and run.</li>
+	<li>
+		<a href="windows-7-components-startup.htm" target="_blank" title="Components started when Windows starts">Windows 7 Startup Components</a> presents three main diagrams that illustrate the components of Windows: kernel mode system processes, user mode application support, and user-mode system processes.</li>
+	<li>
+		<a href="what-everybody-should-know-about-windows-registry.htm" target="_blank" title="A basic overview of the registry features">What Everybody Should Know About the Windows Registry</a></li>
+</ul>
+<p>Microsoft references:</p>
+<ul>
+	<li>
+		The <a href="http://technet.microsoft.com/en-us/sysinternals/bb963901" target="_blank" title="Microsoft book description">Windows Internals</a> book doesn't specifically look at Windows startup but it does look at the mechanisms involved in many aspects of startup. The 6th Edition looks at Windows 7 and the two volumes are cheap at the moment because the next edition which covers Windows 8 should be available later in 2014.</li>
+</ul>
+<p><a href="workspace-remah.htm#article-top">Back to the top of the article.</a></p>
+<p> </p>
+</div></div></div><section class="field field-name-field-vote field-type-fivestar field-label-above view-mode-full"><h2 class="field-label">Please rate this article:&nbsp;</h2><div class="field-items"><div class="field-item even"><form class="fivestar-widget" action="workspace-remah.htm" method="post" id="fivestar-custom-widget" accept-charset="UTF-8"><div><div  class="clearfix  fivestar-combo-text fivestar-combo-stars fivestar-form-item fivestar-oxygen"><div class="form-item form-type-fivestar form-item-vote">
+ <div class="form-item form-type-select form-item-vote">
+ <select id="edit-vote--2" name="vote" class="form-select"><option value="-">Select rating</option><option value="20">Give workspace-remah 1/5</option><option value="40">Give workspace-remah 2/5</option><option value="60">Give workspace-remah 3/5</option><option value="80">Give workspace-remah 4/5</option><option value="100">Give workspace-remah 5/5</option><option value="0" selected="selected">Cancel rating</option></select>
+<div class="description"><div class="fivestar-summary fivestar-summary-user"><span class="user-rating">Your rating: <span>None</span></span></div></div>
+</div>
+<div class="fivestar-static-form-item"><div class="form-item form-type-item">
+  <div class="fivestar-oxygen"><div class="fivestar-widget-static fivestar-widget-static-vote fivestar-widget-static-5 clearfix"><div class="star star-1 star-odd star-first"><span class="on">5</span></div><div class="star star-2 star-even"><span class="on"></span></div><div class="star star-3 star-odd"><span class="on"></span></div><div class="star star-4 star-even"><span class="on"></span></div><div class="star star-5 star-odd star-last"><span class="on"></span></div></div></div>
+<div class="description"><div class="fivestar-summary fivestar-summary-average-count"><span class="average-rating">Average: <span >5</span></span> <span class="total-votes">(<span >2</span> votes)</span></div></div>
+</div>
+</div>
+</div>
+</div><input class="fivestar-submit form-submit" type="submit" id="edit-fivestar-submit" name="op" value="Rate" /><input type="hidden" name="form_build_id" value="form-Up8Qkyy-zIwsPacBCdby5DIpBZmA7al6qOGTRUnbkDc" />
+<input type="hidden" name="form_id" value="fivestar_custom_widget" />
+</div></form></div></div></section><div class="likebtn_container"><!-- LikeBtn.com BEGIN -->
+<span class="likebtn-wrapper" data-identifier="node_3299" data-engine="drupal"  data-engine_v="7.80"  data-plugin_v="1.12"  data-item_url="https://www.techsupportalert.com/node/3299"  data-item_title="workspace-remah"  data-item_date="2011-07-12T20:29:58+00:00" ></span>
+<script type="text/javascript">if (typeof(LikeBtn) != "undefined") { LikeBtn.init(); }</script>
+<!-- LikeBtn.com END --></div>  </div>
+
+      <nav class="clearfix"><ul class="links inline"><li class="print_html first last"><a href="https://www.techsupportalert.com/print/content/workspace-remah.htm" title="Display a printer-friendly version of this page." class="print-page" rel="nofollow"><img class="print-icon print-icon-margin image-style-none" src="../sites/all/modules/print/icons/print_icon.png" width="16px" height="16px" alt="Printer-friendly version" title="Printer-friendly version" />Printer-friendly version</a></li></ul></nav>
+  
+  
+  </article>
+</div>
+</div></div>
+</section>
+<div class="region region-content-aside"><div class="region-inner clearfix"><div id="block-block-72" class="clearfix block block-block no-title odd first block-count-7 block-region-content-aside block-72">
+<a href="workspace-remah.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+
+<script>
+var signedin = 'Notsignedin';
+if (signedin == "Notsignedin") {
+if (screen.width > 480) {
+document.write('<scr' + 'ipt data-cfasync="false" type="text/javascript" src="//p425764.clksite.com/adServe/banners?tid=425764_834678_3"></scr' + 'ipt>');
+} else {
+document.write('<scr' + 'ipt data-cfasync="false" type="text/javascript" src="//p425764.clksite.com/adServe/banners?tid=425764_834678_4"></scr' + 'ipt>');
+}
+}
+</script>
+</div>
+</div><div id="block-block-47" class="clearfix block block-block even block-count-8 block-region-content-aside block-47">
+<a href="workspace-remah.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Gizmo&#039;s Freeware Featured Articles</h2>
+<div class="content" class="block-content content">
+<div class="index-block">
+<div>
+		<a href="../best-free-anti-virus-software.htm"><span class="fa fa-shield fa-3x fa-fw" style="color: #DC143C;"> </span><span>Best Free Antivirus</span></a></div>
+<div>
+		<a href="https://www.techsupportalert.com/free-books-kindle"><span class="fa fa-book fa-3x fa-fw" style="color: #00FF00;"> </span><span>Free Kindle Books</span></a></div>
+<div>
+		<a href="best-vpn-services.htm"><span class="fa fa-lock fa-3x fa-fw" style="color: #0000CD;"> </span><span>Best Paid VPN Service</span></a></div>
+<div>
+		<a href="best-free-antivirus-app-android.htm"><span class="fa fa-shield fa-3x fa-fw" style="color: #B22222;"> </span><span>Best Free Antivirus for Android</span></a></div>
+<div>
+		<a href="../best-free-dvd-ripper.htm"><span class="fa fa-file-video-o fa-3x fa-fw" style="color: #2F4F4F;"> </span><span>Best Free DVD Ripper</span></a></div>
+<div>
+		<a href="../best-free-live-wallpapers-android.htm"><span class="fa fa-android fa-3x fa-fw" style="color: green;"> </span><span>Best Free Live Wallpaper for Android</span></a></div>
+</div>
+<p style="clear:both;"> </p>
+</div>
+</div><div id="block-block-31" class="clearfix block block-block no-title odd last block-count-9 block-region-content-aside block-31">
+<a href="workspace-remah.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div style="border-top: 1px solid #999999; border-bottom: 1px solid #999999; padding: 8px;">
+<p style="font-size: 14px; font-weight: bold;">Gizmo's Freeware is Recruiting</p>
+<p><img alt="Gizmos Needs You" src="../files/images/logos/Gizmos-Freeware-63-84.png" style="width: 63px; height: 84px; float: left; padding: 0px 8px 8px 0px;" />We are looking for people with skills or interest in the following areas:<br />
+		 -  Mobile Platform App Reviews for Android and iOS<br />
+		 -  Windows, Mac and Linux software reviews</p>
+<p><strong>Interested?</strong> <a href="../we-need-you.htm">Click here</a></p>
+</div>
+<p> </p>
+</div>
+</div></div></div></div>
+</div>
+<div class="region region-sidebar-second sidebar"><div class="region-inner clearfix"><div id="block-block-75" class="clearfix block block-block no-title odd first block-count-10 block-region-sidebar-second block-75">
+<a href="workspace-remah.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div id="rc-widget-23b966" data-rc-widget data-widget-host="habitat" data-endpoint="//trends.revcontent.com" data-widget-id="181303"></div>
+<script type="text/javascript" src="https://assets.revcontent.com/master/delivery.js" defer="defer"></script></div>
+</div><div id="block-block-22" class="clearfix block block-block even block-count-11 block-region-sidebar-second block-22">
+<a href="workspace-remah.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Best Freeware Lists</h2>
+<div class="content" class="block-content content">
+<div class="content" class="block-content content">
+<style type="text/css">
+.swlist-sidebar a {display:block; width:100%; margin-top:8px; min-height:36px;}
+.swlist-sidebar span.fa, span.fa-stack {height:28px; padding:4px 8px 4px 8px; width:28px; text-align:center; float:left;}
+.swlist-sidebar span.swtitle-sidebar {display:table-cell; height:36px; vertical-align: middle;}
+.swlist-sidebar div {display:table-row;}
+</style>
+<div class="swlist-sidebar">
+<div><a href="../software-finder"><span class="fa fa-search fa-2x" style="color: #4b5cc3;"></span> <span class="swtitle-sidebar">Search with Software Finder</span></a></div>
+<div><a href="../best-free-windows-desktop-software.htm"><span class="fa fa-windows fa-2x" style="color: #70c0f0;"></span> <span class="swtitle-sidebar">Windows Desktop Software</span></a></div>
+<div><a href="../best-free-windows-apps.htm"> <span class="fa fa-windows fa-2x" style="color: #70c0f0;"></span> <span class="swtitle-sidebar">Windows Apps</span></a></div>
+<div><a href="../best-free-portable-programs.htm"> <span class="fa fa-check-square-o fa-2x" style="color: #70c0f0;"></span> <span class="swtitle-sidebar">Windows Portable Apps</span></a></div>
+<div><a href="best-free-software-mac-os.htm"> <span class="fa fa-apple fa-2x" style="color: #1653a8;"></span> <span class="swtitle-sidebar">Mac Software</span></a></div>
+<div><a href="best-free-software-linux.htm"> <span class="fa fa-linux fa-2x" style="color: #404040;"></span> <span class="swtitle-sidebar">Linux Software</span></a></div>
+<div><a href="../best-free-android-apps.htm"> <span class="fa fa-android fa-2x" style="color: #a2c43b;"></span> <span class="swtitle-sidebar">Android Apps</span></a></div>
+<div><a href="../best-free-ipad-apps.htm"> <span class="fa fa-tablet fa-2x" style="color: #404040;"></span> <span class="swtitle-sidebar">iPad Apps</span></a></div>
+<div><a href="../best-free-iphone-apps.htm"> <span class="fa fa-mobile fa-2x" style="color: #404040;"></span> <span class="swtitle-sidebar">iPhone Apps</span></a></div>
+<div><a href="best-free-online-applications-and-services.htm"> <span class="fa fa-globe fa-2x" style="color: #006600;"></span> <span class="swtitle-sidebar">Online Apps</span></a></div>
+<div><a href="https://www.techsupportalert.com/content/50-places-free-books-online.htm"> <span class="fa fa-book fa-2x" style="color: #990000;"></span> <span class="swtitle-sidebar">eBooks /Audiobooks</span></a></div>
+<div><a href="probably-best-free-security-list-world.htm"> <span class="fa fa-exclamation-triangle fa-2x" style="color: #FF3300;"></span> <span class="swtitle-sidebar">Security Software</span></a></div>
+</div>
+<div style="clear:both;">&nbsp;</div>
+</div>
+<style type="text/css">
+.imgContainer{float:left;}
+</style>
+<p><strong>Support Gizmo's Freeware By</strong></p>
+<div>
+    <div class="imgContainer"><a href="../donate.htm"><img src="../files/images/aa/Donating-125-350e.png" height="auto" width="125"/></a></div>
+    <div class="imgContainer"><a href="../become-a-reviewer.htm"><img class="middle-img" src="../files/images/aa/Reviewing-125-350e.png" style="margin-left:2px;" height="auto" width="125"/></a></div>
+</div>
+<div style="clear:both;"></div></div>
+</div><div id="block-block-61" class="clearfix block block-block odd block-count-12 block-region-sidebar-second block-61">
+<a href="workspace-remah.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Get Notified of New Finds</h2>
+<div class="content" class="block-content content">
+<div>
+   <p>
+      <!-- <a href="http://feedburner.google.com/fb/a/mailverify?uri=gizmosbest" title="Subscribe to email..."><i class="fa fa-envelope fa-3x" style="color: #00cc99;"></i></a>&nbsp; -->
+      <a href="http://feeds.feedburner.com/gizmosbest" title="Go to our RSS feeds..."><i class="fa fa-rss-square fa-3x" style="color: #ffb300;"></i></a>&nbsp;
+      <a href="http://www.facebook.com/pages/Gizmos-Freeware/114026985301900" title="Follow us on Facebook..."><i class="fa fa-facebook-square fa-3x" style="color: #3b5889;"></i></a>&nbsp;
+      <a href="http://twitter.com/GizmosFreeware" title="Follow us on Twitter..."><i class="fa fa-twitter-square fa-3x" style="color: #55acee;"></i></a>
+   </p>
+</div>
+<style>
+#block-block-61 { text-align:center; }
+#block-block-61 a { display:inline-block; }
+#block-block-61 a.dropdown-toggle { display: none; }
+#block-block-61 .content{
+   background:#f9f9f9;
+   padding: 10px 10px 5px 10px;
+   margin-top: 10px;
+   margin-right:10px;
+   -webkit-border-radius: 12px;
+   -moz-border-radius: 12px;
+   border-radius: 12px;
+   border:1px solid #ccc;
+}
+#block-block-61 h3 { margin:10px 0; }
+</style>
+
+<div id="right-slidead-popup" style="display:block;">
+   <form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=gizmosbest', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+      <p class="bold-text">Get notified by email of our latest finds:</p>
+      <p><input type="text" style="width:120px" placeholder="Enter email" name="email">
+         <input type="hidden" value="gizmosbest" name="uri">
+         <input type="hidden" name="loc" value="en_US">
+         <input type="submit" value="Subscribe">
+      </p>
+   </form>
+</div>
+</div><div id="block-views-5c6f20eccafaaae472f19682f8491590" class="clearfix block block-views even block-count-13 block-region-sidebar-second block-5c6f20eccafaaae472f19682f8491590">
+<a href="workspace-remah.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Currently Popular</h2>
+<div class="content" class="block-content content">
+<div class="view view-currently-popular-customized view-id-currently_popular_customized view-display-id-block_1 curr-pop view-dom-id-11c7cbcf9397fa0bf41c39172802fb9b">
+<div class="view-content">
+<table  class="views-table cols-0">
+       <tbody>
+          <tr  class="odd views-row-first">
+                  <td  class="views-field views-field-title">
+            <a href="best-free-software-linux.htm">Best Free Software for Linux</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="../es/mejores-aplicaciones-y-servicios-gratuitos-online.htm">Mejores Aplicaciones y Servicios Gratuitos Online</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="mejor-software-gratuito-de-64-bits-para-windows-7vista.htm">Mejor Software Gratuito para Windows de 64 bits</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="time-say-farewell.htm">Time to Say Farewell</a>          </td>
+              </tr>
+          <tr  class="odd views-row-last">
+                  <td  class="views-field views-field-title">
+            <a href="../es/mejor-software-para-linux-gratuito.htm">Mejor Software para Linux Gratuito</a>          </td>
+              </tr>
+      </tbody>
+</table>
+</div>
+
+<div class="more-link">
+  <a href="../currently-popular-customized.htm">
+    more  </a>
+</div>
+</div>
+</div>
+</div><div id="block-views-articles-by-user-block-1" class="clearfix block block-views odd last block-count-14 block-region-sidebar-second block-articles-by-user-block-1">
+<a href="workspace-remah.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Top Rated</h2>
+<div class="content" class="block-content content">
+<div class="view view-articles-by-user view-id-articles_by_user view-display-id-block_1 view-currently-popular-customized more-link curr-pop view-dom-id-00a1c5282c38f25385cb03941559864f">
+<div class="view-content">
+<table  class="views-table cols-1">
+         <thead>
+      <tr>
+                  <th  class="views-field views-field-title" scope="col">
+            <a href="https://www.techsupportalert.com/content/workspace-remah.htm?order=title&amp;sort=asc" title="sort by " class="active"></a>          </th>
+              </tr>
+    </thead>
+    <tbody>
+          <tr  class="odd views-row-first">
+                  <td  class="views-field views-field-title">
+            <a href="create-your-own-blob-opera-google-s-new-musical-experiment.htm">Create Your Own “Blob Opera” with Google’s New Musical Experiment</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="amazing-act-generosity.htm">An Amazing Act of Generosity</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="jpg-optimizer-works-entirely-your-browser.htm">This JPG Optimizer Works Entirely in Your Browser</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="instantly-add-color-black-and-white-photos-image-colorizer.htm">Instantly Add Color to Black and White Photos with Image Colorizer</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="fond-farewell-me.htm">A Fond Farewell From Me</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="get-authoritative-answers-all-your-questions-online-encyclopedia.htm">Get Authoritative Answers to All Your Questions With This Online Encyclopedia</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="rain-alarm-be-notified-approaching-rain-or-snow.htm">Rain Alarm - Be Notified of Approaching Rain or Snow</a>          </td>
+              </tr>
+          <tr  class="even views-row-last">
+                  <td  class="views-field views-field-title">
+            <a href="get-easy-access-frequently-used-symbols-not-your-keyboard.htm">Get Easy Access to Frequently Used Symbols Not on Your Keyboard</a>          </td>
+              </tr>
+      </tbody>
+</table>
+</div>
+
+<div class="more-link">
+  <a href="https://www.techsupportalert.com/articles-user">
+    more  </a>
+</div>
+</div>
+</div>
+</div></div></div></div>
+</div>
+<footer id="footer" role="contentinfo">
+<div id="footer-inner" class="clearfix">
+<div class="region region-footer"><div class="region-inner clearfix"><div id="block-block-3" class="clearfix block block-block no-title odd first last block-count-15 block-region-footer block-3">
+<a href="workspace-remah.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<p class="rtecenter"><a href="../terms-and-conditions.htm">Terms &amp; Conditions</a> | <a href="https://www.techsupportalert.com/privacy-policy.htm">Privacy Policy</a> | <a href="contact-us.htm">Contact</a> | <a href="../about-this-site">About</a></p>
+</div>
+</div></div></div><p class="attribute-creator"></p>
+</div>
+</footer>
+</div>
+</div>
+<style type="text/css">.invis{visibility:hidden;display:none}.vis{visibility:visible;display:inline}#more{display:none}#show,#hide{text-decoration:none;cursor:pointer;color:#3452c9;font-weight:bold;padding-left:20px}#show{background:transparent url(../files/images/icons/down.png) no-repeat left}#hide{background:transparent url(../files/images/icons/up.png) no-repeat left}select.dropdown{border:1px solid #cbcec3;background-color:#f2f6f9;font-size:1.1em;height:2em}select.dropdown-width{width:50%}@media only screen and (max-width:1024px){select.dropdown-width{width:100%}}span.cat-title{height:58px;display:table;font-size:1.3em;font-weight:bold}span.vert-align{display:table-cell;vertical-align:middle}img.cat-icon{width:82px;height:58px;float:left;padding-right:15px}.show-more{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:120px;padding:0 4px 0 4px}.show-review{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:120px;padding:0 4px 0 4px}.show-comments{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#eef0f8;border:1px solid #009;border-radius:2px;width:140px;padding:4px 8px 4px 8px}.gizmoslist-button{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:130px;padding:0 4px 0 4px}.gizmoslist-button:hover{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#e8e8e8;border:1px solid #999;border-radius:2px;width:130px;padding:0 4px 0 4px}</style>
+<script language="javascript" type="text/javascript">/*<![CDATA[*/var cn="invis";var ids=new Array("pg01","pg02","pg03","pg04","pg05","pg06","pg07","pg08","pg09","pg10","pg11","pg12");function doSwap(){cn=="vis"?cn="invis":cn="vis";for(var a=0;a<ids.length;a++){document.getElementById(ids[a]).className=cn}}jQuery(document).ready(function(){jQuery("#page_select").bind("change",function(){var a=jQuery(this).val();if(a){window.location.replace(a)}return false});jQuery("#category_select").bind("change",function(){var a=jQuery(this).val();if(a){window.location=a}return false})});jQuery(document).ready(function(){jQuery(".hidden").hide();jQuery(".show-more").html("Show more...");jQuery(".show-review").html("Show review...");jQuery(".show-comments").html("Hide Comments...");jQuery(".toggle").click(function(){jQuery("#show").toggle();jQuery("#more").toggle()});jQuery(".show-more").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).prev().slideUp();jQuery(this).removeClass("clicked");jQuery(this).html("Show more...")}else{jQuery(this).addClass("clicked");jQuery(this).prev().slideDown();jQuery(this).html("...Show less")}});jQuery(".show-review").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).prev().slideUp();jQuery(this).removeClass("clicked");jQuery(this).html("Show review...")}else{jQuery(this).addClass("clicked");jQuery(this).prev().slideDown();jQuery(this).html("...Hide review")}});jQuery(".show-comments").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).next().slideDown();jQuery(this).removeClass("clicked");jQuery(this).html("Hide Comments...")}else{jQuery(this).addClass("clicked");jQuery(this).next().slideUp();jQuery(this).html("Show Comments...")}})});jQuery(document).ready(function(){var a=jQuery("[rel~=tooltip]"),c=false,b=false,d=false;a.bind("mouseenter",function(){c=jQuery(this);tip=c.attr("title");b=jQuery('<div id="tooltip"></div>');if(!tip||tip==""){return false}c.removeAttr("title");b.css("opacity",0).html(tip).appendTo("body");var f=function(){if(jQuery(window).width()<b.outerWidth()*1.5){b.css("max-width",jQuery(window).width()/2)}else{b.css("max-width",340)}var g=c.offset().left+(c.outerWidth()/2)-(b.outerWidth()/2),h=c.offset().top-b.outerHeight()-20;if(g<0){g=c.offset().left+c.outerWidth()/2-20;b.addClass("left")}else{b.removeClass("left")}if(g+b.outerWidth()>jQuery(window).width()){g=c.offset().left-b.outerWidth()+c.outerWidth()/2+20;b.addClass("right")}else{b.removeClass("right")}if(h<0){var h=c.offset().top+c.outerHeight();b.addClass("top")}else{b.removeClass("top")}b.css({left:g,top:h}).animate({top:"+=10",opacity:1},50)};f();jQuery(window).resize(f);var e=function(){b.animate({top:"-=10",opacity:0},50,function(){jQuery(this).remove()});c.attr("title",tip)};c.bind("mouseleave",e);b.bind("click",e)})});/*]]>*/</script>   <script type="text/javascript" src="https://s.skimresources.com/js/91960x1545845.skimlinks.js"></script>
+<script type="text/javascript" src="../files/advagg_js/js__TMbgkTyBUQQ_HgBfUgRbT7qnkhUF67VaeCPrRurSSyQ__R579VV3CWa_6pCbnNdQK0EGL-QIicH7Gtzh0Mu2GPDY__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var switchTo5x = true;var __st_loadLate = true;var useFastShare = 0;
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+if (typeof stLight !== 'undefined') { stLight.options({"publisher":"dr-cb3fca8f-ba75-779c-5a90-b433fac7efb0","version":"5x","newOrZero":"zero","shorten":"false","servicePopup":true,"lang":"en"}); }
+//--><!]]>
+</script>
+<script type="text/javascript" src="../files/advagg_js/js__8q4Ri8u0Oy1si5uwfNTlks0A6nMFTDjDszJiNP4i5uA__tV1Gvr51dciEodFNuAL3X5GplamBbcIkiRUEhk_oOdE__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(d, e, s) {a = d.createElement(e);m = d.getElementsByTagName(e)[0];a.async = 1;a.src = s;m.parentNode.insertBefore(a, m)})(document, 'script', '//w.likebtn.com/js/w/widget.js'); if (typeof(LikeBtn) != "undefined") { LikeBtn.init(); }
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var skimlinks_domain = "exit.techsupportalert.com";
+//--><!]]>
+</script>
+</body>
+</html>

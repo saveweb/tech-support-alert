@@ -1,0 +1,2467 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en" dir="ltr"><!--<![endif]-->
+<head>
+   <!--[if IE]><![endif]-->
+<meta charset="utf-8" />
+<meta name="description" content="This article provides a detailed example of the phases in an actual Windows 7 startup including registry entries" />
+<link rel="shortcut icon" href="../sites/all/themes/gizmoslist/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Want to follow a detailed example of what happens when Windows starts? In this article you will find the following detail about Windows startup: Descriptions of the major components. Detailed sequences of activities for each process. Example registry keys and values. This article is a companion to the Windows 7 Startup article which covers background material and an overview" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="windows-7-startup-detail.htm" />
+<link rel="shortlink" href="https://www.techsupportalert.com/node/9077" />
+<meta property="og:site_name" content="Gizmo&#039;s Freeware" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Windows 7 Startup Detail" />
+<meta property="og:url" content="http://www.techsupportalert.com/content/windows-7-startup-detail.htm" />
+<meta property="og:description" content="Want to follow a detailed example of what happens when Windows starts? In this article you will find the following detail about Windows startup: Descriptions of the major components. Detailed sequences of activities for each process. Example registry keys and values. This article is a companion to the Windows 7 Startup article which covers background material and an overview diagram of the main startup sequence. Caveats Here I include the caveats which are a duplicate of those in the main article: The articles are always going to be an overview rather than a complete description." />
+<meta property="og:updated_time" content="2019-06-14T21:06:06+00:00" />
+<meta property="og:image" content="https://www.techsupportalert.com/files/windows-7-logo.jpg" />
+<meta property="og:image:url" content="https://www.techsupportalert.com/files/styles/large/public/windows-7-logo.jpg?itok=E8En8B6n" />
+<meta property="article:published_time" content="2017-06-16T14:56:00+00:00" />
+<meta property="article:modified_time" content="2019-06-14T21:06:06+00:00" />
+   <title>Windows 7 Startup Detail | Gizmo's Freeware</title>
+   <link type="text/css" rel="stylesheet" href="../files/advagg_css/css__K1Zxkb7B9uRMTvKGWwqJbpPSUxPwhcczKcp6degok28__HeSIUBSByKemgY9AJL8p07c1i2IHEDyYO6cKTWBN3Pw__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.css" media="all" />
+
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="https://www.techsupportalert.com/files/advagg_css/css__I8Q7DkdK2zJceaJBCwEwz0vYYbloOjCrssUsWAaHyIM__qjMhJvPdluz-vOJRX3dztEqH8G31Y32rQ_NKwUhoC1Y__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.css" media="screen" />
+<![endif]-->
+   <!--[if lt IE 9]>
+   <link rel=stylesheet type=text/css href=/sites/all/themes/gizmoslist/css/ie7-and-down.css />
+   <![endif]-->
+   <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript" src="../files/advagg_js/js__B1KiKqJbKO-n3ZXTCs35IBdGFYs11f-fUM6Y72B9wEg__5zx4JiTNwUOifd--hiFOiQb-OZHPEiMORfGWeCF9Yyk__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.techsupportalert.com/files/googleanalytics/analytics.js?qv3qpt","ga");ga("create", "UA-279220-2", {"cookieDomain":"auto"});ga("require", "linkid", "linkid.js");ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"gizmoslist","theme_token":"vyGZRtxw0AWk-jkXWLnawNFK2Y5ZWGmHjYmmYAyWOmU","jquery_version":"1.7","css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/aggregator\/aggregator.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/google_cse\/google_cse.css":1,"modules\/node\/node.css":1,"modules\/poll\/poll.css":1,"modules\/search\/search.css":1,"sites\/all\/modules\/slidead\/slidead.css":1,"modules\/user\/user.css":1,"modules\/forum\/forum.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/comment_notify\/comment_notify.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/panels\/css\/panels.css":1,"sites\/all\/modules\/print\/print_ui\/css\/print_ui.theme.css":1,"public:\/\/spamicide\/user_pw.css":1,"sites\/all\/modules\/fivestar\/css\/fivestar.css":1,"sites\/all\/modules\/fivestar\/widgets\/oxygen\/oxygen.css":1,"sites\/all\/libraries\/superfish\/css\/superfish.css":1,"sites\/all\/libraries\/superfish\/css\/superfish-navbar.css":1,"sites\/all\/libraries\/superfish\/style\/graphite.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.settings.style.headings.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.settings.style.image.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.layout.css":1,"sites\/all\/themes\/gizmoslist\/color\/colors.css":1,"sites\/all\/themes\/pixture_reloaded\/css\/pixture_reloaded.css":1,"sites\/all\/themes\/pixture_reloaded\/css\/pixture_reloaded.settings.style.css":1,"sites\/all\/themes\/gizmoslist\/css\/styles.custom.css":1,"sites\/all\/themes\/gizmoslist\/generated_files\/gizmoslist.custom.css":1,"sites\/all\/themes\/gizmoslist\/fonts\/gizmoslogo\/gizmoslogo.css":1,"sites\/all\/themes\/gizmoslist\/fonts\/font-awesome\/font-awesome.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.responsive.layout.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.fonts.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.responsive.styles.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.lt-ie9.layout.css":1},"js":{"\/\/s.skimresources.com\/js\/91960x1545845.skimlinks.js":1,"sites\/all\/modules\/google_cse\/google_cse.js":1,"sites\/all\/modules\/slidead\/slidead.js":1,"sites\/all\/modules\/comment_notify\/comment_notify.js":1,"sites\/all\/themes\/gizmoslist\/script\/bootstrap.min.js":1,"sites\/all\/themes\/gizmoslist\/script\/enscroll-0.4.0.min.js":1,"sites\/all\/themes\/gizmoslist\/script\/script.js":1,"sites\/all\/modules\/adsense\/contrib\/adsense_click\/adsense_click.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"misc\/progress.js":1,"sites\/all\/modules\/fivestar\/js\/fivestar.ajax.js":1,"sites\/all\/modules\/fivestar\/js\/fivestar.js":1,"sites\/all\/libraries\/superfish\/supposition.js":1,"sites\/all\/libraries\/superfish\/superfish.js":1,"sites\/all\/modules\/superfish\/superfish.js":1,"https:\/\/ws.sharethis.com\/button\/buttons.js":1,"sites\/all\/modules\/jquery_update\/replace\/jquery\/1.7\/jquery.min.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery-html-prefilter-3.5.0-backport.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/all\/modules\/jquery_update\/replace\/misc\/jquery.form.min.js":1,"misc\/ajax.js":1,"sites\/all\/modules\/jquery_update\/js\/jquery_update.js":1}},"googleCSE":{"cx":"partner-pub-4337260311855789:5365410881","language":"","resultsWidth":400,"domain":"www.google.com","showWaterMark":true},"slideAd":{"width":"300"},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"},"urlIsAjaxTrusted":{"\/search\/node":true,"\/content\/windows-7-startup-detail.htm":true,"\/content\/windows-7-startup-detail.htm?destination=node\/9077":true,"\/system\/ajax":true},"superfish":{"1":{"id":"1","sf":{"animation":{"opacity":"show","height":"show"},"speed":"\u0027fast\u0027","autoArrows":false,"dropShadows":true,"disableHI":false},"plugins":{"supposition":true,"bgiframe":false}}},"ajax":{"edit-vote--2":{"callback":"fivestar_ajax_submit","event":"change","url":"\/system\/ajax","submit":{"_triggering_element_name":"vote"}}},"adaptivetheme":{"gizmoslist":{"layout_settings":{"bigscreen":"three-col-grail","tablet_landscape":"three-col-grail","tablet_portrait":"one-col-vert","smalltouch_landscape":"one-col-vert","smalltouch_portrait":"one-col-stack"},"media_query_settings":{"bigscreen":"only screen and (min-width:1025px)","tablet_landscape":"only screen and (min-width:769px) and (max-width:1024px)","tablet_portrait":"only screen and (min-width:481px) and (max-width:768px)","smalltouch_landscape":"only screen and (min-width:321px) and (max-width:480px)","smalltouch_portrait":"only screen and (max-width:320px)"}}}});
+//--><!]]>
+</script>
+   <!--[if lt IE 9]>
+<script src="https://www.techsupportalert.com/sites/all/themes/adaptivetheme/at_core/scripts/html5.js?qv3qpt"></script>
+<![endif]-->
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" /> <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script> <script> window.addEventListener("load", function(){ window.cookieconsent.initialise({ "palette": { "popup": { "background": "#edeff5", "text": "#838391" }, "button": { "background": "#4b81e8" } } })}); </script>
+   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+   <script data-ad-client="ca-pub-1584315025436785" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+   <meta name="wot-verification" content="22efc80013d585910ca0"/>
+   <meta name="propeller" content="3dda2330fd32fcfca29de21325f076f3">
+</head>
+
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-9077 node-type-article site-name-hidden site-name-gizmoamp039s-freeware section-content color-scheme-custom gizmoslist bs-n bb-n mb-dd mbp-l rc-0">
+   <div id=skip-link class=nocontent><a href="windows-7-startup-detail.htm#main-content" class="element-invisible element-focusable">Skip to main content</a></div>
+      <div class="texture-overlay">
+<div id="page" class="container page ssc-n ssw-n ssa-l sss-n btc-n btw-b bta-l bts-n ntc-n ntw-b nta-l nts-n ctc-n ctw-b cta-l cts-n ptc-n ptw-b pta-l pts-n">
+<header id="header" class="clearfix" role="banner" data-position="fixed">
+<div class="header-inner clearfix">
+<div id="mobile-menu">
+<span class="mobile-socialmenu">social</span>
+<span class="mobile-search">search</span>
+</div>
+<span id="mobile-nav">Menu</span>
+<div id="branding" class="branding-elements clearfix">
+<div id="logo">
+<a href="../index.html" title="Go to our home page..." class="active" style="text-decoration:none"><div class="icon-Final-freeware" style="color:#f0f0f0;font-size:68px;padding-bottom:8px"></div></a>
+</div>
+<div id="logomobile">
+<a href="../index.html" title="Go to our home page..." class="active" style="text-decoration:none"><div class="icon-Final-freeware" style="color:#f0f0f0;font-size:40px;padding-left:8px"></div></a>
+</div>
+<div id="name-and-slogan" class="element-invisible h-group" id="name-and-slogan">
+<h1 id="site-name" class="element-invisible" id="site-name"><a href="../index.html" title="Home page">Gizmo&#039;s Freeware</a></h1>
+</div>
+</div>
+<div class="region region-header"><div class="region-inner clearfix"><div id="block-block-58" class="clearfix block block-block no-title odd first block-count-1 block-region-header block-58">
+<a href="windows-7-startup-detail.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div id="header-middle"><a href="http://www.xmarks.com/site/www.techsupportalert.com/#r"><img alt="" src="../files/images/icons/_thumb_13506.png" /> </a><a href="http://www.pcmag.com/article2/0,2817,2367733,00.asp"> <img alt="" src="../files/images/icons/_thumb_13505.png" /></a></div>
+</div>
+</div><div id="block-block-57" class="clearfix block block-block no-title even block-count-2 block-region-header block-57">
+<a href="windows-7-startup-detail.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<p><a href="http://feeds.feedburner.com/gizmosbest" title="Go to our RSS feeds..."><i class="fa fa-rss-square fa-2x" style="color: #ffb300;"></i></a>&nbsp;&nbsp; <a href="http://feedburner.google.com/fb/a/mailverify?uri=gizmosbest" title="Subscribe to email..."><i class="fa fa-envelope fa-2x" style="color: #f0f0f0;"></i></a>&nbsp;&nbsp; <a href="http://www.facebook.com/pages/Gizmos-Freeware/114026985301900" title="Follow us on Facebook..."><i class="fa fa-facebook-square fa-2x" style="color: #d0d0ff;"></i></a>&nbsp;&nbsp; <a href="http://twitter.com/GizmosFreeware" title="Follow us on Twitter..."><i class="fa fa-twitter-square fa-2x" style="color: #70c0f0;"></i></a></p>
+</div>
+</div><div id="block-search-form" class="clearfix block block-search no-title odd block-count-3 block-region-header block-form" role="search">
+<a href="windows-7-startup-detail.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<form action="windows-7-startup-detail.htm" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="search" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-UXno_ns8MpJujXPPolvLp9CZMMm8bsCnKCWOEbPSq88" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form></div>
+</div><div id="block-user-login" class="clearfix block block-user even last block-count-4 block-region-header block-login" role="form">
+<a href="windows-7-startup-detail.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Login / Register</h2>
+<div class="content" class="block-content content">
+<form action="https://www.techsupportalert.com/content/windows-7-startup-detail.htm?destination=node/9077" method="post" id="user-login-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">Username <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-name" name="name" value="" size="15" maxlength="60" class="form-text required" />
+</div>
+<div class="form-item form-type-password form-item-pass">
+  <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" id="edit-pass" name="pass" size="15" maxlength="128" class="form-text required" />
+</div>
+<div class="item-list"><ul><li class="even first"><a href="../user/register" title="Create a new user account.">Create new account</a></li><li class="odd last"><a href="https://www.techsupportalert.com/user/password" title="Request new password via e-mail.">Request new password</a></li></ul></div><input type="hidden" name="form_build_id" value="form-k0nYutH4H8dArceXHcTKLyGFth5DC1zisajU_AxsZyk" />
+<input type="hidden" name="form_id" value="user_login_block" />
+<div class="edit-user-pw-wrapper"><div class="form-item form-type-textfield form-item-user-pw">
+  <label for="edit-user-pw">user pw </label>
+ <input type="text" id="edit-user-pw" name="user_pw" value="" size="20" maxlength="128" class="form-text" />
+<div class="description">Do not type anything in this box</div>
+</div>
+</div><div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Log in" class="form-submit" /></div></div></form></div>
+</div></div></div></div>
+</header>
+   <!-- Start: Ad blocker check
+   <style>#svCYxPorrige{display:none;margin-bottom:0px;padding:20px 10px;background:#D30000;text-align:center;font-weight:bold;color:#fff;border-radius: 0px;}</style>
+   <div id="svCYxPorrige">Oops, it looks like you are using an ad blocker.<br>We work hard to provide you our software news and we keep our ads non-intrusive.<br>Please support us keeping our content free by disabling your ad blocker.</div>
+   <script src="/ads.js" type="text/javascript"></script>
+   <script type="text/javascript">if(!document.getElementById('YzIkKlMbayUm')){document.getElementById('svCYxPorrige').style.display='block';}</script>
+   End: Ad blocker check -->
+<div id="menu-bar" class="nav clearfix"><div id="block-superfish-1" class="clearfix block block-superfish menu-wrapper menu-bar-wrapper clearfix odd first last block-count-5 block-region-menu-bar block-1">
+<a href="windows-7-startup-detail.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="element-invisible block-title" class="block-title">Main menu</h2>
+<div class="content" class="block-content content clearfix">
+<ul id="superfish-1" class="menu sf-menu sf-main-menu sf-navbar sf-style-graphite sf-total-items-12 sf-parent-items-5 sf-single-items-7"><li id="menu-175-1" class="first odd sf-item-1 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="../index.html" title="This site&#039;s home page" class="sf-depth-1 menuparent">Home</a><ul><li id="menu-13310-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../index.html" title="The front page of Gizmo&#039;s Freeware" class="sf-depth-2">Homepage</a></li><li id="menu-13306-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="../user/login" title="Login to Gizmos using your site account" class="sf-depth-2">Login</a></li><li id="menu-13307-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="../user" title="Login to Gizmos using your site account. Here you can change your password or store bookmarks" class="sf-depth-2">My account/Change PW</a></li><li id="menu-13309-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="../user/register" title="Create an account at Gizmos Freeware so you can post comments to articles and in the forum" class="sf-depth-2">Register</a></li></ul></li><li id="menu-12522-1" class="middle even sf-item-2 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="../windows" title="The Best Free Windows Programs" class="sf-depth-1 menuparent">Windows</a><ul><li id="menu-12538-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../windows" title="The best free Windows desktop software by category plus our Editors&#039; Choice selections" class="sf-depth-2">Desktop Software</a></li><li id="menu-12539-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="../best-free-windows-apps.htm" title="The best free Windows apps as selected by our editors" class="sf-depth-2">Windows Apps</a></li><li id="menu-12540-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="../best-free-portable-programs.htm" title="Our Editor&#039;s Choice Selections of the Best Free Portable Apps" class="sf-depth-2">Portable Apps</a></li><li id="menu-12541-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="../best-free-windows7-vista-64-bit-software.htm" title="Our Editor&#039;s selections of the best free Windows 64 bit software" class="sf-depth-2">Windows 64 bit Software</a></li></ul></li><li id="menu-12523-1" class="middle odd sf-item-3 sf-depth-1 sf-no-children"><a href="best-free-software-mac-os.htm" title="The Best Free Mac OS X Programs" class="sf-depth-1">Mac</a></li><li id="menu-12524-1" class="middle even sf-item-4 sf-depth-1 sf-no-children"><a href="../linux" title="The Best Free Linux Programs" class="sf-depth-1">Linux</a></li><li id="menu-12526-1" class="middle odd sf-item-5 sf-depth-1 sf-no-children"><a href="../android" title="The Best Free Android Apps" class="sf-depth-1">Android</a></li><li id="menu-12525-1" class="middle even sf-item-6 sf-depth-1 sf-no-children"><a href="../ios" title="The Best Free Apps for iPhone and iPad" class="sf-depth-1">iOS</a></li><li id="menu-13312-1" class="middle odd sf-item-7 sf-depth-1 sf-no-children"><a href="best-free-online-applications-and-services.htm" title="Best web based applications and services" class="sf-depth-1">Online Apps</a></li><li id="menu-9299-1" class="middle even sf-item-8 sf-depth-1 sf-no-children"><a href="../free-ebooks-audio-books-read-online-download.htm" title="Here&#039;s a list of dozens of articles on this showing you the best places to get free eBooks and Audio Books" class="sf-depth-1">eBooks</a></li><li id="menu-12530-1" class="middle odd sf-item-9 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="../view/hot_expanded" title="New and recently updated articles" class="sf-depth-1 menuparent">New</a><ul><li id="menu-3760-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../view/hot_expanded" title="The Most Recent Additions to Gizmo&#039;s Freeware" class="sf-depth-2">New Articles</a></li><li id="menu-3761-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="../tracker_updated_only" title="Articles we have recently revised or re-written" class="sf-depth-2">Recently Updated Articles</a></li><li id="menu-3759-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="https://www.techsupportalert.com/recent-comments" title="Comments on reviews and articles posted by our users" class="sf-depth-2">Recent Comments</a></li><li id="menu-105-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="../all-articles-by-rating" title="The articles our users have given the highest ratings" class="sf-depth-2">Highest Rated</a></li></ul></li><li id="menu-210-1" class="middle even sf-item-10 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent"><a href="../freeware-updates.htm" title="The latest freeware releases and news from 10 top freeware sites" class="sf-depth-1 menuparent">Resources</a><ul><li id="menu-9285-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../freeware-updates.htm" title="The latest product updates and news from the web&#039;s most popular download sites" class="sf-depth-2">News</a></li><li id="menu-12533-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="../view/tips" title="Handy Windows Tips and Tricks" class="sf-depth-2">Tips</a></li><li id="menu-14525-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="../videos.htm" title="Keep up to date with tech the easy way by watching these interesting videos" class="sf-depth-2">Tech videos</a></li><li id="menu-9287-1" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="../sec" title="Want to clean a malware infection from your computer? Want to keep it clean and safe in the future? Then check out these guides." class="sf-depth-2">Security Guides &amp; Articles</a></li><li id="menu-9286-1" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="../tutorials" title="Want to know how to do something? You may well find it here." class="sf-depth-2">How-to Guides &amp; Tutorials</a></li><li id="menu-9283-1" class="middle even sf-item-6 sf-depth-2 sf-no-children"><a href="best-freeware-download-sites.htm" title="The safest and most reliable places to download freeware" class="sf-depth-2">Best Download Sites</a></li><li id="menu-9284-1" class="last odd sf-item-7 sf-depth-2 sf-no-children"><a href="best-free-technical-support-sites.htm" title="Got a hardware or software problem? Try one of these free support sites" class="sf-depth-2">Best Tech Support Sites</a></li></ul></li><li id="menu-1139-1" class="middle odd sf-item-11 sf-depth-1 sf-no-children"><a href="https://www.techsupportalert.com/freeware-forum" title="Got a computer question to ask?  Then this is the place and it&#039;s 100% free." class="sf-depth-1">Forum</a></li><li id="menu-109-1" class="last even sf-item-12 sf-depth-1 sf-total-children-6 sf-parent-children-0 sf-single-children-6 menuparent"><a href="../about-this-site" class="sf-depth-1 menuparent">About</a><ul><li id="menu-12560-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../about-this-site" title="How this site started and what it attempts to achieve" class="sf-depth-2">About</a></li><li id="menu-12559-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="contact-us.htm" title="How to contact Gizmo&#039;s Freeware / Press" class="sf-depth-2">Contact</a></li><li id="menu-12552-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="../faq" title="Answers to the most common questions we get asked" class="sf-depth-2">FAQ</a></li><li id="menu-13311-1" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="../contribute" title="Several ways you can help this community website" class="sf-depth-2">Contribute</a></li><li id="menu-12554-1" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="../privacy_policy.htm" title="The Privacy Policy of the Gizmo&#039;s Freeware Website" class="sf-depth-2">Privacy Policy</a></li><li id="menu-12553-1" class="last even sf-item-6 sf-depth-2 sf-no-children"><a href="../terms-and-conditions.htm" title="These are the conditions we offer and you accept for the use of this site" class="sf-depth-2">Condition of Use</a></li></ul></li></ul></div>
+</div></div><div id="columns">
+<div class="columns-inner clearfix">
+<div id="content-column">
+<div class="content-inner">
+<section id="main-content" role="main">
+<header id="main-content-header" class="clearfix">
+<h1 id="page-title">Windows 7 Startup Detail</h1>
+</header>
+<div id="content">
+
+
+<div id="block-system-main" class="clearfix block block-system no-title odd first last block-count-6 block-region-content block-main">
+<a href="windows-7-startup-detail.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<article id="node-9077" class="node node-article article odd node-full ia-n clearfix" role="article">
+  
+  
+      <footer class="submitted">
+            <!-- <p class="author-datetime">Submitted by <a href="/users/siteeditor" title="View user profile." class="username">site.editor</a> on <time datetime="2017-06-16T14:56:00+0000">16. June 2017 - 14:56</time></p> -->
+      <p class="author-datetime">Last updated by <a href="https://www.techsupportalert.com/users/siteeditor" title="View user profile." class="username">site.editor</a> on 14. June 2019 - 21:06</p>
+    </footer>
+  
+  <div class="node-content">
+    <div class="sharethis-buttons"><div class="sharethis-wrapper"><span st_url="https://www.techsupportalert.com/content/windows-7-startup-detail.htm" st_title="Windows%207%20Startup%20Detail" class="st_facebook"></span>
+<span st_url="https://www.techsupportalert.com/content/windows-7-startup-detail.htm" st_title="Windows%207%20Startup%20Detail" class="st_twitter" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/windows-7-startup-detail.htm" st_title="Windows%207%20Startup%20Detail" class="st_linkedin" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/windows-7-startup-detail.htm" st_title="Windows%207%20Startup%20Detail" class="st_email" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/windows-7-startup-detail.htm" st_title="Windows%207%20Startup%20Detail" class="st_sharethis" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/windows-7-startup-detail.htm" st_title="Windows%207%20Startup%20Detail" class="st_pinterest" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/windows-7-startup-detail.htm" st_title="Windows%207%20Startup%20Detail" class="st_fblike" st_via="" st_username=""></span>
+</div></div>
+<div class="field field-name-body field-type-text-with-summary field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p><!-- #### BEGIN: Introduction #### --></p>
+<h2 class="header1">
+	Want to follow a detailed example of what happens when Windows starts?<a name="article-top" id="article-top"></a></h2>
+<p>In this article you will find the following detail about Windows startup:</p>
+<ul>
+	<li>
+		Descriptions of the major components.</li>
+	<li>
+		Detailed sequences of activities for each process.</li>
+	<li>
+		Example registry keys and values.</li>
+</ul>
+<!--break-->
+<p>This article is a companion to the <a href="windows-7-startup.htm" target="_blank">Windows 7 Startup</a> article which covers background material and an overview diagram of the main startup sequence.</p>
+<h3>
+	Caveats</h3>
+<p>Here I include the caveats which are a duplicate of those in the main article:</p>
+<ul>
+	<li>
+		The articles are always going to be an overview rather than a complete description.</li>
+	<li>
+		The articles are now unlikely to have more detail added.</li>
+	<li>
+		The articles may have errors but wherever possible I have confirmed the steps in a real example. I've still had to rely on other commentaries as I've only used the tools that would be used by a confident user. That's why there is no mention of advanced tools for programmers like kernel debuggers or the special debug version of Windows (a checked build).</li>
+	<li>
+		These articles are not not a troubleshooting guide although I have included some pointers for where to look for solutions to some problems.</li>
+	<li>
+		These articles are not a guide to altering your system start-up processes. They should not be relied upon for making any changes to your system. Instead you should confirm any change through the relevant support channels for Microsoft Windows or the particular application you are dealing with.</li>
+	<li>
+		These articles do not include starting Windows 8 or 10, installing Windows, resuming Windows from sleep or hibernation, or using safe mode and the other startup options. If you do want more detail in some area then let me know by registering with this site and leaving a comment.</li>
+</ul>
+<h3>
+	This article only looks at Windows 7 64-bit</h3>
+<p>Windows 7 is a good compromise between old and new versions of Windows. Although it is very similar to Vista there are major differences in the startup processes. I have pointed out some of those differences where it improves this article. For any thing else related to earlier version of Windows you will have to look elsewhere.</p>
+<p>The examples I am using are based on startup traces I ran on my test PC running Windows 7 64-bit. I used 64-bit Windows because it was the future at the time and I needed to highlight how 64-bit Windows handles 32-bit processes.</p>
+<p>The traces provide some timings to give you a relative indication of the time taken by the startup phases and it also provides you with the option to compare it with your own Windows startup. Just be aware that there are several reasons why your relative timings may be considerably different to mine.</p>
+<h3>
+	Icons highlight key issues</h3>
+<p>I have included icons to highlight various topics of interest so you can scan the detail more easily.</p>
+<p>32-bit and 64-bit Windows have some significant differences:<br />
+	<span style="color: white; background-color: grey; font-weight: bold" title="Windows 32-bit">32</span> applies to 32-bit Windows only.<br />
+	<span style="color: white; background-color: #752a2c; font-weight: bold" title="Windows 64-bit">64</span> applies to 64-bit Windows only.</p>
+<p>Where the startup feature was changed from Windows Vista:<br />
+	<span style="color: white; background-color: green; font-weight: bold" title="New to Windows 7"> 7 </span> indicates a new feature for Windows 7.</p>
+<p>On the very few occasions where the Windows Edition is relevant:<br />
+	<span style="color: white; background-color: blue; font-weight: bold" title="Differs by Windows Edition"> Δ </span> indicates differences between Windows Editions.</p>
+<p>If you are troubleshooting then look for these icons:<br />
+	<span style="color: black; background-color: yellow; font-weight: bold" title="Troubleshooting issue"> ! </span> indicates a known troubleshooting issue.<br />
+	<span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span> indicates a critical process (processes set this status themselves) which can crash or halt Windows if it fails.<br />
+	<span style="color: white; background-color: purple; font-weight: bold" title="Diagnostic info"> § </span> provides information on diagnostic tools and their output.  <br />
+	<span style="color: white; background-color: orange; font-weight: bold" title="Runs until Windows stops"> ∞ </span> indicates a process that normally runs until Windows stops.</p>
+<h3>
+	How to view and print the larger tables</h3>
+<p>I am trying to pack a lot of information into some of the tables and diagrams so they look better in a display that is 1600 pixels wide. If your display is smaller, particularly if it is below 1200 pixels wide, then you can use the '<a href="http://www.techsupportalert.com/print/content/windows-7-startup.htm" target="_blank" title="See tables and diagrams more easily">Printer-friendly view</a>' to remove the sidebars so you can read them more easily.</p>
+<p>In the tables I have placed a blank line between each filename and registry key to keep them separate. Where a registry key is too long to fit in one line of a table then I have also inserted line breaks to break it up.</p>
+<p> </p>
+<h2>
+	Windows startup in detail</h2>
+<!-- #### END: Introduction #### --><!-- #### BEGIN: Startup detail#### --><!-- #### BEGIN: Kernel-mode startup #### -->
+<h3>
+	<a id="winload" name="winload"></a>Windows Operating System (OS) Boot Loader: WinLoad.exe <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span></h3>
+<p>The fist steps in loading the Windows Kernel mode are provided by the Windows Boot Loader. This program provides temporary functions that boot or start the Windows Kernel which is the first permanent component to start. The Boot Loader continues to perform further activities to support Kernel mode initialization until it has got sufficient sub-systems running to continue with its normal permanent operations.</p>
+<p>The Boot Loader activities fall into four main areas:</p>
+<ul>
+	<li>
+		Reads the minimum configuration data from disk: the Boot Configuration Data (BCD) and the SYSTEM hive of the Registry.</li>
+	<li>
+		Enumerates the devices and "boot start" drivers. For the most essential drivers and itself, the boot loader also verifies their integrity and crashes the system if there are any problems.</li>
+	<li>
+		Initializes the system so the Windows Kernel can be loaded and executed.</li>
+	<li>
+		After the Kernel starts, loads into memory the configuration and enumerated drivers for the Kernel to use.</li>
+</ul>
+<p>Note: The Windows Boot Manager and the Windows Boot Loader perform similar steps in their initial stage: they setup the same structures, they read the BCD and determine the system drive and volume, they read the Boot Boot Status Data Log (BootStat.dat), and both can display a recovery menu if startup has previously failed.</p>
+<div class="hidden">
+	<table align="center" class="review-details" summary="What does the Boot Loader do?" width="100%">
+		<thead>
+			<tr>
+				<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="3" valign="middle" width="100%">
+					<strong>Table 1 - Windows OS boot loader: Winload.exe</strong></td>
+			</tr>
+			<tr valign="top">
+				<td class="rtecenter bordered" width="10%">
+					<strong>Example time</strong><sup>1</sup><strong> [seconds]</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Activity</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Filename or Registry details<sup>2</sup></strong></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr valign="top">
+				<td class="rteright bordered">
+					0.00-2.66<sup>3</sup></td>
+				<td class="bordered">
+					<strong>Loaded by the Windows Boot Manager</strong><br />
+					<em><span style="color: white; background-color: purple; font-weight: bold" title="Diagnostic info"> § </span></em>Phase: <strong>OS Loader</strong>, <strong>PreSMSS Init</strong> or <strong>Pre Session Init</strong> = Blank screen appears following the firmware and boot manager startup screens.<br />
+					Duration: <em>OSLoaderDuration</em></td>
+				<td class="bordered">
+					%SystemRoot%\System32\WINLOAD.EXE</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					0.18</td>
+				<td class="bordered">
+					<strong>Read configuration data</strong></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Default boot configuration data (BCD)</td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					     for the BIOS</td>
+				<td class="bordered">
+					%SystemDrive%\Boot\BCD<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					     for the EFI</td>
+				<td class="bordered">
+					%SystemDrive%\EFI\Microsoft\Boot\<br />
+					 </td>
+			</tr>
+			<tr>
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Read the Boot Status Data Log (BootStat.dat)</td>
+				<td class="bordered">
+					%WinDir%\BOOTSTAT.DAT<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					System registry hive</td>
+				<td class="bordered">
+					%SystemRoot%\System32\Config\System<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					     Boot Start drivers</td>
+				<td class="bordered">
+					HKLM\SYSTEM\CurrentControlSet\Services\<em>service name</em> where the Start value = 0 for Boot_Start<sup>4</sup></td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					0.18</td>
+				<td class="bordered">
+					<strong>Loads Kernel-mode boot diagnostics</strong></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					0.18</td>
+				<td class="bordered">
+					<span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span> <strong>Enumerate and validate critical Kernel boot drivers which must load correctly or Windows will crash:</strong></td>
+				<td class="bordered">
+					Enumerations will eventually be stored in:<br />
+					HKLM\SYSTEM\CurrentControlSet\Enum\<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Verify the programs' executable signatures against the digital signature catalogue.<br />
+					Winload will crash if any of the above programs fail the test.</td>
+				<td class="bordered">
+					%SystemRoot%\system32\CatRoot<br />
+					\{F750E6C3-38EE-11D1-85E5-00C04FC295EE}\nt5.cat.<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Windows loader verifies itself</td>
+				<td class="bordered">
+					%SystemRoot%\System32\WINLOAD.EXE<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Kernel</td>
+				<td class="bordered">
+					%SystemRoot%\System32\NTOSKRNL.EXE<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Hardware Abstraction Layer (HAL)<br />
+					The DLL used depends upon whether it is 32-bit or 64-bit Windows. If Windows is 32-bit then single CPUs only have a standard Programmable Interrupt Controller (PIC) while multi-CPU systems have an Advanced PIC (APIC).<br />
+					NTOSKRNL links to this DLL.</td>
+				<td class="bordered">
+					<span style="color: white; background-color: #752a2c; font-weight: bold" title="Windows 64-bit">64</span> %SystemRoot%\System32\HAL.DLL<br />
+					<br />
+					<span style="color: white; background-color: grey; font-weight: bold" title="Windows 32-bit">32</span> %SystemRoot%\System32\HALACPI.DLL single CPU<br />
+					<br />
+					<span style="font-size: 12px; color: white; font-weight: bold; background-color: grey;" title="Windows 32-bit">32</span><span style="font-size: 12px;"> </span>%SystemRoot%\System32\HALMACPI.DLL multi-CPU<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					VGA Boot Driver which provides the Windows Logo.<br />
+					NTOSKRNL links to this DLL.</td>
+				<td class="bordered">
+					%SystemRoot%\System32\BOOTVID.DLL<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Trusted Platform Module (TPM) which might not be used on your system</td>
+				<td class="bordered">
+					%SystemRoot%\System32\TPM.SYS<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Kernel Security Support Provider Interface</td>
+				<td class="bordered">
+					%SystemRoot%\System32\KSECDD.SYS<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Common Log File System (CLFS) driver</td>
+				<td class="bordered">
+					%SystemRoot%\System32\CLFS.SYS<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Code Integrity (CI) Module</td>
+				<td class="bordered">
+					%SystemRoot%\System32\CI.DLL<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Kernel Debugger HW Extension DLLs named after the communications interface used.<br />
+					NTOSKRNL links to KDCom.DLL.</td>
+				<td class="bordered">
+					%SystemRoot%\System32\KDCOM.DLL<br />
+					<br />
+					%SystemRoot%\System32\KDUSB.DLL<br />
+					<br />
+					%SystemRoot%\System32\KD1394.DLL<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Security Processor Loader (SPLDR)</td>
+				<td class="bordered">
+					%SystemRoot%\System32\SPLDR.SYS</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					0.18</td>
+				<td class="bordered">
+					<strong>Enumerate other Kernel boot start drivers</strong></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Platform-Specific Hardware Error Driver (PSCHED)</td>
+				<td class="bordered">
+					%SystemRoot%\System32\PSHED.DLL<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					e.g. Advanced Configuration and Power Interface (ACPI) driver</td>
+				<td class="bordered">
+					%SystemRoot%\System32\ACPI.SYS<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					e.g. Partition Manager (PM) driver</td>
+				<td class="bordered">
+					%SystemRoot%\System32\Drivers\PARTMGR.SYS<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					e.g. Paging file driver</td>
+				<td class="bordered">
+					%SystemDrive%\pagefile.sys</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					0.18</td>
+				<td class="bordered">
+					<strong>Enumerate other files</strong></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					The "Starting Windows" screen</td>
+				<td class="bordered">
+					%SystemDrive%\activity.bmp</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					0.21-3.03</td>
+				<td class="bordered">
+					<strong>Enumerate boot devices</strong></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					e.g. Advanced Configuration and Power Interface (ACPI) device</td>
+				<td class="bordered">
+					HKLM\SYSTEM\ControlSet001\Enum\Root<br />
+					\ACPI_HAL\0000<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					e.g. Kernel Security Support Provider Interface which is also one of the critical drivers</td>
+				<td class="bordered">
+					HKLM\SYSTEM\ControlSet001\Enum\Root<br />
+					\LEGACY_KSECDD\0000<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					e.g. Modem<br />
+					etc.</td>
+				<td class="bordered">
+					HKLM\SYSTEM\ControlSet001\Enum\Root<br />
+					\LEGACY_MODEM\0000<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					0.21</td>
+				<td class="bordered">
+					<strong>Enable Paging</strong></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Paging file</td>
+				<td class="bordered">
+					%SystemDrive%\pagefile.sys<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					0.22<br />
+					 </td>
+				<td class="bordered">
+					<strong>Passes control to the OS Kernel</strong><br />
+					The Windows Boot Loader continues to enumerate, initialize and load devices and drivers until the Kernel has loaded the necessary subsystems.<br />
+					<span style="color: white; background-color: purple; font-weight: bold" title="Diagnostic info"> § </span> Start: <em>BootKernelInitTime</em></td>
+				<td class="bordered">
+					%SystemRoot%\System32\NTOSKRNL.EXE</td>
+			</tr>
+		</tbody>
+	</table>
+	<p><sup><sup>1</sup></sup> The example times include the start time and less often the end time as well. Below the times I have included variable names that are used in the reports from traces and event logging. The first of those variables, OsLoaderDuration, is the time from 0 until the boot loader passes control to the kernel-mode systems.<br />
+		<sup>2</sup> The filename and registry details do not match exactly what you will find because I have provided full paths to those files. That means that I have also used environment variables such as "%SystemRoot%" in the place of the explicit path. This allows you to find the file more easily on any system.<br />
+		<sup>3</sup> This is the zero start but the trace recording is not yet running so this time is effectively attributed to the Kernel-mode startup to which Winload is closely linked.<br />
+		<sup>4</sup> <a href="http://support.microsoft.com/kb/100010" target="_blank" title="Microsoft article on control sets">Control sets</a> store configuration information in the registry. For example, the HKLM\SYSTEM\CurrentControlSet\Control\ contains the kernel-mode and user-mode subsystem configuration settings.<br />
+		HKLM\SYSTEM\CurrentControlSet\ is a symbolic link to one of the control set copies that is the active control set. HKLM\SYSTEM\Select stores the Current, Default, Failed, and LasKnowGood values.<br />
+		 </p>
+	<p><span style="color: black; background-color: yellow; font-weight: bold" title="Troubleshooting issue"> ! </span> The error message that HAL.DLL is missing generally means that the %SystemRoot%\System32\ folder has been deleted.</p>
+</div>
+<div class="show-more">
+	[show-hide toggle]</div>
+<p> </p>
+<h3>
+	<a id="kernel-mode" name="kernel-mode"></a>Kernel-mode <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span></h3>
+<p>Kernel mode processes are the core of Windows. There are a wide range of kernel-mode sub-systems that provide the basic components of the operating system which other programs rely upon. You can refer to the <a href="windows-7-components-startup.htm#diagram-kernel-mode" target="_blank" title="Windows core components">diagram on kernel mode</a> in the article on Windows Components for Startup.</p>
+<p>Kernel-mode processes have almost unrestricted access to resources than user-mode processes which are restricted in many ways to protect Windows. Kernel-mode processes:</p>
+<ul>
+	<li>
+		Can access hardware directly whereas user-mode processes cannot.</li>
+	<li>
+		Can access all of the computer's memory whereas user-mode processes are limited to assigned memory spaces.</li>
+	<li>
+		Can access the kernel memory whereas user-mode processes cannot.</li>
+	<li>
+		Are not normally paged out of RAM to virtual memory on disk.</li>
+	<li>
+		Run at a high priority so they don't have to wait on user-mode processes which run at a lower priority.</li>
+</ul>
+<p>Kernel mode initialization performs three main functions:</p>
+<ul>
+	<li>
+		Set-up data structures.</li>
+	<li>
+		Load and initialize components.</li>
+	<li>
+		Start the Plug and Play (PnP) manager to initialize the boot start drivers that were enumerated by the Windows Boot Loader.</li>
+</ul>
+<div class="hidden">
+	<table align="center" class="review-details" summary="What does the Kernel do?" width="100%">
+		<thead>
+			<tr>
+				<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="3" valign="middle" width="100%">
+					<strong>Table 2 - Windows Kernel Mode: NTOSKRNL.exe</strong></td>
+			</tr>
+			<tr valign="top">
+				<td class="rtecenter bordered" width="10%">
+					<strong>Example time [seconds]</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Activity</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Filename or Registry details</strong></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr valign="top">
+				<td class="rteright bordered">
+					0.22<br />
+					 </td>
+				<td class="bordered">
+					<strong>Passed control from the Windows Boot Loader</strong><br />
+					The Windows Boot Loader continues to enumerate, initialize and load devices and drivers until the Kernel has loaded the necessary subsystems.<br />
+					<span style="color: white; background-color: purple; font-weight: bold" title="Diagnostic info"> § </span> Phase: <strong>Kernel initialization</strong>, <strong>BootStart</strong></td>
+				<td class="bordered">
+					%SystemRoot%\System32\WINLOAD.EXE</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					0.22-3.05<br />
+					<br />
+					 </td>
+				<td class="bordered">
+					<strong>Initialize the boot drivers that are predefined (i.e. are there 'out of the box') for the Boot Loader.</strong><another are="" boot="" drivers="" initialized="" is="" manager="" of="" once="" pnp="" set="" strong="" the=""><br />
+					<span style="color: white; background-color: purple; font-weight: bold" title="Diagnostic info"> § </span> Start: <em>BootPNPInitStartTimeMS </em>or<em> </em><em>pnpBootStartStartTime</em><em> </em><br />
+					Duration: <em>BootPNPInitDuration</em> or <em>pnpBootStartDuration</em></another></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Advanced Configuration and Power Interface (ACPI) driver</td>
+				<td class="bordered">
+					%SystemRoot%\System32\Drivers<br />
+					\ACPI.SYS<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Kernel Security Support Provider Interface</td>
+				<td class="bordered">
+					%SystemRoot%\System32\Drivers<br />
+					\KSECDD.SYS<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Windows Kernel-Mode Driver Framework Runtime<br />
+					etc.</td>
+				<td class="bordered">
+					%SystemRoot%\System32\Drivers\Wdf01000</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					0.23-3.03</td>
+				<td class="bordered">
+					<strong>Start the enumerated devices</strong></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					ACPI-compliant Advanced Programmable Interrupt (APIC) driver</td>
+				<td class="bordered">
+					HKLM\SYSTEM\ControlSet001\Enum<br />
+					\ACPI_HAL\PNP0C08\0<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					PCI Standard ISA Bridge</td>
+				<td class="bordered">
+					HKLM\SYSTEM\ControlSet001\Enum\PCI<br />
+					\VEN_10DE&amp;DEV_0260&amp;SUBSYS<br />
+					_2A34103C&amp;REV_A3<br />
+					\3&amp;2411e6fe&amp;1&amp;50<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					A shadow copy device to backup configuration settings. It is used by the Volume Snapshot Service (VSS) or Volume Shadow Copy Service.</td>
+				<td class="bordered">
+					STORAGE\VolumeSnapshot<br />
+					\HarddiskVolumeSnapshot1</td>
+			</tr>
+			<tr>
+				<td class="rteright bordered">
+					2.14</td>
+				<td class="bordered">
+					ReadyBoost driver is loaded so ReadyBoot can start</td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					2.14-102.22</td>
+				<td class="bordered">
+					<strong>ReadyBoot starts</strong></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Note: As discussed above, ReadyBoot prefetches files, stores them in the prefetch folder, and loads them in an optimal sequence to speed up startup. That is why it runs until Windows has completely started up.<br />
+					ReadyBoot uses the ReadyBoost driver.<br />
+					ReadyBoot is one function of SuperFetcher which also prefetches user-mode applications i.e. it learns how you work too.</td>
+				<td class="bordered">
+					HKLM\SYSTEM\ControlSet001\Control<br />
+					\Session Manager\Memory Management<br />
+					\PreFetchParameters\EnablePrefetcher<br />
+					<br />
+					HKLM\SYSTEM\ControlSet001\Control<br />
+					\Session Manager\Memory Management<br />
+					\PreFetchParameters\EnableSuperfetcher<br />
+					%SystemRoot%\PreFetch</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					2.66-35.80</td>
+				<td class="bordered">
+					<strong>"Loading Windows" splash screen appears.</strong><br />
+					<span style="color: white; background-color: purple; font-weight: bold" title="Diagnostic info"> § </span> Phase: <strong>MainPathBoot</strong><br />
+					Duration: <em>MainPathBootTime</em></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					3.04</td>
+				<td class="bordered">
+					<strong>Reinitialize boot drivers</strong></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					8.70-11.16<br />
+					 </td>
+				<td class="bordered">
+					<strong>Start the Plug and Play (PNP) Manager </strong>which is a sub-system of the IO Manager.<br />
+					<span style="color: white; background-color: purple; font-weight: bold" title="Diagnostic info"> § </span> Phase: <strong>SystemStart</strong><br />
+					Start: <em>SystemPNPInitStartTimeMS</em> or <em>pnpSystemStartStartTime</em><br />
+					Duration: <em>SystemPNPInitDuration </em>or <em>pnpSystemStartDuration</em><br />
+					End:<em> <em>pnpSystemStartEndTime</em></em></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					8.70-11.16</td>
+				<td class="bordered">
+					<strong>PNP Manager loads the boot start drivers</strong></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Platform-Specific Hardware Error Driver (PSCHED)<br />
+					etc.</td>
+				<td class="bordered">
+					%SystemRoot%\System32\PSHED.DLL</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					8.99-11.16</td>
+				<td class="bordered">
+					<strong>PNP Manager initializes the boot start drivers</strong></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Platform-Specific Hardware Error Driver (PSCHED)<br />
+					etc.</td>
+				<td class="bordered">
+					HLKM\SYSTEM\ControlSet001\services\Psched</td>
+			</tr>
+			<tr>
+				<td class="rteright bordered">
+					11.14</td>
+				<td class="bordered">
+					 </td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					11.17</td>
+				<td class="bordered">
+					<strong>Pass control to the Session Manager</strong></td>
+				<td class="bordered">
+					%SystemRoot%\System32\SMSS.EXE</td>
+			</tr>
+		</tbody>
+	</table>
+	<p> </p>
+</div>
+<div class="show-more">
+	[show-hide toggle]</div>
+<p> </p>
+<!-- #### End: Kernel-mode startup #### --><!-- #### BEGIN: User-mode startup #### -->
+<h3>
+	<a id="SMSS" name="SMSS"></a>User Mode: Session Manager (SMSS)  <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span></h3>
+<p>The Session Manager (SMSS)  is the first "properly created" process for Windows once kernel-mode startup is complete. You can refer to the <a href="windows-7-components-startup.htm#diagram-user-mode" target="_blank" title="The components that make up user mode">diagram on user mode</a> in the article on Windows Components for Startup - an additional diagram will soon be added to show how the Session Manager fits.</p>
+<p>It performs three main tasks:</p>
+<ul>
+	<li>
+		Spawns many other processes that spawn further processes. That includes spawning multiple instances of itself, concurrently (running at the same time) up to four plus one per additional CPU;</li>
+	<li>
+		Loads and starts the drivers other than the boot drivers; and</li>
+	<li>
+		Initializes the Registry.</li>
+</ul>
+<p>The first instance also marks itself as critical.</p>
+<div class="hidden">
+	<table align="center" class="review-details" summary="What does the Session Manager do?" width="100%">
+		<thead>
+			<tr>
+				<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="3" valign="middle" width="100%">
+					<strong>Table 3 - Windows Session Manager: SMSS.exe</strong></td>
+			</tr>
+			<tr valign="top">
+				<td class="rtecenter bordered" width="10%">
+					<strong>Example time [seconds]</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Activity</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Filename or Registry details</strong></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr valign="top">
+				<td class="rteright bordered">
+					11.17-17.74</td>
+				<td class="bordered">
+					<strong>Passed control from the kernel</strong></td>
+				<td class="bordered">
+					%SystemRoot%\System32\NTOSKRNL.EXE</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					11.17</td>
+				<td class="bordered">
+					<strong>The first instance of SMSS</strong><br />
+					Blank screen appears during this phase<br />
+					<span style="color: white; background-color: purple; font-weight: bold" title="Diagnostic info"> § </span> Phase: <strong>Session Initialization</strong>, <strong>SMSSInit </strong>or <strong>Session Init</strong><br />
+					Duration: <em>BootSmssInitTime</em></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Marks itself as critical</td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Initializes an ALPC port to receive commands</td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Initializes system-wide environment variables. Reads the environment template from the registry to update its environment as the default for all processes that SMSS spawns.</td>
+				<td class="bordered">
+					HKLM\SYSTEM\CurrentControlSet\Control\<br />
+					Session Manager\Environment<br />
+					<br />
+					e.g.HKLM\SYSTEM\CurrentControlSet\Control<br />
+					\Session Manager\Environment\windir = %SystemRoot%<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Creates DOS device symbolic links e.g. AUX, NUL, PRN</td>
+				<td class="bordered">
+					HKLM\SYSTEM\CurrentControlSet\Control<br />
+					\Session Manager\DOS Devices<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Creates a directory in the Object Manager</td>
+				<td class="bordered">
+					Root\Sessions<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					11.18-12.81</td>
+				<td class="bordered">
+					Runs the boot execute programs and wait for them to complete.<br />
+					These can only be programs using the NTDLL API.</td>
+				<td class="bordered">
+					HKLM\SYSTEM\CurrentControlSet\Control<br />
+					\Session Manager\BootExecute = autocheck autochk *</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					11.72-12.78</td>
+				<td class="bordered">
+					Autochk.exe uses the NTDLL API as Chkdsk.exe uses Win32 API so it could not run now.</td>
+				<td class="bordered">
+					%SystemRoot%\System32\AUTOCHK.EXE</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					12.81</td>
+				<td class="bordered">
+					Completes file renaming and delete operations that were set to run after restart</td>
+				<td class="bordered">
+					HKLM\SYSTEM\CurrentControlSet\Control<br />
+					\Session Manager\PendingFileRenameOperations<br />
+					<br />
+					HKLM\SYSTEM\CurrentControlSet\Control<br />
+					\Session Manager\PendingFileRenameOperations2<br />
+					etc.<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Initializes the paging files.</td>
+				<td class="bordered">
+					HKLM\SYSTEM\CurrentControlSet\Control\<br />
+					Session Manager\Memory Management\PagingFiles<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					12.81-14.31</td>
+				<td class="bordered">
+					Completes initializing the registry by mounting the remaining files.<br />
+					 </td>
+				<td class="bordered">
+					HKLM\Software<br />
+					<br />
+					HKLM\Security<br />
+					<br />
+					HKLM\SAM<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Merge the in-memory version of the System hive loaded by Winload so any additions or updates from the boot process are preserved.</td>
+				<td class="bordered">
+					HKLM\System</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					14.31</td>
+				<td class="bordered">
+					Runs the setup execute programs</td>
+				<td class="bordered">
+					HKLM\SYSTEM\CurrentControlSet\Control<br />
+					\Session Manager\SetupExecute<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Note that the Kernel-Mode API is specified.<br />
+					Also note that the Subsystem key determines which environmental sub-system is able to execute the program. Refer to the discussion of <a href="windows-7-components-startup.htm#diagram-user-mode" target="_blank" title="Diagram of user-mode components includes the environmental sub-systems">user-mode components in the article on Windows components</a>.</td>
+				<td class="bordered">
+					HKLM\System\CurrentControlSet<br />
+					\Control\Session Manager\Subsystems\Kmode =<br />
+					%SystemRoot%\System32\WIN32K.SYS)<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Calculates the drive letter of the boot volume</td>
+				<td class="bordered">
+					HKLM\System\Setup\SystemPartition<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					11.71-11.72</td>
+				<td class="bordered">
+					<strong>Spawns SMSS threads to initialize sessions:</strong></td>
+				<td class="bordered">
+					HKLM\System\CurrentControlSet\Control<br />
+					\Session Manager\Subsystems<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					The number of initial sessions</td>
+				<td class="bordered">
+					HKLM\System\CurrentControlSet\Control<br />
+					\Session Manager\NumberOfInitialSessions = 2<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Run the required server processes</td>
+				<td class="bordered">
+					HKLM\System\CurrentControlSet\Control<br />
+					\Session Manager\Subsystems\Required = Windows<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					The Client Server Run-Time Sub-System (CSRSS) is the default server process for the user mode of the Win32 API.</td>
+				<td class="bordered">
+					HKLM\System\CurrentControlSet\Control<br />
+					\Session Manager\Subsystems\Windows =<br />
+					%SystemRoot%\System32\CSRSS.EXE [etc.]<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Run any optional server processes.</td>
+				<td class="bordered">
+					HKLM\System\CurrentControlSet\Control<br />
+					\Session Manager\Subsystems\Optional = POSIX<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					The POSIX Sub-System is the server process for the user-mode of the POSIX API.</td>
+				<td class="bordered">
+					HKLM\System\CurrentControlSet\Control<br />
+					\Session Manager\Subsystems\Optional\Posix =<br />
+					%SystemRoot%\System32\PSXSS.EXE</td>
+			</tr>
+			<tr>
+				<td class="rteright bordered">
+					13.25</td>
+				<td class="bordered">
+					<strong>Initialize sessions above 0</strong></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					13.25-13.97</td>
+				<td class="bordered">
+					<strong>Session 1 instance of SMSS.</strong><br />
+					<span style="color: white; background-color: purple; font-weight: bold" title="Diagnostic info"> § </span> Start: <em>SessionInitStartTimeMS</em><br />
+					Duration: <em>Session1InitDuration</em></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Create the session subsystem.</td>
+				<td class="bordered">
+					HKLM\System\CurrentControlSet\Control<br />
+					\Session Manager\Subsystem<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Run CSRSS.</td>
+				<td class="bordered">
+					%SystemRoot%\System32\CSRSS.EXE ObjectDirectory=\Windows SharedSection=1024,20480,768 Windows=On SubSystemType=Windows ServerDll=basesrv,1 ServerDll=winsrv:UserServerDllInitialization,3 ServerDll=winsrv:ConServerDllInitialization,2 ServerDll=sxssrv,4 ProfileControl=Off MaxRequestThreads=16<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					14.95-17.03</td>
+				<td class="bordered">
+					Initialize non-interactive session 0 by spawning an instance of itself.<br />
+					Session 0is always a WinInit session.</td>
+				<td class="bordered">
+					%SystemRoot%\System32\smss.exe 00000000 00000040</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					17.03-17.74</td>
+				<td class="bordered">
+					Initialize the interactive session 1 by spawning an instance of itself.<br />
+					Sessions above 0 are Winlogon sessions.</td>
+				<td class="bordered">
+					%SystemRoot%\System32\smss.exe 00000001 00000040</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Initialize any more sessions until the NumberOfInitialSessions is met.</td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Waits for Session 0 of CSRSS</td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					14.95-17.03</td>
+				<td class="bordered">
+					<strong>Session 0 instance of SMSS</strong><br />
+					Start: <em>SessionInitStartTimeMS</em><br />
+					Duration: <em>Session0InitDuration</em></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					 </td>
+				<td class="bordered">
+					HKLM\System\CurrentControlSet\Control\Session Manager\S0InitialCommand<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Run CSRSS</td>
+				<td class="bordered">
+					%SystemRoot%\System32\CRSS.EXE ObjectDirectory=\Windows SharedSection=1024,20480,768 Windows=On Subsystem Type=Windows ServerDLL=basesrv,1 ServerDll=winsrv:userServerDllInitialization ServerDll=winsrv:ConServerDllInitialization,2 ServerDll=sxssrv,4 ProfileControl=Off MaxRequestThreads=16ssrv<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Preload "Known" DLLs so they're always open .<br />
+					<span style="color: black; background-color: yellow; font-weight: bold" title="Troubleshooting issue"> ! </span> These run at the highest privilege so these must be trusted.</td>
+				<td class="bordered">
+					HKLM\System\CurrentControlSet\Control<br />
+					\Session Manager\KnownDLLs<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					17.74</td>
+				<td class="bordered">
+					<strong>Create an instance of Winlogon for interactive sessions</strong></td>
+				<td class="bordered">
+					%SystemRoot%\WINLOGON.EXE</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					17.74</td>
+				<td class="bordered">
+					Exit</td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					<strong>Later instances of SMSS also run then exit</strong></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+		</tbody>
+	</table>
+	<p> </p>
+</div>
+<div class="show-more">
+	[show-hide toggle]</div>
+<p> </p>
+<h3>
+	<a id="CSRSS" name="CSRSS"></a>User Mode: Client Server Run-Time Sub-System (CSRSS) <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span></h3>
+<p>The Client Server Runtime is a critical process that is used to provide the the user-mode portion of the Win32 API (Application Programming Interface). Originally it provided the entire API but Win32K now provides the kernel mode portion. However, CSRSS continues to create kernel-mode threads.</p>
+<div class="hidden">
+	<p>If CSRSS fails then Windows can't get out of kernel-mode so you will see a BSOD (Blue Screen Of Death, as it is called).<span style="color: black; background-color: yellow; font-weight: bold" title="Troubleshooting issue"> !  </span></p>
+	<table align="center" class="review-details" summary="What does the Client Server Runtime do?" width="100%">
+		<thead>
+			<tr>
+				<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="3" valign="middle" width="100%">
+					<strong>Table 4 - Windows Client Server Runtime: CSRSS.exe</strong></td>
+			</tr>
+			<tr valign="top">
+				<td class="rtecenter bordered" width="10%">
+					<strong>Example time [seconds]</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Activity</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Filename or Registry details</strong></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr valign="top">
+				<td class="rteright bordered">
+					15.31</td>
+				<td class="bordered">
+					<strong>Run by SMSS session 0</strong></td>
+				<td class="bordered">
+					%SystemRoot%\System32\smss.exe 00000000 00000040<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					17.00</td>
+				<td class="bordered">
+					Load the Multi-User Window Server DLL</td>
+				<td class="bordered">
+					%SystemRoot%\System32\WINSRV.DLL<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					????</td>
+				<td class="bordered">
+					Load the Windows NT BASE Server DLL</td>
+				<td class="bordered">
+					%SystemRoot%\System32\BASESRV.DLL<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					17.02</td>
+				<td class="bordered">
+					Load the Client Server Runtime Process DLL</td>
+				<td class="bordered">
+					%SystemRoot%\System32\CSRSRV.DLL</td>
+			</tr>
+		</tbody>
+	</table>
+	<p> </p>
+	<table align="center" class="review-details" summary="What does the Client Server Runtime do?" width="100%">
+		<thead>
+			<tr>
+				<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="3" valign="middle" width="100%">
+					<strong>Table 5 - Windows Client Server Runtime: CSRSS.exe</strong></td>
+			</tr>
+			<tr valign="top">
+				<td class="rtecenter" width="10%">
+					<strong>Example time [seconds]</strong></td>
+				<td class="rtecenter" width="45%">
+					<strong>Activity</strong></td>
+				<td class="rtecenter" width="45%">
+					<strong>Filename or Registry details</strong></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr valign="top">
+				<td class="rteright bordered">
+					17.05</td>
+				<td class="bordered">
+					<strong>Run by SMSS session 1</strong></td>
+				<td class="bordered">
+					%SystemRoot%\System32\SMSS.EXE<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					17.28</td>
+				<td class="bordered">
+					Load the Canonical Display Driver DLL which blends GDI and DirectX drawing in an emulated display for the Win32K subsystem.</td>
+				<td class="bordered">
+					%SystemRoot%\System32\CDD.DLL<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					???</td>
+				<td class="bordered">
+					Load the Base Server DLL</td>
+				<td class="bordered">
+					%SystemRoot%\System32\BASSRV.DLL<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					17.72</td>
+				<td class="bordered">
+					Load the Multi-User Window Server DLL</td>
+				<td class="bordered">
+					%SystemRoot%\System32\WINSRV.DLL<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					17.73</td>
+				<td class="bordered">
+					Load the Client Server Runtime Process (CSRSS) DLL</td>
+				<td class="bordered">
+					%SystemRoot%\System32\CSRSRV.DLL<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					17.74</td>
+				<td class="bordered">
+					<strong>Start the Windows Logon Application</strong></td>
+				<td class="bordered">
+					%SystemRoot%\System32\WINLOGON.EXE</td>
+			</tr>
+		</tbody>
+	</table>
+	<p> </p>
+</div>
+<div class="show-more">
+	[show-hide toggle]</div>
+<p> </p>
+<h3>
+	<a id="wininit" name="wininit"></a>User Mode: Windows Initialization (WinInit) <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span></h3>
+<p>Windows Initialization or WININIT runs the first time a user logs on. It runs once to handle system tasks that do not need to run again.</p>
+<div class="hidden">
+	<table align="center" class="review-details" summary="What does Windows Init do?" width="100%">
+		<thead>
+			<tr>
+				<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="3" valign="middle" width="100%">
+					<strong>Table 6 - Windows Init: WININIT.exe</strong></td>
+			</tr>
+			<tr valign="top">
+				<td class="rtecenter bordered" width="10%">
+					<strong>Example time [seconds]</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Activity</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Filename or Registry details</strong></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr valign="top">
+				<td class="rteright bordered">
+					17.03</td>
+				<td class="bordered">
+					<strong>Run by SMSS session 0</strong></td>
+				<td class="bordered">
+					%SystemRoot%\System32\smss.exe 00000000 00000040</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					<strong>Creates and opens an interactive workstation for legacy interactive services that use session 0</strong><br />
+					Currently, Session 0 should not be used for interactive services but older services do use it. So Windows uses an interactive Services Detection service to advise users when a session 0 service displays a windows.</td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					17.42</td>
+				<td class="bordered">
+					<strong>Start Services Control Manger (SCM)</strong></td>
+				<td class="bordered">
+					%SystemRoot%\System32\SERVICES.EXE<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 17.69</td>
+				<td class="bordered">
+					<strong>Start Local Security Authority SubSystem (LSASS)</strong></td>
+				<td class="bordered">
+					%SystemRoot%\System32\LSASS.EXE<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					17.70</td>
+				<td class="bordered">
+					<strong>Start Local Session Manager (LSM)</strong></td>
+				<td class="bordered">
+					%SystemRoot%\System32\LSM.EXE</td>
+			</tr>
+		</tbody>
+	</table>
+	<p> </p>
+	<p>WinInit recognizes when a non-interactive, session 0, process creates a window on the desktop.</p>
+</div>
+<div class="show-more">
+	[show-hide toggle]</div>
+<p> </p>
+<h3>
+	<a id="SCM" name="SCM"></a>User Mode: Services Control Manager (SCM)</h3>
+<p>The Service Control Manager runs as a Windows console program.:</p>
+<ul>
+	<li>
+		Scans the registry for configured device drivers and services.</li>
+	<li>
+		Loads the auto class device drivers and services</li>
+	<li>
+		Waits for requests to start and stop services</li>
+</ul>
+<div class="hidden">
+	<table align="center" class="review-details" summary="What does WinLogon do?" width="100%">
+		<thead>
+			<tr>
+				<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="3" valign="middle" width="100%">
+					<strong>Table 7 - Services Control Manager: Services.exe</strong></td>
+			</tr>
+			<tr valign="top">
+				<td class="rtecenter bordered" width="10%">
+					<strong>Example time [seconds]</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Activity</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Filename or Registry details</strong></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr valign="top">
+				<td class="rteright bordered">
+					17.42</td>
+				<td class="bordered">
+					<strong>Run by Windows Initialization</strong></td>
+				<td class="bordered">
+					%SystemRoot%\System32\WININIT.EXE<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					18.90</td>
+				<td class="bordered">
+					<strong>Start Plug and Play</strong></td>
+				<td class="bordered">
+					%SystemRoot%\System32\SERVICES.EXE<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					18.90-49.90</td>
+				<td class="bordered">
+					<strong>Start auto start services<br />
+					<span style="color: white; background-color: purple; font-weight: bold" title="Diagnostic info"> § </span> Phase: ServicesAutoStart</strong><br />
+					Start: <em>autoStartStartTime</em><br />
+					Duration: <em>autoStartDuration</em><br />
+					End: <em>autoStartEndTime</em></td>
+				<td class="bordered">
+					HKLM\SYSTEM\CurrentControlSet<br />
+					\Services\<em>service name</em>\Start<br />
+					= 2 for  Auto_Start services<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					<strong>Save the last successful Control Set as Last Known Good</strong></td>
+				<td class="bordered">
+					HKLM\SYSTEM\Select\LastKnowGood</td>
+			</tr>
+		</tbody>
+	</table>
+	<h4>
+		Service load order <span style="color: black; background-color: yellow; font-weight: bold" title="Troubleshooting issue"> ! </span></h4>
+	<p> A number of factors affect the load order for services:</p>
+	<ul>
+		<li>
+			SCM looks at the Start value for each service (HKLM\SYSTEM\CurrentControlSet\Services\<em>service name</em>). it starts  2 = Auto_Start services and 3 = Demand_Start services. WinLoad has already loaded 0 = Boot_Start services and 1 = System_Start services.</li>
+		<li>
+			The services are loaded in service group order by default. See HKLM\System\CurrentControlSet\Control\ServiceGroupOrder</li>
+		<li>
+			Dependencies between services and groups. For example, a group has to have at least one service successfully load before dependent services can start. Dependencies are defined in the DependOnGroup and DepenOnService values . Note that the latter applies only for the services that SCM loads i.e. Auto_Start and Demand_Start.</li>
+		<li>
+			A services image file database ensures that image files aren't loaded more than once.</li>
+		<li>
+			HKLM\System\CurrentControlSet\Control\Windows\NoInteractiveServices can be set to 1 so SCM checks for interactive services.</li>
+		<li>
+			After loading all the auto start drivers there is a delay of 120 seconds before the delayed services are started. This delay helps other startup processes to complete. It can be set at HKLM\S\CurrrentControlSet\Control\AutoStartDelay.</li>
+	</ul>
+	<h4>
+		Service failure <span style="color: black; background-color: yellow; font-weight: bold" title="Troubleshooting issue"> ! </span></h4>
+	<p>Services can fail and SCM can log these events or restart the boot process if critical services fail. Again there is a value for each service in HKLM\SYSTEM\CurrentControlSet\Services\<em>service name</em>. ErrorControl has the following values:</p>
+	<ul>
+		<li>
+			0 = Ignore so continue with no further action.</li>
+		<li>
+			1 = Normal so log the event and continue.</li>
+		<li>
+			2 = Severs so reboot to the last known good control set if it has not been used already, otherwise continue.</li>
+		<li>
+			3 = Critical so reboot to the last known good control set if it has not been used already, otherwise crash. <span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span></li>
+	</ul>
+	<p>SCM has an additional  function that doesn't appear to relate to services at all. when a connection for a network drive letter is created or deleted it broadcasts a message for GUI applications. This is primarily for Windows Explorer which needs to update open windows with the change.</p>
+	<p> </p>
+</div>
+<div class="show-more">
+	[show-hide toggle]</div>
+<p> </p>
+<h3>
+	<a id="LSASS" name="LSASS"></a>User Mode: Local Security Authority SubSystem (LSASS)</h3>
+<p>The Local Security Authority Sub-System that handles local (i.e. not network) system security policies. Most of its functionality is handled by the Local Security Authority service (LSASrv.dll) and its database is stored in the registry in a protected area under HKLM\Security:</p>
+<ul>
+	<li>
+		authenticates user logon by calling the appropriate authentication DLL. Authenticated users have an access token generated that contains the user security profile.</li>
+	<li>
+		System security auditing including sending related event messages to the Event log.</li>
+</ul>
+<p>It processes any request for security authorisations that it receives through the communications (LCM) port it creates. Requests come from three sources:</p>
+<ul>
+	<li>
+		Winlogon</li>
+	<li>
+		network logon service process</li>
+	<li>
+		other user-mode processes that want to authenticate users</li>
+</ul>
+<p>Note that Windows maintains compatibility with older versions of Windows by applying an implicit integrity level to objects that do not have specific security.</p>
+<div class="hidden">
+	<table align="center" class="review-details" summary="What does WinLogon do?" width="100%">
+		<thead>
+			<tr>
+				<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="3" valign="middle" width="100%">
+					<strong>Table 8 - Local Security Authority SubSystem: LSASS.exe</strong></td>
+			</tr>
+			<tr valign="top">
+				<td class="rtecenter bordered" width="10%">
+					<strong>Example time [seconds]</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Activity</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Filename or Registry details</strong></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr valign="top">
+				<td class="rteright bordered">
+					17.69</td>
+				<td class="bordered">
+					<strong>Run by Windows Initialization</strong></td>
+				<td class="bordered">
+					%SystemRoot%\System32\WININIT.EXE<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Creates initial processes which usually default to UserInit.exe.</td>
+				<td class="bordered">
+					HKLM\Software\Microsoft\Windows NT<br />
+					\CurrentVersion\Winlogon\Userinit<br />
+					<br />
+					the default is "%SystemRoot%\System32\Userinit.exe,"<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					If AutoLogon is set then use the default user name.</td>
+				<td class="bordered">
+					HKLM\Software\Microsoft\Windows NT<br />
+					\CurrentVersion\Winlogon\AutoLogonChecked<br />
+					<br />
+					HKLM\Software\Microsoft\Windows NT<br />
+					\CurrentVersion\Winlogon\DefaultUserName</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Start the Encrypting File System (EFS) service for encrypting data on disk.<br />
+					It can encrypt folders but not entire drives like BitLocker<br />
+					<span style="color: white; background-color: blue; font-weight: bold" title="Differences between Windows Editions"> Δ </span> It is not fully supported on Windows 7 Starter, Home Basic, and Home Premium.</td>
+				<td class="bordered">
+					%SystemRoot%\System32\EFSSVC.DLL</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Start the Cryptography Application Programming Interface - Next Generation (CNG) Key Isolation service</td>
+				<td class="bordered">
+					%SystemRoot%\System32\KEYISO.DLL</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Starts the Security Accounts Manger (SamSS) service.<br />
+					SAMSS manages the SAM database of defined user names and groups stored in the registry at HKLM\SAM. It does not include users defined for a domain controller/server.</td>
+				<td class="bordered">
+					%SystemRoot%\System32\SAMSRV.DLL</td>
+			</tr>
+		</tbody>
+	</table>
+	<p> </p>
+</div>
+<div class="show-more">
+	[show-hide toggle]</div>
+<br />
+<h3>
+	<a id="LSM" name="LSM"></a>User Mode: Local Session Manager (LSM)</h3>
+<p>The Local Session Manager manages terminal server sessions running on the local machine.</p>
+<p>LSM is notified by WinLogon of:</p>
+<ul>
+	<li>
+		logon and logoff</li>
+	<li>
+		connect to and disconnect from session</li>
+	<li>
+		lock and unlock the desktop</li>
+	<li>
+		start and terminate the shell</li>
+</ul>
+<div class="hidden">
+	<table align="center" class="review-details" summary="What does WinLogon do?" width="100%">
+		<thead>
+			<tr>
+				<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="3" valign="middle" width="100%">
+					<strong>Table 9 - Local Session Manager: LSM.exe</strong></td>
+			</tr>
+			<tr valign="top">
+				<td class="rtecenter bordered" width="10%">
+					<strong>Example time [seconds]</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Activity</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Filename or Registry details</strong></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 17.70</td>
+				<td class="bordered">
+					<strong>Run by Windows Initialization (WinInit)</strong></td>
+				<td class="bordered">
+					%SystemRoot%\System32\WININIT.EXE</td>
+			</tr>
+			<tr>
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					 </td>
+				<td class="bordered">
+					 </td>
+			</tr>
+		</tbody>
+	</table>
+	<p> </p>
+</div>
+<div class="show-more">
+	[show-hide toggle]</div>
+<p> </p>
+<h3>
+	<a id="winlogon" name="winlogon"></a>User Mode: Interactive Windows Logon (WinLogon)  <span style="color: black; background-color: red; font-weight: bold" title="Critical process">! </span></h3>
+<p>The Windows Logon Application runs under LSASS and manages interactive logon sessions. It performs the following main tasks:</p>
+<ul>
+	<li>
+		Displays the logon screen by running the Logon User Interface (LogonUI.exe);</li>
+	<li>
+		Services are started by the Service Control Manager (SCM)</li>
+	<li>
+		Identifies and authenticates users through credential provider DLLs</li>
+	<li>
+		Can load additional network provider DLLs</li>
+	<li>
+		Group policy is applied.</li>
+	<li>
+		Passes the username and password to LSASS for authentication.</li>
+</ul>
+<div class="hidden">
+	<p>The Secure Attention Sequence (SAS), keying Ctrl+Alt+Del, cannot be produced by a process so it differentiates users from processes.</p>
+	<p>If WinLogon, like CSRSS, fails then Windows can't get out of kernel-mode so you will see a BSOD (Blue Screen Of Death, as it is called).<span style="color: black; background-color: yellow; font-weight: bold" title="Troubleshooting issue"> !  </span></p>
+	<table align="center" class="review-details" summary="What does WinLogon do?" width="100%">
+		<thead>
+			<tr>
+				<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="3" valign="middle" width="100%">
+					<strong>Table 10 - Windows Logon: WinLogon.exe</strong></td>
+			</tr>
+			<tr valign="top">
+				<td class="rtecenter bordered" width="10%">
+					<strong>Example time [seconds]</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Activity</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Filename or Registry details</strong></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr valign="top">
+				<td class="rteright bordered">
+					17.74</td>
+				<td class="bordered">
+					<strong>Run by SMSS session 1</strong></td>
+				<td class="bordered">
+					%SystemRoot%\System32\smss.exe 00000001 00000040</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					<strong>Create an interactive workstation for session 1</strong></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Creates the interactive Window Station to display a user interface and receive input. This represents the keyboard, mouse and display.<br />
+					Uses security access control to prevent other processes from accessing this workstation without Winlogon permission.</td>
+				<td class="bordered">
+					WinSta0</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Creates three desktops:
+					<ul>
+						<li>
+							The Default interactive desktop is for user applications.</li>
+						<li>
+							The secure Winlogon desktop is accessible only by Winlogon to protect passwords. This is used for the SAS (Secure Attention Sequence which is Ctrl+Alt+Del) or when the UAC (User Account Control) dialog box is visible.</li>
+						<li>
+							The Disconnect desktop</li>
+					</ul>
+				</td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					29.1</td>
+				<td class="bordered">
+					Initialize the Windows User Experience Session Initialization DLL</td>
+				<td class="bordered">
+					%SystemRoot%\System32\UXINIT.DLL<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					20.10</td>
+				<td class="bordered">
+					<strong>Spawns the Windows Logon User Interface Host</strong> <strong>(LogonUI)</strong></td>
+				<td class="bordered">
+					%SystemRoot%\System32\LOGONUI.EXE  /flags:0x0</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					35.79</td>
+				<td class="bordered">
+					<strong>Desktop appears in this phase</strong><br />
+					<span style="color: white; background-color: purple; font-weight: bold" title="Diagnostic info"> § </span> Phase: <strong>BootPostBoot</strong><br />
+					Duration: <em>BootPostBootTime</em></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					122.34</td>
+				<td class="bordered">
+					<strong>The desktop first appears in this phase so you can logon,</strong><br />
+					i.e. Windows becomes usable<br />
+					<span style="color: white; background-color: purple; font-weight: bold" title="Diagnostic info"> § </span> <em>BootTime </em>= <em>MainPathBootTime </em>+ <em>BootPostBootTime</em></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					1,243.21</td>
+				<td class="bordered">
+					<strong>Run User Initialization (UserInit)</strong></td>
+				<td class="bordered">
+					HKLM\SOFTWARE\Microsoft\Windows NT<br />
+					\CurrentVersion\Winlogon Userinit = SystemRoot%\System32\USERINIT.EXE</td>
+			</tr>
+		</tbody>
+	</table>
+	<h4>
+		Further notes on desktops</h4>
+	<p>At this point it is worth discussing the arrangement of the session desktops. Two points are important: user objects are associated with one desktop but are accessible from any desktop for the session to ensure that hot-keys can work; and every session has an interactive windows station.</p>
+	<p>Session 0 and Session 1 plus any further other interactive session have an interactive windows station:</p>
+	<ul>
+		<li>
+			WinSta0 the interactive windows station has three desktops
+			<ul>
+				<li>
+					WinLogon</li>
+				<li>
+					Default</li>
+				<li>
+					Disconnect</li>
+			</ul>
+		</li>
+	</ul>
+	<p>Session 0 also has other windows stations but these only have the Default desktop:</p>
+	<ul>
+		<li>
+			System</li>
+		<li>
+			Network service</li>
+		<li>
+			Local service</li>
+		<li>
+			Windows Search Service </li>
+	</ul>
+</div>
+<div class="show-more">
+	[show-hide toggle]</div>
+<p> </p>
+<h3>
+	<a id="userinit" name="userinit"></a>User Mode: User Initialization (UserInit)</h3>
+<p>User Initialization (UserInit) sets-up the user environment before starting the Windows shell which by defaults is Windows Explorer:</p>
+<ul>
+	<li>
+		runs logon scripts</li>
+	<li>
+		connects to the network</li>
+	<li>
+		applies Group Policies including running the Group Policy logon script</li>
+	<li>
+		creates events for some failed logon scripts</li>
+</ul>
+<div class="hidden">
+	<table align="center" class="review-details" summary="What does WinLogon do?" width="100%">
+		<thead>
+			<tr>
+				<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="3" valign="middle" width="100%">
+					<strong>Table 11 - User Initialization: UserInit.exe</strong></td>
+			</tr>
+			<tr valign="top">
+				<td class="rtecenter bordered" width="10%">
+					<strong>Example time [seconds]</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Activity</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Filename or Registry details</strong></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr valign="top">
+				<td class="rteright bordered">
+					1,243.21-1,273.41</td>
+				<td class="bordered">
+					<strong>Run by Window Logon (WinLogon)</strong></td>
+				<td class="bordered">
+					%SystemRoot%\System32\WINLOGON.EXE</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Initiate the user environment</td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Creates the temporary folder (or is this lsass?)</td>
+				<td class="bordered">
+					%WinDir%\Temp</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Run logon scripts</td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr>
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Connect to the network</td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Apply Group Policies</td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr>
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Logs events if particular logon scripts fail.</td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					1,243.65</td>
+				<td class="bordered">
+					<strong>Run the Windows shell.</strong><br />
+					The default is Explorer.exe</td>
+				<td class="bordered">
+					HKLM\Software\Microsoft\Windows NT<br />
+					\CurrentVersion\Winlogon Shell<br />
+					= %SystemRoot%\EXPLORER.EXE</td>
+			</tr>
+		</tbody>
+	</table>
+	<p><span style="color: black; background-color: yellow; font-weight: bold" title="Troubleshooting issue"> ! </span> If you run no logon scripts and are not connecting to a network (i.e. you are offline) then <a href="http://technet.microsoft.com/en-us/library/cc939862.aspx" target="_blank" title="Microsoft article on the need for UserInit.exe">UserInit can be bypassed</a>. But if this is not done correctly then Windows Explorer will not run leaving you with no useful desktop.</p>
+</div>
+<div class="show-more">
+	[show-hide toggle]</div>
+<p> </p>
+<h3>
+	<a id="logonui" name="logonui"></a>User Mode: Windows Logon User Interface Host (LogonUI)</h3>
+<p>The Windows Logon User Interface Host provides the user interface for logging on:</p>
+<ul>
+	<li>
+		Presents users with a logon screen to using credential providers to obtain the user account name and password. Windows has default credential providers that can be replaced or supplemented by third-party providers.</li>
+	<li>
+		Allow alternative credential providers to be used for alternative input methods e.g. biometric scans such as thumb-prints and retinas.</li>
+	<li>
+		Allow secondary authentication using network provider DLLs. This provides for authentication from a network server at the same time using one logon.</li>
+</ul>
+<p>LogonUI is a separate process from WinLogon.exe. Any failure with third-party credential providers will not cause Windows to crash. Instead it can spawn another instance of LogonUI.</p>
+<div class="hidden">
+	<table align="center" class="review-details" summary="What does WinLogon do?" width="100%">
+		<thead>
+			<tr>
+				<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="3" valign="middle" width="100%">
+					<strong>Table 12 - Windows Logon User Interface Host: LogonUI.exe</strong></td>
+			</tr>
+			<tr valign="top">
+				<td class="rtecenter bordered" width="10%">
+					<strong>Example time [seconds]</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Activity</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Filename or Registry details</strong></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr valign="top">
+				<td class="rteright bordered">
+					20.10-1,250.05</td>
+				<td class="bordered">
+					<strong>Run by WinLogon</strong></td>
+				<td class="bordered">
+					%SystemRoot%\System32\WINLOGON.EXE</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					~20.99</td>
+				<td class="bordered">
+					<span style="color: white; background-color: purple; font-weight: bold" title="Diagnostic info"> § </span> <strong>The user logon dialog is displayed</strong>.<br />
+					Phase: <strong>LogonUI displays desktop</strong></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Load credential provider DLLs from the credential provider list of CLSIDs in the registry.<br />
+					The primary credential provider is the "PasswordProvider".<br />
+					There is also a "Smartcard Pin Provider" and a network provider DLL "NPProvider".</td>
+				<td class="bordered">
+					HKLM\Software\Microsoft\Windows<br />
+					\CurrentVersion\Authentication<br />
+					\Credential Providers\{CLSID} = PasswordProvider<br />
+					<br />
+					HKLM\Software\Microsoft\Windows<br />
+					\CurrentVersion\Authentication<br />
+					\LogonUI\LastLoggedOnProvider = {CLSID}<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					SmartCard credential provider allows a smart card to be used with a PIN.<br />
+					The default is SmartcardCredentialProvider.DLL</td>
+				<td class="bordered">
+					For HKLM\Software\Classes\CLSID\{CLSID} = "Smartcard Pin Provider"<br />
+					HKLM\Software\Classes<br />
+					\CLSID\{CLSID}\InProcServer32 =<br />
+					%SystemRoot%\System32<br />
+					\SMARTCARDCREDENTIALPROVIDER.DLL<br />
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					 </td>
+				<td class="bordered">
+					Network provider DLL allows secondary authentication from a network server.<br />
+					If there is no Network Provider then it will default to the default password provider which is normally AuthUI.dll</td>
+				<td class="bordered">
+					For HKLM\Software\Classes\CLSID\{CLSID} = "NPProvider"<br />
+					HKLM\Software\Classes\CLSID\{CLSID}\InProcServer32 =<br />
+					%SystemRoot%\System32\AUTHUI.DLL</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					~1,236.75</td>
+				<td class="bordered">
+					<strong>The user log on.</strong><br />
+					In this case, after a a twenty minute and fifteen second wait.<br />
+					<span style="color: white; background-color: purple; font-weight: bold" title="Diagnostic info"> § </span> Duration: <em>UserLogonWaitDuration</em></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+		</tbody>
+	</table>
+	<p>For more detail including diagrams about the logon process see <a href="http://technet.microsoft.com/en-us/library/dn169014%28v=ws.10%29.aspx" target="_blank" type="Diagrams and details of credentials management">Credentials Management in Windows Authentication</a>.</p>
+	<ul>
+		<li>
+			The details for the last user logon through LogonUI are stored in HKLM\Software\Microsoft\Windows\CurrentVersion\Authentication.</li>
+		<li>
+			The network credential providers are also called credential managers so don't confuse them with Microsoft Credentials Manager which allows users store passwords.</li>
+		<li>
+			Windows can determine the authentication strength, e.g. smartcard authentication is stronger than password authentication,  for a user logon and assign membership of various groups to provide access or prevent access to resources accordingly,</li>
+	</ul>
+</div>
+<div class="show-more">
+	[show-hide toggle]</div>
+<p> </p>
+<h3>
+	<a id="netlogon" name="netlogon"></a>User Mode: Network Logon (NetLogon)</h3>
+<p>Network logon (%SystemRoot%\System32\NETLOGON.DLL) is not used in the example. It is usually invisible to users as it would use the credentials authenticated by user logon. If it requires additional credentials then they are obtained using the Network Provider during LogonUI.</p>
+<p> </p>
+<h3>
+	<a id="explorer" name="explorer"></a>User Mode: Explorer</h3>
+<p>When Explorer starts the Desktop Window Manager also starts and displays the desktop.</p>
+<p>The default desktop appears when the shell is ready to display something, or after thirty seconds, whichever is first.</p>
+<div class="hidden">
+	<table align="center" class="review-details" summary="What does Explorer do?" width="100%">
+		<thead>
+			<tr>
+				<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="3" valign="middle" width="100%">
+					<strong>Table 13 - Windows Explorer: Explorer.exe</strong></td>
+			</tr>
+			<tr valign="top">
+				<td class="rtecenter bordered" width="10%">
+					<strong>Example time [seconds]</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Activity</strong></td>
+				<td class="rtecenter bordered" width="45%">
+					<strong>Filename or Registry details</strong></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr valign="top">
+				<td class="rteright bordered">
+					1,243.65</td>
+				<td class="bordered">
+					<strong>Run by User Initialization (UserInit)</strong>.<br />
+					Phase: <strong>ExplorerInit</strong><br />
+					End: <em>BootDoneViaExplorer</em></td>
+				<td class="bordered">
+					SystemRoot%\System32\USERINIT.EXE</td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					1,248.89</td>
+				<td class="bordered">
+					<strong>Explorer has initialized</strong>.<br />
+					Explorers post-boot period ends and then explorer waits a default 10 seconds idle time before this phase ends.<br />
+					<span style="color: white; background-color: purple; font-weight: bold" title="Diagnostic info"> § </span> Phase: <strong>PostExplorerPeriod</strong><br />
+					Duration: <em>postBootDisturbance </em>+ <em>postBootRequiredIdleTime</em><br />
+					End: <em>BootDoneViaPostBoot</em></td>
+				<td class="bordered">
+					 </td>
+			</tr>
+			<tr valign="top">
+				<td class="rteright bordered">
+					1,378.69</td>
+				<td class="bordered">
+					<strong>Explorer completes booting to the user desktop</strong>.</td>
+				<td class="bordered">
+					 </td>
+			</tr>
+		</tbody>
+	</table>
+	<p> </p>
+</div>
+<div class="show-more">
+	[show-hide toggle]</div>
+<p> </p>
+<h4>
+	User Mode: Trace trail</h4>
+<p>In my example, Windows Performance Reporting (WPR) started with Explorer initialization at 1,243s, started the trace tail at 1,378.69 when Explorer has booted to the desktop, and ended the trace at 1,382s:<br />
+	C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\WPRUI.EXE</p>
+<p> </p>
+<!-- #### END: Startup detail #### --><!-- #### BEGIN: Related Links #### -->
+<h2 class="header1">
+	Related Links</h2>
+<ul>
+	<li>
+		<a href="windows-7-startup.htm" target="_blank">Windows 7 Startup</a> should be read before this article because it provides a necessary overview.</li>
+	<li>
+		<a href="windows-startup-terminology.htm" target="_blank" title="Read this article first">Windows Startup Terminology</a> summarises terms that are used in this article. The terms generally relate to running programs so there is section on how programs start and run.</li>
+	<li>
+		<a href="windows-7-components-startup.htm" target="_blank" title="Components started when Windows starts">Windows 7 Startup Components</a> presents three main diagrams that illustrate the components of Windows: kernel mode system processes, user mode application support, and user-mode system processes.</li>
+	<li>
+		<a href="what-everybody-should-know-about-windows-registry.htm" target="_blank" title="A basic overview of the registry features">What Everybody Should Know About the Windows Registry</a></li>
+</ul>
+<p>Microsoft references:</p>
+<ul>
+	<li>
+		The <a href="http://technet.microsoft.com/en-us/sysinternals/bb963901" target="_blank" title="Microsoft book description">Windows Internals</a> book doesn't specifically look at Windows startup but it does look at the mechanisms involved in many aspects of startup. The 6th Edition looks at Windows 7 and the two volumes are cheap at the moment because the next edition which covers Windows 8 should be available later in 2014.</li>
+</ul>
+<p><a href="windows-7-startup-detail.htm#article-top">Back to the top of the article.</a></p>
+<p> </p>
+</div></div></div><section class="field field-name-field-vote field-type-fivestar field-label-above view-mode-full"><h2 class="field-label">Please rate this article:&nbsp;</h2><div class="field-items"><div class="field-item even"><form class="fivestar-widget" action="windows-7-startup-detail.htm" method="post" id="fivestar-custom-widget" accept-charset="UTF-8"><div><div  class="clearfix  fivestar-combo-text fivestar-combo-stars fivestar-form-item fivestar-oxygen"><div class="form-item form-type-fivestar form-item-vote">
+ <div class="form-item form-type-select form-item-vote">
+ <select id="edit-vote--2" name="vote" class="form-select"><option value="-">Select rating</option><option value="20">Give Windows 7 Startup Detail 1/5</option><option value="40">Give Windows 7 Startup Detail 2/5</option><option value="60">Give Windows 7 Startup Detail 3/5</option><option value="80">Give Windows 7 Startup Detail 4/5</option><option value="100">Give Windows 7 Startup Detail 5/5</option><option value="0" selected="selected">Cancel rating</option></select>
+<div class="description"><div class="fivestar-summary fivestar-summary-user"><span class="user-rating">Your rating: <span>None</span></span></div></div>
+</div>
+<div class="fivestar-static-form-item"><div class="form-item form-type-item">
+  <div class="fivestar-oxygen"><div class="fivestar-widget-static fivestar-widget-static-vote fivestar-widget-static-5 clearfix"><div class="star star-1 star-odd star-first"><span class="on">4.636365</span></div><div class="star star-2 star-even"><span class="on"></span></div><div class="star star-3 star-odd"><span class="on"></span></div><div class="star star-4 star-even"><span class="on"></span></div><div class="star star-5 star-odd star-last"><span class="on" style="width: 63.6365%"></span></div></div></div>
+<div class="description"><div class="fivestar-summary fivestar-summary-average-count"><span class="average-rating">Average: <span >4.6</span></span> <span class="total-votes">(<span >11</span> votes)</span></div></div>
+</div>
+</div>
+</div>
+</div><input class="fivestar-submit form-submit" type="submit" id="edit-fivestar-submit" name="op" value="Rate" /><input type="hidden" name="form_build_id" value="form-9nRC3BsQExC8PyEyILiUJetPT4caHusNqRE2BXnu-Sw" />
+<input type="hidden" name="form_id" value="fivestar_custom_widget" />
+</div></form></div></div></section><div class="likebtn_container"><!-- LikeBtn.com BEGIN -->
+<span class="likebtn-wrapper" data-identifier="node_9077" data-engine="drupal"  data-engine_v="7.80"  data-plugin_v="1.12"  data-item_url="https://www.techsupportalert.com/node/9077"  data-item_title="Windows 7 Startup Detail"  data-item_date="2017-06-16T14:56:00+00:00" ></span>
+<script type="text/javascript">if (typeof(LikeBtn) != "undefined") { LikeBtn.init(); }</script>
+<!-- LikeBtn.com END --></div>  </div>
+
+      <nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first"><span><a href="https://www.techsupportalert.com/user/login?destination=node/9077%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/9077%23comment-form">register</a> to post comments</span></li><li class="print_html last"><a href="https://www.techsupportalert.com/print/content/windows-7-startup-detail.htm" title="Display a printer-friendly version of this page." class="print-page" rel="nofollow"><img class="print-icon print-icon-margin image-style-none" src="../sites/all/modules/print/icons/print_icon.png" width="16px" height="16px" alt="Printer-friendly version" title="Printer-friendly version" />Printer-friendly version</a></li></ul></nav>
+  
+  
+  </article>
+</div>
+</div></div>
+</section>
+<div class="region region-content-aside"><div class="region-inner clearfix"><div id="block-block-72" class="clearfix block block-block no-title odd first block-count-7 block-region-content-aside block-72">
+<a href="windows-7-startup-detail.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+
+<script>
+var signedin = 'Notsignedin';
+if (signedin == "Notsignedin") {
+if (screen.width > 480) {
+document.write('<scr' + 'ipt data-cfasync="false" type="text/javascript" src="//p425764.clksite.com/adServe/banners?tid=425764_834678_3"></scr' + 'ipt>');
+} else {
+document.write('<scr' + 'ipt data-cfasync="false" type="text/javascript" src="//p425764.clksite.com/adServe/banners?tid=425764_834678_4"></scr' + 'ipt>');
+}
+}
+</script>
+</div>
+</div><div id="block-block-47" class="clearfix block block-block even block-count-8 block-region-content-aside block-47">
+<a href="windows-7-startup-detail.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Gizmo&#039;s Freeware Featured Articles</h2>
+<div class="content" class="block-content content">
+<div class="index-block">
+<div>
+		<a href="../best-free-anti-virus-software.htm"><span class="fa fa-shield fa-3x fa-fw" style="color: #DC143C;"> </span><span>Best Free Antivirus</span></a></div>
+<div>
+		<a href="https://www.techsupportalert.com/free-books-kindle"><span class="fa fa-book fa-3x fa-fw" style="color: #00FF00;"> </span><span>Free Kindle Books</span></a></div>
+<div>
+		<a href="best-vpn-services.htm"><span class="fa fa-lock fa-3x fa-fw" style="color: #0000CD;"> </span><span>Best Paid VPN Service</span></a></div>
+<div>
+		<a href="best-free-antivirus-app-android.htm"><span class="fa fa-shield fa-3x fa-fw" style="color: #B22222;"> </span><span>Best Free Antivirus for Android</span></a></div>
+<div>
+		<a href="../best-free-dvd-ripper.htm"><span class="fa fa-file-video-o fa-3x fa-fw" style="color: #2F4F4F;"> </span><span>Best Free DVD Ripper</span></a></div>
+<div>
+		<a href="../best-free-live-wallpapers-android.htm"><span class="fa fa-android fa-3x fa-fw" style="color: green;"> </span><span>Best Free Live Wallpaper for Android</span></a></div>
+</div>
+<p style="clear:both;"> </p>
+</div>
+</div><div id="block-block-31" class="clearfix block block-block no-title odd last block-count-9 block-region-content-aside block-31">
+<a href="windows-7-startup-detail.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div style="border-top: 1px solid #999999; border-bottom: 1px solid #999999; padding: 8px;">
+<p style="font-size: 14px; font-weight: bold;">Gizmo's Freeware is Recruiting</p>
+<p><img alt="Gizmos Needs You" src="../files/images/logos/Gizmos-Freeware-63-84.png" style="width: 63px; height: 84px; float: left; padding: 0px 8px 8px 0px;" />We are looking for people with skills or interest in the following areas:<br />
+		 -  Mobile Platform App Reviews for Android and iOS<br />
+		 -  Windows, Mac and Linux software reviews</p>
+<p><strong>Interested?</strong> <a href="../we-need-you.htm">Click here</a></p>
+</div>
+<p> </p>
+</div>
+</div></div></div></div>
+</div>
+<div class="region region-sidebar-second sidebar"><div class="region-inner clearfix"><div id="block-block-75" class="clearfix block block-block no-title odd first block-count-10 block-region-sidebar-second block-75">
+<a href="windows-7-startup-detail.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div id="rc-widget-23b966" data-rc-widget data-widget-host="habitat" data-endpoint="//trends.revcontent.com" data-widget-id="181303"></div>
+<script type="text/javascript" src="https://assets.revcontent.com/master/delivery.js" defer="defer"></script></div>
+</div><div id="block-block-22" class="clearfix block block-block even block-count-11 block-region-sidebar-second block-22">
+<a href="windows-7-startup-detail.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Best Freeware Lists</h2>
+<div class="content" class="block-content content">
+<div class="content" class="block-content content">
+<style type="text/css">
+.swlist-sidebar a {display:block; width:100%; margin-top:8px; min-height:36px;}
+.swlist-sidebar span.fa, span.fa-stack {height:28px; padding:4px 8px 4px 8px; width:28px; text-align:center; float:left;}
+.swlist-sidebar span.swtitle-sidebar {display:table-cell; height:36px; vertical-align: middle;}
+.swlist-sidebar div {display:table-row;}
+</style>
+<div class="swlist-sidebar">
+<div><a href="../software-finder"><span class="fa fa-search fa-2x" style="color: #4b5cc3;"></span> <span class="swtitle-sidebar">Search with Software Finder</span></a></div>
+<div><a href="../best-free-windows-desktop-software.htm"><span class="fa fa-windows fa-2x" style="color: #70c0f0;"></span> <span class="swtitle-sidebar">Windows Desktop Software</span></a></div>
+<div><a href="../best-free-windows-apps.htm"> <span class="fa fa-windows fa-2x" style="color: #70c0f0;"></span> <span class="swtitle-sidebar">Windows Apps</span></a></div>
+<div><a href="../best-free-portable-programs.htm"> <span class="fa fa-check-square-o fa-2x" style="color: #70c0f0;"></span> <span class="swtitle-sidebar">Windows Portable Apps</span></a></div>
+<div><a href="best-free-software-mac-os.htm"> <span class="fa fa-apple fa-2x" style="color: #1653a8;"></span> <span class="swtitle-sidebar">Mac Software</span></a></div>
+<div><a href="best-free-software-linux.htm"> <span class="fa fa-linux fa-2x" style="color: #404040;"></span> <span class="swtitle-sidebar">Linux Software</span></a></div>
+<div><a href="../best-free-android-apps.htm"> <span class="fa fa-android fa-2x" style="color: #a2c43b;"></span> <span class="swtitle-sidebar">Android Apps</span></a></div>
+<div><a href="../best-free-ipad-apps.htm"> <span class="fa fa-tablet fa-2x" style="color: #404040;"></span> <span class="swtitle-sidebar">iPad Apps</span></a></div>
+<div><a href="../best-free-iphone-apps.htm"> <span class="fa fa-mobile fa-2x" style="color: #404040;"></span> <span class="swtitle-sidebar">iPhone Apps</span></a></div>
+<div><a href="best-free-online-applications-and-services.htm"> <span class="fa fa-globe fa-2x" style="color: #006600;"></span> <span class="swtitle-sidebar">Online Apps</span></a></div>
+<div><a href="https://www.techsupportalert.com/content/50-places-free-books-online.htm"> <span class="fa fa-book fa-2x" style="color: #990000;"></span> <span class="swtitle-sidebar">eBooks /Audiobooks</span></a></div>
+<div><a href="probably-best-free-security-list-world.htm"> <span class="fa fa-exclamation-triangle fa-2x" style="color: #FF3300;"></span> <span class="swtitle-sidebar">Security Software</span></a></div>
+</div>
+<div style="clear:both;">&nbsp;</div>
+</div>
+<style type="text/css">
+.imgContainer{float:left;}
+</style>
+<p><strong>Support Gizmo's Freeware By</strong></p>
+<div>
+    <div class="imgContainer"><a href="../donate.htm"><img src="../files/images/aa/Donating-125-350e.png" height="auto" width="125"/></a></div>
+    <div class="imgContainer"><a href="../become-a-reviewer.htm"><img class="middle-img" src="../files/images/aa/Reviewing-125-350e.png" style="margin-left:2px;" height="auto" width="125"/></a></div>
+</div>
+<div style="clear:both;"></div></div>
+</div><div id="block-block-61" class="clearfix block block-block odd block-count-12 block-region-sidebar-second block-61">
+<a href="windows-7-startup-detail.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Get Notified of New Finds</h2>
+<div class="content" class="block-content content">
+<div>
+   <p>
+      <!-- <a href="http://feedburner.google.com/fb/a/mailverify?uri=gizmosbest" title="Subscribe to email..."><i class="fa fa-envelope fa-3x" style="color: #00cc99;"></i></a>&nbsp; -->
+      <a href="http://feeds.feedburner.com/gizmosbest" title="Go to our RSS feeds..."><i class="fa fa-rss-square fa-3x" style="color: #ffb300;"></i></a>&nbsp;
+      <a href="http://www.facebook.com/pages/Gizmos-Freeware/114026985301900" title="Follow us on Facebook..."><i class="fa fa-facebook-square fa-3x" style="color: #3b5889;"></i></a>&nbsp;
+      <a href="http://twitter.com/GizmosFreeware" title="Follow us on Twitter..."><i class="fa fa-twitter-square fa-3x" style="color: #55acee;"></i></a>
+   </p>
+</div>
+<style>
+#block-block-61 { text-align:center; }
+#block-block-61 a { display:inline-block; }
+#block-block-61 a.dropdown-toggle { display: none; }
+#block-block-61 .content{
+   background:#f9f9f9;
+   padding: 10px 10px 5px 10px;
+   margin-top: 10px;
+   margin-right:10px;
+   -webkit-border-radius: 12px;
+   -moz-border-radius: 12px;
+   border-radius: 12px;
+   border:1px solid #ccc;
+}
+#block-block-61 h3 { margin:10px 0; }
+</style>
+
+<div id="right-slidead-popup" style="display:block;">
+   <form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=gizmosbest', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+      <p class="bold-text">Get notified by email of our latest finds:</p>
+      <p><input type="text" style="width:120px" placeholder="Enter email" name="email">
+         <input type="hidden" value="gizmosbest" name="uri">
+         <input type="hidden" name="loc" value="en_US">
+         <input type="submit" value="Subscribe">
+      </p>
+   </form>
+</div>
+</div><div id="block-views-5c6f20eccafaaae472f19682f8491590" class="clearfix block block-views even block-count-13 block-region-sidebar-second block-5c6f20eccafaaae472f19682f8491590">
+<a href="windows-7-startup-detail.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Currently Popular</h2>
+<div class="content" class="block-content content">
+<div class="view view-currently-popular-customized view-id-currently_popular_customized view-display-id-block_1 curr-pop view-dom-id-38f880de4b2711ca7cd06915e431864d">
+<div class="view-content">
+<table  class="views-table cols-0">
+       <tbody>
+          <tr  class="odd views-row-first">
+                  <td  class="views-field views-field-title">
+            <a href="best-free-software-linux.htm">Best Free Software for Linux</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="../es/mejores-aplicaciones-y-servicios-gratuitos-online.htm">Mejores Aplicaciones y Servicios Gratuitos Online</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="mejor-software-gratuito-de-64-bits-para-windows-7vista.htm">Mejor Software Gratuito para Windows de 64 bits</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="../cn/best-free-android-apps.htm">最佳免费安卓应用软件 (Best Free Android Apps)</a>          </td>
+              </tr>
+          <tr  class="odd views-row-last">
+                  <td  class="views-field views-field-title">
+            <a href="time-say-farewell.htm">Time to Say Farewell</a>          </td>
+              </tr>
+      </tbody>
+</table>
+</div>
+
+<div class="more-link">
+  <a href="../currently-popular-customized.htm">
+    more  </a>
+</div>
+</div>
+</div>
+</div><div id="block-views-articles-by-user-block-1" class="clearfix block block-views odd last block-count-14 block-region-sidebar-second block-articles-by-user-block-1">
+<a href="windows-7-startup-detail.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Top Rated</h2>
+<div class="content" class="block-content content">
+<div class="view view-articles-by-user view-id-articles_by_user view-display-id-block_1 view-currently-popular-customized more-link curr-pop view-dom-id-8fa3087371ff3d7ae17c10f5e972079d">
+<div class="view-content">
+<table  class="views-table cols-1">
+         <thead>
+      <tr>
+                  <th  class="views-field views-field-title" scope="col">
+            <a href="https://www.techsupportalert.com/content/windows-7-startup-detail.htm?order=title&amp;sort=asc" title="sort by " class="active"></a>          </th>
+              </tr>
+    </thead>
+    <tbody>
+          <tr  class="odd views-row-first">
+                  <td  class="views-field views-field-title">
+            <a href="amazing-act-generosity.htm">An Amazing Act of Generosity</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="jpg-optimizer-works-entirely-your-browser.htm">This JPG Optimizer Works Entirely in Your Browser</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="create-your-own-blob-opera-google-s-new-musical-experiment.htm">Create Your Own “Blob Opera” with Google’s New Musical Experiment</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="instantly-add-color-black-and-white-photos-image-colorizer.htm">Instantly Add Color to Black and White Photos with Image Colorizer</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="fond-farewell-me.htm">A Fond Farewell From Me</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="get-authoritative-answers-all-your-questions-online-encyclopedia.htm">Get Authoritative Answers to All Your Questions With This Online Encyclopedia</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="rain-alarm-be-notified-approaching-rain-or-snow.htm">Rain Alarm - Be Notified of Approaching Rain or Snow</a>          </td>
+              </tr>
+          <tr  class="even views-row-last">
+                  <td  class="views-field views-field-title">
+            <a href="get-easy-access-frequently-used-symbols-not-your-keyboard.htm">Get Easy Access to Frequently Used Symbols Not on Your Keyboard</a>          </td>
+              </tr>
+      </tbody>
+</table>
+</div>
+
+<div class="more-link">
+  <a href="https://www.techsupportalert.com/articles-user">
+    more  </a>
+</div>
+</div>
+</div>
+</div></div></div></div>
+</div>
+<footer id="footer" role="contentinfo">
+<div id="footer-inner" class="clearfix">
+<div class="region region-footer"><div class="region-inner clearfix"><div id="block-block-3" class="clearfix block block-block no-title odd first last block-count-15 block-region-footer block-3">
+<a href="windows-7-startup-detail.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<p class="rtecenter"><a href="../terms-and-conditions.htm">Terms &amp; Conditions</a> | <a href="https://www.techsupportalert.com/privacy-policy.htm">Privacy Policy</a> | <a href="contact-us.htm">Contact</a> | <a href="../about-this-site">About</a></p>
+</div>
+</div></div></div><p class="attribute-creator"></p>
+</div>
+</footer>
+</div>
+</div>
+<style type="text/css">.invis{visibility:hidden;display:none}.vis{visibility:visible;display:inline}#more{display:none}#show,#hide{text-decoration:none;cursor:pointer;color:#3452c9;font-weight:bold;padding-left:20px}#show{background:transparent url(../files/images/icons/down.png) no-repeat left}#hide{background:transparent url(../files/images/icons/up.png) no-repeat left}select.dropdown{border:1px solid #cbcec3;background-color:#f2f6f9;font-size:1.1em;height:2em}select.dropdown-width{width:50%}@media only screen and (max-width:1024px){select.dropdown-width{width:100%}}span.cat-title{height:58px;display:table;font-size:1.3em;font-weight:bold}span.vert-align{display:table-cell;vertical-align:middle}img.cat-icon{width:82px;height:58px;float:left;padding-right:15px}.show-more{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:120px;padding:0 4px 0 4px}.show-review{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:120px;padding:0 4px 0 4px}.show-comments{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#eef0f8;border:1px solid #009;border-radius:2px;width:140px;padding:4px 8px 4px 8px}.gizmoslist-button{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:130px;padding:0 4px 0 4px}.gizmoslist-button:hover{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#e8e8e8;border:1px solid #999;border-radius:2px;width:130px;padding:0 4px 0 4px}</style>
+<script language="javascript" type="text/javascript">/*<![CDATA[*/var cn="invis";var ids=new Array("pg01","pg02","pg03","pg04","pg05","pg06","pg07","pg08","pg09","pg10","pg11","pg12");function doSwap(){cn=="vis"?cn="invis":cn="vis";for(var a=0;a<ids.length;a++){document.getElementById(ids[a]).className=cn}}jQuery(document).ready(function(){jQuery("#page_select").bind("change",function(){var a=jQuery(this).val();if(a){window.location.replace(a)}return false});jQuery("#category_select").bind("change",function(){var a=jQuery(this).val();if(a){window.location=a}return false})});jQuery(document).ready(function(){jQuery(".hidden").hide();jQuery(".show-more").html("Show more...");jQuery(".show-review").html("Show review...");jQuery(".show-comments").html("Hide Comments...");jQuery(".toggle").click(function(){jQuery("#show").toggle();jQuery("#more").toggle()});jQuery(".show-more").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).prev().slideUp();jQuery(this).removeClass("clicked");jQuery(this).html("Show more...")}else{jQuery(this).addClass("clicked");jQuery(this).prev().slideDown();jQuery(this).html("...Show less")}});jQuery(".show-review").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).prev().slideUp();jQuery(this).removeClass("clicked");jQuery(this).html("Show review...")}else{jQuery(this).addClass("clicked");jQuery(this).prev().slideDown();jQuery(this).html("...Hide review")}});jQuery(".show-comments").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).next().slideDown();jQuery(this).removeClass("clicked");jQuery(this).html("Hide Comments...")}else{jQuery(this).addClass("clicked");jQuery(this).next().slideUp();jQuery(this).html("Show Comments...")}})});jQuery(document).ready(function(){var a=jQuery("[rel~=tooltip]"),c=false,b=false,d=false;a.bind("mouseenter",function(){c=jQuery(this);tip=c.attr("title");b=jQuery('<div id="tooltip"></div>');if(!tip||tip==""){return false}c.removeAttr("title");b.css("opacity",0).html(tip).appendTo("body");var f=function(){if(jQuery(window).width()<b.outerWidth()*1.5){b.css("max-width",jQuery(window).width()/2)}else{b.css("max-width",340)}var g=c.offset().left+(c.outerWidth()/2)-(b.outerWidth()/2),h=c.offset().top-b.outerHeight()-20;if(g<0){g=c.offset().left+c.outerWidth()/2-20;b.addClass("left")}else{b.removeClass("left")}if(g+b.outerWidth()>jQuery(window).width()){g=c.offset().left-b.outerWidth()+c.outerWidth()/2+20;b.addClass("right")}else{b.removeClass("right")}if(h<0){var h=c.offset().top+c.outerHeight();b.addClass("top")}else{b.removeClass("top")}b.css({left:g,top:h}).animate({top:"+=10",opacity:1},50)};f();jQuery(window).resize(f);var e=function(){b.animate({top:"-=10",opacity:0},50,function(){jQuery(this).remove()});c.attr("title",tip)};c.bind("mouseleave",e);b.bind("click",e)})});/*]]>*/</script>   <script type="text/javascript" src="https://s.skimresources.com/js/91960x1545845.skimlinks.js"></script>
+<script type="text/javascript" src="../files/advagg_js/js__TMbgkTyBUQQ_HgBfUgRbT7qnkhUF67VaeCPrRurSSyQ__R579VV3CWa_6pCbnNdQK0EGL-QIicH7Gtzh0Mu2GPDY__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var switchTo5x = true;var __st_loadLate = true;var useFastShare = 0;
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+if (typeof stLight !== 'undefined') { stLight.options({"publisher":"dr-cb3fca8f-ba75-779c-5a90-b433fac7efb0","version":"5x","newOrZero":"zero","shorten":"false","servicePopup":true,"lang":"en"}); }
+//--><!]]>
+</script>
+<script type="text/javascript" src="../files/advagg_js/js__8q4Ri8u0Oy1si5uwfNTlks0A6nMFTDjDszJiNP4i5uA__tV1Gvr51dciEodFNuAL3X5GplamBbcIkiRUEhk_oOdE__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(d, e, s) {a = d.createElement(e);m = d.getElementsByTagName(e)[0];a.async = 1;a.src = s;m.parentNode.insertBefore(a, m)})(document, 'script', '//w.likebtn.com/js/w/widget.js'); if (typeof(LikeBtn) != "undefined") { LikeBtn.init(); }
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var skimlinks_domain = "exit.techsupportalert.com";
+//--><!]]>
+</script>
+</body>
+</html>

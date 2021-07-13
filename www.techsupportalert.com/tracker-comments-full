@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en" dir="ltr"><!--<![endif]-->
+<head>
+   <!--[if IE]><![endif]-->
+<meta charset="utf-8" />
+<link rel="shortcut icon" href="sites/all/themes/gizmoslist/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="tracker-comments-full" />
+<link rel="shortlink" href="tracker-comments-full" />
+<meta property="og:site_name" content="Gizmo&#039;s Freeware" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.techsupportalert.com/tracker-comments-full" />
+<meta property="og:title" content="Recent Comments Full" />
+   <title>Recent Comments Full</title>
+   <link type="text/css" rel="stylesheet" href="files/advagg_css/css__DTof87_FVXSg2sFIAP8-LvtfggUodmqgkSntbgoQ0xU__P8pEUe3NrxmFAhR4C1IfdTmcH2aEryuAczpGeI7I4hM__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.css" media="all" />
+
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="https://www.techsupportalert.com/files/advagg_css/css__I8Q7DkdK2zJceaJBCwEwz0vYYbloOjCrssUsWAaHyIM__qjMhJvPdluz-vOJRX3dztEqH8G31Y32rQ_NKwUhoC1Y__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.css" media="screen" />
+<![endif]-->
+   <!--[if lt IE 9]>
+   <link rel=stylesheet type=text/css href=/sites/all/themes/gizmoslist/css/ie7-and-down.css />
+   <![endif]-->
+   <script type="text/javascript" src="files/advagg_js/js__KHTguEdIV-7vRF7LX-cnYaxIeM58WooJECZSf64JL3g__zQ0RWrHxFTDdLtm5HhgI_S5MxEO1WWRau54OA28KnEU__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.techsupportalert.com/files/googleanalytics/analytics.js?qv3qpt","ga");ga("create", "UA-279220-2", {"cookieDomain":"auto"});ga("require", "linkid", "linkid.js");ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"gizmoslist","theme_token":"nA11QcCdFnJc5om3y9JIYRySSDpqOvkbtafmhQ_S4yE","css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/aggregator\/aggregator.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/google_cse\/google_cse.css":1,"modules\/node\/node.css":1,"modules\/poll\/poll.css":1,"modules\/search\/search.css":1,"sites\/all\/modules\/slidead\/slidead.css":1,"modules\/user\/user.css":1,"modules\/forum\/forum.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/comment_notify\/comment_notify.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/panels\/css\/panels.css":1,"public:\/\/spamicide\/user_pw.css":1,"sites\/all\/libraries\/superfish\/css\/superfish.css":1,"sites\/all\/libraries\/superfish\/css\/superfish-navbar.css":1,"sites\/all\/libraries\/superfish\/style\/graphite.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.settings.style.headings.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.settings.style.image.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.layout.css":1,"sites\/all\/themes\/gizmoslist\/color\/colors.css":1,"sites\/all\/themes\/pixture_reloaded\/css\/pixture_reloaded.css":1,"sites\/all\/themes\/pixture_reloaded\/css\/pixture_reloaded.settings.style.css":1,"sites\/all\/themes\/gizmoslist\/css\/styles.custom.css":1,"sites\/all\/themes\/gizmoslist\/generated_files\/gizmoslist.custom.css":1,"sites\/all\/themes\/gizmoslist\/fonts\/gizmoslogo\/gizmoslogo.css":1,"sites\/all\/themes\/gizmoslist\/fonts\/font-awesome\/font-awesome.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.responsive.layout.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.fonts.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.responsive.styles.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.lt-ie9.layout.css":1},"js":{"\/\/s.skimresources.com\/js\/91960x1545845.skimlinks.js":1,"sites\/all\/modules\/google_cse\/google_cse.js":1,"sites\/all\/modules\/slidead\/slidead.js":1,"sites\/all\/modules\/comment_notify\/comment_notify.js":1,"sites\/all\/themes\/gizmoslist\/script\/bootstrap.min.js":1,"sites\/all\/themes\/gizmoslist\/script\/enscroll-0.4.0.min.js":1,"sites\/all\/themes\/gizmoslist\/script\/script.js":1,"sites\/all\/modules\/adsense\/contrib\/adsense_click\/adsense_click.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"sites\/all\/libraries\/superfish\/supposition.js":1,"sites\/all\/libraries\/superfish\/superfish.js":1,"sites\/all\/modules\/superfish\/superfish.js":1,"sites\/all\/modules\/jquery_update\/replace\/jquery\/1.7\/jquery.min.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery-html-prefilter-3.5.0-backport.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1}},"googleCSE":{"cx":"partner-pub-4337260311855789:5365410881","language":"","resultsWidth":400,"domain":"www.google.com","showWaterMark":true},"slideAd":{"width":"300"},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"},"urlIsAjaxTrusted":{"\/search\/node":true,"\/tracker-comments-full":true,"\/tracker-comments-full?destination=tracker-comments-full":true},"superfish":{"1":{"id":"1","sf":{"animation":{"opacity":"show","height":"show"},"speed":"\u0027fast\u0027","autoArrows":false,"dropShadows":true,"disableHI":false},"plugins":{"supposition":true,"bgiframe":false}}},"adaptivetheme":{"gizmoslist":{"layout_settings":{"bigscreen":"three-col-grail","tablet_landscape":"three-col-grail","tablet_portrait":"one-col-vert","smalltouch_landscape":"one-col-vert","smalltouch_portrait":"one-col-stack"},"media_query_settings":{"bigscreen":"only screen and (min-width:1025px)","tablet_landscape":"only screen and (min-width:769px) and (max-width:1024px)","tablet_portrait":"only screen and (min-width:481px) and (max-width:768px)","smalltouch_landscape":"only screen and (min-width:321px) and (max-width:480px)","smalltouch_portrait":"only screen and (max-width:320px)"}}}});
+//--><!]]>
+</script>
+   <!--[if lt IE 9]>
+<script src="https://www.techsupportalert.com/sites/all/themes/adaptivetheme/at_core/scripts/html5.js?qv3qpt"></script>
+<![endif]-->
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" /> <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script> <script> window.addEventListener("load", function(){ window.cookieconsent.initialise({ "palette": { "popup": { "background": "#edeff5", "text": "#838391" }, "button": { "background": "#4b81e8" } } })}); </script>
+   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+   <script data-ad-client="ca-pub-1584315025436785" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+   <meta name="wot-verification" content="22efc80013d585910ca0"/>
+   <meta name="propeller" content="3dda2330fd32fcfca29de21325f076f3">
+</head>
+
+<body class="html not-front not-logged-in no-sidebars page-tracker-comments-full site-name-hidden site-name-gizmoamp039s-freeware section-tracker-comments-full page-views color-scheme-custom gizmoslist bs-n bb-n mb-dd mbp-l rc-0">
+   <div id=skip-link class=nocontent><a href="tracker-comments-full#main-content" class="element-invisible element-focusable">Skip to main content</a></div>
+      <div class="texture-overlay">
+<div id="page" class="container page ssc-n ssw-n ssa-l sss-n btc-n btw-b bta-l bts-n ntc-n ntw-b nta-l nts-n ctc-n ctw-b cta-l cts-n ptc-n ptw-b pta-l pts-n">
+<header id="header" class="clearfix" role="banner" data-position="fixed">
+<div class="header-inner clearfix">
+<div id="mobile-menu">
+<span class="mobile-socialmenu">social</span>
+<span class="mobile-search">search</span>
+</div>
+<span id="mobile-nav">Menu</span>
+<div id="branding" class="branding-elements clearfix">
+<div id="logo">
+<a href="index.html" title="Go to our home page..." class="active" style="text-decoration:none"><div class="icon-Final-freeware" style="color:#f0f0f0;font-size:68px;padding-bottom:8px"></div></a>
+</div>
+<div id="logomobile">
+<a href="index.html" title="Go to our home page..." class="active" style="text-decoration:none"><div class="icon-Final-freeware" style="color:#f0f0f0;font-size:40px;padding-left:8px"></div></a>
+</div>
+<div id="name-and-slogan" class="element-invisible h-group" id="name-and-slogan">
+<h1 id="site-name" class="element-invisible" id="site-name"><a href="index.html" title="Home page">Gizmo&#039;s Freeware</a></h1>
+</div>
+</div>
+<div class="region region-header"><div class="region-inner clearfix"><div id="block-block-58" class="clearfix block block-block no-title odd first block-count-1 block-region-header block-58">
+<a href="tracker-comments-full#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div id="header-middle"><a href="http://www.xmarks.com/site/www.techsupportalert.com/#r"><img alt="" src="files/images/icons/_thumb_13506.png" /> </a><a href="http://www.pcmag.com/article2/0,2817,2367733,00.asp"> <img alt="" src="files/images/icons/_thumb_13505.png" /></a></div>
+</div>
+</div><div id="block-block-57" class="clearfix block block-block no-title even block-count-2 block-region-header block-57">
+<a href="tracker-comments-full#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<p><a href="http://feeds.feedburner.com/gizmosbest" title="Go to our RSS feeds..."><i class="fa fa-rss-square fa-2x" style="color: #ffb300;"></i></a>&nbsp;&nbsp; <a href="http://feedburner.google.com/fb/a/mailverify?uri=gizmosbest" title="Subscribe to email..."><i class="fa fa-envelope fa-2x" style="color: #f0f0f0;"></i></a>&nbsp;&nbsp; <a href="http://www.facebook.com/pages/Gizmos-Freeware/114026985301900" title="Follow us on Facebook..."><i class="fa fa-facebook-square fa-2x" style="color: #d0d0ff;"></i></a>&nbsp;&nbsp; <a href="http://twitter.com/GizmosFreeware" title="Follow us on Twitter..."><i class="fa fa-twitter-square fa-2x" style="color: #70c0f0;"></i></a></p>
+</div>
+</div><div id="block-search-form" class="clearfix block block-search no-title odd block-count-3 block-region-header block-form" role="search">
+<a href="tracker-comments-full#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<form action="tracker-comments-full" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="search" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-VVSVHIZI0-5hN-7RLud6Q7qKBwonJ60qfyHAWGAlGP8" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form></div>
+</div><div id="block-user-login" class="clearfix block block-user even last block-count-4 block-region-header block-login" role="form">
+<a href="tracker-comments-full#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Login / Register</h2>
+<div class="content" class="block-content content">
+<form action="https://www.techsupportalert.com/tracker-comments-full?destination=tracker-comments-full" method="post" id="user-login-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">Username <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-name" name="name" value="" size="15" maxlength="60" class="form-text required" />
+</div>
+<div class="form-item form-type-password form-item-pass">
+  <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" id="edit-pass" name="pass" size="15" maxlength="128" class="form-text required" />
+</div>
+<div class="item-list"><ul><li class="even first"><a href="user/register" title="Create a new user account.">Create new account</a></li><li class="odd last"><a href="https://www.techsupportalert.com/user/password" title="Request new password via e-mail.">Request new password</a></li></ul></div><input type="hidden" name="form_build_id" value="form-8gn2oq2lcVMQTsKBP8iLHoa2hJgSUe553EmPIBPvg3M" />
+<input type="hidden" name="form_id" value="user_login_block" />
+<div class="edit-user-pw-wrapper"><div class="form-item form-type-textfield form-item-user-pw">
+  <label for="edit-user-pw">user pw </label>
+ <input type="text" id="edit-user-pw" name="user_pw" value="" size="20" maxlength="128" class="form-text" />
+<div class="description">Do not type anything in this box</div>
+</div>
+</div><div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Log in" class="form-submit" /></div></div></form></div>
+</div></div></div></div>
+</header>
+   <!-- Start: Ad blocker check
+   <style>#svCYxPorrige{display:none;margin-bottom:0px;padding:20px 10px;background:#D30000;text-align:center;font-weight:bold;color:#fff;border-radius: 0px;}</style>
+   <div id="svCYxPorrige">Oops, it looks like you are using an ad blocker.<br>We work hard to provide you our software news and we keep our ads non-intrusive.<br>Please support us keeping our content free by disabling your ad blocker.</div>
+   <script src="/ads.js" type="text/javascript"></script>
+   <script type="text/javascript">if(!document.getElementById('YzIkKlMbayUm')){document.getElementById('svCYxPorrige').style.display='block';}</script>
+   End: Ad blocker check -->
+<div id="menu-bar" class="nav clearfix"><div id="block-superfish-1" class="clearfix block block-superfish menu-wrapper menu-bar-wrapper clearfix odd first last block-count-5 block-region-menu-bar block-1">
+<a href="tracker-comments-full#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="element-invisible block-title" class="block-title">Main menu</h2>
+<div class="content" class="block-content content clearfix">
+<ul id="superfish-1" class="menu sf-menu sf-main-menu sf-navbar sf-style-graphite sf-total-items-12 sf-parent-items-5 sf-single-items-7"><li id="menu-175-1" class="first odd sf-item-1 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="index.html" title="This site&#039;s home page" class="sf-depth-1 menuparent">Home</a><ul><li id="menu-13310-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="index.html" title="The front page of Gizmo&#039;s Freeware" class="sf-depth-2">Homepage</a></li><li id="menu-13306-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="user/login" title="Login to Gizmos using your site account" class="sf-depth-2">Login</a></li><li id="menu-13307-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="user" title="Login to Gizmos using your site account. Here you can change your password or store bookmarks" class="sf-depth-2">My account/Change PW</a></li><li id="menu-13309-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="user/register" title="Create an account at Gizmos Freeware so you can post comments to articles and in the forum" class="sf-depth-2">Register</a></li></ul></li><li id="menu-12522-1" class="middle even sf-item-2 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="windows" title="The Best Free Windows Programs" class="sf-depth-1 menuparent">Windows</a><ul><li id="menu-12538-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="windows" title="The best free Windows desktop software by category plus our Editors&#039; Choice selections" class="sf-depth-2">Desktop Software</a></li><li id="menu-12539-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="best-free-windows-apps.htm" title="The best free Windows apps as selected by our editors" class="sf-depth-2">Windows Apps</a></li><li id="menu-12540-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="best-free-portable-programs.htm" title="Our Editor&#039;s Choice Selections of the Best Free Portable Apps" class="sf-depth-2">Portable Apps</a></li><li id="menu-12541-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="best-free-windows7-vista-64-bit-software.htm" title="Our Editor&#039;s selections of the best free Windows 64 bit software" class="sf-depth-2">Windows 64 bit Software</a></li></ul></li><li id="menu-12523-1" class="middle odd sf-item-3 sf-depth-1 sf-no-children"><a href="content/best-free-software-mac-os.htm" title="The Best Free Mac OS X Programs" class="sf-depth-1">Mac</a></li><li id="menu-12524-1" class="middle even sf-item-4 sf-depth-1 sf-no-children"><a href="linux" title="The Best Free Linux Programs" class="sf-depth-1">Linux</a></li><li id="menu-12526-1" class="middle odd sf-item-5 sf-depth-1 sf-no-children"><a href="android" title="The Best Free Android Apps" class="sf-depth-1">Android</a></li><li id="menu-12525-1" class="middle even sf-item-6 sf-depth-1 sf-no-children"><a href="ios" title="The Best Free Apps for iPhone and iPad" class="sf-depth-1">iOS</a></li><li id="menu-13312-1" class="middle odd sf-item-7 sf-depth-1 sf-no-children"><a href="content/best-free-online-applications-and-services.htm" title="Best web based applications and services" class="sf-depth-1">Online Apps</a></li><li id="menu-9299-1" class="middle even sf-item-8 sf-depth-1 sf-no-children"><a href="free-ebooks-audio-books-read-online-download.htm" title="Here&#039;s a list of dozens of articles on this showing you the best places to get free eBooks and Audio Books" class="sf-depth-1">eBooks</a></li><li id="menu-12530-1" class="middle odd sf-item-9 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="view/hot_expanded" title="New and recently updated articles" class="sf-depth-1 menuparent">New</a><ul><li id="menu-3760-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="view/hot_expanded" title="The Most Recent Additions to Gizmo&#039;s Freeware" class="sf-depth-2">New Articles</a></li><li id="menu-3761-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="tracker_updated_only" title="Articles we have recently revised or re-written" class="sf-depth-2">Recently Updated Articles</a></li><li id="menu-3759-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="https://www.techsupportalert.com/recent-comments" title="Comments on reviews and articles posted by our users" class="sf-depth-2">Recent Comments</a></li><li id="menu-105-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="all-articles-by-rating" title="The articles our users have given the highest ratings" class="sf-depth-2">Highest Rated</a></li></ul></li><li id="menu-210-1" class="middle even sf-item-10 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent"><a href="freeware-updates.htm" title="The latest freeware releases and news from 10 top freeware sites" class="sf-depth-1 menuparent">Resources</a><ul><li id="menu-9285-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="freeware-updates.htm" title="The latest product updates and news from the web&#039;s most popular download sites" class="sf-depth-2">News</a></li><li id="menu-12533-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="view/tips" title="Handy Windows Tips and Tricks" class="sf-depth-2">Tips</a></li><li id="menu-14525-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="videos.htm" title="Keep up to date with tech the easy way by watching these interesting videos" class="sf-depth-2">Tech videos</a></li><li id="menu-9287-1" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="sec" title="Want to clean a malware infection from your computer? Want to keep it clean and safe in the future? Then check out these guides." class="sf-depth-2">Security Guides &amp; Articles</a></li><li id="menu-9286-1" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="tutorials" title="Want to know how to do something? You may well find it here." class="sf-depth-2">How-to Guides &amp; Tutorials</a></li><li id="menu-9283-1" class="middle even sf-item-6 sf-depth-2 sf-no-children"><a href="content/best-freeware-download-sites.htm" title="The safest and most reliable places to download freeware" class="sf-depth-2">Best Download Sites</a></li><li id="menu-9284-1" class="last odd sf-item-7 sf-depth-2 sf-no-children"><a href="content/best-free-technical-support-sites.htm" title="Got a hardware or software problem? Try one of these free support sites" class="sf-depth-2">Best Tech Support Sites</a></li></ul></li><li id="menu-1139-1" class="middle odd sf-item-11 sf-depth-1 sf-no-children"><a href="https://www.techsupportalert.com/freeware-forum" title="Got a computer question to ask?  Then this is the place and it&#039;s 100% free." class="sf-depth-1">Forum</a></li><li id="menu-109-1" class="last even sf-item-12 sf-depth-1 sf-total-children-6 sf-parent-children-0 sf-single-children-6 menuparent"><a href="about-this-site" class="sf-depth-1 menuparent">About</a><ul><li id="menu-12560-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="about-this-site" title="How this site started and what it attempts to achieve" class="sf-depth-2">About</a></li><li id="menu-12559-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="content/contact-us.htm" title="How to contact Gizmo&#039;s Freeware / Press" class="sf-depth-2">Contact</a></li><li id="menu-12552-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="faq" title="Answers to the most common questions we get asked" class="sf-depth-2">FAQ</a></li><li id="menu-13311-1" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="contribute" title="Several ways you can help this community website" class="sf-depth-2">Contribute</a></li><li id="menu-12554-1" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="privacy_policy.htm" title="The Privacy Policy of the Gizmo&#039;s Freeware Website" class="sf-depth-2">Privacy Policy</a></li><li id="menu-12553-1" class="last even sf-item-6 sf-depth-2 sf-no-children"><a href="terms-and-conditions.htm" title="These are the conditions we offer and you accept for the use of this site" class="sf-depth-2">Condition of Use</a></li></ul></li></ul></div>
+</div></div><div id="columns">
+<div class="columns-inner clearfix">
+<div id="content-column">
+<div class="content-inner">
+<section id="main-content" role="main">
+<header id="main-content-header" class="clearfix">
+<h1 id="page-title">Recent Comments Full</h1>
+</header>
+<div id="content">
+
+
+<div id="block-system-main" class="clearfix block block-system no-title odd first last block-count-6 block-region-content block-main">
+<a href="tracker-comments-full#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div class="view view-recent-comments-full-test view-id-recent_comments_full_test view-display-id-page_1 view-dom-id-55f7ca2acbc01d991e69fd5d399636ee">
+<div class="view-content">
+<table  class="views-table cols-5">
+         <thead>
+      <tr>
+                  <th  class="views-field views-field-title" scope="col">
+            Article title          </th>
+                  <th  class="views-field views-field-timestamp" scope="col">
+            Time posted          </th>
+                  <th  class="views-field views-field-name-1" scope="col">
+            Poster          </th>
+                  <th  class="views-field views-field-status" scope="col">
+            Published          </th>
+                  <th  class="views-field views-field-comment" scope="col">
+            Comment          </th>
+              </tr>
+    </thead>
+    <tbody>
+          <tr  class="odd views-row-first">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 hours 23 min</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/papawdalton" title="View user profile." class="username">papawdalton</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Words can't describe how I'll miss you Gizmo. So I'll leave it at that and just say "Thank You" from the bottom of my heart.</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 hours 23 min</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/tarryb" title="View user profile." class="username">tarryB</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Very sorry to see the site go. Gizmo's freeware is an honoured entry on my rss feed.<br />
+Best wishes to everyone involved.</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 hours 3 min</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/panzer" title="View user profile." class="username">Panzer</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            So Long, and Thanks for All the Fish!          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">10 hours 23 min</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/maalth" title="View user profile." class="username">maalth</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>As a 10 year user of this site, I'm truly sorry to see this great resource shut down. I've pointed many people to this site over the years and made many software recommendations on the reviews of the site. You will be a greatly missed resource. Thank you to everyone who generously gave their time and energy to this site for the benefit of many.</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">15 hours 24 min</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/mjt328" title="View user profile." class="username">mjt328</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Very disappointed to see this site closing. Thank you for all your hard work and excellent recommendations in years past. Take care, stay safe and be well.</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">1 day 2 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/lemmotlow" title="View user profile." class="username">LemMotlow</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Sorry to see this. I've used this great and reliable resource for years.  Never disappointed. </p>
+<p>Fair winds and following seas to all!</p>
+<p>Sam</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">1 day 11 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/kumarshah" title="View user profile." class="username">Kumar_Shah</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>You will be sorely missed. You have provide invaluable help and guidance for over a decade.</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">1 day 15 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/nancykrn" title="View user profile." class="username">nancykrn</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Breaks my heart that something so good has to shut down!  I have been a member for many years and have been helped immensely by your site.  I am self-taught, got my first computer in 2000.  I understand totally what with all the changes in technology today, it's just a shame that it can't go on.  Thank you so much!</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">1 day 20 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/sea-mac" title="View user profile." class="username">Sea Mac</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Thank you for explaining this so clearly. I guess the thing that surprised me was that I've been here 13 years and 2 Months already - longer than You, Somehow - and it seems like just yesterday. I AM going to miss you fellow Editors ... but I will crawl the Site through Archive.org ... so, in a way, Tech Support Alert will be forever - just no longer updated.</p>
+<p>C. Mc.</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 days 10 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/midnightcowboy" title="View user profile." class="username">MidnightCowboy</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Thank you so much for your generous offer and kind words. Unfortunately the figure you suggest would not even cover one more month of existence. Sadly Gizmo’s has become but a dinosaur in the desert. The online world has changed and our model of honest, volunteer driven reviews without commercial manipulation has ceased to be viable. Such is the power of online marketing that promises everything and then delivers very little once they have your money or clicks. The only way our format could continue is if someone with the necessary resources can guarantee a long term sponsorship or maybe buy the site outright but in 10 days time this will be irrelevant since our ability to fund the site beyond that point will have expired. At our peak a few years  ago Gizmo’s had 50,000 visitors a day and none of us thought the tree of free software would ever die. But here we are. The fruits have long since disappeared and the leaves fallen to leave just an empty trunk to remind us of what once stood proud and strong. I would just like to add my own personal thanks to everyone, members, editors and casual visitors alike who have supported our content over the years and endured my offbeat sense of humor. My own involvement will be a few days short of 13 years when the site closes and I’ll never forget what we achieved here or that you out there were the driving force that enabled it to happen. I suppose I’d better mention Gizmo too since somewhere back in the annals of time he had the vision and determination to start this whole thing off. He’s currently travelling round Australia in a camper van with his wife whose family time is now no longer restricted by the demands of his attending to the site.  Hopefully they will both enjoy at least one sunset as good as the picture posted by Rhiannon in our closing article. With all best wishes, MC – Site Manager</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 days 10 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/ank42" title="View user profile." class="username">ank42</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>This is very sad news. I do not know how much is needed to keep up going, but if the money for my holiday can help to avert this closure, I happily send it to you; After all, £500 will only allow me a week away, whereas "Gizmo" is to be enjoyed all year round. Please let me know.<br />
+If we all contributed £5 (the cost of a coffee and a snack), or whatever you can afford, we could avert this. "GIZMO" website is too good to let it go down.<br />
+Sincerely yours.<br />
+PS. I did wish to contact you personally but didn't know how to proceed. Sorry.</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 days 14 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/rhiannon" title="View user profile." class="username">rhiannon</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Thank you for supporting the site, it's been appreciated more than you know. We aren't accepting any new donations and no new content will be posted on the site.</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 days 15 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/gil-mensch" title="View user profile." class="username">Gil Mensch</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Like others, I'm very sad to see you go. Also, like others, I've contributed every time you've asked.</p>
+<p>But, given the announcement, maybe the line at the top of the homepage that reads "Support this non-commercial community site for reviewing Best Free Software by donating." with "donating" as a link, should be removed?</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 days 18 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/kebsojourner" title="View user profile." class="username">kebsojourner</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Gosh.  I don't even know what to say... Others have expressed my feelings about this better than I can.  I've contributed every year as I do block the ads and certainly hoped my donations would cover that and some more--apparently not enough.  I've been a subscriber for as long as I can remember and have gleaned so much from this site, the editors and contributors.  A lot of the apps/software I have has been from recommendations and reviews from here and I cannot think of a more important site for that information than what has been distributed here.  I will truly, truly miss all of you and it will be with great sadness that I remove my bookmark of which I open every single day.  My best wishes for all of you.</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 days 10 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/bkanes" title="View user profile." class="username">bkanes</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Thanks for many years of helpful hints, suggestions, and recommendations!</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 days 13 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/sea-mac" title="View user profile." class="username">Sea Mac</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>It was good working with all of you ... the site will be missed ... I wish you all Good Fortune!</p>
+<p>(My alter ego *Software Santa will be getting use from the Archive for at least a year to come.)</p>
+<p>Gone but not forgotten.</p>
+<p>{* I will still carry on listing, without advertising, the best freeware I can find, over at softwaresanta dot com ... I have many many free items yet to cherry pick from this site's Archive: to add to my disordered heap of goodies.}</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 days 14 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/pvilan" title="View user profile." class="username">pvilan</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Terribly sorry while reading your communication.<br />
+Your help has been helping me for many years.</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 days 15 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/pvilan" title="View user profile." class="username">pvilan</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Terribly sorry but I undesrtand your difficult decision.<br />
+Many thanks for a lot of years of valuable help.<br />
+Peter</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 days 15 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/danielson" title="View user profile." class="username">danielson</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>It's a tough time to keep anything good and worthwhile on the web.</p>
+<p>All the best to you at Gizmo's!</p>
+<p>Thankful to you for all the good tips people have found here and will most surely even on the archived pages.</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 days 18 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/rhiannon" title="View user profile." class="username">rhiannon</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>If we could generate enough income to keep the site going, we would. :-)</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 days 18 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/rhiannon" title="View user profile." class="username">rhiannon</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Thank you. The site is accessible via the Internet Archive Wayback Machine, crawled today.</p>
+<p><a href="http://web.archive.org/web/20210704043236/https://www.techsupportalert.com/">http://web.archive.org/web/20210704043236/https://www.techsupportalert.com/</a></p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 days 18 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/oblivion" title="View user profile." class="username">oblivion</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Sad. :( One of the very few sites I've felt to be indispensable over the years. I'll miss you.</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 days 18 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/jiligahi" title="View user profile." class="username">jiligahi</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Thank you one and all for the years of service YOU WILL BE GREATLY MISSED</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 days 18 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/redskywalker" title="View user profile." class="username">RedSkywalker</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>This really is a very sad day!   I found you many years ago quite by accident and I've come to rely on you for truthful and accurate information - very, very sad news!</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 days 18 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/drdos" title="View user profile." class="username">drdos</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Sorry to hear that.  Good luck!  :)</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 days 20 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/scribbler" title="View user profile." class="username">scribbler</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>So sorry to read this..and I sincerely wish there was some way to get you to reconsider, but I guess you wouldn't be doing this if you hadn't already explored all other options.  Like many others who have posted replies here, this site has been a well-clicked bookmark of mine for many, many years.  Sites came and went over the years, but Gizmo's was always constant..you knew you could depend on it for both reviews and links to the best free software out there, without clutter and bloat.  This is really terrible news.</p>
+<p>If this really has to be Goodbye, then just know everything you've done has and is appreciated very much..and you'll be missed just as much.</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="site-comments.htm">Site Suggestions and Feedback</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 days 22 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/downunder57" title="View user profile." class="username">downunder57</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Thanks for all your wonderful work for so many years.<br />
+It will be sad when Gizmos dissappears.<br />
+An archive site even on a free host would be a great<br />
+permanent parting gift.<br />
+All the best in the future.</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 days 22 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/cliveo" title="View user profile." class="username">Cliveo</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>I joined this site many years ago when I was a PC newbie. Gizmo, Robert Schifreen, Rhiannon and many un-named  volunteers have helped me many times. I understand that the time has come to make the only decision. Please accept my gratitude for all of the time and effort you have all put into keeping the site going for as long as you have.</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 days 22 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/boristhemoggy" title="View user profile." class="username">boristhemoggy</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>I can hardly believe this, techsupportalert has been with me for many, many years now and always the first source of looking for things I want. I wish you all the very best of everything but I am so, so sad to see you go.</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">4 days 1 hour</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/whalewatcher" title="View user profile." class="username">whalewatcher</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Will miss you, you’ve been my “go to” source whenever looking for quality, safe software, apps etc for many years. Thanks for all your hard work over the years. Bye</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="best-free-windows7-vista-64-bit-software.htm">Best Free Windows 64-bit Software</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">4 days 2 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/dwainwood" title="View user profile." class="username">dwainwood</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>OptometristPrime :<br />
+I second your ringing endorsement of Daum PotPlayer.  I remap the mouse wheel from volume to jump forward and jump backward to easily rewind and play a few seconds again.</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">4 days 2 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/samm6" title="View user profile." class="username">SAMM6</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>I WISH YOU RHIANNON &amp; YOUR FAB TEAM. A 5 STAR FUTURE, &amp; HUGE THANKS FOR ALL YOUR HARD WORK.<br />
+AND PLEASE REMEMBER ITS NOT THE END, ITS THE NEW NEXT DEVELOPMENT OF YOUR FABULOUS SAGA. </p>
+<p>MARK IN SWANSEA. UK</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">4 days 3 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/ezzers" title="View user profile." class="username">Ezzers</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Very sorry to see you go. There will be a void without your emails. Stay Safe.</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">4 days 3 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/ezzers" title="View user profile." class="username">Ezzers</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>So sorry to see you go. The Internet will be a sorrier place without you. Stay Safe.</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">4 days 3 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/mouser" title="View user profile." class="username">mouser</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>I am so sad to hear this.  I've written up some thoughts on the DonationCoder forum here: https://www.donationcoder.com/forum/index.php?topic=51515<br />
+It is impossible to overstate the importance of gizmo's site to indie freeware developers and users.  Ian Richards was a friend to every freeware developer, and the reviews and recommendations at gizmo's were unusually good and comprehensive. It's an irreplaceable resource. -mouser (jesse)</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">4 days 4 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/dwainwood" title="View user profile." class="username">dwainwood</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>We will miss the site.  Thanks for all you've done.<br />
+Have you looked into the Internet Archive Way Back Machine to archive the site?<br />
+https://help.archive.org/hc/en-us/articles/360017502272-How-to-request-a-collection-</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">4 days 4 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/rhiannon" title="View user profile." class="username">rhiannon</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>We'll miss you, too. </p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">4 days 4 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/brucefraser" title="View user profile." class="username">Bruce_Fraser</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>I understand.<br />
+Thank-you so much, everyone, for your dedication to serving the global computing community.</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/time-say-farewell.htm">Time to Say Farewell</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">4 days 7 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/lewiek" title="View user profile." class="username">lewiek</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>I will miss all of you. Thanks for all of the information you have provided over the years.</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="best-free-windows-desktop-software.htm">Windows Desktop Software - Editors Choice Selection</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">6 days 13 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/krwudtke" title="View user profile." class="username">krwudtke</a>          </td>
+                  <td  class="views-field views-field-status">
+            No          </td>
+                  <td  class="views-field views-field-comment">
+            <p>This used to be my go to site for finding software. Now there are full screen pop-up ads and multiple tabs being opened when trying to open links to software sites. What gives, people? </p>
+<p>Trying to change my password keeps telling me that my email address isn't allowed, even though you just sent the one-time login link to that address. You need to get these things straightened out.</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/use-smart-online-text-speech-reader-free.htm">Use This Smart Online Text-to-Speech Reader for Free</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">1 week 2 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/rhiannon" title="View user profile." class="username">rhiannon</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>That looks like a good one, thanks!</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/use-smart-online-text-speech-reader-free.htm">Use This Smart Online Text-to-Speech Reader for Free</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">1 week 3 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/david-r" title="View user profile." class="username">David R</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>I currently use this one : https://readaloud.app/</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/best-free-software-linux.htm">Best Free Software for Linux</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">1 week 3 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/panzer" title="View user profile." class="username">Panzer</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            contour is a modern terminal emulator:
+<a href="https://github.com/christianparpart/contour">https://github.com/christianparpart/contour</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/best-free-software-linux.htm">Best Free Software for Linux</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">1 week 5 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/panzer" title="View user profile." class="username">Panzer</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            makedeb takes PKGBUILD files and creates Debian packages installable with APT:
+<a href="https://github.com/hwittenborn/makedeb">https://github.com/hwittenborn/makedeb</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/how-fix-annoying-windows-usb-problem.htm">How to Fix an Annoying Windows USB Problem</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">1 week 6 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/zee-gan" title="View user profile." class="username">Zee Gan</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>If problem persist; there are additional properties that suspend usb activities through device manager; check human interface devices and its properties and there is a check box that shuts down usb for power management.</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="best_troubleshooting_sites.htm">Best Troubleshooting Sites</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 weeks 2 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/ijstartcanonxx" title="View user profile." class="username">ijstartcanonxx</a>          </td>
+                  <td  class="views-field views-field-status">
+            No          </td>
+                  <td  class="views-field views-field-comment">
+            <p>We provide the best printer service. Set Canon inkjet printer and make sure that you get great results. You will get many new features from this printer. We provide you all kinds of information about Canon printers. You can also get online printer repair service suggestions from this site. https://ijstartcannonx.com/</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/download-gorgeous-mouse-cursors-free.htm-0">Download Gorgeous Mouse Cursors for Free</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 weeks 3 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/bernardz" title="View user profile." class="username">bernardz</a>          </td>
+                  <td  class="views-field views-field-status">
+            No          </td>
+                  <td  class="views-field views-field-comment">
+            <p>The download has moved to https://pixbits.wordpress.com/2011/05/12/xsx-alpha-blended-cursors/</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/download-high-resolution-classical-artworks-free.htm">Download High Resolution Classical Artworks for Free</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 weeks 4 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/rhiannon" title="View user profile." class="username">rhiannon</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>I'm glad you like it. :)</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/best-free-software-linux.htm">Best Free Software for Linux</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 weeks 4 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/panzer" title="View user profile." class="username">Panzer</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            ddgr is a cmdline utility to search DuckDuckGo from the terminal:
+<a href="https://github.com/jarun/ddgr">https://github.com/jarun/ddgr</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/download-high-resolution-classical-artworks-free.htm">Download High Resolution Classical Artworks for Free</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 weeks 39 min</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/pagrus" title="View user profile." class="username">Pagrus</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Great find!</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="best-free-non-adobe-pdf-reader.htm">Best Free Non-Adobe PDF Reader</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 weeks 2 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/georgeh" title="View user profile." class="username">GeorgeH</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>I tried "PDF-XChange Editor" but you can't tell which features work and which ones don't in the free version until get to a point while using it and realize it doesn't work.  I think JoJo must have selected it because it is the only one that performs OCR.  My memory isn't good enough to remember which options work which ones don't.  ...So I use "PDF-XChange Viewer" instead which which is all free and does not have any features that do not work.  "PDF-XChange Viewer" has been discontinued and replaced by "PDF-XChange Editor" but I like the viewer better and you can download it here as portable:</p>
+<p>https://portableapps.com/apps/office/pdf-xchange-portable</p>
+<p>There are 2 downloads, one is the program that you install first and the second is the OCR and help that you install in the same folder.  The file downloads as an exe and you need to install it but it is portable after you install both.</p>
+<p>If you want a viewer only, the Microsoft Edge web browser works quite well.  I don't like it as a web browser but it is quite good at viewing PDFs.  You can search the text and there is a button that you can press for contents which shows bookmarks.</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="https://www.techsupportalert.com/content/blender.htm-0">Blender</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 weeks 4 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/gaspy" title="View user profile." class="username">Gaspy</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>I stayed away from Blender for a very long time, thinking it's an amateurish program. I installed it last week and I love it! Version 2.93 has pretty much everything I need and what's even better, there are many free plugins.</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/i-still-rate-excellent-free-youtube-downloader.htm">I Still Rate This Excellent Free Youtube Downloader</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 weeks 6 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/northwolfecnd" title="View user profile." class="username">Northwolfecnd</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>It was awesome, it was great until a few weeks ago it stopped working. No updates since December, no tech support, which makes it useless due to the new algorithms used by all major sites.</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="best-free-anti-virus-software.htm">Best Free Antivirus Software</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 weeks 6 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/vikramkapoor" title="View user profile." class="username">vikram.kapoor</a>          </td>
+                  <td  class="views-field views-field-status">
+            No          </td>
+                  <td  class="views-field views-field-comment">
+            <p>https://360antivirussupport.com/kaspersky/kaspersky-fatal-error-during-installation/</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="best-free-anti-virus-software.htm">Best Free Antivirus Software</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 weeks 6 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/vikramkapoor" title="View user profile." class="username">vikram.kapoor</a>          </td>
+                  <td  class="views-field views-field-status">
+            No          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Kaspersky is one of the most widely used antivirus software. It is mainly used to prevent various malicious files and folders from entering our computer. And its support team gives prompt help and support for the arrangement of any sort of major or minor issues looked by its clients 24/7. they provide</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/easily-create-posters-business-cards-collages-etc-free.htm">Easily Create Posters, Business Cards, Collages Etc For Free</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">4 weeks 1 day</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/henrysm" title="View user profile." class="username">henrysm</a>          </td>
+                  <td  class="views-field views-field-status">
+            No          </td>
+                  <td  class="views-field views-field-comment">
+            <p>No doubt Canva is by far the best online graphic design software tool, but recently I found a cool graphic design tool - PhotoADKing  that offers top-notch posters, flyers, brochures, business cards, and logo designs.</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/send-large-files-securely-web-or-android-without-need-sign.htm">Send Large Files Securely on the Web or Android Without the Need to Sign In</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">1 month 3 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/maxwell12854" title="View user profile." class="username">Maxwell12854</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Firefox Send has been discontinued as of September 17, 2020.<br />
+https://support.mozilla.org/en-US/kb/what-happened-firefox-send<br />
+I have used it many times in the past and thought it was great - typical . . . a few spoil it for the rest!</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/how-easily-check-entire-windows-folder-using-many-different-antimalware-programs.htm">How to Easily Check an Entire Windows Folder Using Many Different Antimalware Programs</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">1 month 1 week</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/ajaverett" title="View user profile." class="username">AJNorth</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Sigcheck 2.81 was released on 2021.05.25.</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/identify-fonts-online-these-free-tools.htm">Identify Fonts Online with These Free Tools</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">1 month 2 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/fay-lora" title="View user profile." class="username">Fay Lora</a>          </td>
+                  <td  class="views-field views-field-status">
+            No          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Great tools! I'll recommend trying Find Website Used fonts as well. Its relatively new but works accurately and has gotten amazing reviews.</p>
+<p>Here's the link if anyone wants to try it out:<br />
+https://chrome.google.com/webstore/detail/find-website-used-fonts/lnebjgioddkafaldaaeooeghlcholnnp</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/identify-fonts-online-these-free-tools.htm">Identify Fonts Online with These Free Tools</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">1 month 2 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/fay-lora" title="View user profile." class="username">Fay Lora</a>          </td>
+                  <td  class="views-field views-field-status">
+            No          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Great tools, all of them! I'll also suggest trying out Find Website Used Fonts. Its relatively new, but works pretty well and has got amazing reviews!<br />
+Here's the link, if anyone wants to try it out</p>
+<p>https://chrome.google.com/webstore/detail/find-website-used-fonts/lnebjgioddkafaldaaeooeghlcholnnp</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/best-free-software-linux.htm">Best Free Software for Linux</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">1 month 3 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/panzer" title="View user profile." class="username">Panzer</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            Document Archiver - archive all your documents in a consistent way:
+<a href="https://document-archiver.github.io">https://document-archiver.github.io</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/best-free-software-mac-os.htm">Best Free Software for Mac OS</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">1 month 3 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/amysanchez" title="View user profile." class="username">amysanchez</a>          </td>
+                  <td  class="views-field views-field-status">
+            No          </td>
+                  <td  class="views-field views-field-comment">
+            <p>The Best iCloud Unlock Tool is now in the public for all iOS users. If you need to use this tool just visit https://www.icloudbypassonline.com/</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/best-free-software-linux.htm">Best Free Software for Linux</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 months 11 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/panzer" title="View user profile." class="username">Panzer</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            Atuin replaces your existing shell history with a SQLite database, and records additional context for your commands:
+<a href="https://github.com/ellie/atuin">https://github.com/ellie/atuin</a>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/best-free-media-center-software.htm">Best Free Media Center Software</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 months 13 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/pbouthil" title="View user profile." class="username">pbouthil</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>If anyone is looking for a free open source solution, you should look at Jellyfin (https://jellyfin.org/). This is fork of Emby.</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="https://www.techsupportalert.com/content/avast-free-antivirus.htm-2">Avast Free Antivirus</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 months 20 hours</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/drbongo" title="View user profile." class="username">DrBongo</a>          </td>
+                  <td  class="views-field views-field-status">
+            No          </td>
+                  <td  class="views-field views-field-comment">
+            <p>https://www.pcmag.com/news/the-cost-of-avasts-free-antivirus-companies-can-spy-on-your-clicks</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/how-convert-pdf-files-word-doc-files-free.htm">How to Convert PDF Files to Word Doc Files for Free</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 months 2 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/midnightcowboy" title="View user profile." class="username">MidnightCowboy</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            From their TOS: With our free service, you can upload files up to 50MB in size. If you upload two or more files together, then the total file size must be less than 50MB. With a paid Zamzar account, you can upload files that are up to 200MB, 400MB or 2GB in size, depending on which plan you sign up for.
+MC - Site Manager.          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/how-convert-pdf-files-word-doc-files-free.htm">How to Convert PDF Files to Word Doc Files for Free</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 months 2 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/miniliq" title="View user profile." class="username">miniliq</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>It's not free -- different prices for number/size of conversions.</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/best-free-software-linux.htm">Best Free Software for Linux</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 months 3 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/panzer" title="View user profile." class="username">Panzer</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            CliFM is a CLI-based, shell-like (non-curses) and KISS terminal file manager:
+<a href="https://github.com/leo-arch/clifm">https://github.com/leo-arch/clifm</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/more-about-qttabbar.htm">More About QTTabBar</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 months 1 week</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/loryd" title="View user profile." class="username">lory_d</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Is it normal that I need to enable each time the QTTabBar under Options after startup on Windows 10?</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="best-free-portable-programs.htm">Best Free Portable Applications</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 months 1 week</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/lascetic" title="View user profile." class="username">lascetic</a>          </td>
+                  <td  class="views-field views-field-status">
+            No          </td>
+                  <td  class="views-field views-field-comment">
+            <p>If your computer has an active internet connection, you can download Sumo on your android, move the file to your computer, intsall it and run it. Then you can download in the same way all the proposed updates on your android and transfer again the installers to your computer and install them. It won't work on the android because it scans your computer for installed programs, and needs an active internet connection (on your computer) to search for updates.</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/best-free-software-linux.htm">Best Free Software for Linux</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 months 1 week</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/panzer" title="View user profile." class="username">Panzer</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            Global Socket allows two workstations on different private networks to communicate with each other. Through firewalls and through NAT - like there is no firewall:
+<a href="https://www.gsocket.io">https://www.gsocket.io</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="best-free-portable-programs.htm">Best Free Portable Applications</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 months 2 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/crazichic" title="View user profile." class="username">crazichic</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>can i get kcsoftware on my android as my laptop wont downlad</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/best-free-mobile-media-player.htm">Best Free Media Player for Android</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 months 3 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/tony88" title="View user profile." class="username">tony88</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>VLC and Realplayer are the best!</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/how-combine-multiple-photos-one-pdf-file.htm">How To Combine Multiple Photos Into One PDF File</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 months 3 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/ljbartel" title="View user profile." class="username">ljbartel</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>I frequently need to convert images to pdf. I just select the photos I want in File Explorer then right click to choose Print. A Windows app opens and I choose Microsoft Print to PDF as the printer and its done.</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/how-combine-multiple-photos-one-pdf-file.htm">How To Combine Multiple Photos Into One PDF File</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 months 3 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/fairportfan" title="View user profile." class="username">Fairportfan</a>          </td>
+                  <td  class="views-field views-field-status">
+            No          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Eh.  I use the PagePlus DTP software to put together image PDFs...</p>
+<p>And i DON'T use Paint or Paint 3D for anything; so many things that work better.</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/best-free-software-mac-os.htm">Best Free Software for Mac OS</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 months 3 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/eric-julian" title="View user profile." class="username">Eric Julian</a>          </td>
+                  <td  class="views-field views-field-status">
+            No          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Cryptocurrency is a medium of Encrypted and decentralized exchange ( cannot be controlled by a single authority ). This digital currency can be used instead of Credit Cards to buy anything in the World. This currency is considered one of the best by experts and ordinary people because of their security and minimal fee. Recently, a transaction of 5 Billion Dollars was done between two private parties, and the price was less than 200$, which is fantastic.</p>
+<p>GramFree is also a cryptocurrency try it and earn a lot Read Full Detail https://www.piticstyle.com/gramfree/</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/best-free-mobile-media-player.htm">Best Free Media Player for Android</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 months 3 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/sea-mac" title="View user profile." class="username">Sea Mac</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Well, it is 2021 now: and the ONLY Media Player I use on my old tablet is VLC Player for Android ... it has improved Quite a Bit since the last review! I think it still lacks a few features: but it has LOTS of CoDecs and handles LOTS of Formats. I blame any sync failures between audio and video in online river (S T R E A M I N G) playback on my antique tablet and NOT VLC ... but I could be Wrong.</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="best-free-windows-desktop-software.htm">Windows Desktop Software - Editors Choice Selection</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 months 4 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/testreg2" title="View user profile." class="username">TestReg2</a>          </td>
+                  <td  class="views-field views-field-status">
+            No          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Test post mc</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="best-free-windows-desktop-software.htm">Windows Desktop Software - Editors Choice Selection</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 months 4 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/testreg2" title="View user profile." class="username">TestReg2</a>          </td>
+                  <td  class="views-field views-field-status">
+            No          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Test post MC</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="safe-surfing.php">How to Surf More Securely</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 months 4 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/testreg2" title="View user profile." class="username">TestReg2</a>          </td>
+                  <td  class="views-field views-field-status">
+            No          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Test post mc</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="safe-surfing.php">How to Surf More Securely</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">2 months 4 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/testreg2" title="View user profile." class="username">TestReg2</a>          </td>
+                  <td  class="views-field views-field-status">
+            No          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Test post MC</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/best-free-software-linux.htm">Best Free Software for Linux</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 months 3 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/panzer" title="View user profile." class="username">Panzer</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            Himalaya - a minimalist CLI email client:
+<a href="https://github.com/soywod/himalaya">https://github.com/soywod/himalaya</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="https://www.techsupportalert.com/content/mp3directcut.htm-0">mp3DirectCut</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 months 4 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/midnightcowboy" title="View user profile." class="username">MidnightCowboy</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            Many thanks. The links have now been updated. MC - Site Admin          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="https://www.techsupportalert.com/content/mp3directcut.htm-0">mp3DirectCut</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 months 4 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/spaarks" title="View user profile." class="username">spaarks</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>http://mpesch3.de1.cc/mp3dc.html is dead (Not Found).<br />
+I got it elsewhere but it won't open in Win10.<br />
+I had used it several years ago and it was an excellent program.</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="https://www.techsupportalert.com/content/popfile.htm-0">POPFile</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 months 5 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/psycho-guy" title="View user profile." class="username">Psycho Guy</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Did you install the SSL update from 2015?<br />
+It is on the Popfile site second news item.</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/find-public-domain-images-museums-visual-search-engine.htm">Find Public Domain Images from Museums with This Visual Search Engine</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 months 5 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/lanshark" title="View user profile." class="username">lanshark</a>          </td>
+                  <td  class="views-field views-field-status">
+            No          </td>
+                  <td  class="views-field views-field-comment">
+            <p>What in the world is going on with your website?</p>
+<p>When I click the link from your email to whatever is being offered, I get a popup saying "Software update...Your latest version of software is ready" with "DOWNLOAD" and "UPDATE" buttons but no way to cancel it. More clicking gets another popup saying "Your Flash Player might be out of date. Please install update...".  More clicks result in displaying pages like Wix.com. </p>
+<p>I repeat: what in the world is going on with your website?</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/best-free-software-linux.htm">Best Free Software for Linux</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 months 5 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/panzer" title="View user profile." class="username">Panzer</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            xplr - a hackable, minimal, fast TUI file explorer:
+<a href="https://github.com/sayanarijit/xplr">https://github.com/sayanarijit/xplr</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/best-free-software-linux.htm">Best Free Software for Linux</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 months 5 days</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/panzer" title="View user profile." class="username">Panzer</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            Quiet Audio Fade slowly reduces the volume on your computer over time, letting you find the quietest level that works:
+<a href="https://github.com/StuffJackMakes/Quiet-Audio-Fade">https://github.com/StuffJackMakes/Quiet-Audio-Fade</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/how-switch-lastpass-bitwarden-password-manager.htm">How To Switch from LastPass to Bitwarden Password Manager</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 months 1 week</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/windyctyprog" title="View user profile." class="username">windyctyprog</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Has anybody else had issues exporting to a csv files?</p>
+<p>I have tried for a couple weeks, nothing happens, just a blank window.</p>
+<p>Thanks...</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/best-free-software-linux.htm">Best Free Software for Linux</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 months 1 week</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/panzer" title="View user profile." class="username">Panzer</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            Nightfall Hacker - Plan, hack, and fight your way against rogue software:
+<a href="https://snapcraft.io/nightfall-hacker">https://snapcraft.io/nightfall-hacker</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/best-free-software-linux.htm">Best Free Software for Linux</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 months 2 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/panzer" title="View user profile." class="username">Panzer</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            Solitude is an open source privacy analysis tool that enables you to conduct your own privacy investigations into where your private data goes once it leaves your web browser:
+<a href="https://research.nccgroup.com/2021/03/17/tool-release-solitude-a-privacy-analysis-tool/">https://research.nccgroup.com/2021/03/17/tool-release-solitude-a-privacy...</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/best-free-software-linux.htm">Best Free Software for Linux</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 months 2 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/panzer" title="View user profile." class="username">Panzer</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            Nzyme is a free and open WiFi defense system that detects and physically locates threats using an easy to build and deploy sensor system:
+<a href="https://www.nzyme.org/">https://www.nzyme.org/</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/best-free-software-linux.htm">Best Free Software for Linux</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 months 2 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/panzer" title="View user profile." class="username">Panzer</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            Flatseal is a graphical utility to review and modify permissions from your Flatpak applications:
+<a href="https://github.com/tchx84/Flatseal">https://github.com/tchx84/Flatseal</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="https://www.techsupportalert.com/content/audiograbber.htm-0">Audiograbber</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 months 2 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/spaarks" title="View user profile." class="username">spaarks</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>I contacted the present Audiograbber manager and he said it had been updated in 2020.</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="best-free-web-site-link-checker.htm">Best Free Web Site Link Checker</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 months 2 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/dan-row" title="View user profile." class="username">Dan Row</a>          </td>
+                  <td  class="views-field views-field-status">
+            No          </td>
+                  <td  class="views-field views-field-comment">
+            <p>ColorNote is simple and easy to use. In any situation, you can quickly create notes and lists which we did on our stie https://simplyfostering.co.uk</p>
+<p>Write all the things you need in one place, from short notes to longer documents.</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="https://www.techsupportalert.com/content/cdex.htm-0">CDex</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 months 2 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/spaarks" title="View user profile." class="username">spaarks</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>The CDDB function no longer works.</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="https://www.techsupportalert.com/content/exact-audio-copy.htm-0">Exact Audio Copy</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 months 2 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/spaarks" title="View user profile." class="username">spaarks</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>The CDDB function now requires a paid subscription.</p>
+          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="https://www.techsupportalert.com/content/audiograbber.htm-0">Audiograbber</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 months 2 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/spaarks" title="View user profile." class="username">spaarks</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>It did not alter my Firefox settings and did not install Funmoods or anything else.</p>
+          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="https://www.techsupportalert.com/content/audiograbber.htm-0">Audiograbber</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 months 2 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/spaarks" title="View user profile." class="username">spaarks</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>One of the best rippers, especially now that EAC CDDB function requires paid subscription and CDex CDDB function no longer works.</p>
+          </td>
+              </tr>
+          <tr  class="even views-row-last">
+                  <td  class="views-field views-field-title">
+            <a href="best-free-cd-ripper.htm">Best Free CD Ripper</a>          </td>
+                  <td  class="views-field views-field-timestamp">
+            <em class="placeholder">3 months 2 weeks</em> ago          </td>
+                  <td  class="views-field views-field-name-1">
+            <a href="https://www.techsupportalert.com/users/spaarks" title="View user profile." class="username">spaarks</a>          </td>
+                  <td  class="views-field views-field-status">
+            Yes          </td>
+                  <td  class="views-field views-field-comment">
+            <p>Fairstars CD Ripper. The volume normalization doesn't work properly (on mp3).  It increases the volume far too much, beyond clipping.</p>
+          </td>
+              </tr>
+      </tbody>
+</table>
+</div>
+<h2 class="element-invisible">Pages</h2><div class="item-list item-list-pager"><ul class="pager"><li class="pager-current even first">1</li><li class="pager-item odd"><a title="Go to page 2" href="https://www.techsupportalert.com/tracker-comments-full?page=1">2</a></li><li class="pager-item even"><a title="Go to page 3" href="https://www.techsupportalert.com/tracker-comments-full?page=2">3</a></li><li class="pager-item odd"><a title="Go to page 4" href="https://www.techsupportalert.com/tracker-comments-full?page=3">4</a></li><li class="pager-item even"><a title="Go to page 5" href="https://www.techsupportalert.com/tracker-comments-full?page=4">5</a></li><li class="pager-item odd"><a title="Go to page 6" href="https://www.techsupportalert.com/tracker-comments-full?page=5">6</a></li><li class="pager-item even"><a title="Go to page 7" href="https://www.techsupportalert.com/tracker-comments-full?page=6">7</a></li><li class="pager-item odd"><a title="Go to page 8" href="https://www.techsupportalert.com/tracker-comments-full?page=7">8</a></li><li class="pager-item even"><a title="Go to page 9" href="https://www.techsupportalert.com/tracker-comments-full?page=8">9</a></li><li class="pager-ellipsis odd">…</li><li class="pager-next even"><a title="Go to next page" href="https://www.techsupportalert.com/tracker-comments-full?page=1">next ›</a></li><li class="pager-last odd last"><a title="Go to last page" href="https://www.techsupportalert.com/tracker-comments-full?page=263">last »</a></li></ul></div></div>
+</div>
+</div></div>
+</section>
+<div class="region region-content-aside"><div class="region-inner clearfix"><div id="block-block-74" class="clearfix block block-block no-title odd first last block-count-7 block-region-content-aside block-74">
+<a href="tracker-comments-full#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div id="rc-widget-4c49f0" data-rc-widget data-widget-host="habitat" data-endpoint="//trends.revcontent.com" data-widget-id="179478"></div>
+<script type="text/javascript" src="https://assets.revcontent.com/master/delivery.js" defer="defer"></script></div>
+</div></div></div></div>
+</div>
+</div>
+</div>
+<footer id="footer" role="contentinfo">
+<div id="footer-inner" class="clearfix">
+<div class="region region-footer"><div class="region-inner clearfix"><div id="block-block-3" class="clearfix block block-block no-title odd first last block-count-8 block-region-footer block-3">
+<a href="tracker-comments-full#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<p class="rtecenter"><a href="terms-and-conditions.htm">Terms &amp; Conditions</a> | <a href="https://www.techsupportalert.com/privacy-policy.htm">Privacy Policy</a> | <a href="content/contact-us.htm">Contact</a> | <a href="about-this-site">About</a></p>
+</div>
+</div></div></div><p class="attribute-creator"></p>
+</div>
+</footer>
+</div>
+</div>
+<style type="text/css">.invis{visibility:hidden;display:none}.vis{visibility:visible;display:inline}#more{display:none}#show,#hide{text-decoration:none;cursor:pointer;color:#3452c9;font-weight:bold;padding-left:20px}#show{background:transparent url(files/images/icons/down.png) no-repeat left}#hide{background:transparent url(files/images/icons/up.png) no-repeat left}select.dropdown{border:1px solid #cbcec3;background-color:#f2f6f9;font-size:1.1em;height:2em}select.dropdown-width{width:50%}@media only screen and (max-width:1024px){select.dropdown-width{width:100%}}span.cat-title{height:58px;display:table;font-size:1.3em;font-weight:bold}span.vert-align{display:table-cell;vertical-align:middle}img.cat-icon{width:82px;height:58px;float:left;padding-right:15px}.show-more{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:120px;padding:0 4px 0 4px}.show-review{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:120px;padding:0 4px 0 4px}.show-comments{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#eef0f8;border:1px solid #009;border-radius:2px;width:140px;padding:4px 8px 4px 8px}.gizmoslist-button{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:130px;padding:0 4px 0 4px}.gizmoslist-button:hover{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#e8e8e8;border:1px solid #999;border-radius:2px;width:130px;padding:0 4px 0 4px}</style>
+<script language="javascript" type="text/javascript">/*<![CDATA[*/var cn="invis";var ids=new Array("pg01","pg02","pg03","pg04","pg05","pg06","pg07","pg08","pg09","pg10","pg11","pg12");function doSwap(){cn=="vis"?cn="invis":cn="vis";for(var a=0;a<ids.length;a++){document.getElementById(ids[a]).className=cn}}jQuery(document).ready(function(){jQuery("#page_select").bind("change",function(){var a=jQuery(this).val();if(a){window.location.replace(a)}return false});jQuery("#category_select").bind("change",function(){var a=jQuery(this).val();if(a){window.location=a}return false})});jQuery(document).ready(function(){jQuery(".hidden").hide();jQuery(".show-more").html("Show more...");jQuery(".show-review").html("Show review...");jQuery(".show-comments").html("Hide Comments...");jQuery(".toggle").click(function(){jQuery("#show").toggle();jQuery("#more").toggle()});jQuery(".show-more").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).prev().slideUp();jQuery(this).removeClass("clicked");jQuery(this).html("Show more...")}else{jQuery(this).addClass("clicked");jQuery(this).prev().slideDown();jQuery(this).html("...Show less")}});jQuery(".show-review").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).prev().slideUp();jQuery(this).removeClass("clicked");jQuery(this).html("Show review...")}else{jQuery(this).addClass("clicked");jQuery(this).prev().slideDown();jQuery(this).html("...Hide review")}});jQuery(".show-comments").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).next().slideDown();jQuery(this).removeClass("clicked");jQuery(this).html("Hide Comments...")}else{jQuery(this).addClass("clicked");jQuery(this).next().slideUp();jQuery(this).html("Show Comments...")}})});jQuery(document).ready(function(){var a=jQuery("[rel~=tooltip]"),c=false,b=false,d=false;a.bind("mouseenter",function(){c=jQuery(this);tip=c.attr("title");b=jQuery('<div id="tooltip"></div>');if(!tip||tip==""){return false}c.removeAttr("title");b.css("opacity",0).html(tip).appendTo("body");var f=function(){if(jQuery(window).width()<b.outerWidth()*1.5){b.css("max-width",jQuery(window).width()/2)}else{b.css("max-width",340)}var g=c.offset().left+(c.outerWidth()/2)-(b.outerWidth()/2),h=c.offset().top-b.outerHeight()-20;if(g<0){g=c.offset().left+c.outerWidth()/2-20;b.addClass("left")}else{b.removeClass("left")}if(g+b.outerWidth()>jQuery(window).width()){g=c.offset().left-b.outerWidth()+c.outerWidth()/2+20;b.addClass("right")}else{b.removeClass("right")}if(h<0){var h=c.offset().top+c.outerHeight();b.addClass("top")}else{b.removeClass("top")}b.css({left:g,top:h}).animate({top:"+=10",opacity:1},50)};f();jQuery(window).resize(f);var e=function(){b.animate({top:"-=10",opacity:0},50,function(){jQuery(this).remove()});c.attr("title",tip)};c.bind("mouseleave",e);b.bind("click",e)})});/*]]>*/</script>   <script type="text/javascript" src="https://s.skimresources.com/js/91960x1545845.skimlinks.js"></script>
+<script type="text/javascript" src="files/advagg_js/js__u3nHk052uLVmrXgl8Msw4iVIJAQmCV1e3xGXXpXF9Dk__BHyRLdBIANa3UecVYBAt7pbSoHtiEKRHyUD-FwQ_hys__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var skimlinks_domain = "exit.techsupportalert.com";
+//--><!]]>
+</script>
+</body>
+</html>

@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en" dir="ltr"><!--<![endif]-->
+<head>
+   <!--[if IE]><![endif]-->
+<meta charset="utf-8" />
+<meta name="description" content="Have you ever wanted to know more about the Windows Registry and how it works. This tutorial is unusual because it goes deeper into the registry internals and management while keeping it easy to understand." />
+<link rel="shortcut icon" href="../sites/all/themes/gizmoslist/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The Windows registry is doubly obscure as it is both unknown to most of us and hard to understand. This is as it should be. The registry is a fundamental part of the Windows Kernel and its operations are relatively complex. If Windows is working properly then we, as users, should never see the Registry or any of its components. This article is not written for registry" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="deeper-windows-registry.htm" />
+<link rel="shortlink" href="https://www.techsupportalert.com/node/6814" />
+<meta property="og:site_name" content="Gizmo&#039;s Freeware" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.techsupportalert.com/content/deeper-windows-registry.htm" />
+<meta property="og:title" content="Deeper into the Windows Registry" />
+<meta property="og:description" content="The Windows registry is doubly obscure as it is both unknown to most of us and hard to understand. This is as it should be. The registry is a fundamental part of the Windows Kernel and its operations are relatively complex. If Windows is working properly then we, as users, should never see the Registry or any of its components. This article is not written for registry beginners, nor those wanting to edit the registry. Instead it provides a deeper understanding of the organization and management of the registry. This article is work in progress so don&#039;t rely on it being completely correct." />
+<meta property="og:updated_time" content="2020-11-25T12:05:05+00:00" />
+<meta property="article:published_time" content="2014-07-12T12:28:58+00:00" />
+<meta property="article:modified_time" content="2020-11-25T12:05:05+00:00" />
+   <title>Deeper into the Windows Registry | Gizmo's Freeware</title>
+   <link type="text/css" rel="stylesheet" href="../files/advagg_css/css__K1Zxkb7B9uRMTvKGWwqJbpPSUxPwhcczKcp6degok28__HeSIUBSByKemgY9AJL8p07c1i2IHEDyYO6cKTWBN3Pw__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.css" media="all" />
+
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="https://www.techsupportalert.com/files/advagg_css/css__I8Q7DkdK2zJceaJBCwEwz0vYYbloOjCrssUsWAaHyIM__qjMhJvPdluz-vOJRX3dztEqH8G31Y32rQ_NKwUhoC1Y__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.css" media="screen" />
+<![endif]-->
+   <!--[if lt IE 9]>
+   <link rel=stylesheet type=text/css href=/sites/all/themes/gizmoslist/css/ie7-and-down.css />
+   <![endif]-->
+   <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript" src="../files/advagg_js/js__B1KiKqJbKO-n3ZXTCs35IBdGFYs11f-fUM6Y72B9wEg__5zx4JiTNwUOifd--hiFOiQb-OZHPEiMORfGWeCF9Yyk__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.techsupportalert.com/files/googleanalytics/analytics.js?qv3qpt","ga");ga("create", "UA-279220-2", {"cookieDomain":"auto"});ga("require", "linkid", "linkid.js");ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"gizmoslist","theme_token":"s7M1JPlKvbPxrPw-WuTQQE8SKa90rdNfdExomS7mpAE","jquery_version":"1.7","css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/aggregator\/aggregator.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/google_cse\/google_cse.css":1,"modules\/node\/node.css":1,"modules\/poll\/poll.css":1,"modules\/search\/search.css":1,"sites\/all\/modules\/slidead\/slidead.css":1,"modules\/user\/user.css":1,"modules\/forum\/forum.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/comment_notify\/comment_notify.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/panels\/css\/panels.css":1,"sites\/all\/modules\/print\/print_ui\/css\/print_ui.theme.css":1,"public:\/\/spamicide\/user_pw.css":1,"sites\/all\/modules\/fivestar\/css\/fivestar.css":1,"sites\/all\/modules\/fivestar\/widgets\/oxygen\/oxygen.css":1,"sites\/all\/libraries\/superfish\/css\/superfish.css":1,"sites\/all\/libraries\/superfish\/css\/superfish-navbar.css":1,"sites\/all\/libraries\/superfish\/style\/graphite.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.settings.style.headings.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.settings.style.image.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.layout.css":1,"sites\/all\/themes\/gizmoslist\/color\/colors.css":1,"sites\/all\/themes\/pixture_reloaded\/css\/pixture_reloaded.css":1,"sites\/all\/themes\/pixture_reloaded\/css\/pixture_reloaded.settings.style.css":1,"sites\/all\/themes\/gizmoslist\/css\/styles.custom.css":1,"sites\/all\/themes\/gizmoslist\/generated_files\/gizmoslist.custom.css":1,"sites\/all\/themes\/gizmoslist\/fonts\/gizmoslogo\/gizmoslogo.css":1,"sites\/all\/themes\/gizmoslist\/fonts\/font-awesome\/font-awesome.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.responsive.layout.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.fonts.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.responsive.styles.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.lt-ie9.layout.css":1},"js":{"\/\/s.skimresources.com\/js\/91960x1545845.skimlinks.js":1,"sites\/all\/modules\/google_cse\/google_cse.js":1,"sites\/all\/modules\/slidead\/slidead.js":1,"sites\/all\/modules\/comment_notify\/comment_notify.js":1,"sites\/all\/themes\/gizmoslist\/script\/bootstrap.min.js":1,"sites\/all\/themes\/gizmoslist\/script\/enscroll-0.4.0.min.js":1,"sites\/all\/themes\/gizmoslist\/script\/script.js":1,"sites\/all\/modules\/adsense\/contrib\/adsense_click\/adsense_click.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"misc\/progress.js":1,"sites\/all\/modules\/fivestar\/js\/fivestar.ajax.js":1,"sites\/all\/modules\/fivestar\/js\/fivestar.js":1,"sites\/all\/libraries\/superfish\/supposition.js":1,"sites\/all\/libraries\/superfish\/superfish.js":1,"sites\/all\/modules\/superfish\/superfish.js":1,"https:\/\/ws.sharethis.com\/button\/buttons.js":1,"sites\/all\/modules\/jquery_update\/replace\/jquery\/1.7\/jquery.min.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery-html-prefilter-3.5.0-backport.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/all\/modules\/jquery_update\/replace\/misc\/jquery.form.min.js":1,"misc\/ajax.js":1,"sites\/all\/modules\/jquery_update\/js\/jquery_update.js":1}},"googleCSE":{"cx":"partner-pub-4337260311855789:5365410881","language":"","resultsWidth":400,"domain":"www.google.com","showWaterMark":true},"slideAd":{"width":"300"},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"},"urlIsAjaxTrusted":{"\/search\/node":true,"\/content\/deeper-windows-registry.htm":true,"\/content\/deeper-windows-registry.htm?destination=node\/6814":true,"\/system\/ajax":true},"superfish":{"1":{"id":"1","sf":{"animation":{"opacity":"show","height":"show"},"speed":"\u0027fast\u0027","autoArrows":false,"dropShadows":true,"disableHI":false},"plugins":{"supposition":true,"bgiframe":false}}},"ajax":{"edit-vote--2":{"callback":"fivestar_ajax_submit","event":"change","url":"\/system\/ajax","submit":{"_triggering_element_name":"vote"}}},"adaptivetheme":{"gizmoslist":{"layout_settings":{"bigscreen":"three-col-grail","tablet_landscape":"three-col-grail","tablet_portrait":"one-col-vert","smalltouch_landscape":"one-col-vert","smalltouch_portrait":"one-col-stack"},"media_query_settings":{"bigscreen":"only screen and (min-width:1025px)","tablet_landscape":"only screen and (min-width:769px) and (max-width:1024px)","tablet_portrait":"only screen and (min-width:481px) and (max-width:768px)","smalltouch_landscape":"only screen and (min-width:321px) and (max-width:480px)","smalltouch_portrait":"only screen and (max-width:320px)"}}}});
+//--><!]]>
+</script>
+   <!--[if lt IE 9]>
+<script src="https://www.techsupportalert.com/sites/all/themes/adaptivetheme/at_core/scripts/html5.js?qv3qpt"></script>
+<![endif]-->
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" /> <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script> <script> window.addEventListener("load", function(){ window.cookieconsent.initialise({ "palette": { "popup": { "background": "#edeff5", "text": "#838391" }, "button": { "background": "#4b81e8" } } })}); </script>
+   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+   <script data-ad-client="ca-pub-1584315025436785" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+   <meta name="wot-verification" content="22efc80013d585910ca0"/>
+   <meta name="propeller" content="3dda2330fd32fcfca29de21325f076f3">
+</head>
+
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-6814 node-type-article site-name-hidden site-name-gizmoamp039s-freeware section-content color-scheme-custom gizmoslist bs-n bb-n mb-dd mbp-l rc-0">
+   <div id=skip-link class=nocontent><a href="deeper-windows-registry.htm#main-content" class="element-invisible element-focusable">Skip to main content</a></div>
+      <div class="texture-overlay">
+<div id="page" class="container page ssc-n ssw-n ssa-l sss-n btc-n btw-b bta-l bts-n ntc-n ntw-b nta-l nts-n ctc-n ctw-b cta-l cts-n ptc-n ptw-b pta-l pts-n">
+<header id="header" class="clearfix" role="banner" data-position="fixed">
+<div class="header-inner clearfix">
+<div id="mobile-menu">
+<span class="mobile-socialmenu">social</span>
+<span class="mobile-search">search</span>
+</div>
+<span id="mobile-nav">Menu</span>
+<div id="branding" class="branding-elements clearfix">
+<div id="logo">
+<a href="../index.html" title="Go to our home page..." class="active" style="text-decoration:none"><div class="icon-Final-freeware" style="color:#f0f0f0;font-size:68px;padding-bottom:8px"></div></a>
+</div>
+<div id="logomobile">
+<a href="../index.html" title="Go to our home page..." class="active" style="text-decoration:none"><div class="icon-Final-freeware" style="color:#f0f0f0;font-size:40px;padding-left:8px"></div></a>
+</div>
+<div id="name-and-slogan" class="element-invisible h-group" id="name-and-slogan">
+<h1 id="site-name" class="element-invisible" id="site-name"><a href="../index.html" title="Home page">Gizmo&#039;s Freeware</a></h1>
+</div>
+</div>
+<div class="region region-header"><div class="region-inner clearfix"><div id="block-block-58" class="clearfix block block-block no-title odd first block-count-1 block-region-header block-58">
+<a href="deeper-windows-registry.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div id="header-middle"><a href="http://www.xmarks.com/site/www.techsupportalert.com/#r"><img alt="" src="../files/images/icons/_thumb_13506.png" /> </a><a href="http://www.pcmag.com/article2/0,2817,2367733,00.asp"> <img alt="" src="../files/images/icons/_thumb_13505.png" /></a></div>
+</div>
+</div><div id="block-block-57" class="clearfix block block-block no-title even block-count-2 block-region-header block-57">
+<a href="deeper-windows-registry.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<p><a href="http://feeds.feedburner.com/gizmosbest" title="Go to our RSS feeds..."><i class="fa fa-rss-square fa-2x" style="color: #ffb300;"></i></a>&nbsp;&nbsp; <a href="http://feedburner.google.com/fb/a/mailverify?uri=gizmosbest" title="Subscribe to email..."><i class="fa fa-envelope fa-2x" style="color: #f0f0f0;"></i></a>&nbsp;&nbsp; <a href="http://www.facebook.com/pages/Gizmos-Freeware/114026985301900" title="Follow us on Facebook..."><i class="fa fa-facebook-square fa-2x" style="color: #d0d0ff;"></i></a>&nbsp;&nbsp; <a href="http://twitter.com/GizmosFreeware" title="Follow us on Twitter..."><i class="fa fa-twitter-square fa-2x" style="color: #70c0f0;"></i></a></p>
+</div>
+</div><div id="block-search-form" class="clearfix block block-search no-title odd block-count-3 block-region-header block-form" role="search">
+<a href="deeper-windows-registry.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<form action="deeper-windows-registry.htm" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="search" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-W3KSuRJyO-BQM24HvpeZRlXzgzcSc_lO_tYt_KF4xq8" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form></div>
+</div><div id="block-user-login" class="clearfix block block-user even last block-count-4 block-region-header block-login" role="form">
+<a href="deeper-windows-registry.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Login / Register</h2>
+<div class="content" class="block-content content">
+<form action="https://www.techsupportalert.com/content/deeper-windows-registry.htm?destination=node/6814" method="post" id="user-login-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">Username <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-name" name="name" value="" size="15" maxlength="60" class="form-text required" />
+</div>
+<div class="form-item form-type-password form-item-pass">
+  <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" id="edit-pass" name="pass" size="15" maxlength="128" class="form-text required" />
+</div>
+<div class="item-list"><ul><li class="even first"><a href="../user/register" title="Create a new user account.">Create new account</a></li><li class="odd last"><a href="https://www.techsupportalert.com/user/password" title="Request new password via e-mail.">Request new password</a></li></ul></div><input type="hidden" name="form_build_id" value="form-6F7sg7Uat0XrUIALCUlkZfHvFAnQqlwdesvXZepGuQo" />
+<input type="hidden" name="form_id" value="user_login_block" />
+<div class="edit-user-pw-wrapper"><div class="form-item form-type-textfield form-item-user-pw">
+  <label for="edit-user-pw">user pw </label>
+ <input type="text" id="edit-user-pw" name="user_pw" value="" size="20" maxlength="128" class="form-text" />
+<div class="description">Do not type anything in this box</div>
+</div>
+</div><div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Log in" class="form-submit" /></div></div></form></div>
+</div></div></div></div>
+</header>
+   <!-- Start: Ad blocker check
+   <style>#svCYxPorrige{display:none;margin-bottom:0px;padding:20px 10px;background:#D30000;text-align:center;font-weight:bold;color:#fff;border-radius: 0px;}</style>
+   <div id="svCYxPorrige">Oops, it looks like you are using an ad blocker.<br>We work hard to provide you our software news and we keep our ads non-intrusive.<br>Please support us keeping our content free by disabling your ad blocker.</div>
+   <script src="/ads.js" type="text/javascript"></script>
+   <script type="text/javascript">if(!document.getElementById('YzIkKlMbayUm')){document.getElementById('svCYxPorrige').style.display='block';}</script>
+   End: Ad blocker check -->
+<div id="menu-bar" class="nav clearfix"><div id="block-superfish-1" class="clearfix block block-superfish menu-wrapper menu-bar-wrapper clearfix odd first last block-count-5 block-region-menu-bar block-1">
+<a href="deeper-windows-registry.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="element-invisible block-title" class="block-title">Main menu</h2>
+<div class="content" class="block-content content clearfix">
+<ul id="superfish-1" class="menu sf-menu sf-main-menu sf-navbar sf-style-graphite sf-total-items-12 sf-parent-items-5 sf-single-items-7"><li id="menu-175-1" class="first odd sf-item-1 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="../index.html" title="This site&#039;s home page" class="sf-depth-1 menuparent">Home</a><ul><li id="menu-13310-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../index.html" title="The front page of Gizmo&#039;s Freeware" class="sf-depth-2">Homepage</a></li><li id="menu-13306-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="../user/login" title="Login to Gizmos using your site account" class="sf-depth-2">Login</a></li><li id="menu-13307-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="../user" title="Login to Gizmos using your site account. Here you can change your password or store bookmarks" class="sf-depth-2">My account/Change PW</a></li><li id="menu-13309-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="../user/register" title="Create an account at Gizmos Freeware so you can post comments to articles and in the forum" class="sf-depth-2">Register</a></li></ul></li><li id="menu-12522-1" class="middle even sf-item-2 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="../windows" title="The Best Free Windows Programs" class="sf-depth-1 menuparent">Windows</a><ul><li id="menu-12538-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../windows" title="The best free Windows desktop software by category plus our Editors&#039; Choice selections" class="sf-depth-2">Desktop Software</a></li><li id="menu-12539-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="../best-free-windows-apps.htm" title="The best free Windows apps as selected by our editors" class="sf-depth-2">Windows Apps</a></li><li id="menu-12540-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="../best-free-portable-programs.htm" title="Our Editor&#039;s Choice Selections of the Best Free Portable Apps" class="sf-depth-2">Portable Apps</a></li><li id="menu-12541-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="../best-free-windows7-vista-64-bit-software.htm" title="Our Editor&#039;s selections of the best free Windows 64 bit software" class="sf-depth-2">Windows 64 bit Software</a></li></ul></li><li id="menu-12523-1" class="middle odd sf-item-3 sf-depth-1 sf-no-children"><a href="best-free-software-mac-os.htm" title="The Best Free Mac OS X Programs" class="sf-depth-1">Mac</a></li><li id="menu-12524-1" class="middle even sf-item-4 sf-depth-1 sf-no-children"><a href="../linux" title="The Best Free Linux Programs" class="sf-depth-1">Linux</a></li><li id="menu-12526-1" class="middle odd sf-item-5 sf-depth-1 sf-no-children"><a href="../android" title="The Best Free Android Apps" class="sf-depth-1">Android</a></li><li id="menu-12525-1" class="middle even sf-item-6 sf-depth-1 sf-no-children"><a href="../ios" title="The Best Free Apps for iPhone and iPad" class="sf-depth-1">iOS</a></li><li id="menu-13312-1" class="middle odd sf-item-7 sf-depth-1 sf-no-children"><a href="best-free-online-applications-and-services.htm" title="Best web based applications and services" class="sf-depth-1">Online Apps</a></li><li id="menu-9299-1" class="middle even sf-item-8 sf-depth-1 sf-no-children"><a href="../free-ebooks-audio-books-read-online-download.htm" title="Here&#039;s a list of dozens of articles on this showing you the best places to get free eBooks and Audio Books" class="sf-depth-1">eBooks</a></li><li id="menu-12530-1" class="middle odd sf-item-9 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="../view/hot_expanded" title="New and recently updated articles" class="sf-depth-1 menuparent">New</a><ul><li id="menu-3760-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../view/hot_expanded" title="The Most Recent Additions to Gizmo&#039;s Freeware" class="sf-depth-2">New Articles</a></li><li id="menu-3761-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="../tracker_updated_only" title="Articles we have recently revised or re-written" class="sf-depth-2">Recently Updated Articles</a></li><li id="menu-3759-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="https://www.techsupportalert.com/recent-comments" title="Comments on reviews and articles posted by our users" class="sf-depth-2">Recent Comments</a></li><li id="menu-105-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="../all-articles-by-rating" title="The articles our users have given the highest ratings" class="sf-depth-2">Highest Rated</a></li></ul></li><li id="menu-210-1" class="middle even sf-item-10 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent"><a href="../freeware-updates.htm" title="The latest freeware releases and news from 10 top freeware sites" class="sf-depth-1 menuparent">Resources</a><ul><li id="menu-9285-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../freeware-updates.htm" title="The latest product updates and news from the web&#039;s most popular download sites" class="sf-depth-2">News</a></li><li id="menu-12533-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="../view/tips" title="Handy Windows Tips and Tricks" class="sf-depth-2">Tips</a></li><li id="menu-14525-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="../videos.htm" title="Keep up to date with tech the easy way by watching these interesting videos" class="sf-depth-2">Tech videos</a></li><li id="menu-9287-1" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="../sec" title="Want to clean a malware infection from your computer? Want to keep it clean and safe in the future? Then check out these guides." class="sf-depth-2">Security Guides &amp; Articles</a></li><li id="menu-9286-1" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="../tutorials" title="Want to know how to do something? You may well find it here." class="sf-depth-2">How-to Guides &amp; Tutorials</a></li><li id="menu-9283-1" class="middle even sf-item-6 sf-depth-2 sf-no-children"><a href="best-freeware-download-sites.htm" title="The safest and most reliable places to download freeware" class="sf-depth-2">Best Download Sites</a></li><li id="menu-9284-1" class="last odd sf-item-7 sf-depth-2 sf-no-children"><a href="best-free-technical-support-sites.htm" title="Got a hardware or software problem? Try one of these free support sites" class="sf-depth-2">Best Tech Support Sites</a></li></ul></li><li id="menu-1139-1" class="middle odd sf-item-11 sf-depth-1 sf-no-children"><a href="https://www.techsupportalert.com/freeware-forum" title="Got a computer question to ask?  Then this is the place and it&#039;s 100% free." class="sf-depth-1">Forum</a></li><li id="menu-109-1" class="last even sf-item-12 sf-depth-1 sf-total-children-6 sf-parent-children-0 sf-single-children-6 menuparent"><a href="../about-this-site" class="sf-depth-1 menuparent">About</a><ul><li id="menu-12560-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../about-this-site" title="How this site started and what it attempts to achieve" class="sf-depth-2">About</a></li><li id="menu-12559-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="contact-us.htm" title="How to contact Gizmo&#039;s Freeware / Press" class="sf-depth-2">Contact</a></li><li id="menu-12552-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="../faq" title="Answers to the most common questions we get asked" class="sf-depth-2">FAQ</a></li><li id="menu-13311-1" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="../contribute" title="Several ways you can help this community website" class="sf-depth-2">Contribute</a></li><li id="menu-12554-1" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="../privacy_policy.htm" title="The Privacy Policy of the Gizmo&#039;s Freeware Website" class="sf-depth-2">Privacy Policy</a></li><li id="menu-12553-1" class="last even sf-item-6 sf-depth-2 sf-no-children"><a href="../terms-and-conditions.htm" title="These are the conditions we offer and you accept for the use of this site" class="sf-depth-2">Condition of Use</a></li></ul></li></ul></div>
+</div></div><div id="columns">
+<div class="columns-inner clearfix">
+<div id="content-column">
+<div class="content-inner">
+<section id="main-content" role="main">
+<header id="main-content-header" class="clearfix">
+<h1 id="page-title">Deeper into the Windows Registry</h1>
+</header>
+<div id="content">
+
+
+<div id="block-system-main" class="clearfix block block-system no-title odd first last block-count-6 block-region-content block-main">
+<a href="deeper-windows-registry.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<article id="node-6814" class="node node-article article odd node-full ia-n clearfix" role="article">
+  
+  
+      <footer class="submitted">
+            <!-- <p class="author-datetime">Submitted by <a href="/users/siteeditor" title="View user profile." class="username">site.editor</a> on <time datetime="2014-07-12T12:28:58+0000">12. July 2014 - 12:28</time></p> -->
+      <p class="author-datetime">Last updated by <a href="https://www.techsupportalert.com/users/siteeditor" title="View user profile." class="username">site.editor</a> on 25. November 2020 - 12:05</p>
+    </footer>
+  
+  <div class="node-content">
+    <div class="sharethis-buttons"><div class="sharethis-wrapper"><span st_url="https://www.techsupportalert.com/content/deeper-windows-registry.htm" st_title="Deeper%20into%20the%20Windows%20Registry" class="st_facebook"></span>
+<span st_url="https://www.techsupportalert.com/content/deeper-windows-registry.htm" st_title="Deeper%20into%20the%20Windows%20Registry" class="st_twitter" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/deeper-windows-registry.htm" st_title="Deeper%20into%20the%20Windows%20Registry" class="st_linkedin" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/deeper-windows-registry.htm" st_title="Deeper%20into%20the%20Windows%20Registry" class="st_email" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/deeper-windows-registry.htm" st_title="Deeper%20into%20the%20Windows%20Registry" class="st_sharethis" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/deeper-windows-registry.htm" st_title="Deeper%20into%20the%20Windows%20Registry" class="st_pinterest" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/deeper-windows-registry.htm" st_title="Deeper%20into%20the%20Windows%20Registry" class="st_fblike" st_via="" st_username=""></span>
+</div></div>
+<div class="field field-name-body field-type-text-with-summary field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>The Windows registry is doubly obscure as it is both unknown to most of us and hard to understand. This is as it should be. The registry is a fundamental part of the Windows Kernel and its operations are relatively complex. If Windows is working properly then we, as users, should never see the Registry or any of its components. This article is not written for registry beginners, nor those wanting to edit the registry. Instead it provides a deeper understanding of the organization and management of the registry.</p>
+<p><strong>This article is work in progress so don't rely on it being completely correct. The format of some sections is likely to dramatically change to clarify and simplify the content.</strong> There will also be further work added to bring it up to Windows 8. I am publishing it now to give people the opportunity to ask questions and suggest improvements.</p>
+<ul>
+	<li>
+		<a href="deeper-windows-registry.htm#WhatIsTheRegistry" title="About the Registry database, hives, keys and terminology">What is the Windows registry?</a></li>
+	<li>
+		<a href="deeper-windows-registry.htm#RegistryChanges" title="Install Windows, device or application; Windows startup; User logon and interaction">What activities change the Windows registry?</a></li>
+	<li>
+		<a href="deeper-windows-registry.htm#RegistryOnDisk" title="Registry filenames and file locations">How is the registry stored on disk?</a></li>
+	<li>
+		<a href="deeper-windows-registry.htm#RegistryInMemory" title="Registry hives, and types of hive and links">How is the registry stored in memory?</a></li>
+	<li>
+		<a href="deeper-windows-registry.htm#RegistryManaged" title="Registry kernel-mode Configuration Manager">How is the registry managed?</a></li>
+	<li>
+		<a href="deeper-windows-registry.htm#RegistryStartup" title="Windows startup sequence">How does Windows startup use the registry?</a></li>
+	<li>
+		<a href="deeper-windows-registry.htm#Answers" title="Ask a question by posting a comment at the end of this article">Answers to some other common questions</a></li>
+</ul>
+<p> </p>
+<h2>
+	<a name="WhatIsTheRegistry" id="WhatIsTheRegistry"></a>What is the Windows Registry?</h2>
+<h4>
+	The complete registry only exists in memory</h4>
+<p>The registry is commonly described as a hierarchical database. But you may not have realized two important facts:</p>
+<ol>
+	<li>
+		The registry database is only ever complete when loaded into your computer's memory.</li>
+	<li>
+		The registry is the sum of two parts, the data and the processes that create it and provide access to it.</li>
+</ol>
+<table align="center" border="0" class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td class="rtecenter">
+				<strong>Diagram 1 - Windows assembles the registry in memory</strong></td>
+		</tr>
+		<tr>
+			<td class="rtecenter">
+				<img alt="Some in-memory Registry hives do not have on-disk hive files " longdesc="" src="../files/images/Registry-load-510x195.png" style="width: 510px; height: 195px;" title="The volatile registry hives only exist in memory when Windows is running" /></td>
+		</tr>
+	</tbody>
+</table>
+<p>In other words, the registry hive files stored on your disk are not the complete registry. The complete registry is created during the startup process and assembled in memory.</p>
+<p>This is so important so I'll repeat it. At the heart of the registry is a database that exists in two main forms:</p>
+<ul>
+	<li>
+		Some registry hives are stored on disk even when Windows is not running.</li>
+	<li>
+		All the registry hive structures only exist in memory. This includes a set of volatile hives that only exist when Windows is running.</li>
+</ul>
+<h4>
+	The registry can only be accessed  through the Registry Configuration Manager</h4>
+<p>The other Windows components that allow the registry data to be accessed are in the Windows kernel. The Registry Configuration Manager is the most dedicated but other kernel components like the Object Manager provide further essential capabilities. These are discussed in more detail in <a href="deeper-windows-registry.htm#RegistryManaged" title="Registry kernel-mode Configuration Manager">How is the registry managed?</a> but here's a preview so you can picture it.</p>
+<table align="center" border="0" class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td class="rtecenter">
+				<strong>Diagram 2 - Windows kernel components provide access to the registry</strong></td>
+		</tr>
+		<tr>
+			<td class="rtecenter">
+				<p class="rtecenter"><img alt="Windows Configuration Manager manages changes to the Registry" src="../files/images/Registry-CM-simple-305x488.png" style="width: 305px; height: 488px;" title="Access to the registry is through Windows kernel components" /></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>What this means is that when your computer is turned off the registry does not exist even though most of the registry data is stored on disk.</p>
+<h4>
+	The beehive references started as a joke</h4>
+<p>In reading about the registry you may have noticed the references to hives, bees and cells. They are a long running joke. Apparently, one of the developers hated bees and another developer took the opportunity to introduce <a href="http://blogs.msdn.com/b/oldnewthing/archive/2003/08/08/54618.aspx)" target="_blank" title="Where the bee references came from">many references to bees</a>. It is also relevant that the registry database is indexed using binary trees or B-trees (pronounced "Bee-trees"). That's why the primary database structures are called hives.</p>
+<p>You can see registry database structure by running the registry editor, RegEdit. It shows one hierarchical tree but the Windows registry is not one big database file. The primary data structure is the hive of which there are several. Each hive is indentified by a root key which provides access to all sub-keys in the tree up to 512 levels deep.</p>
+<h4>
+	Each hive has a root key</h4>
+<p>There are six pre-defined root keys which are used to access all other keys or sub-keys. In other words, the binary tree is traversed from the root downwards. So new keys are added through these root keys and all existing keys have to be found through the root keys. One disadvantage of this approach is that a problem with a higher key may prevent access to lower keys. In practice this does not occur very often.</p>
+<p>The following table lists the root keys with the abbreviations that will be used in the remainder of this article.</p>
+<table class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="3" valign="middle" width="100%">
+				<strong>Table 1 - Registry root keys</strong></td>
+		</tr>
+		<tr>
+			<td align="center" class="bordered" width="15%">
+				<strong>Root Key<br />
+				Abbreviation</strong></td>
+			<td align="center" class="bordered" width="30%">
+				<strong>Root Key Name</strong></td>
+			<td align="center" class="bordered" width="50%">
+				<strong>Component data is stored for</strong></td>
+		</tr>
+		<tr>
+			<td align="center" class="bordered" width="15%">
+				HKCC</td>
+			<td align="left" class="bordered" width="30%">
+				HKEY_CURRENT_CONFIG</td>
+			<td align="left" class="bordered" width="55%">
+				Current hardware</td>
+		</tr>
+		<tr>
+			<td align="center" class="bordered" width="15%">
+				HKCR</td>
+			<td align="left" class="bordered" width="30%">
+				HKEY_CLASSES_ROOT</td>
+			<td align="left" class="bordered" width="55%">
+				Classes (types) of documents and registered applications</td>
+		</tr>
+		<tr>
+			<td align="center" class="bordered" width="15%">
+				HKCU</td>
+			<td align="left" class="bordered" width="30%">
+				HKEY_CURRENT_USER</td>
+			<td align="left" class="bordered" width="55%">
+				Current logged-on user</td>
+		</tr>
+		<tr>
+			<td align="center" class="bordered" width="15%">
+				HKLM</td>
+			<td align="left" class="bordered" width="30%">
+				HKEY_LOCAL_MACHINE</td>
+			<td align="left" class="bordered" width="55%">
+				The system hardware, software and security</td>
+		</tr>
+		<tr>
+			<td align="center" class="bordered" width="15%">
+				HKPD</td>
+			<td align="left" class="bordered" width="30%">
+				HKEY_PERFORMANCE_DATA</td>
+			<td align="left" class="bordered" width="55%">
+				Performance data</td>
+		</tr>
+		<tr>
+			<td align="center" class="bordered" width="15%">
+				HKU</td>
+			<td align="left" class="bordered" width="30%">
+				HKEY_USERS</td>
+			<td align="left" class="bordered" width="55%">
+				User profiles</td>
+		</tr>
+	</tbody>
+</table>
+<h4>
+	Registry HKEYS are handle keys used to access the registry objects</h4>
+<p>As shown in Diagram 2, programs gain access to the registry by using the Registry Application Programming Interface (API) which provides a standard set of functions for the Windows sub-systems and application programs to access and update the Registry. This is how the Registry editor (RegEdit) and other utilities work. When a program uses the API to access the registry the Windows Object Manager will return a handle for the object identified by a key. That is why the "HKEY" in the root keys means "handle key".</p>
+<p>Although the handles are valid in any registry they can be used differently in different versions of Windows. Also, some registry handles are not provided from the registry hives. HKPD, for example, is diverted by the API to the Windows performance management sub-systems. That is why you cannot find HKEY_PERFORMANCE_DATA when you use the Registry editor.</p>
+<h4>
+	The registry structure is like a file storage structure</h4>
+<p>You may find it easier to relate to the <a href="http://blogs.msdn.com/b/oldnewthing/archive/2009/02/04/9394113.aspx" target="_blank" title="Blog entry on the registry terminology">registry terminology</a> by referring to tree formats or file storage. The analogy of files is particularly apt because Windows used to be configured from .INI files. More particularly, the keys themselves use file-naming conventions. This is a handy feature because Windows can manage registry objects just like file objects. Registry hives have symbolic links which are like virtual paths mappings in file system. Registry subkeys also have owners and permissions just like directories and folders.</p>
+<table class="review-details" width="60%">
+	<tbody>
+		<tr>
+			<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="3" valign="middle" width="60%">
+				<strong>Table 2 - Relating to Registry terminology</strong></td>
+		</tr>
+		<tr>
+			<td align="center" class="bordered" width="20%">
+				<strong>Registry</strong></td>
+			<td align="center" class="bordered" width="20%">
+				<strong>Other trees</strong></td>
+			<td align="center" class="bordered" width="20%">
+				<strong>File storage</strong></td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="20%">
+				Hive</td>
+			<td align="left" class="bordered" width="20%">
+				Tree</td>
+			<td align="left" class="bordered" width="20%">
+				File-system</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="20%">
+				Key</td>
+			<td align="left" class="bordered" width="20%">
+				Node</td>
+			<td align="left" class="bordered" width="20%">
+				Directory or folder</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="20%">
+				Subkey</td>
+			<td align="left" class="bordered" width="20%">
+				Subnode</td>
+			<td align="left" class="bordered" width="20%">
+				Subdirectory or subfolder</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="20%">
+				Value</td>
+			<td align="left" class="bordered" width="20%">
+				Key</td>
+			<td align="left" class="bordered" width="20%">
+				File</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="20%">
+				Type</td>
+			<td align="left" class="bordered" width="20%">
+				Type</td>
+			<td align="left" class="bordered" width="20%">
+				File type</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="20%">
+				Data</td>
+			<td align="left" class="bordered" width="20%">
+				Value</td>
+			<td align="left" class="bordered" width="20%">
+				File content</td>
+		</tr>
+	</tbody>
+</table>
+<p>Note that a key can contain subkeys or values. A subkey can have another subkey so key and subkey are usually interchangeable in the same way as directory and subdirectory or folder and subfolder. A key with no value can still store data in what is called the default value.</p>
+<p>You might have noticed that I haven't explained what cells are here.  I mentioned them when discussing hives and bees. The reason that they aren't here is that cells are part of the in-memory structure for the hives and are not visible anywhere outside the kernel. They will only be explained if I add a section on the internal workings of the Registry Configuration Manager.</p>
+<h4>
+	The registry is kernel-based for speed</h4>
+<p>The registry is an integral part of Windows so it is based in the Windows kernel for the best performance and access to the most important components of Windows.</p>
+<h4>
+	The registry is designed to save space</h4>
+<p>The registry stores configuration settings in a hierarchy to minimise the size of the registry. System-wide settings are used first then the user settings are added on top. This means that the user settings only have to store those settings that differ from the default. The user settings then supercede the equivalent system-wide settings.</p>
+<p>The same applies for programs and hardware. Programs normally have settings for the system, e.g. installed components, and settings for each user, e.g. recently-opened files. Likewise multiple hardware profiles can be used.</p>
+<p>Another advantage of only storing differences from the system or default settings is that different users can easily use the same computer with the same system configuration. They only need the settings in their profile to customize the system to suit them.</p>
+<p>The minimized size of the user settings also makes it easier to transmit those settings when you are roaming and log onto a different computer on the same local area network (LAN) or wide area network (WAN).</p>
+<table class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td align="center" border="0" colspan="4" valign="middle" width="100%">
+				<strong>Diagram 3 - User settings override system-wide settings</strong></td>
+		</tr>
+		<tr>
+			<td align="center" border="0" colspan="4" valign="middle" width="100%">
+				 </td>
+		</tr>
+		<tr>
+		</tr>
+		<tr>
+			<td align="left" border="0" width="20%">
+				<p><strong>Specific differences</strong></p>
+			</td>
+			<td align="center" border="0" width="20%">
+				 </td>
+			<td align="center" class="bordered" width="40%">
+				<p>User-specific differences<br />
+					e.g. HKCU\<em>User SID</em><br />
+					System-specific difference<br />
+					e.g. HKCU\Software\Classes</p>
+			</td>
+			<td align="center" border="0" width="20%">
+				 </td>
+		</tr>
+		<tr>
+			<td align="left" border="0" width="20%">
+				<p><strong>Defaults</strong></p>
+			</td>
+			<td align="center" class="bordered" colspan="3" width="80%">
+				<p>User defaults<br />
+					e.g. HKU\.default<br />
+					System-wide defaults<br />
+					e.g. HKLM\Software\Classes</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<table class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td align="center" border="0" colspan="4" valign="middle" width="100%">
+				 </td>
+		</tr>
+	</tbody>
+</table>
+<p>Diagram 3 is oversimplified. Just remember that the differences usually override the defaul settings. An example of system-wide default is the user profile defaults found in HKU\.default which are superceded by per user settings in HKCU\<em>user account SID</em>.</p>
+<h4>
+	Some of the registry complexity is to maintain backward compatibility</h4>
+<p>Originally Windows 3.1 only had the REG.DAT file. Windows 95 to ME and NT had the SYSTEM.DAT and USER.DAT. Every major release of Windows introduces further complexity to the files and the internal structure. So some hives are retained purely for backwards compatibility. This leaves us with three main categories of hive:</p>
+<ul>
+	<li>
+		Windows 9x (and 3.1) software classes to maintain compatibility with 16-bit applications, OLE and the Component Object Model (COM) for developing applications.</li>
+	<li>
+		Windows 2000 has Standard hives which are maintained to alllow users to roam with a standard configuration. Windows 2000 largely moved to the current registry files.</li>
+	<li>
+		Windows latest versions.</li>
+</ul>
+<p>Further complicating this are other major changes:</p>
+<ul>
+	<li>
+		The emulation of Windows 32-bit on Windows 64 (WOW64) to allow 32-bit and 64-bit registry entries to coexist in the registry</li>
+	<li>
+		The introduction of the .NET Framework and web-based software which is superceding the old COM framework.</li>
+</ul>
+<p> </p>
+<h2>
+	<a name="RegistryChanges" id="RegistryChanges"></a>What activities change the Windows Registry?</h2>
+<h4>
+	Windows installs and upgrades</h4>
+<p>Windows setup copies a prototype version of the Registry from the install media.</p>
+<table align="center" border="0" class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td class="rtecenter">
+				<strong>Diagram 4 - Setup uses a prototype registry to setup Windows</strong></td>
+		</tr>
+		<tr>
+			<td class="rtecenter">
+				<p class="rtecenter"><img alt="Windows setup copies prototype Registry hive files" src="../files/images/Registry-setup-516x136.png" style="width: 516px; height: 136px;" /></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>OEM versions of Windows can have a customized prototype which can invalidate standard recovery methods if a Windows install fails. This was an issue with Windows XP but I'm unsure if it still applies given the registry improvements in Vista.</p>
+<p>If you have an option to upgrade then Windows installs the new registry formats and then copies or converts the existing keys as appropriate.</p>
+<table align="center" border="0" class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td class="rtecenter">
+				<strong>Diagram 5 - Windows upgrades merge the existing registry hives into the prototype</strong></td>
+		</tr>
+		<tr>
+			<td class="rtecenter">
+				<p class="rtecenter"><img alt="Windows upgrade installs new Registry hive files and updates from the existing" src="../files/images/Registry-upgrade-528x222.png" style="width: 528px; height: 222px;" /></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>The Custom install option is an indirect upgrade because your data is copied out to another disk and then applied after the new install.</p>
+<h4>
+	Windows startup</h4>
+<p>The Windows startup sequence is quite complex so it is discussed separately in <a href="deeper-windows-registry.htm#RegistryStartup" title="Windows startup sequence">How does Windows startup use the registry?</a>.</p>
+<p>The first steps of startup are designed to determine the configuration needed to load Windows. But initially the Windows Kernel and the registry are not loaded. So the Boot Configuration Data (BCD) is loaded from its file. Once the Windows Loader is started then the hardware abstraction layer and the kernel image are loaded before the Registry API is available. The System hive is loaded into physical memory to determine the relevant control set to be used to configure Windows properly. The registry is then assembled and from that point further startup processes are accessing the registry and making changes. These changes are made whether there are any further changes to the computer configuration or any problems that may develop.</p>
+<h4>
+	User logon</h4>
+<p>When a user logs on, Windows loads hives that are specific to that user. These contain settings that differ from the defaults. <a href="deeper-windows-registry.htm#RegistryStartup" title="Windows startup sequence">How does Windows startup use the registry?</a> also provides further details for this.</p>
+<h4>
+	Device driver changes</h4>
+<p>When we install (or uninstall) drivers this changes the registry. We may not even notice this happening because new hardware is normally recognized automatically by Plug and Play so the correct drivers can be loaded without our intervention.</p>
+<h4>
+	Applications changes</h4>
+<p>Installing or uninstalling applications is a major source of changes after the initial install of Windows. This almost always involves user intervention.</p>
+<h4>
+	User interaction primarily with programs</h4>
+<p>We also have interactions with our application programs and Windows components. These programs modify the registry in many ways and the changes can be to system-wide settings as well as user-specific settings.</p>
+<table align="center" border="0" class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td class="rtecenter">
+				<strong>Diagram 6 - The registry is changed by driver and application changes or simply using a program </strong></td>
+		</tr>
+		<tr>
+			<td class="rtecenter">
+				<p class="rtecenter"><img alt="The registry is updated for hardware and software changes and simply using a program" src="../files/images/Registry-interact-542x292.png" style="width: 542px; height: 292px;" title="Registry is updated for driver and software installs and user interaction" /></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p> </p>
+<h2>
+	<a name="RegistryOnDisk" id="RegistryOnDisk"></a>How is the Registry stored on disk?</h2>
+<h4>
+	The Registry files are stored in several locations</h4>
+<p>The following table lists all the Windows directories where Registry data files can be found. The files are effectively snapshots of most but not all of the Registry hives. Table 3 summarises the main file locations. If you look on your disk, you will see that there are further sub-directories in each of these directories.</p>
+<table class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="4" valign="middle" width="100%">
+				<strong>Table 3 - Registry hive file locations</strong></td>
+		</tr>
+		<tr>
+			<td align="center" class="bordered" width="30%">
+				<strong>File Location</strong></td>
+			<td align="center" class="bordered" width="30%">
+				<strong>Example file location</strong></td>
+			<td align="center" class="bordered" width="20%">
+				<strong>File name</strong></td>
+			<td align="center" class="bordered" width="20%">
+				<strong>Description</strong></td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="30%">
+				%UserProfile%</td>
+			<td align="left" class="bordered" width="30%">
+				C:\Users\<em>Username</em>\</td>
+			<td align="left" class="bordered" width="20%">
+				NTUser.dat</td>
+			<td align="left" class="bordered" width="20%">
+				User profile configuration</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="30%">
+				%SystemRoot%\System32\Config\</td>
+			<td align="left" class="bordered" width="30%">
+				C:\Windows\System32\Config\</td>
+			<td align="left" class="bordered" width="20%">
+				Components<br />
+				Default<br />
+				SAM<br />
+				Security<br />
+				Software<br />
+				System</td>
+			<td align="left" class="bordered" width="20%">
+				System configuration</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="30%">
+				<p>%SystemRoot%\ServiceProfiles\LocalService</p>
+				<p>%SystemRoot%\ServiceProfiles\LocalService</p>
+			</td>
+			<td align="left" class="bordered" width="30%">
+				<p>C:\Windows\ServiceProfiles\LocalService</p>
+				<p>C:\Windows\ServiceProfiles\LocalService</p>
+			</td>
+			<td align="left" class="bordered" width="20%">
+				NTUser.dat</td>
+			<td align="left" class="bordered" width="20%">
+				User profile configurations used by Windows</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="30%">
+				%SystemDrive%\Boot<br />
+				or<br />
+				%SystemDrive%\EFI\Microsoft\Boot</td>
+			<td align="left" class="bordered" width="30%">
+				C:\Boot\<br />
+				or<br />
+				C:\EFI\Microsoft\Boot</td>
+			<td align="left" class="bordered" width="20%">
+				BCD</td>
+			<td align="left" class="bordered" width="20%">
+				Boot Configuration Data</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="30%">
+				 </td>
+			<td align="left" class="bordered" width="30%">
+				 </td>
+			<td align="left" class="bordered" width="20%">
+				 </td>
+			<td align="left" class="bordered" width="20%">
+				 </td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="30%">
+				%UserProfile%<br />
+				%SystemRoot%\System32\Config\<br />
+				%SystemRoot%\System32\Config\Txr<br />
+				etc</td>
+			<td align="left" class="bordered" width="30%">
+				C:\Users\<em>Username</em>\<br />
+				C:\Windows\System32\Config\<br />
+				C:\Windows\System32\Config\Txr<br />
+				etc</td>
+			<td align="left" class="bordered" width="20%">
+				 </td>
+			<td align="left" class="bordered" width="20%">
+				Transaction Registry files can be found in the main registry hive folders.</td>
+		</tr>
+	</tbody>
+</table>
+<p> </p>
+<h4>
+	There are several types of Registry file</h4>
+<p>The primary registry files usually have no file extension (except for NTUser.dat) but there are other files that do. They attach the extension to the entire filename including the original extension. Table 4 indicates most of those file types.</p>
+<table class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="3" valign="middle" width="100%">
+				<strong>Table 4 - Other files</strong></td>
+		</tr>
+		<tr>
+			<td align="center" class="bordered" width="10%">
+				<strong>File Extension</strong></td>
+			<td align="center" class="bordered" width="40%">
+				<strong>Example filenames</strong></td>
+			<td align="center" class="bordered" width="50%">
+				<strong>Purpose</strong></td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="10%">
+				<em>none</em></td>
+			<td align="left" class="bordered" width="40%">
+				System<br />
+				NTUser.dat</td>
+			<td align="left" class="bordered" width="50%">
+				Hive backup created by the Configuration Manager</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="10%">
+				ALT</td>
+			<td align="left" class="bordered" width="40%">
+				System.alt</td>
+			<td align="left" class="bordered" width="50%">
+				Backup for the System key created by the Configuration Manager</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="10%">
+				BLF</td>
+			<td align="left" class="bordered" width="40%">
+				NTUSER.DAT{016888bd-6c6f-11de-8d1d-001e0bcde3ec}.TM.blf</td>
+			<td align="left" class="bordered" width="50%">
+				TxR transaction files<sup>1</sup></td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="10%">
+				LOG, LOG<em>n</em></td>
+			<td align="left" class="bordered" width="40%">
+				System.log, System.log1, etc<br />
+				NTUser.dat.log, NTUser.dat.log1, etc</td>
+			<td align="left" class="bordered" width="50%">
+				Transaction log of the key and value changes created by the Configuration Manager</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="10%">
+				REGTRANS-MS</td>
+			<td align="left" class="bordered" width="40%">
+				NTUSER.DAT{016888bd-6c6f-11de-8d1d-001e0bcde3ec}<br />
+				.TMContainer00000000000000000001<br />
+				.regtrans-ms</td>
+			<td align="left" class="bordered" width="50%">
+				TxR transaction files<sup>1</sup></td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="10%">
+				REG</td>
+			<td align="left" class="bordered" width="40%">
+				<em>no standard names</em></td>
+			<td align="left" class="bordered" width="50%">
+				REGistration entry files are created by RegEdit and other programs</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="10%">
+				SAV</td>
+			<td align="left" class="bordered" width="40%">
+				System.sav</td>
+			<td align="left" class="bordered" width="50%">
+				WIndows Vista and 7 initial SYSTEM install file. Windows 2000, XP, 2003 backup copy of the system configuration at the end the text-mode startup before the graphic-mode startup began. If graphics-mode fails the restart loads the .sav file to skip text-mode.</td>
+		</tr>
+	</tbody>
+</table>
+<p><sup>1</sup> Since Vista, the Transactional Registry (TxR) performs transactional updates that are managed by the Windows kernel-mode Transaction Manager (TM). This provides for atomic transactions where all updates are made together or not at all. The Transaction Manager uses the Common Logging File System and stores registry files in the %SystemRoot%\System32\Config\ (e.g. C:\Windows\System32\Config\) folder and the Txr subfolder as well as the other registry folders.</p>
+<p> </p>
+<h2>
+	<a name="RegistryInMemory" id="RegistryInMemory"></a>How is the registry stored in memory?</h2>
+<h4>
+	In-memory Registry hives</h4>
+<p>The registry hives in memory have the same data as the hive file data structures. However the data structure and indexing are different. As I said earlier, these hives form the complete registry because some hives do not exist on disk.</p>
+<p>The hives for each user account utilise the Security ID (SID) as the unique identifier. Such variable key names are indicated in italics in Table 5. The list of profiles is stored in HKLM\Software\Microsoft\WindowsNT\CurrentVersion\Profilelist.</p>
+<table class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="4" valign="middle" width="100%">
+				<strong>Table 5 - Registry hives </strong></td>
+		</tr>
+		<tr>
+			<td align="center" class="bordered" style="width: 187px;" width="20%">
+				<strong>Hive key</strong></td>
+			<td align="center" class="bordered" style="width: 152px;" width="15%">
+				<strong>Format</strong></td>
+			<td align="center" class="bordered" style="width: 152px;" width="15%">
+				<strong>Links</strong></td>
+			<td align="center" class="bordered" style="width: 504px;" width="50%">
+				<strong>Hive description</strong></td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" style="width: 187px;" width="20%">
+				HKCC</td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				volatile<br />
+				pre-2000</td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				Symbolic for 9x</td>
+			<td align="left" class="bordered" style="width: 504px;" width="50%">
+				Current hardware profile which only includes the differences from the standard configurations.<br />
+				HKCC is a symbolic key to the current hardware profile under HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\IDConfigDB\Hardware Profiles.</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" style="width: 187px;" width="20%">
+				HKCR</td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				volatile<br />
+				pre-2000</td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				Symbolic for 3.1</td>
+			<td align="left" class="bordered" style="width: 504px;" width="50%">
+				Primarily for backward compatibility with 16-bit Windows, ie back to Windows 3.1. Stores types (or classes) of documents and registered applications.<br />
+				HKCR is a symbolic key to HKLM\SOFTWARE \Classes (the default settings) and HKCU\Software\Classes (settings for the current user which takes priority over the default settings), combining them into one view.</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" style="width: 187px;" width="20%">
+				HKCU\<em>User account SID</em></td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				2000 standard</td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				Symbolic for 9x</td>
+			<td align="left" class="bordered" style="width: 504px;" width="50%">
+				The preferences of the current (logged-in) user.<br />
+				This configuration is designed to roam with the user.</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" style="width: 187px;" width="20%">
+				HKLM\BCD00000000</td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				 </td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				 </td>
+			<td align="left" class="bordered" style="width: 504px;" width="50%">
+				Since Vista, Boot Configuration Data for which there is not a hive.<br />
+				NB: Use BCDedit.exe and not RegEdit.exe to edit the BCD.</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" style="width: 187px;" width="20%">
+				HKLM\Components</td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				 </td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				 </td>
+			<td align="left" class="bordered" style="width: 504px;" width="50%">
+				 </td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" style="width: 187px;" width="20%">
+				HKLM\Hardware</td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				volatile</td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				 </td>
+			<td align="left" class="bordered" style="width: 504px;" width="50%">
+				Hardware data created during the boot/startup process.</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" style="width: 187px;" width="20%">
+				HKLM\SAM</td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				2000 standard</td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				 </td>
+			<td align="left" class="bordered" style="width: 504px;" width="50%">
+				SAM=Security Accounts Manager.<br />
+				This is usually empty unless you've been authorized to access another system. Then it will be linked to another SAM database.</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" style="width: 187px;" width="20%">
+				HKLM\Security</td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				2000 standard</td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				 </td>
+			<td align="left" class="bordered" style="width: 504px;" width="50%">
+				This is usually empty unless you've been authorized to access another system. Then it will be linked to other security policies.</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" style="width: 187px;" width="20%">
+				HKLM\Software</td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				 </td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				 </td>
+			<td align="left" class="bordered" style="width: 504px;" width="50%">
+				The largest part of the registry. Software settings updated by applications. Primarily set by the software applications apart from Windows settings.</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" style="width: 187px;" width="20%">
+				HKLM\System</td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				 </td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				 </td>
+			<td align="left" class="bordered" style="width: 504px;" width="50%">
+				System configuration</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" style="width: 187px;" width="20%">
+				HKU\.Default</td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				2000 standard</td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				 </td>
+			<td align="left" class="bordered" style="width: 504px;" width="50%">
+				Defaults for all user accounts on the computer.<br />
+				User accounts only store the differences from this profile.<br />
+				If group policies are set then this is copied to HKCU</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" style="width: 187px;" width="20%">
+				HKU\<em>User account SID</em></td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				 </td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				 </td>
+			<td align="left" class="bordered" style="width: 504px;" width="50%">
+				User accounts</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" style="width: 187px;" width="20%">
+				HKU\<em>User account SID</em>_Classes</td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				 </td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				 </td>
+			<td align="left" class="bordered" style="width: 504px;" width="50%">
+				Classes for the user account</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" style="width: 187px;" width="20%">
+				HKU\<em>Local Service account SID</em></td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				 </td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				 </td>
+			<td align="left" class="bordered" style="width: 504px;" width="50%">
+				Pre-defined account used by Windows to run services on your PC with minimum privileges. Used for example if a login process is not found.<br />
+				Unused since Vista.</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" style="width: 187px;" width="20%">
+				HKU\<em>Network Service account SID</em></td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				 </td>
+			<td align="left" class="bordered" style="width: 152px;" width="15%">
+				 </td>
+			<td align="left" class="bordered" style="width: 504px;" width="50%">
+				Pre-defined account used by Windows to run services on your PC with minimum privileges. Used for example if a login process is not found.<br />
+				Unused since Vista.</td>
+		</tr>
+	</tbody>
+</table>
+<p>You might have noticed that HKLM does not appear by itself in Table 5 above. That is because it is a placeholder with no corresponding physical hive. HKLM is the same for every user on the computer. But it does contain the keys for the other hives that make up the computer configuration.</p>
+<p><strong>Differences between the hives</strong></p>
+<p>Apart from the obvious differences in configuration data, there are three main differences between the various Registry hives:</p>
+<ul>
+	<li>
+		Some are symbolic links (also called aliases and clones) that point to other hives.</li>
+	<li>
+		Some are volatile and are not permanently stored on disk.</li>
+	<li>
+		Some retain compatibility with earlier versions of Windows, e.g. the Standard hives that remain unchanged since Windows 2000.</li>
+</ul>
+<p><strong>Symbolic keys</strong></p>
+<p>Symbolic keys are also called alias or clone links. They redirect the Registry Configuration Manager to another key. In other words they provide a different view of the same data. They function in a similar manner to Windows shortcuts. Any changes to the real keys are cloned to the symbolic keys but not vice versa. This also means that they are not copies.</p>
+<p>For example, HKCR is a symbolic link to HKLM\SOFTWARE \Classes (the default settings) and HKCU\Software\Classes (settings for the current user), combining them into one view. Any data contained in HKCU overrides any data contained in HKLM. Therefore any change in HKCR is always "cloned" into HKCU.</p>
+<h4>
+	Volatile hives</h4>
+<p>The volatile hives are either created from different information or are different views of information contained in the Registry files:</p>
+<ul>
+	<li>
+		HKCR is a symbolic key to HKLM\SOFTWARE \Classes (the default settings) and HKCU\Software\Classes (settings for the current user which takes priority over the default settings), combining them into one view.</li>
+	<li>
+		HKCC is a symbolic key to the current hardware profile under HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\IDConfigDB\Hardware Profiles.</li>
+	<li>
+		HKLM\Hardware is created at startup.</li>
+</ul>
+<h4>
+	Standard versus Latest hive formats</h4>
+<p>Latest hives have the most up-to-date format whereas Standard hives retain a format that is compatible with Windows 2000. That means in a mixed Windows computing environment the settings can be used on computers running different versions of Windows and users can roam all those computers.</p>
+<p>The Standard hives that remain compatible with Windows 2000 are:</p>
+<ul>
+	<li>
+		HKCU</li>
+	<li>
+		HKLM\SAM</li>
+	<li>
+		HKLM\Security</li>
+	<li>
+		HKU\.DEFAULT</li>
+</ul>
+<p>Normally HKLM\SAM and HKLM\Security are empty unless a user is authorised to use another computer.</p>
+<p> </p>
+<h2>
+	<a name="RegistryManaged" id="RegistryManaged"></a>How is the Registry managed?</h2>
+<h4>
+	The kernel-mode Configuration Manager manages the registry</h4>
+<p>The kernel-mode Configuration Manager is the primary component of the Windows Kernel Image that manages the Registry. It works with several Kernel components such as the Object Manager which handles resource management for Kernel subsystems and the Transaction Manager which ensures transactions are completed or reversed if they partially complete.</p>
+<p>The Object Manager integrates Registry hive keys into the Kernel namespace. As I said earlier, Registry keys use Windows file-naming conventions. The Object Manager knows that a name beginning with "Registry" should be handed to the Configuration Manager.</p>
+<h4>
+	The Configuration Manager manages changes to the Registry Hive</h4>
+<p>When handed an object by the Object Manager, the Configuration Manager searches the hive tree for the key.</p>
+<p>The example in Diagram 6 indicates the two forms of the registry keys. The Regedit and API form = HKLM\SYSTEM\CurrentControlSet is translated by Win32 or Win64 to the object namespace form = \Registry\Machine\System\ CurrentControlSet then passed onto the Configuration Manager as \Machine\System\ CurrentControlSet.</p>
+<table align="center" border="0" class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td class="rtecenter">
+				<strong>Diagram 6 - The Registry Configuration Manager manages access to and changes of the registry hives </strong></td>
+		</tr>
+		<tr>
+			<td class="rtecenter">
+				<p class="rtecenter"><img alt="Windows Configuration Manager manages changes to the Registry" src="../files/images/Registry-CM-305x488.png" style="width: 305px; height: 488px;" /></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p class="rtecenter"> </p>
+<h4>
+	The Configuration Manager writes non-volatile hive changes to the hive files</h4>
+<p>The Transaction Manager, as mentioned already, handles atomic updates of the Registry hive files ensuring that related changes are completed together or rolled-back together if there is an error. You will notice that I have left the Transaction Manager out of the following diagram to keep it simple with the emphasis on the Configuration Manager managing the changes. There is also a registry cache for writes to disk. Writes to hives in memory are made immediately whereas writes to the disk files are grouped together and written in batches.</p>
+<table align="center" border="0" class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td class="rtecenter">
+				<strong>Diagram 7 - The Registry Configuration Manager manages changes of the registry hives </strong></td>
+		</tr>
+		<tr>
+			<td class="rtecenter">
+				<p class="rtecenter"><img alt="Configuration Manager manages changes to the Registry hives and the hive files" src="../files/images/Registry-update-530x267.png" style="width: 530px; height: 267px;" title="Changes to the registry are written to the hives immediately and cached to the disk files" /></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p class="rtecenter"> </p>
+<p> </p>
+<h2>
+	<a name="RegistryStartup" id="RegistryStartup"></a>How does Windows startup use the registry?</h2>
+<h4>
+	A quick overview</h4>
+<p>When you boot your computer and start Windows there are several processes that involve the registry. I've summarized them in this diagram. The main points are that:</p>
+<ul>
+	<li>
+		A BCD hive is created in memory but it is not loaded from the hive files. Instead the BCD is loaded from the BCD files stored on disk.</li>
+	<li>
+		The SYSTEM hive is usually a smallish hive because it has to fit into about half the available physical memory during startup. The WIndows Boot Manager temporarily loads the SYSTEM hive into physical memory so Windows can startup before loading the Kernel Image. The Kernel  includes the remaining registry components and supporting systems including virtual memory and the Registry API which are used to load the rest of the hives.</li>
+	<li>
+		Windows Logon also loads user hives. For example, HKCU is loaded when logon is succesful. NB This diagram will be updated to reflect that during a later update.</li>
+</ul>
+<table align="center" border="0" class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td class="rtecenter">
+				<strong>Diagram 8 - Windows startup processes use the registry </strong></td>
+		</tr>
+		<tr>
+			<td class="rtecenter">
+				<p class="rtecenter"><img alt="Windows startup reads and loads the Registry hives" src="../files/images/Registry-startup-548x475.png" style="width: 548px; height: 475px;" /></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p> </p>
+<h4>
+	More detail on Windows startup steps</h4>
+<p>I have removed the table containing the startup sequence and how it relates to the registry. I am preparing a separate article on the Windows startup sequence which this article will link to.</p>
+<p> </p>
+<h2>
+	<a name="Answers" id="Answers"></a>Answers to some other common questions</h2>
+<h4>
+	What is the maximum size of a registry element?</h4>
+<p>It is interesting that <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms724872%28v=vs.85%29.aspx" target="_blank" title="Size limits for registry elements">a registry value can store up to 1MB</a> but a separate file is recommended if it is more than 1 or 2 KB.</p>
+<p> </p>
+<h4>
+	What is the maximum size of a registry hive?</h4>
+<p>The original Windows 3.1 registry was a single-node flat file REG.DAT. The System registry hive was introduced for Windows 95.</p>
+<table class="review-details" width="60%">
+	<tbody>
+		<tr>
+			<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="3" valign="middle" width="60%">
+				<strong>Table 7 - Registry size limits</strong></td>
+		</tr>
+		<tr>
+			<td align="center" class="bordered" width="20%">
+				<strong>Windows Version</strong></td>
+			<td align="center" class="bordered" width="20%">
+				<strong>Registry size</strong></td>
+			<td align="center" class="bordered" width="20%">
+				<strong>System registry size</strong></td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="20%">
+				Windows 3.1</td>
+			<td class="bordered rtecenter" width="20%">
+				16KB</td>
+			<td class="bordered rtecenter" width="20%">
+				na</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="20%">
+				Windows 9x</td>
+			<td class="bordered rtecenter" width="20%">
+				 </td>
+			<td class="bordered rtecenter" width="20%">
+				 </td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="20%">
+				Windows ME</td>
+			<td class="bordered rtecenter" width="20%">
+				16MB</td>
+			<td class="bordered rtecenter" width="20%">
+				 </td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="20%">
+				Windows NT 4</td>
+			<td class="bordered rtecenter" width="20%">
+				~154MB</td>
+			<td class="bordered rtecenter" width="20%">
+				 </td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="20%">
+				Windows 2000</td>
+			<td class="bordered rtecenter" width="20%">
+				~296MB<br />
+				~ 80% of the paged pool</td>
+			<td class="bordered rtecenter" width="20%">
+				12MB</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="20%">
+				<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms724881%28v=VS.85%29.aspx" target="_blank" title="Registry size limits for XP, 2003, Vista, 2008">Windows XP</a></td>
+			<td class="bordered rtecenter" width="20%">
+				~376MB<br />
+				~ 80% of the paged pool</td>
+			<td class="bordered rtecenter" width="20%">
+				200MB</td>
+		</tr>
+		<tr>
+			<td align="left" class="bordered" width="20%">
+				Windows Vista, 7,  8</td>
+			<td class="bordered rtecenter" width="20%">
+				2GB<br />
+				~ half physical memory<sup>1</sup><br />
+				~75% of the <a href="http://blogs.technet.com/b/markrussinovich/archive/2009/03/26/3211216.aspx" target="_blank" title="Windows XP to 8 paged pool limits ">paged pool</a></td>
+			<td class="bordered rtecenter" width="20%">
+				400MB x86<br />
+				1.5GB x64<br />
+				~ half physical memory</td>
+		</tr>
+	</tbody>
+</table>
+<p><sup>1</sup> The System hive has a maximum size of half physical memory because it is loaded during startup before the paging file is available.</p>
+<p> </p>
+<h4>
+	How much of the Registry can be loaded into memory?</h4>
+<p>Normally the entire registry should be loaded into memory. If it is not then it will be paged to disk and your PC will run noticeably slower.</p>
+<p> </p>
+<p><!-- #### END: Discussion #### --><!-- #### BEING: Related Links #### --></p>
+<table class="review" width="100%">
+	<tbody>
+		<tr>
+			<td class="review-title">
+				<div class="review-title">
+					Related Links</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<ul>
+					<li>
+						<a href="what-everybody-should-know-about-windows-registry.htm" target="_blank" title="Read this article first">What Everybody Should Know About the Windows Registry</a></li>
+					<li>
+						<a href="learn-how-use-windows-registry-editor-regedit-one-easy-lesson.htm" target="_blank" title="Read this article too">Learn How to Use the Windows Registry Editor (Regedit) in One Easy Lesson</a></li>
+					<li>
+						<a href="what-is-a-bit.htm" target="_blank" title="Read this article too">What is a bit?</a></li>
+				</ul>
+				Microsoft articles<br />
+				<ul>
+					<li>
+						<a href="http://support.microsoft.com/kb/256986" target="_blank" title="Go to Microsoft Support article">Windows registry information for advanced users</a> provides a good overview of the Registry files</li>
+					<li>
+						<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms724182%28v=VS.85%29.aspx" title="Go to Microsoft's Windows Development Centre">About the Registry</a> explains to developers how information is stored and modified in the Registry.</li>
+					<li>
+						<a href="http://msdn.microsoft.com/en-us/library/windows/hardware/ff554731%28v=VS.85%29.aspx" target="_blank" title="Go to Microsoft's Windows Development Centre">Concepts for all driver developers</a> explains user mode and kernel mode, and virtual address spaces.</li>
+					<li>
+						<a href="http://technet.microsoft.com/en-us/sysinternals/bb963901" target="_blank" title="Go to Microsoft SysInternals">Windows Internals Book</a> is recommended by Microsoft. I've only read one chapter and found it excellent.</li>
+				</ul>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p> </p>
+<p><!-- #### END: Related Links#### --></p>
+</div></div></div><section class="field field-name-field-vote field-type-fivestar field-label-above view-mode-full"><h2 class="field-label">Please rate this article:&nbsp;</h2><div class="field-items"><div class="field-item even"><form class="fivestar-widget" action="deeper-windows-registry.htm" method="post" id="fivestar-custom-widget" accept-charset="UTF-8"><div><div  class="clearfix  fivestar-combo-text fivestar-combo-stars fivestar-form-item fivestar-oxygen"><div class="form-item form-type-fivestar form-item-vote">
+ <div class="form-item form-type-select form-item-vote">
+ <select id="edit-vote--2" name="vote" class="form-select"><option value="-">Select rating</option><option value="20">Give Deeper into the Windows Registry 1/5</option><option value="40">Give Deeper into the Windows Registry 2/5</option><option value="60">Give Deeper into the Windows Registry 3/5</option><option value="80">Give Deeper into the Windows Registry 4/5</option><option value="100">Give Deeper into the Windows Registry 5/5</option><option value="0" selected="selected">Cancel rating</option></select>
+<div class="description"><div class="fivestar-summary fivestar-summary-user"><span class="user-rating">Your rating: <span>None</span></span></div></div>
+</div>
+<div class="fivestar-static-form-item"><div class="form-item form-type-item">
+  <div class="fivestar-oxygen"><div class="fivestar-widget-static fivestar-widget-static-vote fivestar-widget-static-5 clearfix"><div class="star star-1 star-odd star-first"><span class="on">4.733335</span></div><div class="star star-2 star-even"><span class="on"></span></div><div class="star star-3 star-odd"><span class="on"></span></div><div class="star star-4 star-even"><span class="on"></span></div><div class="star star-5 star-odd star-last"><span class="on" style="width: 73.3335%"></span></div></div></div>
+<div class="description"><div class="fivestar-summary fivestar-summary-average-count"><span class="average-rating">Average: <span >4.7</span></span> <span class="total-votes">(<span >45</span> votes)</span></div></div>
+</div>
+</div>
+</div>
+</div><input class="fivestar-submit form-submit" type="submit" id="edit-fivestar-submit" name="op" value="Rate" /><input type="hidden" name="form_build_id" value="form-H3GmuhC7TfCWG401KJXn0b3gTQwIL7NviEenlK_evWg" />
+<input type="hidden" name="form_id" value="fivestar_custom_widget" />
+</div></form></div></div></section><div class="likebtn_container"><!-- LikeBtn.com BEGIN -->
+<span class="likebtn-wrapper" data-identifier="node_6814" data-engine="drupal"  data-engine_v="7.80"  data-plugin_v="1.12"  data-item_url="https://www.techsupportalert.com/node/6814"  data-item_title="Deeper into the Windows Registry"  data-item_date="2014-07-12T12:28:58+00:00" ></span>
+<script type="text/javascript">if (typeof(LikeBtn) != "undefined") { LikeBtn.init(); }</script>
+<!-- LikeBtn.com END --></div>  </div>
+
+      <nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6814%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6814%23comment-form">register</a> to post comments</span></li><li class="print_html last"><a href="https://www.techsupportalert.com/print/content/deeper-windows-registry.htm" title="Display a printer-friendly version of this page." class="print-page" rel="nofollow"><img class="print-icon print-icon-margin image-style-none" src="../sites/all/modules/print/icons/print_icon.png" width="16px" height="16px" alt="Printer-friendly version" title="Printer-friendly version" />Printer-friendly version</a></li></ul></nav>
+  
+  <p class="show-comments"><section id="comments" class="comment-wrapper">
+
+          <h2 class="comment-title title">Comments</h2>
+      
+  <a id="comment-117702"></a>
+<article class="comment odd first clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/remah" title="View user profile." class="username">Remah</a> on <time datetime="2014-08-02T13:43:00Z"><span class="date-time">2. August 2014 - 13:43</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="deeper-windows-registry.htm#comment-117702">(117702)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">As discussed earlier, the article on <a href="windows-7-startup.htm">Windows 7 Startup</a> is up. There is more detail and an overview diagram to come but I will be updating this registry article first.
+
+Remah - Editor</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6814%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6814%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-118158"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/remah" title="View user profile." class="username">Remah</a> on <time datetime="2014-08-22T21:14:17Z"><span class="date-time">22. August 2014 - 21:14</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="deeper-windows-registry.htm#comment-118158">(118158)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">I've actually completed a few diagrams on Windows startup before getting back to this article. See:
+<a href="windows-7-components-startup.htm">Windows 7 Components for Startup</a> for diagrams on kernel mode and user mode. Another diagram on support processes (sessions, logon, etc) is coming soon.
+<a href="windows-7-startup.htm">Windows 7 Startup</a> for the startup overview flowchart
+
+Remah - Editor</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6814%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6814%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article></div><a id="comment-117498"></a>
+<article class="comment odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/cuffy" title="View user profile." class="username">Cuffy</a> on <time datetime="2014-07-23T03:17:51Z"><span class="date-time">23. July 2014 - 3:17</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="deeper-windows-registry.htm#comment-117498">(117498)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>I'm looking forward to seeing that chart. Transposing a page size to a chart size also sounds appealing. Chart board is 3x3 or so and maybe with a big picture I can wrap my head around how the registry works.<br />
+You're doing the whole world a service! I know there will be many people appreciative of your efforts when they see something they can understand. I've been in a fog about the registry since Win3.1. Never got Win3.0 to run and the only help I got with that was "don't mess with the registry"<br />
+Maybe there's an end in sight?<br />
+Thanks again!</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6814%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6814%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article><a id="comment-117451"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/remah" title="View user profile." class="username">Remah</a> on <time datetime="2014-07-21T10:02:02Z"><span class="date-time">21. July 2014 - 10:02</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="deeper-windows-registry.htm#comment-117451">(117451)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">In case anyone is looking for it: the detailed table on the Windows boot sequence has been removed so it can be reworked for a separate article on Windows start-up.</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6814%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6814%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article><a id="comment-117311"></a>
+<article class="comment odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/johnvk" title="View user profile." class="username">johnvk</a> on <time datetime="2014-07-14T03:49:57Z"><span class="date-time">14. July 2014 - 3:49</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="deeper-windows-registry.htm#comment-117311">(117311)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>As 2 others have said, i 3rd the sentiment that i wish i had read this 10 years ago.  I've learned a lot (but not all) of this in dribs and drabs as necessary and whilst spending many hours up close and personal with Google (well, before DuckDuckGo arrived ;)</p>
+<p>This article will just solidify Gizmo's TechSupportAlert.com as THE destination to take care of your computer.</p>
+<p>On "What changes the registry" i would like to suggest that you mention that windows and programs change the registry on their own accord quite without user interaction.  Sometimes they just write it regularly to keep track of state.  And so many programs these days install with auto-start services, or system tray widgets and run constantly, or task scheduler entries that run regularly, and/or include auto-updaters that are always "phoning home" to check for updates (and tell developers something about you).  Some of this always-on, behind-the-scenes activity writes the registry.</p>
+<p>A program like RegShot demonstrates this (which is why you can't use it blindly to undo registry changes).</p>
+<p>I would like to suggest mentioning the phenomena that often when you go into a program's "options" "settings" or "preferences" and change stuff, the program turns right around and changes particular registry setting.  You can view this with RegShot also (ignoring the other churn-changes).  Windows too.</p>
+<p>When thinking about organizing, i have a view of this as a technician.  I am interested in things like the API that programs use to access the registry, but to me that is academic, cuz i rarely if ever need to know that specifically to solve a problem.  OTOH, how the registry is organized, which are files and which are in-memory only, and which alias write back and which dont, the boot order, etc, are all facts i need to know to solve problems.  And A LOT of readers here are technicians, professional or amateur.  I'm not sure what to do with this, but i suspect keeping it in mind might inform organization decisions.</p>
+<p>I will add that it flowed very nicely for me as is.</p>
+<p>I am very interested in these two of your planned updates:</p>
+<p>- registry filtering/polling to check what is being done in parts of the registry e.g. by antivirus programs. How this affects performance.</p>
+<p>- registry virtualization ie where changes to read-only areas are redirected so that they can still be made. This provides backward compatibility and is used by 32-bit emulation in 64-bit Windows.</p>
+<p>And more in general about 32bit vs 64bit changes to the registry.</p>
+<p>Do you think that the registry's use of therm "value" is counterintuitive?  Just looking at your table comparing to trees and filesystems seems to confirm my suspicion that it is.  It certainly has confused me.</p>
+<p>I had to read the 2nd paragraph under "symbolic keys" several times.  HKCU\Software\Classes *overrides* HKLM\SOFTWARE\Classes.  It would have helped me to read this explicitly stated here (even tho you state it elsewhere and i already knew it).</p>
+<p>You stated that when you update via HKCR the HKCU changes.  Is this true even if HKCU does not currently contain that key/value?  Ie if we're using the default in HKLM?  Meaning in that case a new key/value is *added* to HKCU?  Also, will this "cloned" value get written to NTUser.dat?  And will it in both cases: a previously existing HKCU key/value and a new one added using regedit?</p>
+<p>Also, to complicate matters even further, isn't HKCU itself an alias for HKU/sid</p>
+<p>In fact, now that i think about it, you say "HKCU/sid" in some places, and i think you mean either just HKCU or HKU/sid, right?</p>
+<p>typo: "progile"</p>
+<p>typo: i think you have asynchronously and synchronously backwards.</p>
+<p>So, again, first-rate article. Gizmo's lucky to have you.</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6814%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6814%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-117450"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/remah" title="View user profile." class="username">Remah</a> on <time datetime="2014-07-21T10:00:00Z"><span class="date-time">21. July 2014 - 10:00</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="deeper-windows-registry.htm#comment-117450">(117450)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">johnvk,
+Thanks again for your input. I've been thinking about what you said and it has led to two decisions:
+
+1. I've decided to create an article on Windows boot sequence that doesn't just focus on the registry. The main reason for doing this is to include information on diagnostics procedures and useful references. They both fall outside of the scope of this registry article.
+
+2. This article needs to more clearly indicate how the various hives relate. To that end I need to change the tables and introduce some different diagrams.
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6814%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6814%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-117469"></a>
+<article class="comment odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/cuffy" title="View user profile." class="username">Cuffy</a> on <time datetime="2014-07-21T15:47:40Z"><span class="date-time">21. July 2014 - 15:47</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="deeper-windows-registry.htm#comment-117469">(117469)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>I think you're on to something!<br />
+Over 20 years ago, when Win3.1 and AOL were cutting edge I was using a dial-up modem that came with some software that included a list of audio files of the numbers. I played with that list trying, using DOS, to associate the numbers with the boot sequence. I envisioned myself sitting coolly with a cup of coffee while the boot counted down on that old 286.<br />
+Not being very smart the idea fizzled but I still think it's a good idea. If not in audio your diagrams could easily serve the same purpose.<br />
+If you knew, for instance, that your boot was hanging at Step #18, troubleshooting the hang might be a little easier???<br />
+Go for it... great idea!</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6814%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6814%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-117492"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/johnvk" title="View user profile." class="username">johnvk</a> on <time datetime="2014-07-22T17:48:25Z"><span class="date-time">22. July 2014 - 17:48</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="deeper-windows-registry.htm#comment-117492">(117492)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>Remah, I agree with Cuffy, i think an article on the boot sequence would be really useful!  You're right, they're two distinct ideas (registry, and boot sequence), altho they overlap in several places.  And it would help debug such problems.</p>
+<p>And thanks for the work on hive interactions.  Yeah, it's not trivial, and confusing for newbies.  Your diagram will speed their introduction.  For example, in RegScanner (from the Rev. Nirsoft) i only select HKEY_LOCAL_MACHINE and HKEY_USERS under "Scan the following base keys" because i believe all the others are aliases (HKEY_CURRENT_USER, HKEY_CLASSES_ROOT, HKEY_CURRENT_CONFIFG, am i right?)</p>
+<p>I treat registry editing like i treat my circular saw: useful but one false move and i could destroy something i need.</p>
+<p>Thanks again.</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6814%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6814%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-117497"></a>
+<article class="comment odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/remah" title="View user profile." class="username">Remah</a> on <time datetime="2014-07-23T02:43:33Z"><span class="date-time">23. July 2014 - 2:43</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="deeper-windows-registry.htm#comment-117497">(117497)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">I'm in the middle of drafting a new table and a new diagram that indicate more clearly the relationships between the files, hives and keys. Hopefully it will make it easier to picture those hives that are not stored to disk. But the table will be complex because it merges information which is normally displayed in at least three or four separate tables.
+
+Yes, HKCU and HKCC are symbolic links and HKCR is a virtualized or merged view of subkeys in other hives, HKCU and HKLM. HKCR and HKCC hives are only assembled while Windows is running, ie runtime, and are not stored to disk, ie volatile.</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6814%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6814%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article></div></div></div><a id="comment-117312"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/remah" title="View user profile." class="username">Remah</a> on <time datetime="2015-04-26T01:21:13Z"><span class="date-time">26. April 2015 - 1:21</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="deeper-windows-registry.htm#comment-117312">(117312)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>Thanks for the feedback - that is helpful to me.</p>
+<p>Thanks also for pointing out errors and confusing bits. Most issues arise from the incomplete nature of the article and the need for further editing - it would be a beta version if it were a program. I wrote the first draft a couple of years ago and never found the time to finish it. So this time I quickly tidied up what was there and published it even though I know there's errors in it.</p>
+<p>Just on your question about the use of the term "value", it is widely agreed that the terminology is confusing and the link from "registry terminology" takes you to a blog post (<a href="http://blogs.msdn.com/b/oldnewthing/archive/2009/02/04/9394113.aspx">http://blogs.msdn.com/b/oldnewthing/archive/2009/02/04/9394113.aspx</a>) that explains why it is too difficult to fix. [Edited for clarity]</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6814%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6814%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article></div><a id="comment-117308"></a>
+<article class="comment odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/harold-g" title="View user profile." class="username">Harold G.</a> on <time datetime="2014-07-13T21:19:24Z"><span class="date-time">13. July 2014 - 21:19</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="deeper-windows-registry.htm#comment-117308">(117308)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>Thanks so much for all the detail.</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6814%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6814%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article><a id="comment-117307"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/harold-g" title="View user profile." class="username">Harold G.</a> on <time datetime="2014-07-13T21:12:20Z"><span class="date-time">13. July 2014 - 21:12</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="deeper-windows-registry.htm#comment-117307">(117307)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>This is one heck of a lot of information.  I will save it to view and review many times in the future.</p>
+<p>Thanks so much for all this work.</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6814%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6814%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-117309"></a>
+<article class="comment odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/remah" title="View user profile." class="username">Remah</a> on <time datetime="2014-07-13T23:01:29Z"><span class="date-time">13. July 2014 - 23:01</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="deeper-windows-registry.htm#comment-117309">(117309)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">Thanks for the compliment. There's a lot more info coming in later updates.</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6814%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6814%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article></div><a id="comment-117306"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/cuffy" title="View user profile." class="username">Cuffy</a> on <time datetime="2014-07-13T18:32:02Z"><span class="date-time">13. July 2014 - 18:32</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="deeper-windows-registry.htm#comment-117306">(117306)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>Great article with plenty of room for expansion!</p>
+<p>I would like to see a block diagram, like with Visio maybe, of the entire registry structure, showing where the diagrams you are using fit into the big picture. Your diagram 8. for instance, detailing startup activities, would be displayed in the big picture as STARTUP with links to other activities as applicable.<br />
+Even with a one or two word title in a small box I'm sure a big picture diagram would be huge and would take time and talent!<br />
+Perhaps a project for a weekend when there's no one else around and you could swear freely when you discover you have wandered off in the wrong direction with your drawing? just a thought!<br />
+Thanks, you're doing a fine piece of work.</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6814%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6814%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-117310"></a>
+<article class="comment odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/remah" title="View user profile." class="username">Remah</a> on <time datetime="2014-07-13T23:05:50Z"><span class="date-time">13. July 2014 - 23:05</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="deeper-windows-registry.htm#comment-117310">(117310)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">Most of the diagrams illustrate changing states for Windows itself: startup, install, upgrade.
+
+I might provide an overall block diagram for the normal operation once I've completed more of the smaller diagrams for the kernel sub-systems like the Transaction Manager and Configuration Manager.</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6814%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6814%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article></div><a id="comment-117304"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/vandamme" title="View user profile." class="username">vandamme</a> on <time datetime="2014-07-13T15:44:42Z"><span class="date-time">13. July 2014 - 15:44</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="deeper-windows-registry.htm#comment-117304">(117304)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>Great article. I wish you had written this ten years ago. The registry is one of the reasons I converted to Linux.</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6814%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6814%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-117411"></a>
+<article class="comment odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/zdub" title="View user profile." class="username">zdub</a> on <time datetime="2014-07-18T16:41:34Z"><span class="date-time">18. July 2014 - 16:41</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="deeper-windows-registry.htm#comment-117411">(117411)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>Sorry, but that's just bizarre. You mean you would have stuck with Windows if they instead used 1000s of ini files instead of the vastly superior hierarchical database that is the registry??</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6814%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6814%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-117413"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/vandamme" title="View user profile." class="username">vandamme</a> on <time datetime="2014-07-18T17:48:13Z"><span class="date-time">18. July 2014 - 17:48</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="deeper-windows-registry.htm#comment-117413">(117413)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>That would really be painful.</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6814%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6814%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article></div></div><a id="comment-117301"></a>
+<article class="comment odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/sicknero" title="View user profile." class="username">sicknero</a> on <time datetime="2014-07-13T12:48:50Z"><span class="date-time">13. July 2014 - 12:48</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="deeper-windows-registry.htm#comment-117301">(117301)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>Good looking article Remah, I'm one of those who has learnt bits and bobs about the registry through trial and error and experimentation, miscellaneous reading etc.</p>
+<p>This looks to be something I will need to read several times ... I think it will help me to organise and better understand what I know already and fill in a lot of gaps for me too.</p>
+<p>Thank you.</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6814%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6814%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-117302"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/remah" title="View user profile." class="username">Remah</a> on <time datetime="2014-07-13T14:30:08Z"><span class="date-time">13. July 2014 - 14:30</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="deeper-windows-registry.htm#comment-117302">(117302)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">Let me know what is easy or hard to understand. As people ask questions I'll get a clearer idea how the article should be restructured.
+
+Here's a list of what is yet to be done:
+- reformat the startup steps and correct a few errors I've noticed including in the startup diagram.
+- provide more diagrams and clearer examples how system-wide defaults are superceded by user settings. The menus are a good place to start.
+- add more specific detail on what changes the registry. E.g. which keys are created by application and driver registration
+- add more detail and diagrams on the work of the Configuration Manager and the internal operation of the registry hives. Look at the issues like the impact of empty space in the memory structures
+- discuss issues arising from memory management and add another diagram or two e.g. explain the memory pools; why is registry size limited by memory?
+- registry filtering/polling to check what is being done in parts of the registry e.g. by antivirus programs. How this affects performance.
+- registry virtualization ie where changes to read-only areas are redirected so that they can still be made. This provides backward compatibility and is used by 32-bit emulation in 64-bit Windows.
+- I need to have a look at Windows 8 and see what has changed.
+
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6814%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6814%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article></div><a id="comment-117285"></a>
+<article class="comment odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/remah" title="View user profile." class="username">Remah</a> on <time datetime="2014-07-12T12:32:26Z"><span class="date-time">12. July 2014 - 12:32</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="deeper-windows-registry.htm#comment-117285">(117285)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">The final format of this article is yet to be decided so if you have any suggestions then let me know. It goes deeper into the registry than most articles aimed at users.
+
+Remah - Editor </div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6814%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6814%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-117289"></a>
+<article class="comment even last clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/georgej" title="View user profile." class="username">George.J</a> on <time datetime="2014-07-12T13:55:59Z"><span class="date-time">12. July 2014 - 13:55</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="deeper-windows-registry.htm#comment-117289">(117289)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">Thanks, let me get myself some free time to read the article :)</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6814%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6814%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article></div>
+  
+</section>
+
+  </article>
+</div>
+</div></div>
+</section>
+<div class="region region-content-aside"><div class="region-inner clearfix"><div id="block-block-72" class="clearfix block block-block no-title odd first block-count-7 block-region-content-aside block-72">
+<a href="deeper-windows-registry.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+
+<script>
+var signedin = 'Notsignedin';
+if (signedin == "Notsignedin") {
+if (screen.width > 480) {
+document.write('<scr' + 'ipt data-cfasync="false" type="text/javascript" src="//p425764.clksite.com/adServe/banners?tid=425764_834678_3"></scr' + 'ipt>');
+} else {
+document.write('<scr' + 'ipt data-cfasync="false" type="text/javascript" src="//p425764.clksite.com/adServe/banners?tid=425764_834678_4"></scr' + 'ipt>');
+}
+}
+</script>
+</div>
+</div><div id="block-block-47" class="clearfix block block-block even block-count-8 block-region-content-aside block-47">
+<a href="deeper-windows-registry.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Gizmo&#039;s Freeware Featured Articles</h2>
+<div class="content" class="block-content content">
+<div class="index-block">
+<div>
+		<a href="../best-free-anti-virus-software.htm"><span class="fa fa-shield fa-3x fa-fw" style="color: #DC143C;"> </span><span>Best Free Antivirus</span></a></div>
+<div>
+		<a href="https://www.techsupportalert.com/free-books-kindle"><span class="fa fa-book fa-3x fa-fw" style="color: #00FF00;"> </span><span>Free Kindle Books</span></a></div>
+<div>
+		<a href="best-vpn-services.htm"><span class="fa fa-lock fa-3x fa-fw" style="color: #0000CD;"> </span><span>Best Paid VPN Service</span></a></div>
+<div>
+		<a href="best-free-antivirus-app-android.htm"><span class="fa fa-shield fa-3x fa-fw" style="color: #B22222;"> </span><span>Best Free Antivirus for Android</span></a></div>
+<div>
+		<a href="../best-free-dvd-ripper.htm"><span class="fa fa-file-video-o fa-3x fa-fw" style="color: #2F4F4F;"> </span><span>Best Free DVD Ripper</span></a></div>
+<div>
+		<a href="../best-free-live-wallpapers-android.htm"><span class="fa fa-android fa-3x fa-fw" style="color: green;"> </span><span>Best Free Live Wallpaper for Android</span></a></div>
+</div>
+<p style="clear:both;"> </p>
+</div>
+</div><div id="block-block-31" class="clearfix block block-block no-title odd last block-count-9 block-region-content-aside block-31">
+<a href="deeper-windows-registry.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div style="border-top: 1px solid #999999; border-bottom: 1px solid #999999; padding: 8px;">
+<p style="font-size: 14px; font-weight: bold;">Gizmo's Freeware is Recruiting</p>
+<p><img alt="Gizmos Needs You" src="../files/images/logos/Gizmos-Freeware-63-84.png" style="width: 63px; height: 84px; float: left; padding: 0px 8px 8px 0px;" />We are looking for people with skills or interest in the following areas:<br />
+		 -  Mobile Platform App Reviews for Android and iOS<br />
+		 -  Windows, Mac and Linux software reviews</p>
+<p><strong>Interested?</strong> <a href="../we-need-you.htm">Click here</a></p>
+</div>
+<p> </p>
+</div>
+</div></div></div></div>
+</div>
+<div class="region region-sidebar-second sidebar"><div class="region-inner clearfix"><div id="block-block-75" class="clearfix block block-block no-title odd first block-count-10 block-region-sidebar-second block-75">
+<a href="deeper-windows-registry.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div id="rc-widget-23b966" data-rc-widget data-widget-host="habitat" data-endpoint="//trends.revcontent.com" data-widget-id="181303"></div>
+<script type="text/javascript" src="https://assets.revcontent.com/master/delivery.js" defer="defer"></script></div>
+</div><div id="block-block-22" class="clearfix block block-block even block-count-11 block-region-sidebar-second block-22">
+<a href="deeper-windows-registry.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Best Freeware Lists</h2>
+<div class="content" class="block-content content">
+<div class="content" class="block-content content">
+<style type="text/css">
+.swlist-sidebar a {display:block; width:100%; margin-top:8px; min-height:36px;}
+.swlist-sidebar span.fa, span.fa-stack {height:28px; padding:4px 8px 4px 8px; width:28px; text-align:center; float:left;}
+.swlist-sidebar span.swtitle-sidebar {display:table-cell; height:36px; vertical-align: middle;}
+.swlist-sidebar div {display:table-row;}
+</style>
+<div class="swlist-sidebar">
+<div><a href="../software-finder"><span class="fa fa-search fa-2x" style="color: #4b5cc3;"></span> <span class="swtitle-sidebar">Search with Software Finder</span></a></div>
+<div><a href="../best-free-windows-desktop-software.htm"><span class="fa fa-windows fa-2x" style="color: #70c0f0;"></span> <span class="swtitle-sidebar">Windows Desktop Software</span></a></div>
+<div><a href="../best-free-windows-apps.htm"> <span class="fa fa-windows fa-2x" style="color: #70c0f0;"></span> <span class="swtitle-sidebar">Windows Apps</span></a></div>
+<div><a href="../best-free-portable-programs.htm"> <span class="fa fa-check-square-o fa-2x" style="color: #70c0f0;"></span> <span class="swtitle-sidebar">Windows Portable Apps</span></a></div>
+<div><a href="best-free-software-mac-os.htm"> <span class="fa fa-apple fa-2x" style="color: #1653a8;"></span> <span class="swtitle-sidebar">Mac Software</span></a></div>
+<div><a href="best-free-software-linux.htm"> <span class="fa fa-linux fa-2x" style="color: #404040;"></span> <span class="swtitle-sidebar">Linux Software</span></a></div>
+<div><a href="../best-free-android-apps.htm"> <span class="fa fa-android fa-2x" style="color: #a2c43b;"></span> <span class="swtitle-sidebar">Android Apps</span></a></div>
+<div><a href="../best-free-ipad-apps.htm"> <span class="fa fa-tablet fa-2x" style="color: #404040;"></span> <span class="swtitle-sidebar">iPad Apps</span></a></div>
+<div><a href="../best-free-iphone-apps.htm"> <span class="fa fa-mobile fa-2x" style="color: #404040;"></span> <span class="swtitle-sidebar">iPhone Apps</span></a></div>
+<div><a href="best-free-online-applications-and-services.htm"> <span class="fa fa-globe fa-2x" style="color: #006600;"></span> <span class="swtitle-sidebar">Online Apps</span></a></div>
+<div><a href="https://www.techsupportalert.com/content/50-places-free-books-online.htm"> <span class="fa fa-book fa-2x" style="color: #990000;"></span> <span class="swtitle-sidebar">eBooks /Audiobooks</span></a></div>
+<div><a href="probably-best-free-security-list-world.htm"> <span class="fa fa-exclamation-triangle fa-2x" style="color: #FF3300;"></span> <span class="swtitle-sidebar">Security Software</span></a></div>
+</div>
+<div style="clear:both;">&nbsp;</div>
+</div>
+<style type="text/css">
+.imgContainer{float:left;}
+</style>
+<p><strong>Support Gizmo's Freeware By</strong></p>
+<div>
+    <div class="imgContainer"><a href="../donate.htm"><img src="../files/images/aa/Donating-125-350e.png" height="auto" width="125"/></a></div>
+    <div class="imgContainer"><a href="../become-a-reviewer.htm"><img class="middle-img" src="../files/images/aa/Reviewing-125-350e.png" style="margin-left:2px;" height="auto" width="125"/></a></div>
+</div>
+<div style="clear:both;"></div></div>
+</div><div id="block-block-61" class="clearfix block block-block odd block-count-12 block-region-sidebar-second block-61">
+<a href="deeper-windows-registry.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Get Notified of New Finds</h2>
+<div class="content" class="block-content content">
+<div>
+   <p>
+      <!-- <a href="http://feedburner.google.com/fb/a/mailverify?uri=gizmosbest" title="Subscribe to email..."><i class="fa fa-envelope fa-3x" style="color: #00cc99;"></i></a>&nbsp; -->
+      <a href="http://feeds.feedburner.com/gizmosbest" title="Go to our RSS feeds..."><i class="fa fa-rss-square fa-3x" style="color: #ffb300;"></i></a>&nbsp;
+      <a href="http://www.facebook.com/pages/Gizmos-Freeware/114026985301900" title="Follow us on Facebook..."><i class="fa fa-facebook-square fa-3x" style="color: #3b5889;"></i></a>&nbsp;
+      <a href="http://twitter.com/GizmosFreeware" title="Follow us on Twitter..."><i class="fa fa-twitter-square fa-3x" style="color: #55acee;"></i></a>
+   </p>
+</div>
+<style>
+#block-block-61 { text-align:center; }
+#block-block-61 a { display:inline-block; }
+#block-block-61 a.dropdown-toggle { display: none; }
+#block-block-61 .content{
+   background:#f9f9f9;
+   padding: 10px 10px 5px 10px;
+   margin-top: 10px;
+   margin-right:10px;
+   -webkit-border-radius: 12px;
+   -moz-border-radius: 12px;
+   border-radius: 12px;
+   border:1px solid #ccc;
+}
+#block-block-61 h3 { margin:10px 0; }
+</style>
+
+<div id="right-slidead-popup" style="display:block;">
+   <form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=gizmosbest', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+      <p class="bold-text">Get notified by email of our latest finds:</p>
+      <p><input type="text" style="width:120px" placeholder="Enter email" name="email">
+         <input type="hidden" value="gizmosbest" name="uri">
+         <input type="hidden" name="loc" value="en_US">
+         <input type="submit" value="Subscribe">
+      </p>
+   </form>
+</div>
+</div><div id="block-views-5c6f20eccafaaae472f19682f8491590" class="clearfix block block-views even block-count-13 block-region-sidebar-second block-5c6f20eccafaaae472f19682f8491590">
+<a href="deeper-windows-registry.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Currently Popular</h2>
+<div class="content" class="block-content content">
+<div class="view view-currently-popular-customized view-id-currently_popular_customized view-display-id-block_1 curr-pop view-dom-id-bf0576f648bbff0920b45d79ad04e1cb">
+<div class="view-content">
+<table  class="views-table cols-0">
+       <tbody>
+          <tr  class="odd views-row-first">
+                  <td  class="views-field views-field-title">
+            <a href="best-free-software-linux.htm">Best Free Software for Linux</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="../es/mejores-aplicaciones-y-servicios-gratuitos-online.htm">Mejores Aplicaciones y Servicios Gratuitos Online</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="mejor-software-gratuito-de-64-bits-para-windows-7vista.htm">Mejor Software Gratuito para Windows de 64 bits</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="time-say-farewell.htm">Time to Say Farewell</a>          </td>
+              </tr>
+          <tr  class="odd views-row-last">
+                  <td  class="views-field views-field-title">
+            <a href="../es/mejor-software-para-linux-gratuito.htm">Mejor Software para Linux Gratuito</a>          </td>
+              </tr>
+      </tbody>
+</table>
+</div>
+
+<div class="more-link">
+  <a href="../currently-popular-customized.htm">
+    more  </a>
+</div>
+</div>
+</div>
+</div><div id="block-views-articles-by-user-block-1" class="clearfix block block-views odd last block-count-14 block-region-sidebar-second block-articles-by-user-block-1">
+<a href="deeper-windows-registry.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Top Rated</h2>
+<div class="content" class="block-content content">
+<div class="view view-articles-by-user view-id-articles_by_user view-display-id-block_1 view-currently-popular-customized more-link curr-pop view-dom-id-ec2c2c0e2a5235e6665f3ae794d3c3b6">
+<div class="view-content">
+<table  class="views-table cols-1">
+         <thead>
+      <tr>
+                  <th  class="views-field views-field-title" scope="col">
+            <a href="https://www.techsupportalert.com/content/deeper-windows-registry.htm?order=title&amp;sort=asc" title="sort by " class="active"></a>          </th>
+              </tr>
+    </thead>
+    <tbody>
+          <tr  class="odd views-row-first">
+                  <td  class="views-field views-field-title">
+            <a href="create-your-own-blob-opera-google-s-new-musical-experiment.htm">Create Your Own “Blob Opera” with Google’s New Musical Experiment</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="amazing-act-generosity.htm">An Amazing Act of Generosity</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="jpg-optimizer-works-entirely-your-browser.htm">This JPG Optimizer Works Entirely in Your Browser</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="instantly-add-color-black-and-white-photos-image-colorizer.htm">Instantly Add Color to Black and White Photos with Image Colorizer</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="fond-farewell-me.htm">A Fond Farewell From Me</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="get-authoritative-answers-all-your-questions-online-encyclopedia.htm">Get Authoritative Answers to All Your Questions With This Online Encyclopedia</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="rain-alarm-be-notified-approaching-rain-or-snow.htm">Rain Alarm - Be Notified of Approaching Rain or Snow</a>          </td>
+              </tr>
+          <tr  class="even views-row-last">
+                  <td  class="views-field views-field-title">
+            <a href="get-easy-access-frequently-used-symbols-not-your-keyboard.htm">Get Easy Access to Frequently Used Symbols Not on Your Keyboard</a>          </td>
+              </tr>
+      </tbody>
+</table>
+</div>
+
+<div class="more-link">
+  <a href="https://www.techsupportalert.com/articles-user">
+    more  </a>
+</div>
+</div>
+</div>
+</div></div></div></div>
+</div>
+<footer id="footer" role="contentinfo">
+<div id="footer-inner" class="clearfix">
+<div class="region region-footer"><div class="region-inner clearfix"><div id="block-block-3" class="clearfix block block-block no-title odd first last block-count-15 block-region-footer block-3">
+<a href="deeper-windows-registry.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<p class="rtecenter"><a href="../terms-and-conditions.htm">Terms &amp; Conditions</a> | <a href="https://www.techsupportalert.com/privacy-policy.htm">Privacy Policy</a> | <a href="contact-us.htm">Contact</a> | <a href="../about-this-site">About</a></p>
+</div>
+</div></div></div><p class="attribute-creator"></p>
+</div>
+</footer>
+</div>
+</div>
+<style type="text/css">.invis{visibility:hidden;display:none}.vis{visibility:visible;display:inline}#more{display:none}#show,#hide{text-decoration:none;cursor:pointer;color:#3452c9;font-weight:bold;padding-left:20px}#show{background:transparent url(../files/images/icons/down.png) no-repeat left}#hide{background:transparent url(../files/images/icons/up.png) no-repeat left}select.dropdown{border:1px solid #cbcec3;background-color:#f2f6f9;font-size:1.1em;height:2em}select.dropdown-width{width:50%}@media only screen and (max-width:1024px){select.dropdown-width{width:100%}}span.cat-title{height:58px;display:table;font-size:1.3em;font-weight:bold}span.vert-align{display:table-cell;vertical-align:middle}img.cat-icon{width:82px;height:58px;float:left;padding-right:15px}.show-more{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:120px;padding:0 4px 0 4px}.show-review{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:120px;padding:0 4px 0 4px}.show-comments{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#eef0f8;border:1px solid #009;border-radius:2px;width:140px;padding:4px 8px 4px 8px}.gizmoslist-button{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:130px;padding:0 4px 0 4px}.gizmoslist-button:hover{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#e8e8e8;border:1px solid #999;border-radius:2px;width:130px;padding:0 4px 0 4px}</style>
+<script language="javascript" type="text/javascript">/*<![CDATA[*/var cn="invis";var ids=new Array("pg01","pg02","pg03","pg04","pg05","pg06","pg07","pg08","pg09","pg10","pg11","pg12");function doSwap(){cn=="vis"?cn="invis":cn="vis";for(var a=0;a<ids.length;a++){document.getElementById(ids[a]).className=cn}}jQuery(document).ready(function(){jQuery("#page_select").bind("change",function(){var a=jQuery(this).val();if(a){window.location.replace(a)}return false});jQuery("#category_select").bind("change",function(){var a=jQuery(this).val();if(a){window.location=a}return false})});jQuery(document).ready(function(){jQuery(".hidden").hide();jQuery(".show-more").html("Show more...");jQuery(".show-review").html("Show review...");jQuery(".show-comments").html("Hide Comments...");jQuery(".toggle").click(function(){jQuery("#show").toggle();jQuery("#more").toggle()});jQuery(".show-more").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).prev().slideUp();jQuery(this).removeClass("clicked");jQuery(this).html("Show more...")}else{jQuery(this).addClass("clicked");jQuery(this).prev().slideDown();jQuery(this).html("...Show less")}});jQuery(".show-review").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).prev().slideUp();jQuery(this).removeClass("clicked");jQuery(this).html("Show review...")}else{jQuery(this).addClass("clicked");jQuery(this).prev().slideDown();jQuery(this).html("...Hide review")}});jQuery(".show-comments").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).next().slideDown();jQuery(this).removeClass("clicked");jQuery(this).html("Hide Comments...")}else{jQuery(this).addClass("clicked");jQuery(this).next().slideUp();jQuery(this).html("Show Comments...")}})});jQuery(document).ready(function(){var a=jQuery("[rel~=tooltip]"),c=false,b=false,d=false;a.bind("mouseenter",function(){c=jQuery(this);tip=c.attr("title");b=jQuery('<div id="tooltip"></div>');if(!tip||tip==""){return false}c.removeAttr("title");b.css("opacity",0).html(tip).appendTo("body");var f=function(){if(jQuery(window).width()<b.outerWidth()*1.5){b.css("max-width",jQuery(window).width()/2)}else{b.css("max-width",340)}var g=c.offset().left+(c.outerWidth()/2)-(b.outerWidth()/2),h=c.offset().top-b.outerHeight()-20;if(g<0){g=c.offset().left+c.outerWidth()/2-20;b.addClass("left")}else{b.removeClass("left")}if(g+b.outerWidth()>jQuery(window).width()){g=c.offset().left-b.outerWidth()+c.outerWidth()/2+20;b.addClass("right")}else{b.removeClass("right")}if(h<0){var h=c.offset().top+c.outerHeight();b.addClass("top")}else{b.removeClass("top")}b.css({left:g,top:h}).animate({top:"+=10",opacity:1},50)};f();jQuery(window).resize(f);var e=function(){b.animate({top:"-=10",opacity:0},50,function(){jQuery(this).remove()});c.attr("title",tip)};c.bind("mouseleave",e);b.bind("click",e)})});/*]]>*/</script>   <script type="text/javascript" src="https://s.skimresources.com/js/91960x1545845.skimlinks.js"></script>
+<script type="text/javascript" src="../files/advagg_js/js__TMbgkTyBUQQ_HgBfUgRbT7qnkhUF67VaeCPrRurSSyQ__R579VV3CWa_6pCbnNdQK0EGL-QIicH7Gtzh0Mu2GPDY__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var switchTo5x = true;var __st_loadLate = true;var useFastShare = 0;
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+if (typeof stLight !== 'undefined') { stLight.options({"publisher":"dr-cb3fca8f-ba75-779c-5a90-b433fac7efb0","version":"5x","newOrZero":"zero","shorten":"false","servicePopup":true,"lang":"en"}); }
+//--><!]]>
+</script>
+<script type="text/javascript" src="../files/advagg_js/js__8q4Ri8u0Oy1si5uwfNTlks0A6nMFTDjDszJiNP4i5uA__tV1Gvr51dciEodFNuAL3X5GplamBbcIkiRUEhk_oOdE__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(d, e, s) {a = d.createElement(e);m = d.getElementsByTagName(e)[0];a.async = 1;a.src = s;m.parentNode.insertBefore(a, m)})(document, 'script', '//w.likebtn.com/js/w/widget.js'); if (typeof(LikeBtn) != "undefined") { LikeBtn.init(); }
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var skimlinks_domain = "exit.techsupportalert.com";
+//--><!]]>
+</script>
+</body>
+</html>

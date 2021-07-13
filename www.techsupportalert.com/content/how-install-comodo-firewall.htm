@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en" dir="ltr"><!--<![endif]-->
+<head>
+   <!--[if IE]><![endif]-->
+<meta charset="utf-8" />
+<meta name="description" content="In this article, our resident Comodo expert, Chiron, explains how to install and configure the famous Comodo firewall." />
+<link rel="shortcut icon" href="../sites/all/themes/gizmoslist/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="This guide was written for version 8.0 of Comodo Internet Security (CIS). This guide will work equally well for configuring Comodo Firewall, but the screenshots are from CIS. Please note that in terms of system protection this article is not really meant to be viewed in isolation. Please read my article about How to Stay Safe While Online in order to get an overview of what" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="how-install-comodo-firewall.htm" />
+<link rel="shortlink" href="https://www.techsupportalert.com/node/2583" />
+<meta property="og:site_name" content="Gizmo&#039;s Freeware" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to Install Comodo Firewall" />
+<meta property="og:url" content="http://www.techsupportalert.com/content/how-install-comodo-firewall.htm" />
+<meta property="og:description" content="This guide was written for version 8.0 of Comodo Internet Security (CIS). This guide will work equally well for configuring Comodo Firewall, but the screenshots are from CIS. Please note that in terms of system protection this article is not really meant to be viewed in isolation. Please read my article about How to Stay Safe While Online in order to get an overview of what you can do to protect your computer. Comodo Firewall provides rock solid protection and is entirely free. If you like you can even download Comodo Internet Security, which comes with Comodo Antivirus." />
+<meta property="og:updated_time" content="2020-11-25T12:00:12+00:00" />
+<meta property="og:image" content="https://www.techsupportalert.com/files/CIS%20V6.2%20Advanced%20Screen_Large.jpg" />
+<meta property="og:image:url" content="https://www.techsupportalert.com/files/styles/large/public/CIS%20V6.2%20Advanced%20Screen_Large.jpg?itok=uEGQmQVO" />
+<meta property="article:published_time" content="2012-12-19T19:42:14+00:00" />
+<meta property="article:modified_time" content="2020-11-25T12:00:12+00:00" />
+   <title>How to Install Comodo Firewall | Gizmo's Freeware</title>
+   <link type="text/css" rel="stylesheet" href="../files/advagg_css/css__K1Zxkb7B9uRMTvKGWwqJbpPSUxPwhcczKcp6degok28__HeSIUBSByKemgY9AJL8p07c1i2IHEDyYO6cKTWBN3Pw__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.css" media="all" />
+
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="https://www.techsupportalert.com/files/advagg_css/css__I8Q7DkdK2zJceaJBCwEwz0vYYbloOjCrssUsWAaHyIM__qjMhJvPdluz-vOJRX3dztEqH8G31Y32rQ_NKwUhoC1Y__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.css" media="screen" />
+<![endif]-->
+   <!--[if lt IE 9]>
+   <link rel=stylesheet type=text/css href=/sites/all/themes/gizmoslist/css/ie7-and-down.css />
+   <![endif]-->
+   <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript" src="../files/advagg_js/js__B1KiKqJbKO-n3ZXTCs35IBdGFYs11f-fUM6Y72B9wEg__5zx4JiTNwUOifd--hiFOiQb-OZHPEiMORfGWeCF9Yyk__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.techsupportalert.com/files/googleanalytics/analytics.js?qv3qpt","ga");ga("create", "UA-279220-2", {"cookieDomain":"auto"});ga("require", "linkid", "linkid.js");ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"gizmoslist","theme_token":"MDKPyMY6eUEoJxe7OgewXc-2N1vYeAJewXx6eiVsWkI","jquery_version":"1.7","css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/aggregator\/aggregator.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/google_cse\/google_cse.css":1,"modules\/node\/node.css":1,"modules\/poll\/poll.css":1,"modules\/search\/search.css":1,"sites\/all\/modules\/slidead\/slidead.css":1,"modules\/user\/user.css":1,"modules\/forum\/forum.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/comment_notify\/comment_notify.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/panels\/css\/panels.css":1,"sites\/all\/modules\/print\/print_ui\/css\/print_ui.theme.css":1,"public:\/\/spamicide\/user_pw.css":1,"sites\/all\/modules\/fivestar\/css\/fivestar.css":1,"sites\/all\/modules\/fivestar\/widgets\/oxygen\/oxygen.css":1,"sites\/all\/libraries\/superfish\/css\/superfish.css":1,"sites\/all\/libraries\/superfish\/css\/superfish-navbar.css":1,"sites\/all\/libraries\/superfish\/style\/graphite.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.settings.style.headings.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.settings.style.image.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.layout.css":1,"sites\/all\/themes\/gizmoslist\/color\/colors.css":1,"sites\/all\/themes\/pixture_reloaded\/css\/pixture_reloaded.css":1,"sites\/all\/themes\/pixture_reloaded\/css\/pixture_reloaded.settings.style.css":1,"sites\/all\/themes\/gizmoslist\/css\/styles.custom.css":1,"sites\/all\/themes\/gizmoslist\/generated_files\/gizmoslist.custom.css":1,"sites\/all\/themes\/gizmoslist\/fonts\/gizmoslogo\/gizmoslogo.css":1,"sites\/all\/themes\/gizmoslist\/fonts\/font-awesome\/font-awesome.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.responsive.layout.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.fonts.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.responsive.styles.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.lt-ie9.layout.css":1},"js":{"\/\/s.skimresources.com\/js\/91960x1545845.skimlinks.js":1,"sites\/all\/modules\/google_cse\/google_cse.js":1,"sites\/all\/modules\/slidead\/slidead.js":1,"sites\/all\/modules\/comment_notify\/comment_notify.js":1,"sites\/all\/themes\/gizmoslist\/script\/bootstrap.min.js":1,"sites\/all\/themes\/gizmoslist\/script\/enscroll-0.4.0.min.js":1,"sites\/all\/themes\/gizmoslist\/script\/script.js":1,"sites\/all\/modules\/adsense\/contrib\/adsense_click\/adsense_click.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"misc\/progress.js":1,"sites\/all\/modules\/fivestar\/js\/fivestar.ajax.js":1,"sites\/all\/modules\/fivestar\/js\/fivestar.js":1,"sites\/all\/libraries\/superfish\/supposition.js":1,"sites\/all\/libraries\/superfish\/superfish.js":1,"sites\/all\/modules\/superfish\/superfish.js":1,"https:\/\/ws.sharethis.com\/button\/buttons.js":1,"sites\/all\/modules\/jquery_update\/replace\/jquery\/1.7\/jquery.min.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery-html-prefilter-3.5.0-backport.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/all\/modules\/jquery_update\/replace\/misc\/jquery.form.min.js":1,"misc\/ajax.js":1,"sites\/all\/modules\/jquery_update\/js\/jquery_update.js":1}},"googleCSE":{"cx":"partner-pub-4337260311855789:5365410881","language":"","resultsWidth":400,"domain":"www.google.com","showWaterMark":true},"slideAd":{"width":"300"},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"},"urlIsAjaxTrusted":{"\/search\/node":true,"\/content\/how-install-comodo-firewall.htm":true,"\/content\/how-install-comodo-firewall.htm?destination=node\/2583":true,"\/system\/ajax":true},"superfish":{"1":{"id":"1","sf":{"animation":{"opacity":"show","height":"show"},"speed":"\u0027fast\u0027","autoArrows":false,"dropShadows":true,"disableHI":false},"plugins":{"supposition":true,"bgiframe":false}}},"ajax":{"edit-vote--2":{"callback":"fivestar_ajax_submit","event":"change","url":"\/system\/ajax","submit":{"_triggering_element_name":"vote"}}},"adaptivetheme":{"gizmoslist":{"layout_settings":{"bigscreen":"three-col-grail","tablet_landscape":"three-col-grail","tablet_portrait":"one-col-vert","smalltouch_landscape":"one-col-vert","smalltouch_portrait":"one-col-stack"},"media_query_settings":{"bigscreen":"only screen and (min-width:1025px)","tablet_landscape":"only screen and (min-width:769px) and (max-width:1024px)","tablet_portrait":"only screen and (min-width:481px) and (max-width:768px)","smalltouch_landscape":"only screen and (min-width:321px) and (max-width:480px)","smalltouch_portrait":"only screen and (max-width:320px)"}}}});
+//--><!]]>
+</script>
+   <!--[if lt IE 9]>
+<script src="https://www.techsupportalert.com/sites/all/themes/adaptivetheme/at_core/scripts/html5.js?qv3qpt"></script>
+<![endif]-->
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" /> <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script> <script> window.addEventListener("load", function(){ window.cookieconsent.initialise({ "palette": { "popup": { "background": "#edeff5", "text": "#838391" }, "button": { "background": "#4b81e8" } } })}); </script>
+   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+   <script data-ad-client="ca-pub-1584315025436785" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+   <meta name="wot-verification" content="22efc80013d585910ca0"/>
+   <meta name="propeller" content="3dda2330fd32fcfca29de21325f076f3">
+</head>
+
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-2583 node-type-article site-name-hidden site-name-gizmoamp039s-freeware section-content color-scheme-custom gizmoslist bs-n bb-n mb-dd mbp-l rc-0">
+   <div id=skip-link class=nocontent><a href="how-install-comodo-firewall.htm#main-content" class="element-invisible element-focusable">Skip to main content</a></div>
+      <div class="texture-overlay">
+<div id="page" class="container page ssc-n ssw-n ssa-l sss-n btc-n btw-b bta-l bts-n ntc-n ntw-b nta-l nts-n ctc-n ctw-b cta-l cts-n ptc-n ptw-b pta-l pts-n">
+<header id="header" class="clearfix" role="banner" data-position="fixed">
+<div class="header-inner clearfix">
+<div id="mobile-menu">
+<span class="mobile-socialmenu">social</span>
+<span class="mobile-search">search</span>
+</div>
+<span id="mobile-nav">Menu</span>
+<div id="branding" class="branding-elements clearfix">
+<div id="logo">
+<a href="../index.html" title="Go to our home page..." class="active" style="text-decoration:none"><div class="icon-Final-freeware" style="color:#f0f0f0;font-size:68px;padding-bottom:8px"></div></a>
+</div>
+<div id="logomobile">
+<a href="../index.html" title="Go to our home page..." class="active" style="text-decoration:none"><div class="icon-Final-freeware" style="color:#f0f0f0;font-size:40px;padding-left:8px"></div></a>
+</div>
+<div id="name-and-slogan" class="element-invisible h-group" id="name-and-slogan">
+<h1 id="site-name" class="element-invisible" id="site-name"><a href="../index.html" title="Home page">Gizmo&#039;s Freeware</a></h1>
+</div>
+</div>
+<div class="region region-header"><div class="region-inner clearfix"><div id="block-block-58" class="clearfix block block-block no-title odd first block-count-1 block-region-header block-58">
+<a href="how-install-comodo-firewall.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div id="header-middle"><a href="http://www.xmarks.com/site/www.techsupportalert.com/#r"><img alt="" src="../files/images/icons/_thumb_13506.png" /> </a><a href="http://www.pcmag.com/article2/0,2817,2367733,00.asp"> <img alt="" src="../files/images/icons/_thumb_13505.png" /></a></div>
+</div>
+</div><div id="block-block-57" class="clearfix block block-block no-title even block-count-2 block-region-header block-57">
+<a href="how-install-comodo-firewall.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<p><a href="http://feeds.feedburner.com/gizmosbest" title="Go to our RSS feeds..."><i class="fa fa-rss-square fa-2x" style="color: #ffb300;"></i></a>&nbsp;&nbsp; <a href="http://feedburner.google.com/fb/a/mailverify?uri=gizmosbest" title="Subscribe to email..."><i class="fa fa-envelope fa-2x" style="color: #f0f0f0;"></i></a>&nbsp;&nbsp; <a href="http://www.facebook.com/pages/Gizmos-Freeware/114026985301900" title="Follow us on Facebook..."><i class="fa fa-facebook-square fa-2x" style="color: #d0d0ff;"></i></a>&nbsp;&nbsp; <a href="http://twitter.com/GizmosFreeware" title="Follow us on Twitter..."><i class="fa fa-twitter-square fa-2x" style="color: #70c0f0;"></i></a></p>
+</div>
+</div><div id="block-search-form" class="clearfix block block-search no-title odd block-count-3 block-region-header block-form" role="search">
+<a href="how-install-comodo-firewall.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<form action="how-install-comodo-firewall.htm" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="search" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-TkfDv_3TTxMsFjVXHOwR5mEZz0vEme-a5d2GKJtkuJw" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form></div>
+</div><div id="block-user-login" class="clearfix block block-user even last block-count-4 block-region-header block-login" role="form">
+<a href="how-install-comodo-firewall.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Login / Register</h2>
+<div class="content" class="block-content content">
+<form action="https://www.techsupportalert.com/content/how-install-comodo-firewall.htm?destination=node/2583" method="post" id="user-login-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">Username <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-name" name="name" value="" size="15" maxlength="60" class="form-text required" />
+</div>
+<div class="form-item form-type-password form-item-pass">
+  <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" id="edit-pass" name="pass" size="15" maxlength="128" class="form-text required" />
+</div>
+<div class="item-list"><ul><li class="even first"><a href="../user/register" title="Create a new user account.">Create new account</a></li><li class="odd last"><a href="https://www.techsupportalert.com/user/password" title="Request new password via e-mail.">Request new password</a></li></ul></div><input type="hidden" name="form_build_id" value="form-aTMQO8Ola00JzrfQNCp3i55bgydP4WojLGXHVxUrYMQ" />
+<input type="hidden" name="form_id" value="user_login_block" />
+<div class="edit-user-pw-wrapper"><div class="form-item form-type-textfield form-item-user-pw">
+  <label for="edit-user-pw">user pw </label>
+ <input type="text" id="edit-user-pw" name="user_pw" value="" size="20" maxlength="128" class="form-text" />
+<div class="description">Do not type anything in this box</div>
+</div>
+</div><div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Log in" class="form-submit" /></div></div></form></div>
+</div></div></div></div>
+</header>
+   <!-- Start: Ad blocker check
+   <style>#svCYxPorrige{display:none;margin-bottom:0px;padding:20px 10px;background:#D30000;text-align:center;font-weight:bold;color:#fff;border-radius: 0px;}</style>
+   <div id="svCYxPorrige">Oops, it looks like you are using an ad blocker.<br>We work hard to provide you our software news and we keep our ads non-intrusive.<br>Please support us keeping our content free by disabling your ad blocker.</div>
+   <script src="/ads.js" type="text/javascript"></script>
+   <script type="text/javascript">if(!document.getElementById('YzIkKlMbayUm')){document.getElementById('svCYxPorrige').style.display='block';}</script>
+   End: Ad blocker check -->
+<div id="menu-bar" class="nav clearfix"><div id="block-superfish-1" class="clearfix block block-superfish menu-wrapper menu-bar-wrapper clearfix odd first last block-count-5 block-region-menu-bar block-1">
+<a href="how-install-comodo-firewall.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="element-invisible block-title" class="block-title">Main menu</h2>
+<div class="content" class="block-content content clearfix">
+<ul id="superfish-1" class="menu sf-menu sf-main-menu sf-navbar sf-style-graphite sf-total-items-12 sf-parent-items-5 sf-single-items-7"><li id="menu-175-1" class="first odd sf-item-1 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="../index.html" title="This site&#039;s home page" class="sf-depth-1 menuparent">Home</a><ul><li id="menu-13310-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../index.html" title="The front page of Gizmo&#039;s Freeware" class="sf-depth-2">Homepage</a></li><li id="menu-13306-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="../user/login" title="Login to Gizmos using your site account" class="sf-depth-2">Login</a></li><li id="menu-13307-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="../user" title="Login to Gizmos using your site account. Here you can change your password or store bookmarks" class="sf-depth-2">My account/Change PW</a></li><li id="menu-13309-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="../user/register" title="Create an account at Gizmos Freeware so you can post comments to articles and in the forum" class="sf-depth-2">Register</a></li></ul></li><li id="menu-12522-1" class="middle even sf-item-2 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="../windows" title="The Best Free Windows Programs" class="sf-depth-1 menuparent">Windows</a><ul><li id="menu-12538-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../windows" title="The best free Windows desktop software by category plus our Editors&#039; Choice selections" class="sf-depth-2">Desktop Software</a></li><li id="menu-12539-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="../best-free-windows-apps.htm" title="The best free Windows apps as selected by our editors" class="sf-depth-2">Windows Apps</a></li><li id="menu-12540-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="../best-free-portable-programs.htm" title="Our Editor&#039;s Choice Selections of the Best Free Portable Apps" class="sf-depth-2">Portable Apps</a></li><li id="menu-12541-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="../best-free-windows7-vista-64-bit-software.htm" title="Our Editor&#039;s selections of the best free Windows 64 bit software" class="sf-depth-2">Windows 64 bit Software</a></li></ul></li><li id="menu-12523-1" class="middle odd sf-item-3 sf-depth-1 sf-no-children"><a href="best-free-software-mac-os.htm" title="The Best Free Mac OS X Programs" class="sf-depth-1">Mac</a></li><li id="menu-12524-1" class="middle even sf-item-4 sf-depth-1 sf-no-children"><a href="../linux" title="The Best Free Linux Programs" class="sf-depth-1">Linux</a></li><li id="menu-12526-1" class="middle odd sf-item-5 sf-depth-1 sf-no-children"><a href="../android" title="The Best Free Android Apps" class="sf-depth-1">Android</a></li><li id="menu-12525-1" class="middle even sf-item-6 sf-depth-1 sf-no-children"><a href="../ios" title="The Best Free Apps for iPhone and iPad" class="sf-depth-1">iOS</a></li><li id="menu-13312-1" class="middle odd sf-item-7 sf-depth-1 sf-no-children"><a href="best-free-online-applications-and-services.htm" title="Best web based applications and services" class="sf-depth-1">Online Apps</a></li><li id="menu-9299-1" class="middle even sf-item-8 sf-depth-1 sf-no-children"><a href="../free-ebooks-audio-books-read-online-download.htm" title="Here&#039;s a list of dozens of articles on this showing you the best places to get free eBooks and Audio Books" class="sf-depth-1">eBooks</a></li><li id="menu-12530-1" class="middle odd sf-item-9 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="../view/hot_expanded" title="New and recently updated articles" class="sf-depth-1 menuparent">New</a><ul><li id="menu-3760-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../view/hot_expanded" title="The Most Recent Additions to Gizmo&#039;s Freeware" class="sf-depth-2">New Articles</a></li><li id="menu-3761-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="../tracker_updated_only" title="Articles we have recently revised or re-written" class="sf-depth-2">Recently Updated Articles</a></li><li id="menu-3759-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="https://www.techsupportalert.com/recent-comments" title="Comments on reviews and articles posted by our users" class="sf-depth-2">Recent Comments</a></li><li id="menu-105-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="../all-articles-by-rating" title="The articles our users have given the highest ratings" class="sf-depth-2">Highest Rated</a></li></ul></li><li id="menu-210-1" class="middle even sf-item-10 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent"><a href="../freeware-updates.htm" title="The latest freeware releases and news from 10 top freeware sites" class="sf-depth-1 menuparent">Resources</a><ul><li id="menu-9285-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../freeware-updates.htm" title="The latest product updates and news from the web&#039;s most popular download sites" class="sf-depth-2">News</a></li><li id="menu-12533-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="../view/tips" title="Handy Windows Tips and Tricks" class="sf-depth-2">Tips</a></li><li id="menu-14525-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="../videos.htm" title="Keep up to date with tech the easy way by watching these interesting videos" class="sf-depth-2">Tech videos</a></li><li id="menu-9287-1" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="../sec" title="Want to clean a malware infection from your computer? Want to keep it clean and safe in the future? Then check out these guides." class="sf-depth-2">Security Guides &amp; Articles</a></li><li id="menu-9286-1" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="../tutorials" title="Want to know how to do something? You may well find it here." class="sf-depth-2">How-to Guides &amp; Tutorials</a></li><li id="menu-9283-1" class="middle even sf-item-6 sf-depth-2 sf-no-children"><a href="best-freeware-download-sites.htm" title="The safest and most reliable places to download freeware" class="sf-depth-2">Best Download Sites</a></li><li id="menu-9284-1" class="last odd sf-item-7 sf-depth-2 sf-no-children"><a href="best-free-technical-support-sites.htm" title="Got a hardware or software problem? Try one of these free support sites" class="sf-depth-2">Best Tech Support Sites</a></li></ul></li><li id="menu-1139-1" class="middle odd sf-item-11 sf-depth-1 sf-no-children"><a href="https://www.techsupportalert.com/freeware-forum" title="Got a computer question to ask?  Then this is the place and it&#039;s 100% free." class="sf-depth-1">Forum</a></li><li id="menu-109-1" class="last even sf-item-12 sf-depth-1 sf-total-children-6 sf-parent-children-0 sf-single-children-6 menuparent"><a href="../about-this-site" class="sf-depth-1 menuparent">About</a><ul><li id="menu-12560-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../about-this-site" title="How this site started and what it attempts to achieve" class="sf-depth-2">About</a></li><li id="menu-12559-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="contact-us.htm" title="How to contact Gizmo&#039;s Freeware / Press" class="sf-depth-2">Contact</a></li><li id="menu-12552-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="../faq" title="Answers to the most common questions we get asked" class="sf-depth-2">FAQ</a></li><li id="menu-13311-1" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="../contribute" title="Several ways you can help this community website" class="sf-depth-2">Contribute</a></li><li id="menu-12554-1" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="../privacy_policy.htm" title="The Privacy Policy of the Gizmo&#039;s Freeware Website" class="sf-depth-2">Privacy Policy</a></li><li id="menu-12553-1" class="last even sf-item-6 sf-depth-2 sf-no-children"><a href="../terms-and-conditions.htm" title="These are the conditions we offer and you accept for the use of this site" class="sf-depth-2">Condition of Use</a></li></ul></li></ul></div>
+</div></div><div id="columns">
+<div class="columns-inner clearfix">
+<div id="content-column">
+<div class="content-inner">
+<section id="main-content" role="main">
+<header id="main-content-header" class="clearfix">
+<h1 id="page-title">How to Install Comodo Firewall</h1>
+</header>
+<div id="content">
+
+
+<div id="block-system-main" class="clearfix block block-system no-title odd first last block-count-6 block-region-content block-main">
+<a href="how-install-comodo-firewall.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<article id="node-2583" class="node node-article article odd node-full ia-n clearfix" role="article">
+  
+  
+      <footer class="submitted">
+            <!-- <p class="author-datetime">Submitted by <a href="/users/siteeditor" title="View user profile." class="username">site.editor</a> on <time datetime="2012-12-19T19:42:14+0000">19. December 2012 - 19:42</time></p> -->
+      <p class="author-datetime">Last updated by <a href="https://www.techsupportalert.com/users/siteeditor" title="View user profile." class="username">site.editor</a> on 25. November 2020 - 12:00</p>
+    </footer>
+  
+  <div class="node-content">
+    <div class="sharethis-buttons"><div class="sharethis-wrapper"><span st_url="https://www.techsupportalert.com/content/how-install-comodo-firewall.htm" st_title="How%20to%20Install%20Comodo%20Firewall" class="st_facebook"></span>
+<span st_url="https://www.techsupportalert.com/content/how-install-comodo-firewall.htm" st_title="How%20to%20Install%20Comodo%20Firewall" class="st_twitter" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/how-install-comodo-firewall.htm" st_title="How%20to%20Install%20Comodo%20Firewall" class="st_linkedin" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/how-install-comodo-firewall.htm" st_title="How%20to%20Install%20Comodo%20Firewall" class="st_email" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/how-install-comodo-firewall.htm" st_title="How%20to%20Install%20Comodo%20Firewall" class="st_sharethis" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/how-install-comodo-firewall.htm" st_title="How%20to%20Install%20Comodo%20Firewall" class="st_pinterest" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/how-install-comodo-firewall.htm" st_title="How%20to%20Install%20Comodo%20Firewall" class="st_fblike" st_via="" st_username=""></span>
+</div></div>
+<div class="field field-name-body field-type-text-with-summary field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p> </p>
+<p>This guide was written for version 8.0 of Comodo Internet Security (CIS). This guide will work equally well for configuring Comodo Firewall, but the screenshots are from CIS.</p>
+<p> </p>
+<p>Please note that in terms of system protection this article is not really meant to be viewed in isolation. Please read my article about <strong><a href="https://www.techsupportalert.com/content/how-stay-safe-while-online.htm-0" target="_blank">How to Stay Safe While Online</a></strong> in order to get an overview of what you can do to protect your computer. Comodo Firewall provides rock solid protection and is entirely free. If you like you can even download Comodo Internet Security, which comes with Comodo Antivirus. This is also completely free.</p>
+<p class="rteleft"><strong>Recent Changelog:</strong></p>
+<p class="rteleft">6/10/2014-Replaced http links with https links wherever possible.</p>
+<p class="rteleft">9/14/2014-Updated advice to show how to remove messages from COMODO Message Center</p>
+<p class="rteleft">11/17/2014-Updated article to reflect the newly released CIS version 8.0</p>
+<p class="rteleft"> </p>
+<h2 align="CENTER">
+	<strong>Index</strong></h2>
+<div>
+	<p><strong>1. </strong><a href="how-install-comodo-firewall.htm#Installation"><strong>Installation</strong></a><strong><a href="https://www.techsupportalert.com/files/images/CIS%20V6.2%20Advanced%20Screen_Large.jpg" target="_blank"><img alt="" src="../files/images/CIS&#32;V6.2&#32;Advanced&#32;Screen_Small.jpg" style="width: 200px; height: 147px; float: right;" /></a></strong></p>
+	<p><strong>2. <a href="how-install-comodo-firewall.htm#Changes_To_Configuration">Changes To Configuration</a></strong></p>
+	<p><strong>    </strong><strong>A) <a href="how-install-comodo-firewall.htm#General_Tweaks_To_The_Configuration">General Tweaks To The Configuration</a></strong></p>
+	<p><strong>    B</strong><strong>) <a href="how-install-comodo-firewall.htm#Configure_Antivirus">Configure Antivirus</a></strong></p>
+	<p><strong>    </strong><strong>C) <a href="how-install-comodo-firewall.htm#Configure_Defense">Configure Defense+</a></strong></p>
+	<p><strong>    D) </strong><strong><a href="how-install-comodo-firewall.htm#Configure_Firewall">Configure Firewall</a></strong></p>
+	<p><strong>3. <a href="how-install-comodo-firewall.htm#Advice_On_How_To_Use_Comodo_Internet_Security">Advice On How To Use Comodo Internet Security</a></strong></p>
+	<p><strong>4. </strong><a href="how-install-comodo-firewall.htm#What_To_Do_If_You_Have_Further_Questions"><strong>What To Do If You Have Further Questions</strong></a></p>
+	<p> </p>
+	<h2 align="CENTER">
+		<strong><a name="Installation" id="Installation"></a>1. Installation</strong></h2>
+	<p> </p>
+	<p>Before installing security software designed to protect your computer I find it's best to first ensure that your computer is already free of malware. I know it sounds like strange advice, but this can prevent many problems further down the road. To do this please follow the advice I give in my article about <a href="how-know-if-your-computer-infected.htm" target="_blank"><strong>How to Know If Your Computer Is Infected</strong></a>. Note that, as mentioned in that article, I would advise that you submit all unrecognized files to Comodo to be whitelisted. That article explains how to do this. If all of the files on your computer are whitelisted you will find Comodo Internet Security to be very quiet, except when there is a possible threat.</p>
+	<p> </p>
+	<p>After this is done you can download the installer. Here are the download pages for <strong><a href="https://www.comodo.com/home/internet-security/free-internet-security.php" target="_blank">Comodo Internet Security</a> </strong>and<strong> <a href="https://www.comodo.com/home/internet-security/firewall.php" target="_blank">Comodo Firewall</a></strong>. Please download whichever you would like to install. If, at a later time, you decide that you want to switch from one to the other you can accomplish this by going to the start menu, finding Comodo, and selecting the option to "Add and Remove components".</p>
+	<p> </p>
+	<h4>
+		Options During Installation</h4>
+	<a href="https://www.techsupportalert.com/files/images/CIS%207_0%20Installer_Large.jpg" target="_blank"><img alt="" src="../files/images/CIS&#32;7_0&#32;Installer_Small.jpg" style="color: rgb(0, 0, 238); width: 200px; height: 189px; float: right;" /></a></div>
+<div>
+	<p>During installation you will first see a scren which asks you whether you want two options to be enabled. I would recommend leaving the box to "enable 'Cloud Based Behavior Analysis'..." checked. I would strongly advise that you leave this option checked. This will upload all active unrecognized programs to Comodo for analysis. These files will then either be added to the whitelist or added to the definitions for the antivirus. This will make Comodo Internet Security both easier to use and more powerful against threats. The other box, to "Send anonymous program usage...", you can uncheck if you desire, or you can leave it checked. It's entirely up to you.</p>
+	<p> </p>
+	<p>Before going to the next screen select the option in the lower left-corner called "Customize Installation". In addition you should select the small option near the bottom of the window that says "Customize Installer". This will give you the option to choose which components, and additional programs, you would like to install. You may wish to consider leaving the option to install <a href="https://www.comodo.com/home/support-maintenance/geekbuddy.php" target="_blank"><strong>Comodo GeekBuddy</strong></a> checked. This is a free trial program through which Comodo technicians can remotely diagnose, but not fix, problems with your computer. This trial period will only start once you first use it. If at a later date you decide to purchase the product then the technicians can also remotely fix any problems with your computer. However, if this does not sound useful you can deselect it. Also, if you do choose to install it you can always choose to uninstall it later.</p>
+	<p> </p>
+	<p>You are also given the option to install the <a href="https://www.comodo.com/home/browsers-toolbars/browser.php" target="_blank"><strong>Comodo Dragon</strong></a> browser. If you do not wish to install this then deselect this option as well. You can also uncheck the option to "Install PrivDog...". This is an adblocker similar to Adblock Plus. However, it replaces most ads with ads which are verified to be safe, but which may still be able to provide the site you are viewing with some revenue. Personally, I use Adblock Plus, but the choice is yours. Once you're done, click on Back and then click Next.</p>
+	<p> </p>
+	<p>On the next screen you are given the choice to change your DNS servers to <strong><a href="https://www.comodo.com/secure-dns/" target="_blank">Comodo Secure DNS Servers</a></strong>. This will automatically block any websites that Comodo knows to be dangerous. However, I have noticed that Comodo DNS sometimes tends to block legitimate sites. Thus, if you would like to use the security of a secure DNS serverI would recommend following the advice I provide in <strong><a href="https://www.techsupportalert.com/content/how-stay-safe-while-online.htm-0#My_Advice_On_What_To_Use" target="_blank">this section</a></strong> of my article about How to Stay Safe While Online, or just use the default one from your ISP. Thus, my recommendation would be to uncheck the option in this installer about enabling Comodo Secure DNS. You can also uncheck the option to change your home page and search engine to Yahoo. Leaving it checked will help to support Comodo, but it is very easy to opt out if you do not wish to use Yahoo. After that you can click "Agree and Install" and the installation will begin.</p>
+	<p> </p>
+	<h2 align="CENTER">
+		<strong><a name="Changes_To_Configuration" id="Changes_To_Configuration"></a>2. Changes To Configuration</strong></h2>
+	<p><a href="https://www.techsupportalert.com/files/images/CIS6_0%20Initial%20Scan_Large.jpg" target="_blank"><img alt="" src="../files/images/CIS6_0&#32;Initial&#32;Scan_Small.jpg" style="width: 200px; height: 147px; float: right;" /></a></p>
+	<p> </p>
+	<p>Not long after the installation is complete, assuming you installed CIS, it will download the virus database and begin running a quick scan of your computer. Let this scan complete. Unless you have a slow internet connection this process should only take about 5-15 minutes. Either way, I would suggest letting it complete its scan. After the initial scan is completed any subsequent scans will be much faster due to Comodo's new caching technology. Once it's done you can close the scan window. However, note that once you close the scan window it will ask you to restart your computer. Do not yet allow it to restart your computer.</p>
+	<p> </p>
+	<p>At this time you may also choose to disable User Account Control (UAC). Personally I do disable it. However, there are some reasons to leave it enabled. One problem is that disabling this will turn off protected mode in Internet Explorer. It will also disable file/registry virtualization for Windows Vista and Windows 7. In general, UAC controls who can run specified applications that require elevated Administrator privileges. For more information please read <strong><a href="https://en.wikipedia.org/wiki/User_Account_Control" target="_blank">this article</a></strong>.</p>
+	<p> </p>
+	<h2 align="CENTER">
+		<a name="General_Tweaks_To_The_Configuration" id="General_Tweaks_To_The_Configuration"></a>A) General Tweaks To The Configuration</h2>
+	<h4>
+		Change Overall Configuration</h4>
+	<p><a href="https://www.techsupportalert.com/files/images/CIS%207_0%20Main%20Screen_Large.jpg" target="_blank"><img alt="" src="../files/images/CIS&#32;7_0&#32;Main&#32;Screen_Small.jpg" style="width: 200px; height: 147px; float: right;" /></a></p>
+	<p>One of the most important changes it to change the default configuration to Proactive Security. For an explanation of the differences between the configurations please see <strong><a href="https://help.comodo.com/topic-72-1-623-7726-Comodo-Preset-Configurations.html" target="_blank">this page</a></strong>. To do this open the main window for Comodo Internet Security. Then click on the green task icon on the upper right hand corner of the Window. This will flip the screen to show you the task window, which contains the configuration options. Click on the section for "Advanced Tasks" and then select the option to "Open Advanced Settings". Make sure the dropdown menu under "General Settings" is shown and then click on the Configuration option.</p>
+	<p> </p>
+	<p>Now right-click on the option for "COMODO-Proactive Security" and select Activate. It will ask you whether you want to save changes, but at this point you can select no. It will then ask you to restart your computer. Make sure you select OK on the Advanced Settings Window. Then, you can either restart your computer now or you can postpone it again and continue making changes.</p>
+	<p> </p>
+	<h4>
+		Other General Steps</h4>
+	<p><a href="https://www.techsupportalert.com/files/images/CIS%207_0%20Switch%20To%20Advanced%20View_Large.jpg" target="_blank"><img alt="" src="../files/images/CIS&#32;7_0&#32;Switch&#32;To&#32;Advanced&#32;View_Small.jpg" style="width: 200px; height: 148px; float: right;" /></a></p>
+	<p>After this again open up the main screen for CIS. This time click on the icon on the upper left hand corner of the screen, as shown in the picture to the right, to switch CIS to advanced view.</p>
+	<p> </p>
+	<p>Then click the icon at the bottom of the windows labeled Scan. Those with CIS installed should select the option to run a "Rating Scan". Note that if you did not install the antivirus component clicking on scan will automatically begin running a rating scan. Allow this scan to complete. Unless you have a slow internet connection it should not take more than a few minutes.</p>
+	<p> </p>
+	<p>What this is doing is scanning the critical areas of your computer and compiling a list of which files are already known to be safe, dangerous, or unknown. No action is required on your part as long as you already followed my advice about how to ensure that your computer is not infected. The only reason I ask you to do this now is that it will help make Comodo Internet Security a little bit faster and less resource intensive than it otherwise would have been. Once the rating scan is complete you can close the rating scan window without selecting any action for the files, unless you would like to remove some bad files or trust some unknown files which you know to be safe.</p>
+	<p> </p>
+	<p>Once the scan window is closed please once again look at the main window for CIS. For the section labeled Auto-Sandbox left-click the text next to HIPS which reads "Safe Mode" and change this to Disabled. My configuration will actually not require you to enable the HIPS. This version of Comodo Internet Security is designed in such a way that you can achieve the same amount of security without enabling the HIPS. Everything we will need is actually now contained within the Auto-Sandbox , which will provide far fewer popups.</p>
+	<p> </p>
+	<p>Then once again flip the screen to get to the Tasks window. Then go to the section for "Firewall Tasks" and click on the option for "Stealth Ports". In the window which pops up click the option to "Block Incoming Connections". Then go to the section for "Advanced Tasks" and once again click on the icon for "Open Advanced Settings". Under the section named "User Interface" deselect the box named "Show messages from COMODO Message Center". This will prevent CIS from displaying any advertisements. While in this same area you can also choose to disable the sounds which CIS now plays when an alert is shown, if you wish. When you are done select OK to save your changes and close the window. Then leave this window open and continue to the following steps. We will use this window to complete the rest of the changes which will be made to the configuration. I have broken the rest of the advice into that which is applicable for each of the main components of Comodo Internet Security.</p>
+	<p> </p>
+	<h2 align="CENTER">
+		<a name="Configure_Antivirus" id="Configure_Antivirus"></a>B) Configure Antivirus</h2>
+	<p><a href="https://www.techsupportalert.com/files/images/CIS%20V6.2%20Disable%20Scheduled%20Scans_Large.jpg" target="_blank"><img alt="" src="../files/images/CIS&#32;V6.2&#32;Disable&#32;Scheduled&#32;Scans_Small.jpg" style="color: rgb(0, 0, 238); width: 200px; height: 168px; float: right;" /></a></p>
+	<p>Assuming you chose to install Comodo Internet Security you also installed the antivirus component. Please open the Advanced Settings again. Then, make sure the dropdown menus under "Security Settings" are shown. Click on the one for Antivirus. Then click on the one for Scans. If you do not want your computer to run scheduled scans you can slide the toggle for both scans to deactivate them. Other than that there are not really any other changes which need to be made to the antivirus component.</p>
+	<p> </p>
+	<p>Also, as strange as this may sound, any scans run from right-clicking on a file or folder use the settings for the Full Scan. Thus, for example, if you would like for right-click on-demand scans to check all files against the cloud, you should first right-click on Full Scan and choose edit. Then go to the Options section. Under here you would check the box for "Use cloud while scanning". However, do note that making this specific change will make any Full Scans you run take much longer. You can also make any other changes you like to these settings. Once you are done make sure that you select OK to save the changes.</p>
+	<p> </p>
+	<h2 class="rtecenter">
+		<a name="Configure_Defense" id="Configure_Defense"></a>C) Configure Defense+</h2>
+	<p>All of the most important changes I would recommend for the Defense+ component have already been made. However, there are some optional changes which you may want to consider.</p>
+	<p> </p>
+	<h4>
+		Optional Change</h4>
+	<p> </p>
+	<p>If you like you can make sure that Defense+ is selected. Then, under this click on Sandbox and then Sandbox Settings. From this you may choose to disable the option to "Show privilege elevation alerts for unknown programs". What this will do is ensure that the only popups you get are to let you know that an application has been sandboxed. The program will not ask you whether you want to allow an application or not. Thus if you select this option you will not have to answer a single Defense+ alert. Every program, even if it is an installer, will automatically be sandboxed.</p>
+	<p> </p>
+	<p>If this is not disabled running most unknown installers will prompt an unlimited rights popup, which would ask you whether you trust them. However, do note that if sandboxed none of these programs would be installed on the real computer. They would be installed in the fully virtualized environment. Thus, disabling that option will ensure that you receive fewer alerts, although you will still receive a few from the firewall component, but it will also mean that all unknown programs will always be run in the fully virtualized environment. Thus, I would recommend making this change only if you are an advanced user and are prepared for the consequences.</p>
+	<p> </p>
+	<h2 align="CENTER">
+		<a name="Configure_Firewall" id="Configure_Firewall"></a>D) Configure Firewall</h2>
+	<h4>
+		Strongly Recommended Changes</h4>
+	<p>Now open the dropdown menu for the Firewall component. Click on "Firewall Settings" and check the boxes for "Filter IPv6 traffic", "Block fragmented IP traffic", "Do Protocol Analysis", and "Enable anti-ARP spoofing". Selecting these will likely not have any negative side-affects on your browsing experience. However, if you do find that you are having trouble with your internet/network connections please try unchecking these options as they are likely the culprit. Also, although it's preferable to leave it checked, in some cases the option to "Filter loopback traffic" may cause certain DNS services to not work correctly. This is rare, but if this happens you can uncheck the option to "Filter loopback traffic". However, as long as there are no problems I would advise that you leave it checked.</p>
+	<p> </p>
+	<p><strong>Optional Change</strong></p>
+	<p><strong><a href="https://www.techsupportalert.com/files/images/CIS6_0%20Firewall%20Settings_Large.jpg" target="_blank"><img alt="" src="../files/images/CIS6_0&#32;Firewall&#32;Settings_Small.jpg" style="width: 200px; height: 180px; float: right;" /></a></strong></p>
+	<p>Also, if you do not want any unknown programs to be able to access the internet you can check the box for "Do NOT show popup alerts" and then change the behavior to "Block Requests". This will automatically block all unknown applications from accessing the internet. Thus, if you select this option, and the optional one for the Defense+ component, the only popups you will see are those for the sandbox. Also, note that the sandbox popups do not require any user input. Thus, Comodo Internet Security will now be entirely automated and will require no user input at all.</p>
+	<p> </p>
+	<p>However, making this change to the firewall configuration will cause some unknown programs to not be able to operate correctly and will also result in any unknown installer, which must download files from the internet, failing. Thus, I would recommend making this change only if you are an advanced user and are prepared for the consequences. Note that if you do run into problems with this change, you should just uncheck the option.</p>
+	<p> </p>
+	<p>When you are done making your changes select OK. This will save all changes and close the advanced settings window.</p>
+	<p> </p>
+	<h2 class="rtecenter" style="">
+		<a name="Advice_On_How_To_Use_Comodo_Internet_Security" id="Advice_On_How_To_Use_Comodo_Internet_Security"></a>3. Advice On How To Use Comodo Internet Security</h2>
+	<p> </p>
+	<h4>
+		How To Answer Defense+/Sandbox/Firewall Alerts</h4>
+	<p>In terms of how to use this program it's really quite simple, at least for the most part. The main problem is that although there are very few alerts which you will have to answer, there are still some decisions which will have to be made. For ordinary sandbox alerts no action will be required on your part. CIS will just show a small popup on the lower right-hand corner of the screen to let you know the application has been sandboxed. However, this popup will provide you with the option to trust the application.</p>
+	<p> </p>
+	<p>For any popups, regardless of which component they are from, it is very important that you do not just allow an application because you want to get rid of the alert. If you do this you greatly decrease the protection offered by Comodo Internet Security. In general, regardless of what the alert is asking, you should only allow a program access to your computer if you are absolutely sure that it is safe.</p>
+	<p> </p>
+	<p>If you're not sure whether an application is safe or not I would advise that before allowing it you take some time to check it by following the advice I give in my article about <strong><a href="how-tell-if-file-malicious.htm" target="_blank">How to Tell if a File is Malicious</a></strong>. However, if you're not sure what to do I would advise that you select the option to block the request or, if it is a sandbox alert, do nothing and leave the application sandboxed. If you do otherwise you may inadvertently allow a malicious program access to your computer.</p>
+	<p> </p>
+	<p><strong><a name="Game_Mode" id="Game_Mode"></a>Overview of What Game Mode Is</strong></p>
+	<p>CIS also has an option called "Game Mode". If you choose use this no Defense+ alerts, Firewall alerts, update popups, or scheduled scans will be shown or run. Thus, these cannot interfere with what you are doing. However, what enabling this will also do is create automatic allow rules for all running applications. Thus, running your computer in game mode will essentially put your computer in training mode, which I would not advise as I consider it to be dangerous. Thus, I would advise that you do not use "Game Mode".</p>
+	<p> </p>
+	<h4>
+		Brief Overview of How the Auto-Sandbox Works</h4>
+	<p>Also, I would quickly like to briefly mention the way in which Comodo's sandbox component works. If a piece of malware is not yet detected as dangerous by Comodo it will automatically be sandboxed. When in the sandbox it may be run in a fully virtualized environment where it is not able to harm, or affect, the real system.</p>
+	<p> </p>
+	<h4>
+		Overview of Comodo Virtual Desktop</h4>
+	<p>Comodo Virtual Desktop creates a fully virtualized environment on your computer. It can be accessed by going to the tasks window, going to the "Sandbox Tasks" section, and clicking on "Run Virtual Desktop". This starts the fully virtualized environment which is mainly meant to be used for web related activities. It is not really designed for installing other programs, although many programs will install correctly inside of it. In addition, any programs which are installed on your real computer, and have a shortcut sitting on the desktop, will be able to be launched from inside the Virtual Desktop. However, note that in order to access them you will need to switch from the tablet screen to the desktop screen. This is done by flipping the window by clicking on the orange icon, just as you would with the CIS window.</p>
+	<p> </p>
+	<p>Also, please do be aware that due to restrictions, which help protect you from dangerous malware, there are certain types of programs which will not be able to run inside the Virtual Desktop. Also, note that if the Virtual Desktop is closed and then started again no applications will initially be running. This would include any malware which may have been running. Thus, I would recommend that before performing sensitive actions such as online banking you at least close the Virtual Desktop and then open it again just before you go to the banking site. If you like you can even choose the option to "Reset Sandbox", which will delete all information which was inside it and provide you with an entirely fresh sandbox the next time you run the Virtual Desktop.</p>
+	<p> </p>
+	<p>Also, the shared space folder, of which a shortcut is placed on your desktop during installation and an icon is placed in the main window for CIS, is the folder which is shared by both your actual computer and the Comodo Virtual Desktop. Thus, any files placed in there will be shared between the two environments.</p>
+	<p> </p>
+	<h4>
+		Optional Cosmetic Changes</h4>
+	<p><a href="https://www.techsupportalert.com/files/images/CIS%20V6.2%20Widget_Large.jpg" target="_blank"><img alt="" src="../files/images/CIS&#32;V6.2&#32;Widget_Small.jpg" style="width: 162px; height: 200px; float: right;" /></a></p>
+	<p>If you would like to run your browser sandboxed, but would prefer not to use the Virtual Desktop, you can instead use the widget. This is the small window which has been added to your desktop. This will automatically detect and display all browsers currently installed on your computer, along with other useful information. Clicking on the icon for that browser will cause it to be run sandboxed with full-virtualization. Note that you can also right-click on the CIS icon and either add or remove information from the widget.</p>
+	<p> </p>
+	<p>Please note that any changes you make to the browser while sandboxed, such as bookmarking a page, will not be saved to your unsandboxed browser and will in fact be deleted when you reset the sandbox. Note that if you do not want to use the widget you can remove it by right-clicking on the CIS icon, selecting Widget, and unchecking the option to Show. Personally, I use it often, but if you find it an eyesore it is easy to remove.</p>
+	<p> </p>
+	<p>If you like you can also open the Advanced Settings again. Then, under General Settings make sure that User Interface is selected. In this area you can choose between different themes which come with CIS. From here you can choose the Theme which suits you best.</p>
+	<p> </p>
+	<p>The main window of Comodo Internet Security also provides you with the option to add task shortcuts to the task bar at the bottom of the window. To add additional task shortcuts you can flip the screen to the task window, navigate to the task you want to make a shortcut of, right click on the icon for it, and select "Add to Task Bar". I would suggest you do this for any tasks which you find you are using often. Note that you are also given the ability to drag the icons around on the main window.</p>
+	<p> </p>
+	<h2 align="CENTER">
+		<strong><a name="What_To_Do_If_You_Have_Further_Questions" id="What_To_Do_If_You_Have_Further_Questions"></a>4. What To Do If You Have Further Questions</strong></h2>
+	<p> </p>
+	<p>Note that if at any time after installing this product you encounter serious problems with it, which running the diagnostics cannot fix, it may be helpful to reinstall it. If you do decide to reinstall Comodo Internet Security it's best to do this by following the steps I outline in my post on <strong><a href="https://forums.comodo.com/install-setup-configuration-help-cis/most-effective-way-to-reinstall-cis-to-avoidfix-problems-t58620.0.html;msg410589#msg410589" target="_blank">this page</a></strong>.</p>
+	<p> </p>
+	<p>If you do have any other questions please peruse the online help files, which can be found on <strong><a href="https://help.comodo.com/topic-72-1-623-7587-Introduction-to-Comodo-Internet-Security.html" target="_blank">this page</a></strong>. If you still have questions then I would advise that you search the <strong><a href="https://forums.comodo.com/" target="_blank">Comodo Forums</a></strong> for a solution. If someone hasn't already created a post with the same problem please feel free to join the forum and create a post of your own. The community will do their best to help you with any problems that you may encounter.</p>
+	<p> </p>
+	<p> </p>
+	<p> </p>
+	<h2>
+		 </h2>
+	<p>Please help by <a href="how-install-comodo-firewall.htm#Rate"><strong>rating this article</strong></a>. Also, if you believe this article deserves anything less than 5 stars, please leave a comment below explaining how you think it can be improved or where you find fault. This article is written by me but fueled by the community. Thus your opinions and advice are not only much appreciated, but actually necessary in order for this article to grow and improve.</p>
+	<p> </p>
+	<p class="rtecenter">If you found this article useful then perhaps you'd like to check out some my others.</p>
+	<p class="rtecenter"><strong><a href="../best-free-anti-virus-software.htm" target="_blank">Best Free Antivirus Software</a></strong></p>
+	<p class="rtecenter"><a href="how-avoid-getting-spammed.htm" target="_blank"><strong>How to Avoid Spam</strong></a></p>
+	<p class="rtecenter"><a href="how-clean-infected-computer.htm" target="_blank"><strong>How to Clean An Infected Computer</strong></a></p>
+	<p class="rtecenter"><a href="how-fix-malware-infected-computer.htm" target="_blank"><strong>How to Fix a Malware Infected Computer</strong></a></p>
+	<p class="rtecenter"><a href="how-harden-your-browser-against-malware-and-privacy-concerns.htm" target="_blank"><b>How to Harden Your Browser Against Malware and Privacy Concerns</b></a></p>
+	<p class="rtecenter"><a href="how-know-if-your-computer-infected.htm" target="_blank"><strong>How to Know If Your Computer Is Infected</strong></a></p>
+	<p class="rtecenter"><a href="how-protect-your-online-privacy.htm" target="_blank"><b>How to Protect Your Online Privacy</b></a></p>
+	<p class="rtecenter"><a href="how-report-dangerous-websites.htm" target="_blank"><strong>How to Report Dangerous Websites</strong></a></p>
+	<p class="rtecenter"><strong><a href="how-report-malware-or-false-positives-multiple-antivirus-vendors.htm" target="_blank">How to Report Malware or False Positives to Multiple Antivirus Vendors</a></strong></p>
+	<p class="rtecenter"><strong><a href="how-report-spam.htm" target="_blank">How to Report Spam</a></strong></p>
+	<p class="rtecenter"><strong><a href="https://www.techsupportalert.com/content/how-stay-safe-while-online.htm-0" target="_blank">How to Stay Safe While Online</a></strong></p>
+	<p class="rtecenter"><strong><a href="how-tell-if-file-malicious.htm" target="_blank">How to Tell if a File is Malicious</a></strong></p>
+	<p class="rtecenter"><strong><a href="how-tell-if-website-dangerous.htm" target="_blank">How to Tell If A Website Is Dangerous</a></strong></p>
+	<p class="rteleft"> </p>
+	<p>This software category is in need of an editor. If you would like to give something back to the freeware community by taking it over, check out <a class="vt-p" href="../become-a-reviewer.htm" target="_blank">this page</a> for more details. You can then contact us from that page or by <a class="vt-p" href="https://www.techsupportalert.com/content/id-become-editor-gizmos-freeware.htm" target="_blank">clicking here</a></p>
+	<p> </p>
+</div>
+<p><a name="Rate" id="Rate"></a></p>
+</div></div></div><section class="field field-name-field-vote field-type-fivestar field-label-above view-mode-full"><h2 class="field-label">Please rate this article:&nbsp;</h2><div class="field-items"><div class="field-item even"><form class="fivestar-widget" action="how-install-comodo-firewall.htm" method="post" id="fivestar-custom-widget" accept-charset="UTF-8"><div><div  class="clearfix  fivestar-combo-text fivestar-combo-stars fivestar-form-item fivestar-oxygen"><div class="form-item form-type-fivestar form-item-vote">
+ <div class="form-item form-type-select form-item-vote">
+ <select id="edit-vote--2" name="vote" class="form-select"><option value="-">Select rating</option><option value="20">Give How to Install Comodo Firewall 1/5</option><option value="40">Give How to Install Comodo Firewall 2/5</option><option value="60">Give How to Install Comodo Firewall 3/5</option><option value="80">Give How to Install Comodo Firewall 4/5</option><option value="100">Give How to Install Comodo Firewall 5/5</option><option value="0" selected="selected">Cancel rating</option></select>
+<div class="description"><div class="fivestar-summary fivestar-summary-user"><span class="user-rating">Your rating: <span>None</span></span></div></div>
+</div>
+<div class="fivestar-static-form-item"><div class="form-item form-type-item">
+  <div class="fivestar-oxygen"><div class="fivestar-widget-static fivestar-widget-static-vote fivestar-widget-static-5 clearfix"><div class="star star-1 star-odd star-first"><span class="on">4.76127</span></div><div class="star star-2 star-even"><span class="on"></span></div><div class="star star-3 star-odd"><span class="on"></span></div><div class="star star-4 star-even"><span class="on"></span></div><div class="star star-5 star-odd star-last"><span class="on" style="width: 76.127%"></span></div></div></div>
+<div class="description"><div class="fivestar-summary fivestar-summary-average-count"><span class="average-rating">Average: <span >4.8</span></span> <span class="total-votes">(<span >599</span> votes)</span></div></div>
+</div>
+</div>
+</div>
+</div><input class="fivestar-submit form-submit" type="submit" id="edit-fivestar-submit" name="op" value="Rate" /><input type="hidden" name="form_build_id" value="form-G3AbIbW3D5xKVbjYG8RxT7-1lpDedJ9ooe1IYh2wqCU" />
+<input type="hidden" name="form_id" value="fivestar_custom_widget" />
+</div></form></div></div></section><div class="likebtn_container"><!-- LikeBtn.com BEGIN -->
+<span class="likebtn-wrapper" data-identifier="node_2583" data-engine="drupal"  data-engine_v="7.80"  data-plugin_v="1.12"  data-item_url="https://www.techsupportalert.com/node/2583"  data-item_title="How to Install Comodo Firewall"  data-item_date="2012-12-19T19:42:14+00:00" ></span>
+<script type="text/javascript">if (typeof(LikeBtn) != "undefined") { LikeBtn.init(); }</script>
+<!-- LikeBtn.com END --></div>  </div>
+
+      <nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li><li class="print_html last"><a href="https://www.techsupportalert.com/print/content/how-install-comodo-firewall.htm" title="Display a printer-friendly version of this page." class="print-page" rel="nofollow"><img class="print-icon print-icon-margin image-style-none" src="../sites/all/modules/print/icons/print_icon.png" width="16px" height="16px" alt="Printer-friendly version" title="Printer-friendly version" />Printer-friendly version</a></li></ul></nav>
+  
+  <p class="show-comments"><section id="comments" class="comment-wrapper">
+
+          <h2 class="comment-title title">Comments</h2>
+      
+  <a id="comment-123039"></a>
+<article class="comment odd first clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/fairportfan" title="View user profile." class="username">Fairportfan</a> on <time datetime="2015-07-24T20:20:19Z"><span class="date-time">24. July 2015 - 20:20</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-123039">(123039)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>As of Build 10240 (which is very likely the RTM build) Comodo Firewall doesn't work on Windows 10.</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article><a id="comment-120538"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/mandhi" title="View user profile." class="username">mandhi</a> on <time datetime="2015-01-12T15:47:56Z"><span class="date-time">12. January 2015 - 15:47</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-120538">(120538)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>Chiron, should I activate the "Viruscope" using its configuration? thank you</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article><a id="comment-120296"></a>
+<article class="comment comment-by-anonymous odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <span class="username">Gorilla (not verified)</span> on <time datetime="2014-12-28T14:20:43Z"><span class="date-time">28. December 2014 - 14:20</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-120296">(120296)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>This is a quote from CIS Help webpage:</p>
+<p>"[…] Stealthing a port effectively makes it invisible to a port scan. This differs from simply ‘closing’ a port as NO response is given to any connection attempts (‘closed’ ports respond with a ‘closed’ reply- revealing to the hacker that there is actually a PC in existence.) This provides an extremely high level of security to your PC. […]"</p>
+<p>I am rather a newbie so I want to ask you if is it really necessary to use “Stealth Ports” option when the computer is used only at home and it is placed behind NAT router that passes the ShieldsUP! test? I read that enabling this option may cause problems with some network activity like P2P. Or maybe this doesn’t matter and you recommend to stealth ports anyway?</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-120297"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/midnightcowboy" title="View user profile." class="username">MidnightCowboy</a> on <time datetime="2014-12-28T14:59:21Z"><span class="date-time">28. December 2014 - 14:59</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-120297">(120297)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">IMO stealthing ports is not as good an option as many believe. :). MC - Site manager.
+<a href="http://www.hansenonline.net/Networking/stealth.html">http://www.hansenonline.net/Networking/stealth.html</a></div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article></div><a id="comment-119678"></a>
+<article class="comment odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/chiron" title="View user profile." class="username">Chiron</a> on <time datetime="2014-11-17T21:28:02Z"><span class="date-time">17. November 2014 - 21:28</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-119678">(119678)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">I've just updated this article to reflect the newest version of CIS which has been released. However, as of this moment it can only be downloaded from a topic on the Comodo forum (found here):
+<a href="https://forums.comodo.com/news-announcements-feedback-cis/comodo-internet-security-8004337-is-released-t108001.0.html">https://forums.comodo.com/news-announcements-feedback-cis/comodo-interne...</a>
+
+That said, it should be available through the main website soon, and I expect that within the next few weeks it will probably be pushed out (as an optional update) to those currently running a previous version.
+
+Let me know what you think of my advice, and if you have any questions.
+
+Thank you.</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-120161"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/cilverjolt" title="View user profile." class="username">Cilverjolt</a> on <time datetime="2014-12-20T07:40:52Z"><span class="date-time">20. December 2014 - 7:40</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-120161">(120161)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>In comodo 8 I'm not being alerted when an application gets sandboxed. I'm use to comodo 6/7 asking if it should sandbox the program, but in 8 there is no popups at all.</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article><a id="comment-119686"></a>
+<article class="comment odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/pshipwrite" title="View user profile." class="username">pshipwrite</a> on <time datetime="2014-11-18T18:01:40Z"><span class="date-time">18. November 2014 - 18:01</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-119686">(119686)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>Chiron,</p>
+<p>I always look forward to your updated installation instructions when COMODO releases a CIS update!  However, with version 8.0.0.4337, there is no longer a "Behavior Blocker" component by name.  Rather, it appears COMODO has moved this function under Sandbox.  In Advanced Settings, Sandbox now has three components: Sandbox Settings; Auto-Sandbox; and Viruscope.  I will await to see how you decide to address this change, Chiron.</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-119690"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/chiron" title="View user profile." class="username">Chiron</a> on <time datetime="2014-11-18T18:49:56Z"><span class="date-time">18. November 2014 - 18:49</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-119690">(119690)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">Thank you for pointing this out. I had missed changing the name of that particular component. I think it should now be fixed. Please let me know if you see any other mistakes.
+
+Thanks.</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-119696"></a>
+<article class="comment odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/pshipwrite" title="View user profile." class="username">pshipwrite</a> on <time datetime="2014-11-18T21:33:17Z"><span class="date-time">18. November 2014 - 21:33</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-119696">(119696)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>Gee, Chiron, you replied before I had a chance to edit my comment!  In addition to the name change, I wanted to ask you a question. </p>
+<p>In CIS 7.0, you suggested users, under the Behavior Blocker component in Advanced Settings, change "Auto-Sandbox unknown applications" from "Partially Limited" to "Untrusted".  Now, in CIS 8.0,under Sandbox, Auto-Sandbox, there are three separate rules.  Do you recommend that users "Enable Auto-Sandbox" and enable all three rules?  Based on your CIS 7.0 recommendations, I assume you do.</p>
+<p>Thanks again for all your help!!</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-119751"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/chiron" title="View user profile." class="username">Chiron</a> on <time datetime="2014-11-20T14:00:33Z"><span class="date-time">20. November 2014 - 14:00</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-119751">(119751)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">With version 8 the defaults have changed. Under Proactive Security all unknown files will automatically be sanboxed and run in a Fully Virtualized environment. Thus, from what I have seen, this should already be sufficient to protect a computer. It is for this reason that I no longer recommend any additional changes. If I see any evidence of bypasses, or similar problems, I will alter this recommendation. However, I do not believe this will be the case.
+
+Thanks.</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article></div></div></div></div><a id="comment-118143"></a>
+<article class="comment odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/dexeron" title="View user profile." class="username">Hiruko53</a> on <time datetime="2014-08-22T02:53:20Z"><span class="date-time">22. August 2014 - 2:53</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-118143">(118143)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>I don't have "Firewall tasks" under the "tasks" option. Did I miss something during installation?</p>
+<p>EDIT: Nevermind, it's a separate installation, I'm stupid.</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-118149"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/chiron" title="View user profile." class="username">Chiron</a> on <time datetime="2014-08-22T15:18:36Z"><span class="date-time">22. August 2014 - 15:18</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-118149">(118149)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">You're definitely not stupid. The installer can be a bit tricky. I'm assuming you accidentally unchecked the option to install the Firewall component. Is everything now okay?
+
+If you have any questions at all please do feel free to ask. With sophisticated programs, such as this, I don't think there is such a thing as a stupid question.
+
+Thank you.</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-118160"></a>
+<article class="comment odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/dexeron" title="View user profile." class="username">Hiruko53</a> on <time datetime="2014-08-23T01:07:13Z"><span class="date-time">23. August 2014 - 1:07</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-118160">(118160)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>Oh, it's fine, I just didn't download and install the firewall until I realized it was a separate install. lol</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-118161"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/chiron" title="View user profile." class="username">Chiron</a> on <time datetime="2014-08-23T02:00:01Z"><span class="date-time">23. August 2014 - 2:00</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-118161">(118161)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">It's not a separate install unless you downloaded the Antivirus only installer, which is I assume what you unintentionally did. Sorry for the confusion.
+
+If you have any questions, or run into problems, while getting to working/configured correctly please let me know.
+
+Thanks.</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article></div></div></div><a id="comment-116612"></a>
+<article class="comment odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/gt3337" title="View user profile." class="username">GT3337</a> on <time datetime="2014-06-04T09:43:45Z"><span class="date-time">4. June 2014 - 9:43</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-116612">(116612)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>Hello,<br />
+thanks for this excellent article.</p>
+<p>I'm using Process Explorer on Win7 Ultimate 64-bit with CIS 7.</p>
+<p>The Defense+ event log is populated with entries that say, that procxp64.exe was trying to access the memory of cmdagent.exe. There is a new entry like this in every couple of seconds.<br />
+I suppose this is normal.</p>
+<p>Is there a way NOT to log this event, so that I can see the important stuff (and to reduce the size of the log as well)?</p>
+<p>Thank You.</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-116617"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/chiron" title="View user profile." class="username">Chiron</a> on <time datetime="2014-06-04T12:39:10Z"><span class="date-time">4. June 2014 - 12:39</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-116617">(116617)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">You are correct in saying that this is normal. However, I do not know of a way to not log those events. Also, I know that you can configure CIS to allow access, by adding the file to the Behavioral Blocker exclusions, or perhaps it was Shellcode Injection exclusions. Sorry, I can't remember off the top of my head which of the two. However, as this is cmdagent I'm not sure if it will work.
+
+You can give it a try though and let me know if it works. If it doesn't then I'm sorry, but I don't have any other thoughts. Your best bet would be to create a new topic on the Comodo forums and ask for advice. Perhaps someone will know more than I.
+
+Thank you.</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-116628"></a>
+<article class="comment odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/gt3337" title="View user profile." class="username">GT3337</a> on <time datetime="2014-06-04T22:29:24Z"><span class="date-time">4. June 2014 - 22:29</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-116628">(116628)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>I thought about it myself to add Process Explorer to the exceptions, so that it is allowed to access the memory of cmdagent.exe, but I'm not sure it is a good idea.<br />
+This would disable the self protection of CIS (against the process I choose; ProcXp in this case), which seems possible, but it really should not be.</p>
+<p>I think even a trusted process should not manipulate CIS, the program which is responsible for the security of the system. What if ProcXp gets compromised somehow?</p>
+<p>With a little social engineering, a less knowledgeable user could also be tricked into allowing some malware process to hack into CIS.</p>
+<p>As I see the only solution would be to exclude this event from being logged, which does not seem possible, or create a separate log for self protection events.</p>
+<p>I will ask at the Comodo forums as well.</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-116639"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/chiron" title="View user profile." class="username">Chiron</a> on <time datetime="2014-06-05T14:18:34Z"><span class="date-time">5. June 2014 - 14:18</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-116639">(116639)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">I agree with you. I personally do not add any exceptions for those types of reasons. However, I am not aware of any way to exclude it directly from being logged. If you do find out please let me know.
+
+Thank you.</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article></div></div></div><a id="comment-116057"></a>
+<article class="comment odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/buckscsbin" title="View user profile." class="username">buckscsbin</a> on <time datetime="2014-05-06T09:55:19Z"><span class="date-time">6. May 2014 - 9:55</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-116057">(116057)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>On an XP box, I'm installing V7 Firewall. Comodo Rating Scan is happening, 10:24 hour run time so far, 89% complete.  Is this OK?  It's logging... All? .dll, .sys and maybe more.</p>
+<p>Also: Seems that I'm LAN wired to Internet, but WIFI can't get out and Firefox won't connect at this point of the install process.</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-116060"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/chiron" title="View user profile." class="username">Chiron</a> on <time datetime="2014-05-06T15:38:24Z"><span class="date-time">6. May 2014 - 15:38</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-116060">(116060)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">It should not take near that long for a rating scan to complete. Also, the issue you are describing with Firefox makes me think that there is something wrong with your installation. Please try reinstalling by following the advice I give in this post:
+<a href="http://forums.comodo.com/install-setup-configuration-help-cis/most-effective-way-to-reinstallupdate-cis-to-avoidfix-problems-t58620.0.html">http://forums.comodo.com/install-setup-configuration-help-cis/most-effec...</a>
+
+If that does not solve the problem then please create a new topic, either in the techsupportalert forum or the Comodo forum and provide me with a link to it.
+
+Thanks.</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article></div><a id="comment-115873"></a>
+<article class="comment odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/signalman" title="View user profile." class="username">Signalman</a> on <time datetime="2014-04-24T12:02:08Z"><span class="date-time">24. April 2014 - 12:02</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-115873">(115873)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>This seems like a great article for the installation, but after trying to follow it, I realised that the Anti-virus part has not installed.</p>
+<p>I assumed it had , as it told me I had a successful installation, but since I don't see the " Anti-Virus" sections, I conclude it hasn't.</p>
+<p>I would have to agree with a comment that the installation process is among the worst I have experienced. I'm not a beginner user, though also not expert, and to have reached a stage where I have everything installed, but not actually know if anti-virus is on or not is remarkable.</p>
+<p>My problem may be because I originally had the firewall only installed, and only decided to add anti-virus today , as I am running it in XP and want to replace MSE.</p>
+<p>Is the best way to uninstall everything from Comodo and re-start from scratch, or is there another way ?</p>
+<p>One last observation is that my internet access seems to be disabled now, so the last time i tried manually to install AV, it now reaches 59% and goes no further, presumably because it cannot access the internet ?</p>
+<p>Any advice appreciated.</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-115880"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/chiron" title="View user profile." class="username">Chiron</a> on <time datetime="2014-04-24T16:32:28Z"><span class="date-time">24. April 2014 - 16:32</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-115880">(115880)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">First, I want to know whether you are able to access the internet at all. For example, are you able to open a browser on the computer and use Google? If so then the internet connection has not been affected.
+
+Assuming the internet connection is working correctly, then the best way to add the antivirus component is to go to the start menu, find Comodo, and select the option to "Add and Remove components". This will have an option to add the Antivirus component. Trying to run an additional installer over the installation will often either not work or cause other problems.
+
+Let me know if that works correctly for you.
+
+Thanks.</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-115882"></a>
+<article class="comment odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/signalman" title="View user profile." class="username">Signalman</a> on <time datetime="2014-04-24T18:13:00Z"><span class="date-time">24. April 2014 - 18:13</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-115882">(115882)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>Hi,</p>
+<p>No, I had no internet access : the actual error was that my IP address could not be set or renewed ( I am on wifi using DHCP ).</p>
+<p>I have resolved this, effectively by un-installing and re-installing.</p>
+<p>The un-install was very painful, since windows did not recognise that Comodo was installed, and commodo did not have an un-install option.  I reverted to deleting the Comodo folder, running ccleaner, removing registry entireis referring to Comodo, and then re-starting.</p>
+<p>This still left me with no internet, so I assume some Comodo setting had restricted this, and even re-starting with Windows firewall on didn't help.</p>
+<p>I then used the previously downloaded cav installer, and this time it worked with no issue at, and as soon as it was done, I had internet access back.</p>
+<p>From there I used the option to add components ( ie added Firewall ) and all works well.</p>
+<p>I can only conclude that the removal of the originally installed comodo firewall ( via windows remove programs ) did not work properly, and that the anti-virus install was incomplete, thus leaving me with a permanent issue that only complete removal would deal with.</p>
+<p>I may have missed a removal button in comodo, but honestly, I looked a number of times and it was nowhere to be seen,</p>
+<p>I suppose I should really un-install and re-install just to make sure I have no "bad" components remaining, but having spent hours on this today, I am not inclined.</p>
+<p>It (seems to) work, so I will leave it and re-assess later.</p>
+<p>Many thanks for the article, and for the reply.</p>
+<p>Lesson for others, is to ensure previous software ( comodo &amp; other ) are removed before adding any new components.</p>
+<p>Cheers !</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-116391"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/chiron" title="View user profile." class="username">Chiron</a> on <time datetime="2014-05-23T18:04:32Z"><span class="date-time">23. May 2014 - 18:04</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-116391">(116391)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">If anyone has difficulty removing CIS in the future, please see this post which I have created:
+<a href="http://forums.comodo.com/install-setup-configuration-help-cis/most-effective-way-to-reinstallupdate-cis-to-avoidfix-problems-t58620.0.html">http://forums.comodo.com/install-setup-configuration-help-cis/most-effec...</a>
+It contains detailed information, and relevant links, which should allow you to make a clean reinstall of CIS.</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article></div></div></div><a id="comment-115494"></a>
+<article class="comment odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/avtar" title="View user profile." class="username">avtar</a> on <time datetime="2014-04-04T15:53:40Z"><span class="date-time">4. April 2014 - 15:53</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-115494">(115494)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>FYI: I've had Comodo firewall for some time. A few days ago I was prompted to upgrade and I now have v7.0.315459.4132. Shortly after installing I noticed MSE was no longer in my system tray and I keep getting adverts from Comodo popping up :(</p>
+<p>MSE is now back and I've ran a full scan but still concerned with Comodo's performance.</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-115497"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/chiron" title="View user profile." class="username">Chiron</a> on <time datetime="2014-04-04T16:37:31Z"><span class="date-time">4. April 2014 - 16:37</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-115497">(115497)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">I'm not sure what happened with MSE. That is strange. However, I'm happy to hear it's working again.
+
+As for the adverts, you can disable these by disabling the Message Center (as described in this article).
+
+Let me know if you have any questions.
+
+Thanks.</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article></div><a id="comment-115155"></a>
+<article class="comment odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/cefto" title="View user profile." class="username">Cefto</a> on <time datetime="2014-03-20T21:11:23Z"><span class="date-time">20. March 2014 - 21:11</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-115155">(115155)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>Chiron,</p>
+<p>Thanks for an awesome guide.</p>
+<p>Only problem I've had with Comodo is the Virtual Kiosk; I've never been able to get it run properly in either v6 or v7. Clicking it typically causes a system hang after a short period, especially if I then attempt to open a browser.</p>
+<p>Configuration:<br />
+-Win7 Home Premium x64 machine<br />
+-Comodo Firewall only; MSE is the antivirus.<br />
+-Your recommended firewall/behavioral blocker/HIPS/etc. settings<br />
+-Comodo diagnostics fails to find a problem with the installation.</p>
+<p>Is the antivirus required to run the virtual kiosk, or do you think some other bug is at work here?</p>
+<p>Thanks for your time!</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-115159"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/chiron" title="View user profile." class="username">Chiron</a> on <time datetime="2014-03-20T22:32:37Z"><span class="date-time">20. March 2014 - 22:32</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-115159">(115159)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">The antivirus is not required in order to run the Virtual Kiosk. However, the issue you are experiencing is likely fixable. However, the comments section is not the best place to troubleshoot this. Please create a new topic, either in the Comodo forums or in the techsupportalert forums. Then send me a link to the new topic via my contact page. From there we can try to fix this.
+
+Thanks.</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article></div><a id="comment-115140"></a>
+<article class="comment odd clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/aggravatorx" title="View user profile." class="username">Aggravatorx</a> on <time datetime="2014-03-20T10:33:16Z"><span class="date-time">20. March 2014 - 10:33</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-115140">(115140)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>Just wanted to say thanks for the setup I must say version 7 is probably one of the better versions.they should work on protecting you while your gaming and just go to silent mode when in full screen like every other security program does now.</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-115142"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/chiron" title="View user profile." class="username">Chiron</a> on <time datetime="2014-03-20T12:25:00Z"><span class="date-time">20. March 2014 - 12:25</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-install-comodo-firewall.htm#comment-115142">(115142)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">Thanks. As for protecting you silently, CIS does have a Game Mode. However, as I note in this article, I do not like this mode as it is much too dangerous. I think the best approach is just to make sure the safe game executables are in the Trusted Files List. After that everything should run smoothly, except that perhaps you will need to answer an initial Firewall alert.
+
+Do you have any specific questions about how to get games to work properly?
+
+Thank you.</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/2583%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/2583%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article></div><h2 class="element-invisible">Pages</h2><div class="item-list item-list-pager"><ul class="pager"><li class="pager-current even first">1</li><li class="pager-item odd"><a title="Go to page 2" href="https://www.techsupportalert.com/content/how-install-comodo-firewall.htm?page=1">2</a></li><li class="pager-item even"><a title="Go to page 3" href="https://www.techsupportalert.com/content/how-install-comodo-firewall.htm?page=2">3</a></li><li class="pager-next odd"><a title="Go to next page" href="https://www.techsupportalert.com/content/how-install-comodo-firewall.htm?page=1">next ›</a></li><li class="pager-last even last"><a title="Go to last page" href="https://www.techsupportalert.com/content/how-install-comodo-firewall.htm?page=2">last »</a></li></ul></div>
+  
+</section>
+
+  </article>
+</div>
+</div></div>
+</section>
+<div class="region region-content-aside"><div class="region-inner clearfix"><div id="block-block-72" class="clearfix block block-block no-title odd first block-count-7 block-region-content-aside block-72">
+<a href="how-install-comodo-firewall.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+
+<script>
+var signedin = 'Notsignedin';
+if (signedin == "Notsignedin") {
+if (screen.width > 480) {
+document.write('<scr' + 'ipt data-cfasync="false" type="text/javascript" src="//p425764.clksite.com/adServe/banners?tid=425764_834678_3"></scr' + 'ipt>');
+} else {
+document.write('<scr' + 'ipt data-cfasync="false" type="text/javascript" src="//p425764.clksite.com/adServe/banners?tid=425764_834678_4"></scr' + 'ipt>');
+}
+}
+</script>
+</div>
+</div><div id="block-block-47" class="clearfix block block-block even block-count-8 block-region-content-aside block-47">
+<a href="how-install-comodo-firewall.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Gizmo&#039;s Freeware Featured Articles</h2>
+<div class="content" class="block-content content">
+<div class="index-block">
+<div>
+		<a href="../best-free-anti-virus-software.htm"><span class="fa fa-shield fa-3x fa-fw" style="color: #DC143C;"> </span><span>Best Free Antivirus</span></a></div>
+<div>
+		<a href="https://www.techsupportalert.com/free-books-kindle"><span class="fa fa-book fa-3x fa-fw" style="color: #00FF00;"> </span><span>Free Kindle Books</span></a></div>
+<div>
+		<a href="best-vpn-services.htm"><span class="fa fa-lock fa-3x fa-fw" style="color: #0000CD;"> </span><span>Best Paid VPN Service</span></a></div>
+<div>
+		<a href="best-free-antivirus-app-android.htm"><span class="fa fa-shield fa-3x fa-fw" style="color: #B22222;"> </span><span>Best Free Antivirus for Android</span></a></div>
+<div>
+		<a href="../best-free-dvd-ripper.htm"><span class="fa fa-file-video-o fa-3x fa-fw" style="color: #2F4F4F;"> </span><span>Best Free DVD Ripper</span></a></div>
+<div>
+		<a href="../best-free-live-wallpapers-android.htm"><span class="fa fa-android fa-3x fa-fw" style="color: green;"> </span><span>Best Free Live Wallpaper for Android</span></a></div>
+</div>
+<p style="clear:both;"> </p>
+</div>
+</div><div id="block-block-31" class="clearfix block block-block no-title odd last block-count-9 block-region-content-aside block-31">
+<a href="how-install-comodo-firewall.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div style="border-top: 1px solid #999999; border-bottom: 1px solid #999999; padding: 8px;">
+<p style="font-size: 14px; font-weight: bold;">Gizmo's Freeware is Recruiting</p>
+<p><img alt="Gizmos Needs You" src="../files/images/logos/Gizmos-Freeware-63-84.png" style="width: 63px; height: 84px; float: left; padding: 0px 8px 8px 0px;" />We are looking for people with skills or interest in the following areas:<br />
+		 -  Mobile Platform App Reviews for Android and iOS<br />
+		 -  Windows, Mac and Linux software reviews</p>
+<p><strong>Interested?</strong> <a href="../we-need-you.htm">Click here</a></p>
+</div>
+<p> </p>
+</div>
+</div></div></div></div>
+</div>
+<div class="region region-sidebar-second sidebar"><div class="region-inner clearfix"><div id="block-block-75" class="clearfix block block-block no-title odd first block-count-10 block-region-sidebar-second block-75">
+<a href="how-install-comodo-firewall.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div id="rc-widget-23b966" data-rc-widget data-widget-host="habitat" data-endpoint="//trends.revcontent.com" data-widget-id="181303"></div>
+<script type="text/javascript" src="https://assets.revcontent.com/master/delivery.js" defer="defer"></script></div>
+</div><div id="block-block-22" class="clearfix block block-block even block-count-11 block-region-sidebar-second block-22">
+<a href="how-install-comodo-firewall.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Best Freeware Lists</h2>
+<div class="content" class="block-content content">
+<div class="content" class="block-content content">
+<style type="text/css">
+.swlist-sidebar a {display:block; width:100%; margin-top:8px; min-height:36px;}
+.swlist-sidebar span.fa, span.fa-stack {height:28px; padding:4px 8px 4px 8px; width:28px; text-align:center; float:left;}
+.swlist-sidebar span.swtitle-sidebar {display:table-cell; height:36px; vertical-align: middle;}
+.swlist-sidebar div {display:table-row;}
+</style>
+<div class="swlist-sidebar">
+<div><a href="../software-finder"><span class="fa fa-search fa-2x" style="color: #4b5cc3;"></span> <span class="swtitle-sidebar">Search with Software Finder</span></a></div>
+<div><a href="../best-free-windows-desktop-software.htm"><span class="fa fa-windows fa-2x" style="color: #70c0f0;"></span> <span class="swtitle-sidebar">Windows Desktop Software</span></a></div>
+<div><a href="../best-free-windows-apps.htm"> <span class="fa fa-windows fa-2x" style="color: #70c0f0;"></span> <span class="swtitle-sidebar">Windows Apps</span></a></div>
+<div><a href="../best-free-portable-programs.htm"> <span class="fa fa-check-square-o fa-2x" style="color: #70c0f0;"></span> <span class="swtitle-sidebar">Windows Portable Apps</span></a></div>
+<div><a href="best-free-software-mac-os.htm"> <span class="fa fa-apple fa-2x" style="color: #1653a8;"></span> <span class="swtitle-sidebar">Mac Software</span></a></div>
+<div><a href="best-free-software-linux.htm"> <span class="fa fa-linux fa-2x" style="color: #404040;"></span> <span class="swtitle-sidebar">Linux Software</span></a></div>
+<div><a href="../best-free-android-apps.htm"> <span class="fa fa-android fa-2x" style="color: #a2c43b;"></span> <span class="swtitle-sidebar">Android Apps</span></a></div>
+<div><a href="../best-free-ipad-apps.htm"> <span class="fa fa-tablet fa-2x" style="color: #404040;"></span> <span class="swtitle-sidebar">iPad Apps</span></a></div>
+<div><a href="../best-free-iphone-apps.htm"> <span class="fa fa-mobile fa-2x" style="color: #404040;"></span> <span class="swtitle-sidebar">iPhone Apps</span></a></div>
+<div><a href="best-free-online-applications-and-services.htm"> <span class="fa fa-globe fa-2x" style="color: #006600;"></span> <span class="swtitle-sidebar">Online Apps</span></a></div>
+<div><a href="https://www.techsupportalert.com/content/50-places-free-books-online.htm"> <span class="fa fa-book fa-2x" style="color: #990000;"></span> <span class="swtitle-sidebar">eBooks /Audiobooks</span></a></div>
+<div><a href="probably-best-free-security-list-world.htm"> <span class="fa fa-exclamation-triangle fa-2x" style="color: #FF3300;"></span> <span class="swtitle-sidebar">Security Software</span></a></div>
+</div>
+<div style="clear:both;">&nbsp;</div>
+</div>
+<style type="text/css">
+.imgContainer{float:left;}
+</style>
+<p><strong>Support Gizmo's Freeware By</strong></p>
+<div>
+    <div class="imgContainer"><a href="../donate.htm"><img src="../files/images/aa/Donating-125-350e.png" height="auto" width="125"/></a></div>
+    <div class="imgContainer"><a href="../become-a-reviewer.htm"><img class="middle-img" src="../files/images/aa/Reviewing-125-350e.png" style="margin-left:2px;" height="auto" width="125"/></a></div>
+</div>
+<div style="clear:both;"></div></div>
+</div><div id="block-block-61" class="clearfix block block-block odd block-count-12 block-region-sidebar-second block-61">
+<a href="how-install-comodo-firewall.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Get Notified of New Finds</h2>
+<div class="content" class="block-content content">
+<div>
+   <p>
+      <!-- <a href="http://feedburner.google.com/fb/a/mailverify?uri=gizmosbest" title="Subscribe to email..."><i class="fa fa-envelope fa-3x" style="color: #00cc99;"></i></a>&nbsp; -->
+      <a href="http://feeds.feedburner.com/gizmosbest" title="Go to our RSS feeds..."><i class="fa fa-rss-square fa-3x" style="color: #ffb300;"></i></a>&nbsp;
+      <a href="http://www.facebook.com/pages/Gizmos-Freeware/114026985301900" title="Follow us on Facebook..."><i class="fa fa-facebook-square fa-3x" style="color: #3b5889;"></i></a>&nbsp;
+      <a href="http://twitter.com/GizmosFreeware" title="Follow us on Twitter..."><i class="fa fa-twitter-square fa-3x" style="color: #55acee;"></i></a>
+   </p>
+</div>
+<style>
+#block-block-61 { text-align:center; }
+#block-block-61 a { display:inline-block; }
+#block-block-61 a.dropdown-toggle { display: none; }
+#block-block-61 .content{
+   background:#f9f9f9;
+   padding: 10px 10px 5px 10px;
+   margin-top: 10px;
+   margin-right:10px;
+   -webkit-border-radius: 12px;
+   -moz-border-radius: 12px;
+   border-radius: 12px;
+   border:1px solid #ccc;
+}
+#block-block-61 h3 { margin:10px 0; }
+</style>
+
+<div id="right-slidead-popup" style="display:block;">
+   <form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=gizmosbest', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+      <p class="bold-text">Get notified by email of our latest finds:</p>
+      <p><input type="text" style="width:120px" placeholder="Enter email" name="email">
+         <input type="hidden" value="gizmosbest" name="uri">
+         <input type="hidden" name="loc" value="en_US">
+         <input type="submit" value="Subscribe">
+      </p>
+   </form>
+</div>
+</div><div id="block-views-5c6f20eccafaaae472f19682f8491590" class="clearfix block block-views even block-count-13 block-region-sidebar-second block-5c6f20eccafaaae472f19682f8491590">
+<a href="how-install-comodo-firewall.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Currently Popular</h2>
+<div class="content" class="block-content content">
+<div class="view view-currently-popular-customized view-id-currently_popular_customized view-display-id-block_1 curr-pop view-dom-id-6017975872e2a29dd096afc1eaf9c246">
+<div class="view-content">
+<table  class="views-table cols-0">
+       <tbody>
+          <tr  class="odd views-row-first">
+                  <td  class="views-field views-field-title">
+            <a href="best-free-software-linux.htm">Best Free Software for Linux</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="../es/mejores-aplicaciones-y-servicios-gratuitos-online.htm">Mejores Aplicaciones y Servicios Gratuitos Online</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="mejor-software-gratuito-de-64-bits-para-windows-7vista.htm">Mejor Software Gratuito para Windows de 64 bits</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="time-say-farewell.htm">Time to Say Farewell</a>          </td>
+              </tr>
+          <tr  class="odd views-row-last">
+                  <td  class="views-field views-field-title">
+            <a href="../es/mejor-software-para-linux-gratuito.htm">Mejor Software para Linux Gratuito</a>          </td>
+              </tr>
+      </tbody>
+</table>
+</div>
+
+<div class="more-link">
+  <a href="../currently-popular-customized.htm">
+    more  </a>
+</div>
+</div>
+</div>
+</div><div id="block-views-articles-by-user-block-1" class="clearfix block block-views odd last block-count-14 block-region-sidebar-second block-articles-by-user-block-1">
+<a href="how-install-comodo-firewall.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Top Rated</h2>
+<div class="content" class="block-content content">
+<div class="view view-articles-by-user view-id-articles_by_user view-display-id-block_1 view-currently-popular-customized more-link curr-pop view-dom-id-46b4073ae7b045a3e504909f32f37171">
+<div class="view-content">
+<table  class="views-table cols-1">
+         <thead>
+      <tr>
+                  <th  class="views-field views-field-title" scope="col">
+            <a href="https://www.techsupportalert.com/content/how-install-comodo-firewall.htm?order=title&amp;sort=asc" title="sort by " class="active"></a>          </th>
+              </tr>
+    </thead>
+    <tbody>
+          <tr  class="odd views-row-first">
+                  <td  class="views-field views-field-title">
+            <a href="create-your-own-blob-opera-google-s-new-musical-experiment.htm">Create Your Own “Blob Opera” with Google’s New Musical Experiment</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="amazing-act-generosity.htm">An Amazing Act of Generosity</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="jpg-optimizer-works-entirely-your-browser.htm">This JPG Optimizer Works Entirely in Your Browser</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="instantly-add-color-black-and-white-photos-image-colorizer.htm">Instantly Add Color to Black and White Photos with Image Colorizer</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="fond-farewell-me.htm">A Fond Farewell From Me</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="get-authoritative-answers-all-your-questions-online-encyclopedia.htm">Get Authoritative Answers to All Your Questions With This Online Encyclopedia</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="rain-alarm-be-notified-approaching-rain-or-snow.htm">Rain Alarm - Be Notified of Approaching Rain or Snow</a>          </td>
+              </tr>
+          <tr  class="even views-row-last">
+                  <td  class="views-field views-field-title">
+            <a href="get-easy-access-frequently-used-symbols-not-your-keyboard.htm">Get Easy Access to Frequently Used Symbols Not on Your Keyboard</a>          </td>
+              </tr>
+      </tbody>
+</table>
+</div>
+
+<div class="more-link">
+  <a href="https://www.techsupportalert.com/articles-user">
+    more  </a>
+</div>
+</div>
+</div>
+</div></div></div></div>
+</div>
+<footer id="footer" role="contentinfo">
+<div id="footer-inner" class="clearfix">
+<div class="region region-footer"><div class="region-inner clearfix"><div id="block-block-3" class="clearfix block block-block no-title odd first last block-count-15 block-region-footer block-3">
+<a href="how-install-comodo-firewall.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<p class="rtecenter"><a href="../terms-and-conditions.htm">Terms &amp; Conditions</a> | <a href="https://www.techsupportalert.com/privacy-policy.htm">Privacy Policy</a> | <a href="contact-us.htm">Contact</a> | <a href="../about-this-site">About</a></p>
+</div>
+</div></div></div><p class="attribute-creator"></p>
+</div>
+</footer>
+</div>
+</div>
+<style type="text/css">.invis{visibility:hidden;display:none}.vis{visibility:visible;display:inline}#more{display:none}#show,#hide{text-decoration:none;cursor:pointer;color:#3452c9;font-weight:bold;padding-left:20px}#show{background:transparent url(../files/images/icons/down.png) no-repeat left}#hide{background:transparent url(../files/images/icons/up.png) no-repeat left}select.dropdown{border:1px solid #cbcec3;background-color:#f2f6f9;font-size:1.1em;height:2em}select.dropdown-width{width:50%}@media only screen and (max-width:1024px){select.dropdown-width{width:100%}}span.cat-title{height:58px;display:table;font-size:1.3em;font-weight:bold}span.vert-align{display:table-cell;vertical-align:middle}img.cat-icon{width:82px;height:58px;float:left;padding-right:15px}.show-more{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:120px;padding:0 4px 0 4px}.show-review{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:120px;padding:0 4px 0 4px}.show-comments{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#eef0f8;border:1px solid #009;border-radius:2px;width:140px;padding:4px 8px 4px 8px}.gizmoslist-button{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:130px;padding:0 4px 0 4px}.gizmoslist-button:hover{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#e8e8e8;border:1px solid #999;border-radius:2px;width:130px;padding:0 4px 0 4px}</style>
+<script language="javascript" type="text/javascript">/*<![CDATA[*/var cn="invis";var ids=new Array("pg01","pg02","pg03","pg04","pg05","pg06","pg07","pg08","pg09","pg10","pg11","pg12");function doSwap(){cn=="vis"?cn="invis":cn="vis";for(var a=0;a<ids.length;a++){document.getElementById(ids[a]).className=cn}}jQuery(document).ready(function(){jQuery("#page_select").bind("change",function(){var a=jQuery(this).val();if(a){window.location.replace(a)}return false});jQuery("#category_select").bind("change",function(){var a=jQuery(this).val();if(a){window.location=a}return false})});jQuery(document).ready(function(){jQuery(".hidden").hide();jQuery(".show-more").html("Show more...");jQuery(".show-review").html("Show review...");jQuery(".show-comments").html("Hide Comments...");jQuery(".toggle").click(function(){jQuery("#show").toggle();jQuery("#more").toggle()});jQuery(".show-more").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).prev().slideUp();jQuery(this).removeClass("clicked");jQuery(this).html("Show more...")}else{jQuery(this).addClass("clicked");jQuery(this).prev().slideDown();jQuery(this).html("...Show less")}});jQuery(".show-review").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).prev().slideUp();jQuery(this).removeClass("clicked");jQuery(this).html("Show review...")}else{jQuery(this).addClass("clicked");jQuery(this).prev().slideDown();jQuery(this).html("...Hide review")}});jQuery(".show-comments").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).next().slideDown();jQuery(this).removeClass("clicked");jQuery(this).html("Hide Comments...")}else{jQuery(this).addClass("clicked");jQuery(this).next().slideUp();jQuery(this).html("Show Comments...")}})});jQuery(document).ready(function(){var a=jQuery("[rel~=tooltip]"),c=false,b=false,d=false;a.bind("mouseenter",function(){c=jQuery(this);tip=c.attr("title");b=jQuery('<div id="tooltip"></div>');if(!tip||tip==""){return false}c.removeAttr("title");b.css("opacity",0).html(tip).appendTo("body");var f=function(){if(jQuery(window).width()<b.outerWidth()*1.5){b.css("max-width",jQuery(window).width()/2)}else{b.css("max-width",340)}var g=c.offset().left+(c.outerWidth()/2)-(b.outerWidth()/2),h=c.offset().top-b.outerHeight()-20;if(g<0){g=c.offset().left+c.outerWidth()/2-20;b.addClass("left")}else{b.removeClass("left")}if(g+b.outerWidth()>jQuery(window).width()){g=c.offset().left-b.outerWidth()+c.outerWidth()/2+20;b.addClass("right")}else{b.removeClass("right")}if(h<0){var h=c.offset().top+c.outerHeight();b.addClass("top")}else{b.removeClass("top")}b.css({left:g,top:h}).animate({top:"+=10",opacity:1},50)};f();jQuery(window).resize(f);var e=function(){b.animate({top:"-=10",opacity:0},50,function(){jQuery(this).remove()});c.attr("title",tip)};c.bind("mouseleave",e);b.bind("click",e)})});/*]]>*/</script>   <script type="text/javascript" src="https://s.skimresources.com/js/91960x1545845.skimlinks.js"></script>
+<script type="text/javascript" src="../files/advagg_js/js__TMbgkTyBUQQ_HgBfUgRbT7qnkhUF67VaeCPrRurSSyQ__R579VV3CWa_6pCbnNdQK0EGL-QIicH7Gtzh0Mu2GPDY__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var switchTo5x = true;var __st_loadLate = true;var useFastShare = 0;
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+if (typeof stLight !== 'undefined') { stLight.options({"publisher":"dr-cb3fca8f-ba75-779c-5a90-b433fac7efb0","version":"5x","newOrZero":"zero","shorten":"false","servicePopup":true,"lang":"en"}); }
+//--><!]]>
+</script>
+<script type="text/javascript" src="../files/advagg_js/js__8q4Ri8u0Oy1si5uwfNTlks0A6nMFTDjDszJiNP4i5uA__tV1Gvr51dciEodFNuAL3X5GplamBbcIkiRUEhk_oOdE__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(d, e, s) {a = d.createElement(e);m = d.getElementsByTagName(e)[0];a.async = 1;a.src = s;m.parentNode.insertBefore(a, m)})(document, 'script', '//w.likebtn.com/js/w/widget.js'); if (typeof(LikeBtn) != "undefined") { LikeBtn.init(); }
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var skimlinks_domain = "exit.techsupportalert.com";
+//--><!]]>
+</script>
+</body>
+</html>

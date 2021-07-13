@@ -1,0 +1,2461 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en" dir="ltr"><!--<![endif]-->
+<head>
+   <!--[if IE]><![endif]-->
+<meta charset="utf-8" />
+<meta name="description" content="This article uses three diagrams to summarize the components of Windows that are important for Windows startup" />
+<link rel="shortcut icon" href="../sites/all/themes/gizmoslist/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Introduction This article supports the Windows 7 Startup article. I have documented the Windows components that are important to the Windows 7 Startup article. This article contains three diagrams to describe the Windows environment created at startup: kernel-mode system processes. user-mode application support primarily provides the environment sub-systems to run programs and" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="windows-7-components-startup.htm" />
+<link rel="shortlink" href="https://www.techsupportalert.com/node/6920" />
+<meta property="og:site_name" content="Gizmo&#039;s Freeware" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.techsupportalert.com/content/windows-7-components-startup.htm" />
+<meta property="og:title" content="Windows 7 Startup Components" />
+<meta property="og:description" content="Introduction This article supports the Windows 7 Startup article. I have documented the Windows components that are important to the Windows 7 Startup article. This article contains three diagrams to describe the Windows environment created at startup: kernel-mode system processes. user-mode application support primarily provides the environment sub-systems to run programs and the Win32 API. user-mode system processes primarily create sessions and allow users to logon." />
+<meta property="og:updated_time" content="2020-11-25T12:05:12+00:00" />
+<meta property="article:published_time" content="2014-08-22T20:12:25+00:00" />
+<meta property="article:modified_time" content="2020-11-25T12:05:12+00:00" />
+   <title>Windows 7 Startup Components | Gizmo's Freeware</title>
+   <link type="text/css" rel="stylesheet" href="../files/advagg_css/css__K1Zxkb7B9uRMTvKGWwqJbpPSUxPwhcczKcp6degok28__HeSIUBSByKemgY9AJL8p07c1i2IHEDyYO6cKTWBN3Pw__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.css" media="all" />
+
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="https://www.techsupportalert.com/files/advagg_css/css__I8Q7DkdK2zJceaJBCwEwz0vYYbloOjCrssUsWAaHyIM__qjMhJvPdluz-vOJRX3dztEqH8G31Y32rQ_NKwUhoC1Y__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.css" media="screen" />
+<![endif]-->
+   <!--[if lt IE 9]>
+   <link rel=stylesheet type=text/css href=/sites/all/themes/gizmoslist/css/ie7-and-down.css />
+   <![endif]-->
+   <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript" src="../files/advagg_js/js__B1KiKqJbKO-n3ZXTCs35IBdGFYs11f-fUM6Y72B9wEg__5zx4JiTNwUOifd--hiFOiQb-OZHPEiMORfGWeCF9Yyk__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.techsupportalert.com/files/googleanalytics/analytics.js?qv3qpt","ga");ga("create", "UA-279220-2", {"cookieDomain":"auto"});ga("require", "linkid", "linkid.js");ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"gizmoslist","theme_token":"hZYJh-JViX6NIBG_cuqvqqO3LO6q41p5ZNN1ED5CESE","jquery_version":"1.7","css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/aggregator\/aggregator.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/google_cse\/google_cse.css":1,"modules\/node\/node.css":1,"modules\/poll\/poll.css":1,"modules\/search\/search.css":1,"sites\/all\/modules\/slidead\/slidead.css":1,"modules\/user\/user.css":1,"modules\/forum\/forum.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/comment_notify\/comment_notify.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/panels\/css\/panels.css":1,"sites\/all\/modules\/print\/print_ui\/css\/print_ui.theme.css":1,"public:\/\/spamicide\/user_pw.css":1,"sites\/all\/modules\/fivestar\/css\/fivestar.css":1,"sites\/all\/modules\/fivestar\/widgets\/oxygen\/oxygen.css":1,"sites\/all\/libraries\/superfish\/css\/superfish.css":1,"sites\/all\/libraries\/superfish\/css\/superfish-navbar.css":1,"sites\/all\/libraries\/superfish\/style\/graphite.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.settings.style.headings.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.settings.style.image.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.layout.css":1,"sites\/all\/themes\/gizmoslist\/color\/colors.css":1,"sites\/all\/themes\/pixture_reloaded\/css\/pixture_reloaded.css":1,"sites\/all\/themes\/pixture_reloaded\/css\/pixture_reloaded.settings.style.css":1,"sites\/all\/themes\/gizmoslist\/css\/styles.custom.css":1,"sites\/all\/themes\/gizmoslist\/generated_files\/gizmoslist.custom.css":1,"sites\/all\/themes\/gizmoslist\/fonts\/gizmoslogo\/gizmoslogo.css":1,"sites\/all\/themes\/gizmoslist\/fonts\/font-awesome\/font-awesome.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.responsive.layout.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.fonts.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.responsive.styles.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.lt-ie9.layout.css":1},"js":{"\/\/s.skimresources.com\/js\/91960x1545845.skimlinks.js":1,"sites\/all\/modules\/google_cse\/google_cse.js":1,"sites\/all\/modules\/slidead\/slidead.js":1,"sites\/all\/modules\/comment_notify\/comment_notify.js":1,"sites\/all\/themes\/gizmoslist\/script\/bootstrap.min.js":1,"sites\/all\/themes\/gizmoslist\/script\/enscroll-0.4.0.min.js":1,"sites\/all\/themes\/gizmoslist\/script\/script.js":1,"sites\/all\/modules\/adsense\/contrib\/adsense_click\/adsense_click.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"misc\/progress.js":1,"sites\/all\/modules\/fivestar\/js\/fivestar.ajax.js":1,"sites\/all\/modules\/fivestar\/js\/fivestar.js":1,"sites\/all\/libraries\/superfish\/supposition.js":1,"sites\/all\/libraries\/superfish\/superfish.js":1,"sites\/all\/modules\/superfish\/superfish.js":1,"https:\/\/ws.sharethis.com\/button\/buttons.js":1,"sites\/all\/modules\/jquery_update\/replace\/jquery\/1.7\/jquery.min.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery-html-prefilter-3.5.0-backport.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/all\/modules\/jquery_update\/replace\/misc\/jquery.form.min.js":1,"misc\/ajax.js":1,"sites\/all\/modules\/jquery_update\/js\/jquery_update.js":1}},"googleCSE":{"cx":"partner-pub-4337260311855789:5365410881","language":"","resultsWidth":400,"domain":"www.google.com","showWaterMark":true},"slideAd":{"width":"300"},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"},"urlIsAjaxTrusted":{"\/search\/node":true,"\/content\/windows-7-components-startup.htm":true,"\/content\/windows-7-components-startup.htm?destination=node\/6920":true,"\/system\/ajax":true},"superfish":{"1":{"id":"1","sf":{"animation":{"opacity":"show","height":"show"},"speed":"\u0027fast\u0027","autoArrows":false,"dropShadows":true,"disableHI":false},"plugins":{"supposition":true,"bgiframe":false}}},"ajax":{"edit-vote--2":{"callback":"fivestar_ajax_submit","event":"change","url":"\/system\/ajax","submit":{"_triggering_element_name":"vote"}}},"adaptivetheme":{"gizmoslist":{"layout_settings":{"bigscreen":"three-col-grail","tablet_landscape":"three-col-grail","tablet_portrait":"one-col-vert","smalltouch_landscape":"one-col-vert","smalltouch_portrait":"one-col-stack"},"media_query_settings":{"bigscreen":"only screen and (min-width:1025px)","tablet_landscape":"only screen and (min-width:769px) and (max-width:1024px)","tablet_portrait":"only screen and (min-width:481px) and (max-width:768px)","smalltouch_landscape":"only screen and (min-width:321px) and (max-width:480px)","smalltouch_portrait":"only screen and (max-width:320px)"}}}});
+//--><!]]>
+</script>
+   <!--[if lt IE 9]>
+<script src="https://www.techsupportalert.com/sites/all/themes/adaptivetheme/at_core/scripts/html5.js?qv3qpt"></script>
+<![endif]-->
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" /> <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script> <script> window.addEventListener("load", function(){ window.cookieconsent.initialise({ "palette": { "popup": { "background": "#edeff5", "text": "#838391" }, "button": { "background": "#4b81e8" } } })}); </script>
+   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+   <script data-ad-client="ca-pub-1584315025436785" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+   <meta name="wot-verification" content="22efc80013d585910ca0"/>
+   <meta name="propeller" content="3dda2330fd32fcfca29de21325f076f3">
+</head>
+
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-6920 node-type-article site-name-hidden site-name-gizmoamp039s-freeware section-content color-scheme-custom gizmoslist bs-n bb-n mb-dd mbp-l rc-0">
+   <div id=skip-link class=nocontent><a href="windows-7-components-startup.htm#main-content" class="element-invisible element-focusable">Skip to main content</a></div>
+      <div class="texture-overlay">
+<div id="page" class="container page ssc-n ssw-n ssa-l sss-n btc-n btw-b bta-l bts-n ntc-n ntw-b nta-l nts-n ctc-n ctw-b cta-l cts-n ptc-n ptw-b pta-l pts-n">
+<header id="header" class="clearfix" role="banner" data-position="fixed">
+<div class="header-inner clearfix">
+<div id="mobile-menu">
+<span class="mobile-socialmenu">social</span>
+<span class="mobile-search">search</span>
+</div>
+<span id="mobile-nav">Menu</span>
+<div id="branding" class="branding-elements clearfix">
+<div id="logo">
+<a href="../index.html" title="Go to our home page..." class="active" style="text-decoration:none"><div class="icon-Final-freeware" style="color:#f0f0f0;font-size:68px;padding-bottom:8px"></div></a>
+</div>
+<div id="logomobile">
+<a href="../index.html" title="Go to our home page..." class="active" style="text-decoration:none"><div class="icon-Final-freeware" style="color:#f0f0f0;font-size:40px;padding-left:8px"></div></a>
+</div>
+<div id="name-and-slogan" class="element-invisible h-group" id="name-and-slogan">
+<h1 id="site-name" class="element-invisible" id="site-name"><a href="../index.html" title="Home page">Gizmo&#039;s Freeware</a></h1>
+</div>
+</div>
+<div class="region region-header"><div class="region-inner clearfix"><div id="block-block-58" class="clearfix block block-block no-title odd first block-count-1 block-region-header block-58">
+<a href="windows-7-components-startup.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div id="header-middle"><a href="http://www.xmarks.com/site/www.techsupportalert.com/#r"><img alt="" src="../files/images/icons/_thumb_13506.png" /> </a><a href="http://www.pcmag.com/article2/0,2817,2367733,00.asp"> <img alt="" src="../files/images/icons/_thumb_13505.png" /></a></div>
+</div>
+</div><div id="block-block-57" class="clearfix block block-block no-title even block-count-2 block-region-header block-57">
+<a href="windows-7-components-startup.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<p><a href="http://feeds.feedburner.com/gizmosbest" title="Go to our RSS feeds..."><i class="fa fa-rss-square fa-2x" style="color: #ffb300;"></i></a>&nbsp;&nbsp; <a href="http://feedburner.google.com/fb/a/mailverify?uri=gizmosbest" title="Subscribe to email..."><i class="fa fa-envelope fa-2x" style="color: #f0f0f0;"></i></a>&nbsp;&nbsp; <a href="http://www.facebook.com/pages/Gizmos-Freeware/114026985301900" title="Follow us on Facebook..."><i class="fa fa-facebook-square fa-2x" style="color: #d0d0ff;"></i></a>&nbsp;&nbsp; <a href="http://twitter.com/GizmosFreeware" title="Follow us on Twitter..."><i class="fa fa-twitter-square fa-2x" style="color: #70c0f0;"></i></a></p>
+</div>
+</div><div id="block-search-form" class="clearfix block block-search no-title odd block-count-3 block-region-header block-form" role="search">
+<a href="windows-7-components-startup.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<form action="windows-7-components-startup.htm" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="search" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-SQjJVUcXNkYtWhLdsnRclfb8ZO17hFWt2l29sr-nuJQ" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form></div>
+</div><div id="block-user-login" class="clearfix block block-user even last block-count-4 block-region-header block-login" role="form">
+<a href="windows-7-components-startup.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Login / Register</h2>
+<div class="content" class="block-content content">
+<form action="https://www.techsupportalert.com/content/windows-7-components-startup.htm?destination=node/6920" method="post" id="user-login-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">Username <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-name" name="name" value="" size="15" maxlength="60" class="form-text required" />
+</div>
+<div class="form-item form-type-password form-item-pass">
+  <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" id="edit-pass" name="pass" size="15" maxlength="128" class="form-text required" />
+</div>
+<div class="item-list"><ul><li class="even first"><a href="../user/register" title="Create a new user account.">Create new account</a></li><li class="odd last"><a href="https://www.techsupportalert.com/user/password" title="Request new password via e-mail.">Request new password</a></li></ul></div><input type="hidden" name="form_build_id" value="form-C7tgFOaMj3CjwGpL51xBvMxS2xpzPO8MMUeHT-L0ljA" />
+<input type="hidden" name="form_id" value="user_login_block" />
+<div class="edit-user-pw-wrapper"><div class="form-item form-type-textfield form-item-user-pw">
+  <label for="edit-user-pw">user pw </label>
+ <input type="text" id="edit-user-pw" name="user_pw" value="" size="20" maxlength="128" class="form-text" />
+<div class="description">Do not type anything in this box</div>
+</div>
+</div><div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Log in" class="form-submit" /></div></div></form></div>
+</div></div></div></div>
+</header>
+   <!-- Start: Ad blocker check
+   <style>#svCYxPorrige{display:none;margin-bottom:0px;padding:20px 10px;background:#D30000;text-align:center;font-weight:bold;color:#fff;border-radius: 0px;}</style>
+   <div id="svCYxPorrige">Oops, it looks like you are using an ad blocker.<br>We work hard to provide you our software news and we keep our ads non-intrusive.<br>Please support us keeping our content free by disabling your ad blocker.</div>
+   <script src="/ads.js" type="text/javascript"></script>
+   <script type="text/javascript">if(!document.getElementById('YzIkKlMbayUm')){document.getElementById('svCYxPorrige').style.display='block';}</script>
+   End: Ad blocker check -->
+<div id="menu-bar" class="nav clearfix"><div id="block-superfish-1" class="clearfix block block-superfish menu-wrapper menu-bar-wrapper clearfix odd first last block-count-5 block-region-menu-bar block-1">
+<a href="windows-7-components-startup.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="element-invisible block-title" class="block-title">Main menu</h2>
+<div class="content" class="block-content content clearfix">
+<ul id="superfish-1" class="menu sf-menu sf-main-menu sf-navbar sf-style-graphite sf-total-items-12 sf-parent-items-5 sf-single-items-7"><li id="menu-175-1" class="first odd sf-item-1 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="../index.html" title="This site&#039;s home page" class="sf-depth-1 menuparent">Home</a><ul><li id="menu-13310-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../index.html" title="The front page of Gizmo&#039;s Freeware" class="sf-depth-2">Homepage</a></li><li id="menu-13306-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="../user/login" title="Login to Gizmos using your site account" class="sf-depth-2">Login</a></li><li id="menu-13307-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="../user" title="Login to Gizmos using your site account. Here you can change your password or store bookmarks" class="sf-depth-2">My account/Change PW</a></li><li id="menu-13309-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="../user/register" title="Create an account at Gizmos Freeware so you can post comments to articles and in the forum" class="sf-depth-2">Register</a></li></ul></li><li id="menu-12522-1" class="middle even sf-item-2 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="../windows" title="The Best Free Windows Programs" class="sf-depth-1 menuparent">Windows</a><ul><li id="menu-12538-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../windows" title="The best free Windows desktop software by category plus our Editors&#039; Choice selections" class="sf-depth-2">Desktop Software</a></li><li id="menu-12539-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="../best-free-windows-apps.htm" title="The best free Windows apps as selected by our editors" class="sf-depth-2">Windows Apps</a></li><li id="menu-12540-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="../best-free-portable-programs.htm" title="Our Editor&#039;s Choice Selections of the Best Free Portable Apps" class="sf-depth-2">Portable Apps</a></li><li id="menu-12541-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="../best-free-windows7-vista-64-bit-software.htm" title="Our Editor&#039;s selections of the best free Windows 64 bit software" class="sf-depth-2">Windows 64 bit Software</a></li></ul></li><li id="menu-12523-1" class="middle odd sf-item-3 sf-depth-1 sf-no-children"><a href="best-free-software-mac-os.htm" title="The Best Free Mac OS X Programs" class="sf-depth-1">Mac</a></li><li id="menu-12524-1" class="middle even sf-item-4 sf-depth-1 sf-no-children"><a href="../linux" title="The Best Free Linux Programs" class="sf-depth-1">Linux</a></li><li id="menu-12526-1" class="middle odd sf-item-5 sf-depth-1 sf-no-children"><a href="../android" title="The Best Free Android Apps" class="sf-depth-1">Android</a></li><li id="menu-12525-1" class="middle even sf-item-6 sf-depth-1 sf-no-children"><a href="../ios" title="The Best Free Apps for iPhone and iPad" class="sf-depth-1">iOS</a></li><li id="menu-13312-1" class="middle odd sf-item-7 sf-depth-1 sf-no-children"><a href="best-free-online-applications-and-services.htm" title="Best web based applications and services" class="sf-depth-1">Online Apps</a></li><li id="menu-9299-1" class="middle even sf-item-8 sf-depth-1 sf-no-children"><a href="../free-ebooks-audio-books-read-online-download.htm" title="Here&#039;s a list of dozens of articles on this showing you the best places to get free eBooks and Audio Books" class="sf-depth-1">eBooks</a></li><li id="menu-12530-1" class="middle odd sf-item-9 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="../view/hot_expanded" title="New and recently updated articles" class="sf-depth-1 menuparent">New</a><ul><li id="menu-3760-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../view/hot_expanded" title="The Most Recent Additions to Gizmo&#039;s Freeware" class="sf-depth-2">New Articles</a></li><li id="menu-3761-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="../tracker_updated_only" title="Articles we have recently revised or re-written" class="sf-depth-2">Recently Updated Articles</a></li><li id="menu-3759-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="https://www.techsupportalert.com/recent-comments" title="Comments on reviews and articles posted by our users" class="sf-depth-2">Recent Comments</a></li><li id="menu-105-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="../all-articles-by-rating" title="The articles our users have given the highest ratings" class="sf-depth-2">Highest Rated</a></li></ul></li><li id="menu-210-1" class="middle even sf-item-10 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent"><a href="../freeware-updates.htm" title="The latest freeware releases and news from 10 top freeware sites" class="sf-depth-1 menuparent">Resources</a><ul><li id="menu-9285-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../freeware-updates.htm" title="The latest product updates and news from the web&#039;s most popular download sites" class="sf-depth-2">News</a></li><li id="menu-12533-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="../view/tips" title="Handy Windows Tips and Tricks" class="sf-depth-2">Tips</a></li><li id="menu-14525-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="../videos.htm" title="Keep up to date with tech the easy way by watching these interesting videos" class="sf-depth-2">Tech videos</a></li><li id="menu-9287-1" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="../sec" title="Want to clean a malware infection from your computer? Want to keep it clean and safe in the future? Then check out these guides." class="sf-depth-2">Security Guides &amp; Articles</a></li><li id="menu-9286-1" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="../tutorials" title="Want to know how to do something? You may well find it here." class="sf-depth-2">How-to Guides &amp; Tutorials</a></li><li id="menu-9283-1" class="middle even sf-item-6 sf-depth-2 sf-no-children"><a href="best-freeware-download-sites.htm" title="The safest and most reliable places to download freeware" class="sf-depth-2">Best Download Sites</a></li><li id="menu-9284-1" class="last odd sf-item-7 sf-depth-2 sf-no-children"><a href="best-free-technical-support-sites.htm" title="Got a hardware or software problem? Try one of these free support sites" class="sf-depth-2">Best Tech Support Sites</a></li></ul></li><li id="menu-1139-1" class="middle odd sf-item-11 sf-depth-1 sf-no-children"><a href="https://www.techsupportalert.com/freeware-forum" title="Got a computer question to ask?  Then this is the place and it&#039;s 100% free." class="sf-depth-1">Forum</a></li><li id="menu-109-1" class="last even sf-item-12 sf-depth-1 sf-total-children-6 sf-parent-children-0 sf-single-children-6 menuparent"><a href="../about-this-site" class="sf-depth-1 menuparent">About</a><ul><li id="menu-12560-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="../about-this-site" title="How this site started and what it attempts to achieve" class="sf-depth-2">About</a></li><li id="menu-12559-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="contact-us.htm" title="How to contact Gizmo&#039;s Freeware / Press" class="sf-depth-2">Contact</a></li><li id="menu-12552-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="../faq" title="Answers to the most common questions we get asked" class="sf-depth-2">FAQ</a></li><li id="menu-13311-1" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="../contribute" title="Several ways you can help this community website" class="sf-depth-2">Contribute</a></li><li id="menu-12554-1" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="../privacy_policy.htm" title="The Privacy Policy of the Gizmo&#039;s Freeware Website" class="sf-depth-2">Privacy Policy</a></li><li id="menu-12553-1" class="last even sf-item-6 sf-depth-2 sf-no-children"><a href="../terms-and-conditions.htm" title="These are the conditions we offer and you accept for the use of this site" class="sf-depth-2">Condition of Use</a></li></ul></li></ul></div>
+</div></div><div id="columns">
+<div class="columns-inner clearfix">
+<div id="content-column">
+<div class="content-inner">
+<section id="main-content" role="main">
+<header id="main-content-header" class="clearfix">
+<h1 id="page-title">Windows 7 Startup Components</h1>
+</header>
+<div id="content">
+
+
+<div id="block-system-main" class="clearfix block block-system no-title odd first last block-count-6 block-region-content block-main">
+<a href="windows-7-components-startup.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<article id="node-6920" class="node node-article article odd node-full ia-n clearfix" role="article">
+  
+  
+      <footer class="submitted">
+            <!-- <p class="author-datetime">Submitted by <a href="/users/siteeditor" title="View user profile." class="username">site.editor</a> on <time datetime="2014-08-22T20:12:25+0000">22. August 2014 - 20:12</time></p> -->
+      <p class="author-datetime">Last updated by <a href="https://www.techsupportalert.com/users/siteeditor" title="View user profile." class="username">site.editor</a> on 25. November 2020 - 12:05</p>
+    </footer>
+  
+  <div class="node-content">
+    <div class="sharethis-buttons"><div class="sharethis-wrapper"><span st_url="https://www.techsupportalert.com/content/windows-7-components-startup.htm" st_title="Windows%207%20Startup%20Components" class="st_facebook"></span>
+<span st_url="https://www.techsupportalert.com/content/windows-7-components-startup.htm" st_title="Windows%207%20Startup%20Components" class="st_twitter" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/windows-7-components-startup.htm" st_title="Windows%207%20Startup%20Components" class="st_linkedin" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/windows-7-components-startup.htm" st_title="Windows%207%20Startup%20Components" class="st_email" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/windows-7-components-startup.htm" st_title="Windows%207%20Startup%20Components" class="st_sharethis" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/windows-7-components-startup.htm" st_title="Windows%207%20Startup%20Components" class="st_pinterest" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/content/windows-7-components-startup.htm" st_title="Windows%207%20Startup%20Components" class="st_fblike" st_via="" st_username=""></span>
+</div></div>
+<div class="field field-name-body field-type-text-with-summary field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p><a name="article-top" id="article-top"></a></p>
+<!-- #### BEGIN: Introduction #### -->
+<div class="header1">
+	Introduction</div>
+<h4>
+	This article supports the Windows 7 Startup article.</h4>
+<p>I have documented the Windows components that are important to the <a href="windows-7-startup.htm" target="_blank" title="Walk through Windows 7 startup">Windows 7 Startup article</a>. This article contains three diagrams to describe the Windows environment created at startup:</p>
+<ul>
+	<li>
+		kernel-mode system processes.</li>
+	<li>
+		user-mode application support primarily provides the environment sub-systems to run programs and the Win32 API.</li>
+	<li>
+		user-mode system processes primarily create sessions and allow users to logon.</li>
+</ul>
+<h4>
+	The diagrams can be re-used by you</h4>
+<p>The diagrams in this article are not drawings but HTML/CSS tables so if you want to use them they are easy to copy and relatively easy to modify for your own purposes. Just remember to attribute this article as the source.</p>
+<h4>
+	Icons highlight key issues</h4>
+<p>The Windows startup article uses icons to highlight key issues. Some of those icons are used here.</p>
+<p>32-bit and 64-bit Windows have some significant differences:<br />
+	<span style="color: white; background-color: grey; font-weight: bold" title="Windows 32-bit">32</span> applies to 32-bit Windows only.<br />
+	<span style="color: white; background-color: #752a2c; font-weight: bold" title="Windows 64-bit">64</span> applies to 64-bit Windows only.</p>
+<p>Where the startup feature was changed from Windows Vista:<br />
+	<span style="color: white; background-color: green; font-weight: bold" title="New to Windows 7"> 7 </span> indicates a new feature for Windows 7.</p>
+<p>If you are troubleshooting then look for these icons:<br />
+	<span style="color: black; background-color: red; font-weight: bold" title="Critical process"> ! </span> indicates a critical process (processes set this status themselves) which can crash or halt Windows if it fails.</p>
+<p> </p>
+<!-- #### END: Introduction #### --><!-- #### BEGIN: Kernel-mode components #### -->
+<div class="header1">
+	The kernel-mode components</div>
+<p>To give you a picture of how the Windows components fit together I have added a few diagrams. The first of these, Diagram 1 - An overview of kernel-mode components, focuses on the important system processes that run at the highest priority on the CPU. This is called privilege 0 or ring 0 priority and it corresponds to kernel-mode processing. User-mode is ring 3 where the CPU can ensure that user-mode processes cannot call code at ring 0. All kernel-mode components share the same address space but they do not access the data structures any way they like. They generally use structured interfaces to ensure that kernel-mode operations are orderly. </p>
+<p>The kernel-mode components in diagram 1 are layered from the bottom to the top just like many of the other diagrams you will see.</p>
+<table class="review-details" width="100%">
+	<thead>
+		<tr>
+			<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="11" valign="middle" width="100%">
+				<strong><a id="diagram-kernel-mode" name="diagram-kernel-mode"></a>Diagram 1 - An overview of kernel-mode components</strong></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td width="15%">
+				<span style="color: black; font-weight: bold; font-size: larger;" title="Kernel mode means running at the highest privilege level: Ring 0">Ring 0 Kernel mode</span></td>
+			<td width="10%">
+				↓</td>
+			<td width="10%">
+				 </td>
+			<td align="center" width="10%">
+				↓</td>
+			<td width="10%">
+				 </td>
+			<td align="center" width="15%">
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				↓</td>
+			<td width="5%">
+				 </td>
+		</tr>
+		<tr>
+			<td align="center" class="bordered" width="15%">
+				<span style="color: black; font-weight: bold;" title="System threads include the Memory Manager, the Security Reference Monitor, and driver-created threads">System threads</span></td>
+			<td width="10%">
+				 </td>
+			<td width="10%">
+				 </td>
+			<td align="center" width="10%">
+				 </td>
+			<td width="10%">
+				 </td>
+			<td align="center" width="15%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+		</tr>
+		<tr>
+			<td align="center" class="bordered" width="15%">
+				<span style="color: black; font-weight: bold;" title="Every processor has an idle thread to account for when it is not being used">Idle threads</span></td>
+			<td width="10%">
+				↓</td>
+			<td width="10%">
+				 </td>
+			<td align="center" width="10%">
+				↓</td>
+			<td width="10%">
+				 </td>
+			<td align="center" width="15%">
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				↓</td>
+			<td width="5%">
+				 </td>
+		</tr>
+		<tr>
+			<td width="15%">
+				 </td>
+			<td width="10%">
+				 </td>
+			<td width="10%">
+				 </td>
+			<td align="center" width="10%">
+				 </td>
+			<td width="10%">
+				 </td>
+			<td align="center" width="15%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="blue" colspan="12" width="100%">
+				<span style="color: white; font-weight: bold;" title="Entry to the kernel can be by interrupts, API calls, or other methods. The kernel has a trap to catch each one.">Kernel trap handlers</span></td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="blue" colspan="12" width="100%">
+				<span style="color: white; font-weight: bold;" title="The dispatcher sends the trapped event to the correct kernel-mode component">System Service Dispatcher</span></td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="orange" colspan="5" width="55%">
+				<span style="color: white; font-weight: bold;" title="The kernel has no APIs but the various kernel sub-systems that make up the Executive do">Executive APIs</span><br />
+				 </td>
+			<td align="center" bgcolor="red" colspan="1" width="15%">
+				 </td>
+			<td align="center" bgcolor="red" colspan="3" width="15%">
+				<span style="color: white; font-weight: bold;">Windows sub-System<br />
+				Win32K API</span></td>
+			<td align="center" bgcolor="red" colspan="3" width="15%">
+				 </td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="green" colspan="1" width="15%">
+				<span style="color: white; font-weight: bold;" title="The Input-Output (IO) Manager is the primary interface to non-graphical device drivers.">IO Mgr.</span></td>
+			<td align="center" bgcolor="green" colspan="1" width="10%">
+				<span style="color: white; font-weight: bold;" title="The Security Reference Monitor is the heart of the security systems">SRM</span></td>
+			<td align="center" bgcolor="green" colspan="1" width="10%">
+				<span style="color: white; font-weight: bold;">...</span></td>
+			<td align="center" bgcolor="green" colspan="1" width="10%">
+				<span style="color: white; font-weight: bold;">...</span></td>
+			<td align="center" bgcolor="green" colspan="1" width="10%">
+				<span style="color: white; font-weight: bold;" title="Advanced Local Process Call handles communications between components">ALPC </span></td>
+			<td align="center" bgcolor="red" colspan="1" width="15%">
+				<span style="color: white; font-weight: bold;" title="The Window Manager handles input from the keyboard and mouse and output to the screen">Window<br />
+				Manager</span></td>
+			<td align="center" bgcolor="red" colspan="3" width="15%">
+				<span style="color: white; font-weight: bold;">GDI</span></td>
+			<td align="center" bgcolor="red" colspan="3" width="15%">
+				<span style="color: white; font-weight: bold;">DirectX</span></td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="grey" colspan="1" width="15%">
+				<span style="color: white; font-weight: bold;" title="Device drivers are written by third parties, i.e. not just Microsoft, using the Windows Device Driver Kit">Device, File System, Filter,</span></td>
+			<td align="center" bgcolor="green" colspan="4" width="40%">
+				<span style="color: white; font-weight: bold;">Executive</span><br />
+				 </td>
+			<td align="center" bgcolor="red" colspan="1" width="15%">
+				 </td>
+			<td align="center" bgcolor="grey" colspan="6" width="30%">
+				<br />
+				<span style="color: white; font-weight: bold;" title="Graphics device drivers have direct access to hardware">Graphics Device Drivers (WDDM)</span></td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="grey" colspan="1" width="15%">
+				<span style="color: white; font-weight: bold;">and Network<br />
+				Drivers</span></td>
+			<td align="center" bgcolor="green" colspan="4" width="40%">
+				<span style="color: white; font-weight: bold;" title="The Object Manager is used for data structures that are shared or need to be exposed to user-mode processes">Object Manager</span><br />
+				 </td>
+			<td align="center" bgcolor="red" colspan="1" width="15%">
+				 </td>
+			<td align="center" bgcolor="grey" colspan="6" width="30%">
+				<span style="color: white; font-weight: bold;">Interface (DDI) Drivers</span><br />
+				 </td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="grey" colspan="1" width="15%">
+				 </td>
+			<td align="center" bgcolor="blue" colspan="6" width="60">
+				<span style="color: white; font-weight: bold;" title="The Kernel has no APIs and mainly focuses on managing the CPU">Kernel</span><br />
+				 </td>
+			<td align="center" bgcolor="grey" colspan="5" width="25%">
+				 </td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="darkblue" colspan="9" width="85%">
+				<span style="color: white; font-weight: bold;" title="The HAL layer makes Windows more independent of the hardware it runs on">Hardware Abstraction Layer (HAL)</span><br />
+				 </td>
+			<td align="center" bgcolor="grey" colspan="3" width="15%">
+				 </td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="black" colspan="12" width="100%">
+				<span style="color: white; font-weight: bold;" title="The Hardware Interface manages direct memory access (DMA) and other motherboard hardware.">Hardware Interface</span><br />
+				 </td>
+		</tr>
+	</tbody>
+</table>
+<p> </p>
+<h4>
+	Hardware interfaces</h4>
+<p>Hardware interfaces for the motherboard components of your computer.</p>
+<h4>
+	Hardware Abstraction Layer (HAL)</h4>
+<p>The Hardware Abstraction Layer (HAL) mainly handles the BIOS and chipset features. It has no user-mode API and it has some core drivers compiled into it..</p>
+<p>While we are discussing the HAL, it is worth noting that the system hardware determines which version of the HAL and NTOSKRNL images are installed. The HAL image depends upon the level of Advanced Configuration and Power Interface (ACPI) support and the type of Programmable Interrupt Controller (PIC). Multiprocessor systems use an Advanced PIC (APIC).</p>
+<h4>
+	Device Drivers</h4>
+<p>Drivers are in two main groups. Only the graphics drivers interface directly to the hardware interfaces. All other interfaces are to the HAL.</p>
+<h4>
+	Kernel</h4>
+<p>The kernel is loaded as the smaller part (about 5%) of NTOSKRNL You might see it referred to as the "microkernel" which it technically is not because a true microkernel would not share memory space with other components. The kernel has two main functions:</p>
+<ul>
+	<li>
+		an abstraction layer for the CPU so it handles scheduling and other low-level activities.</li>
+	<li>
+		Traps, exceptions and interrupt dispatch which is how user-mode processes access kernel-mode. See the top two levels which are the kernel trap handlers used to transition user-mode processes into kernel-mode and the System Service Dispatcher which manages entry to and exit from kernel-mode.</li>
+</ul>
+<p>Two factors determine which NTOSKRNL image is used: the number of processors - not the actual number of CPUs but the number of processing units so it includes Hyperthreading - and, if the processors are 32-bit, then whether Physical Address Extension (PAE) is being used to allow more than 4GB of memory to be addressed: NTKRNL.EXE for uniprocessor, NTKRNLMP for multiprocessor; then NTKRNPA and NTKRPAMP for PAE support.</p>
+<h4>
+	Executive</h4>
+<p>The kernel Executive is the remainder (about 95%) of NTOSKRNL. It is made up of the various kernel-mode services (I haven't listed them all) such as the Security Reference Monitor (SRM) and the Advanced Local Procedure Call (ALPC) facility <span style="color: white; background-color: green; font-weight: bold" title="New to Windows 7"> 7 </span>, which is used for communications between components. It is modified from the older LPC. The Executive provides for extensions to the operating system i.e. device drivers.</p>
+<p>Two components handle communication with the device drivers:</p>
+<ul>
+	<li>
+		The IO Manager handles communications with the non-graphics device drivers.</li>
+	<li>
+		Win32K.sys handles communications with the graphics device drivers. This is the kernel-mode portion of Win32 hence the appended 'K' for kernel. It includes the Window Manager which handles user input and screen output, the Graphics Device Interface (GDI) for drawing to devices (normally screens or printers), and DirectX graphics. GDI+ adds newer features to the GDI including better support for common file formats such as JPEG, PNG, Flash and SVG.</li>
+</ul>
+<p>I mentioned the formal interfaces used to access kernel-mode data structures. The Object Manager is the major component for providing this. It manages resources particularly those that are named, shared by components, or exported to user mode.</p>
+<h4>
+	System threads</h4>
+<p>Finally, we have the system threads and the idle threads (one per CPU). Technically these threads are not processes but they are generally treated as such because they use system time which is normally accounted for.</p>
+<h4>
+	Undocumented APIs</h4>
+<p>The kernel-mode APIs are largely undocumented except for reverse-engineering by developers looking to replace Win32. Examples are WINE on Linux and REACTOS.</p>
+<p>The Win32K API is the portion of the WIN32 API that was moved to kernel mode in an earlier version of Windows.</p>
+<p>The kernel-mode Executive has a lot of components that are not listed here. Those components provide APIs but notice that the lower-level Kernel does not.</p>
+<!-- #### END: Kernel-mode components #### --><!-- #### BEGIN: User-mode components #### -->
+<div class="header1">
+	<a id="user-mode" name="user-mode"></a>User Mode components</div>
+<p>At this point, Windows starts the major user-mode processes which are primarily DLLs to provide programs with access to standard libraries of features including access to kernel-mode components. Diagram 2 summarises these components and the programs that use them: system processes, services, Windows applications, DOS applications, and applications in other GUI environments such as POSIX (<span class="st">Portable Operating System Interface)</span>.</p>
+<h4>
+	User-mode system processes are mainly omitted</h4>
+<p>I have omitted the user-mode system processes from this diagram to keep it simple and to emphasise that this part of startup is primarily about getting all the APIs (in DLLs) in place so Windows can commence normal operation. The user-mode system processes are associated with session management, security, and logon so they will be more usefully displayed in a diagram that emphasizes the startup sequence. That is <a href="windows-7-components-startup.htm#diagram-system-processes">Diagram 3 - User-mode system processes.</a></p>
+<h4>
+	The Windows Sub-System is the core of user mode</h4>
+<p>The Windows Sub-System has two major components:</p>
+<ul>
+	<li>
+		The Client Server Runtime Sub-System (CSRSS.EXE) is the primary process that runs for every session in Windows.</li>
+	<li>
+		The Win32 API is the primary user-mode API for Windows 32 i.e. Win32. It is made up from numerous DLLs but the main ones are included in the diagram.</li>
+</ul>
+<p>You will find that almost every diagram on user-mode does not elaborate on the Windows Sub-system. That is because it is complex and difficult to illustrate. Even this diagram will be potentially misleading as there are so many different relationships with other Windows components.</p>
+<p>Two important points about Windows that are not very obvious are that Windows is designed for multiple different user environments/interfaces and each executable program must be associated with one.</p>
+<ul>
+	<li>
+		When a program is compiled the sub-system is set to tie it to a specific sub-system. Then when a program is to be executed Windows reads the sub-system setting so it can attempt to execute the program under the correct sub-system. For further specifics refer to the <a href="windows-startup-terminology.htm#notes" target="_blank" title="Notes to the diagrams on executing programs">notes</a> for the <a href="windows-startup-terminology.htm#programs" target="_blank" title="How Windows executes programs by creating processes and threads">programs</a> diagrams in the article <a href="windows-startup-terminology.htm" target="_blank" title="Explains terms used in this article">Windows Startup Terminology</a>.</li>
+	<li>
+		Each environmental subsystem can then have its own APIs and its own support processes.</li>
+	<li>
+		The environmental sub-systems are defined in the registry under the key HKLM\System\CurrentControlSet\Control\Session Manager\Subsystems. Refer to the Session Manager (SMSS) which loads CSRSS and other environment processes.</li>
+</ul>
+<p>I included two examples in Diagram 2:</p>
+<ul>
+	<li>
+		16-bit DOS applications are executed in an emulated DOS environment provided by NTVDM.EXE. <span style="color: white; background-color: grey; font-weight: bold" title="Applies to 32-bit Windows">32</span></li>
+	<li>
+		POSIX applications have their own environment sub-system called SUA and POSIX processes are executed by POSIX.EXE which can be considered an equivalent of CSRSS. While POSIX could have its own user interface DLLs with a consequent duplication of resources, Windows is designed to use the Windows Subsystem, i.e. the Win32 API also provides SUA with its user interface.</li>
+</ul>
+<h4>
+	The kernel mode and user mode diagrams can be combined</h4>
+<p>The overall flow of diagram 1 is from the user at the top to the kernel-mode components which would sit below this diagram. If you wanted to get a larger overall picture then you can attach Diagram 1, Kernel-mode components, below the line at the bottom of the table. I have done this for you in <a href="windows-7-components-startup.htm#diagram-both-modes" title="Kernel-mode and user-mode diagrams combined into one">Diagram 4</a>.</p>
+<p>I have indicated with arrows the flow of calls towards the DLL kernel. Note that some of those calls will bypass the higher-level DLLs to use the NTDLL.DLL or even bypass that and use the kernel-mode APIs.</p>
+<table class="review-details" width="100%">
+	<thead>
+		<tr>
+			<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="8" valign="middle" width="100%">
+				<strong><a id="diagram-user-mode" name="diagram-user-mode"></a>Diagram 2 - An overview of user-mode components</strong></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				<br />
+				<span style="color: black; font-weight: bold;">Windows<br />
+				Services</span><br />
+				 </td>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				<span style="color: black; font-weight: bold;">Windows<br />
+				Applications</span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				<span style="color: black; font-weight: bold;">DOS<br />
+				Applications <span style="color: white; background-color: grey; font-weight: bold" title="Applies to 32-bit Windows">32</span></span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				<span style="color: black; font-weight: bold;">POSIX<br />
+				Applications</span></td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="magenta" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="A Windows service is a process started by the Service Control Manager (SCM)">Windows<br />
+				services</span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="purple" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="An application is a program or group of programs designed for users">Windows<br />
+				application</span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="grey" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="An application which runs on the DOS (Disk Operating System) which Windows used to run on top of">DOS<br />
+				Application </span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="silver" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="Portable Operating System Interface for UNIX-based programs">POSIX<br />
+				application</span></td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="magenta" class="bordered" colspan="1" width="20%">
+				<span style="color: white; font-weight: bold;" title="DLLs used by service processes">Service DLLs</span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="purple" class="bordered" colspan="1" width="20%">
+				<span style="color: white; font-weight: bold;" title="DLLs that are part of an application, i.e. are not part of Windows">Application DLLs</span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="grey" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="DLLs that are part of an application, i.e. are not part of Windows">Application DLLs</span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="silver" class="bordered" colspan="1" width="20%">
+				<span style="color: white; font-weight: bold;" title="DLLs that are part of an application, i.e. are not part of Windows">Application DLLs</span></td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+		</tr>
+		<tr>
+			<td bgcolor="#E5E4E2" colspan="8" width="100%">
+				<span style="color: black; font-weight: bold;" title="The environment in which programs become processes">Windows Environment Sub-system</span></td>
+		</tr>
+		<tr>
+			<td bgcolor="#E5E4E2" width="5%">
+				 </td>
+			<td align="center" bgcolor="#ffa6a6" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold" title="The Windows Sub-System performs this function">Win32</span><br />
+				<span style="color: white">(See below)</span></td>
+			<td bgcolor="#E5E4E2" width="5%">
+				 </td>
+			<td align="center" bgcolor="#ffa6a6" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold" title="The Windows Sub-System performs this function">Win32</span><br />
+				<span style="color: white">(See below)</span></td>
+			<td bgcolor="#E5E4E2" width="5%">
+				 </td>
+			<td align="center" bgcolor="#ffa6a6" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold" title="The Windows Sub-System performs this function"><span style="color: white; font-weight: bold" title="The Windows Sub-System performs this function"><span style="color: white; font-weight: bold" title="The Windows Sub-System performs this function">Win32<br />
+				<span style="font-weight: normal">(See below)</span><br />
+				<span style="font-weight: bold">+ VDM DLLs</span></span></span></span></td>
+			<td bgcolor="#E5E4E2" width="5%">
+				 </td>
+			<td align="center" bgcolor="silver" class="bordered" colspan="1" width="20%">
+				<span style="color: white; font-weight: bold;" title="SUA allows POSIX applications to run on Windows">Sub-system for Unix Applications (SUA) API<br />
+				PsxDLL.DLL</span></td>
+		</tr>
+		<tr>
+			<td bgcolor="#E5E4E2" colspan="8" width="100%">
+				<span style="color: black; font-weight: bold;" title="The process that executes a program and provides the environment it runs in">Windows Environment Support Image</span></td>
+		</tr>
+		<tr>
+			<td bgcolor="#E5E4E2" width="5%">
+				 </td>
+			<td align="center" bgcolor="#ffa6a6" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold" title="The Windows Sub-System performs this function">CSRSS</span><br />
+				<span style="color: white">(See below)</span></td>
+			<td bgcolor="#E5E4E2" width="5%">
+				 </td>
+			<td align="center" bgcolor="#ffa6a6" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold" title="The Windows Sub-System performs this function">CSRSS</span><br />
+				<span style="color: white">(See below)</span></td>
+			<td bgcolor="#E5E4E2" width="5%">
+				 </td>
+			<td align="center" bgcolor="grey" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="Emulates the DOS environment for DOS programs to run in">NT Virtual DOS Machine<br />
+				NTVDM.EXE or<br />
+				Command Interpreter<br />
+				CMD.EXE</span></td>
+			<td bgcolor="#E5E4E2" width="5%">
+				 </td>
+			<td align="center" bgcolor="silver" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="Executes POSIX programs and provides the operating environment for the process">POSIX.EXE</span></td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				<br />
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				<br />
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				<br />
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				<br />
+				↓</td>
+		</tr>
+	</tbody>
+</table>
+<table class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="10%">
+				 </td>
+			<td width="10%">
+				 </td>
+			<td align="center" valign="middle" width="10%">
+				 </td>
+			<td width="10%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="10%">
+				 </td>
+			<td width="10%">
+				 </td>
+			<td width="10%">
+				 </td>
+			<td width="10%">
+				 </td>
+			<td width="5%">
+				 </td>
+		</tr>
+		<tr>
+			<td bgcolor="#ffa6a6" colspan="12" width="100%">
+				<span style="color: black; font-weight: bold; font-size: larger;" title="The Windows operating environment for Windows programs">The Windows Sub-system including the Win32 API </span><span style="color: black; font-weight: bold; background-color: red;"> ! </span></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ffa6a6" colspan="7" width="55%">
+				 </td>
+			<td bgcolor="#ff8080" colspan="4" width="40%">
+				<span style="color: white; font-weight: bold;" title="These four DLLS are the major part of the Win32 API">Client DLLs - major DLLs <span style="color: black; font-weight: bold; background-color: red;"> ! </span></span></td>
+			<td bgcolor="#ffa6a6" width="5%">
+				 </td>
+		</tr>
+		<tr>
+			<td bgcolor="#ffa6a6" width="5%">
+				 </td>
+			<td align="center" bgcolor="#ff0080" colspan="5" width="45%">
+				<span style="color: white; font-weight: bold;" title="Provides the operating environment for Windows application programs">Client Server Runtime Sub-System<br />
+				 CSRSS.EXE <span style="color: black; font-weight: bold; background-color: red;"> ! </span><br />
+				One instance for non-interactive session 0<br />
+				One to n instances for interactive sessions 1-n</span></td>
+			<td align="center" bgcolor="#ffa6a6" width="5%">
+				←<br />
+				→</td>
+			<td align="center" bgcolor="red" class="bordered" width="10%">
+				<span style="color: white; font-weight: bold;" title="Other, often newer and more advanced, features not provided by User, GDI, and Base DLLs">Other<br />
+				 <br />
+				 <br />
+				AdvAPI32<br />
+				.DLL</span></td>
+			<td align="center" bgcolor="red" class="bordered" width="10%">
+				<span style="color: white; font-weight: bold;" title="The base APIs include managing memory and creating processes and threads">BASE<br />
+				 <br />
+				 <br />
+				Kernel32<br />
+				.DLL</span></td>
+			<td align="center" bgcolor="red" class="bordered" width="10%">
+				<span style="color: white; font-weight: bold;" title="Creates the elements of the graphical user interface">USER<br />
+				 <br />
+				 <br />
+				User32<br />
+				.DLL</span></td>
+			<td align="center" bgcolor="red" class="bordered" width="10%">
+				<span style="color: white; font-weight: bold;" title="Draws elements on output devices such as the screen and printer">GDI<br />
+				 <br />
+				 <br />
+				GDI32<br />
+				.DLL</span></td>
+			<td bgcolor="#ffa6a6" width="5%">
+				 </td>
+		</tr>
+		<tr>
+			<td bgcolor="#ffa6a6" colspan="12" width="100%">
+				 </td>
+		</tr>
+		<tr>
+			<td bgcolor="#ffa6a6" colspan="3" width="20%">
+				 </td>
+			<td bgcolor="#ff409f" colspan="3" width="30%">
+				<span style="color: white; font-weight: bold;" title="CSRSS has an instance for every session and loads the server DLLs for each one">Server DLLs - for each CSRSS instance</span> <span style="color: black; font-weight: bold; background-color: red;"> ! </span></td>
+			<td bgcolor="#ffa6a6" width="5%">
+				 </td>
+			<td bgcolor="#d76060" colspan="5" width="45%">
+				<span style="color: white; font-weight: bold;" title="There are many more DLLs providing the Win32 API">Other Win32 DLLs</span> <span style="color: black; font-weight: bold; background-color: red;"> ! </span></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ffa6a6" width="5%">
+				 </td>
+			<td bgcolor="#ffa6a6" width="5%">
+				 </td>
+			<td align="center" bgcolor="#800040" class="bordered" width="10%">
+				<span style="color: white; font-weight: bold;" title="Allows the console window to support drag and drop and Windows themes">Console Host<br />
+				<br />
+				<br />
+				 ConHost<br />
+				.EXE</span></td>
+			<td align="center" bgcolor="#bf0060" class="bordered" width="10%">
+				<span style="color: white; font-weight: bold;" title="Creates and delete processes and threads">BASE<br />
+				 <br />
+				 <br />
+				BaseSrv<br />
+				.DLL</span></td>
+			<td align="center" bgcolor="#bf0060" class="bordered" width="10%">
+				<span style="color: white; font-weight: bold;" title="Handles Side-by-Side (SxS) lists of DLLs with different versions">Multi-user<br />
+				Windows<br />
+				 <br />
+				WinSrv<br />
+				.DLL</span></td>
+			<td align="center" bgcolor="#bf0060" class="bordered" width="10%">
+				<span style="color: white; font-weight: bold;" title="Manages consoles">Client<br />
+				Server<br />
+				Runtime<br />
+				CSRSrv<br />
+				.DLL</span></td>
+			<td bgcolor="#ffa6a6" width="5%">
+				 </td>
+			<td align="center" bgcolor="brown" class="bordered" width="10%">
+				<span style="color: white; font-weight: bold;" title="Provides dialog boxes">Windows Common<br />
+				Dialogs<br />
+				Library<br />
+				ComDlg32<br />
+				.DLL</span></td>
+			<td align="center" bgcolor="brown" class="bordered" width="10%">
+				<span style="color: white; font-weight: bold;" title="Provides buttons, scroll bars and other Windows controls">Windows<br />
+				Common<br />
+				Controls<br />
+				Library<br />
+				ComCtl32<br />
+				.DLL</span></td>
+			<td align="center" bgcolor="brown" class="bordered" width="10%">
+				<span style="color: white; font-weight: bold;" title="Provides access to Windows desktop and user interface objects">Windows<br />
+				Shell<br />
+				Common<br />
+				DLL<br />
+				Shell32<br />
+				.DLL</span></td>
+			<td align="center" bgcolor="brown" class="bordered" width="10%">
+				<span style="color: white; font-weight: bold;" title="Has many utility functions">Shell<br />
+				Light-weight<br />
+				Utility<br />
+				Library<br />
+				ShLWAPI<br />
+				.DLL</span></td>
+			<td align="center" bgcolor="brown" width="5%">
+				<span style="color: white; font-weight: bold;" title="There are more DLLs not listed here">etc.</span></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ffa6a6" colspan="12" width="100%">
+				 </td>
+		</tr>
+	</tbody>
+</table>
+<table class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+		</tr>
+	</tbody>
+</table>
+<table class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td align="center" bgcolor="orange" class="bordered" width="100%">
+				<br />
+				<span style="color: white; font-weight: bold;" title="The API that is available to before the Windows Subsystem (Win32 API) is running">Native Windows API<br />
+				NTDLL .DLL </span><span style="color: black; font-weight: bold; background-color: red;"> ! </span><br />
+				 </td>
+		</tr>
+	</tbody>
+</table>
+<table class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+		</tr>
+	</tbody>
+</table>
+<table class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td width="100%">
+				<span style="color: black; font-weight: bold; font-size: larger;" title="Running at the lowest level of priority">Ring 3 User mode</span></td>
+		</tr>
+	</tbody>
+</table>
+<hr />
+<p>If you wanted to get a larger overall picture then you can attach Diagram 1, Kernel-mode components, below the line above as I have in <a href="windows-7-components-startup.htm#diagram-both-modes" title="Kernel-mode and user-mode diagrams combined into one">Diagram 4</a>.</p>
+<p> </p>
+<h4>
+	NTDLL.DLL</h4>
+<p>NTDLL.DLL is called the Native Windows API but it is somewhat misnamed because technically it does not expose the entire Native API to user-mode.</p>
+<p>NTDLL.DLL duplicates most of the Win32 API so it can be used by kernel-mode sub-systems and user-mode applications before the Win32 API is available. It also provides kernel-mode access which is not in the Win32 API.</p>
+<p>Applications that link directly to NTDLL.DLL are called Native Applications. They are built using the Windows Driver Development Kit (WDDK) and cannot be run in normal user-mode. They include the Session Control Manager (SMSS), the Client-Server Runtime (CSRSS), and the disk check program (autochk.exe). Native applications are a small proportion of all Windows applications because the Kernel32.DLL in the Win32 API also exposes many of the kernel functions provided by NTDLL.DLL.</p>
+<h4>
+	Win32 API - The Windows Sub-System</h4>
+<p>The Win32 API is primarily provided by the DLLs loaded by the Windows Subsystem. It is important to remember that the Windows Subsystem is the process Client-Server Runtime Sub-system (CSRSS.EXE) and associated DLLs which must be running if Windows is to run. CSRSS primarily handles the Windows console and the shutdown of the graphical user interface (GUI). This is a lot less than the functions it performed in earlier versions of Windows.</p>
+<p>CSRSS loads two groups of DLLs:</p>
+<ul>
+	<li>
+		Client DLLs which provide the base API (Kernel32.DLL), the Windows interface API (User32.DLL), the drawing API (GDI32.DLL), and other advanced features (AdvAPI32.DLL).</li>
+	<li>
+		Server DLLs to manage processes and threads (BaseSrv.DLL), provide Side-by Side (SxS) support (WinSrv.DLL), and console management (CSRSrv.DLL). </li>
+</ul>
+<p>CSRSS performs two further tasks:</p>
+<ul>
+	<li>
+		It runs the Console Host which provides drag &amp; drop and applies WIndows themes to the Windows command line or command interpreter window.  <span style="color: white; background-color: green; font-weight: bold" title="New to Windows 7"> 7 </span></li>
+	<li>
+		It performs some functions that support the Win32 API which would otherwise have to be handled by a kernel-mode component.</li>
+</ul>
+<h4>
+	Client DLLs</h4>
+<p>The Windows 32 Base API (KERNEL32.DLL) means base resources for Windows such as the file system, devices, processes &amp; threads, and error handling. Base also manages memory, handles IO (Input/Output), and creates processes and threads.</p>
+<p>The Advanced Windows 32 Base API (ADVAPI32.DLL) are services additional to the kernel such as the registry API, shutdown &amp; restart, windows services (start, stop, create), and managing user accounts.</p>
+<p>The Interface Window Manager Multi-User Windows API (USER32.DLL) produces desktops, windows, and menus. The GDI is called by User to render the user interface on screen.</p>
+<p>The Graphics Device Interface CLient DLL (GDI32.DLL) outputs graphics to monitors, printers, and any other suitable output device.</p>
+<p>These DLLs can call further DLLs for additional functions. For example, dialogs are produced by COMDLG32.DLLp which also produces progress bars, list views, and the File Open, Save, and Save As dialogs. It uses both USER32.DLL and GDI32.DLL. Here's some more:</p>
+<ul>
+	<li>
+		Dialogs are in the Windows Common Dialogs Library (COMDLG32.DLL).</li>
+	<li>
+		Controls are in the WIndows Common Controls Library (COMCTL32.DLL).</li>
+	<li>
+		Windows shell is in the Windows Shell Common DLL (SHELL32.DLL) and the Shell Light-Weight Utility Library (SHLWAPI.DLL). SHELL32 provides access to the Windows Desktop objects and user interface (UI) objects. SHLWAPI has a large and diverse set of features including URL paths, colour settings, and registry entries.</li>
+</ul>
+<h4>
+	Server DLLs</h4>
+<p>The Windows NT BASE API Server DLL (BASESRV.DLL) create and deletes processes &amp; threads. It also provides 16-bit DOS emulation for 32-bit WIndows <span style="color: white; background-color: grey; font-weight: bold" title="Applies to 32-bit Windows">32</span>.</p>
+<p>The Multi-User Windows Server DLL (WINSRV.DLL) handles Side-by-Side (SxS) DLL manifests which allow multiple versions of DLLs to coexist.</p>
+<p>The Client Server Runtime Process (CSRSRV.DLL) handles console management.</p>
+<h4>
+	Windows provides for non-Windows environment sub-systems</h4>
+<p>Remember that the kernel mode portion of the Windows Subsystem is Win32K.sys. Other non-Windows environments can be supported such as POSIX, a standard for UNIX-based systems.</p>
+<p>The Sub-system for Unix-based Applications (SUA) provides specific POSIX support. But SUA still uses the Win32 API to provide the user interface and other generic features.. Although it would be possible for POSIX applications to run in user mode without using any Windows DLLs, it is more efficient for make use of components that are already running. For example, the Graphical Device Interface for drawing to screens and other devices.</p>
+<!-- #### END: User-mode components #### --><!-- #### BEGIN: User-mode system processes #### -->
+<div class="header1">
+	<a id="system-processes" name="system-processes"></a>User-mode system processes</div>
+<p>The user-mode system processes are largely the system startup processes in user mode. I have not described them here if I they are already described in the Windows 7 Startup article. So that means the components that I discuss here are primarily the LSASS components to user logon. The authentication pathways are indicated in red to differentiate them from the startup flow which proceeds from bottom to top.</p>
+<p>Note that the user-mode system processes are often referred to as system processes but this creates confusion when the same term is used for kernel-mode programs so I always qualify the name with the mode.</p>
+<h4>
+	Local Security Authority Sub-System (LSASS) authenticates locally or over a network</h4>
+<p>LSASS authenticates users depending upon the status of a domain controller so I have included that in Diagram 3 although it is not needed to logon to a stand-alone computer. Notice that I only show the domain controller processes as far as the authentication packages. Behind them are the same LSASS processes as on the user's system here.</p>
+<ul>
+	<li>
+		If there is no domain controller, the workstation is disconnected from the network, or there is no network then the legacy authentication package for NT LAN Manager (MSV1_0.DLL) is used.</li>
+	<li>
+		If the domain controller uses a Windows version before Windows 2000 then the legacy authentication package for LAN Manager (MSV1_0.DLL) is also used.</li>
+	<li>
+		If the domain controller is Windows 2000 or later then the Kerberos authentication package is used.</li>
+</ul>
+<h4>
+	Security Account Manager (SAMSRV.DLL)</h4>
+<p>The Security Account Manager (SAM) server caches password information for local logon. If the computer were on a network domain then those cached passwords are used to authenticate users when a domain controller is not available. Note that the complete passwords are not stored. The passwords are hashed and half the password hash is stored which is enough to confirm the password.</p>
+<table class="review-details" width="100%">
+	<thead>
+		<tr>
+			<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="8" valign="middle" width="100%">
+				<strong><a id="diagram-system-processes" name="diagram-system-processes"></a>Diagram 3 - User-mode system processes</strong></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td bgcolor="#e5e4e2" colspan="3" width="45%">
+				<span style="font-weight: bold;" title="Handles security">LSASS on a domain controller </span></td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="purple" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="The desktop appears">Explorer<br />
+				EXPLORE.EXE</span></td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="silver" width="20%">
+				<span style="color: white; font-weight: bold;">NT LAN Manager MSV1_0.DLL</span></td>
+			<td bgcolor="#e5e4e2" width="5%">
+				<br />
+				<br />
+				 </td>
+			<td align="center" bgcolor="silver" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;">Kerberos Key Distribution Centre KDCSVC.DLL</span></td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				↑</td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="#e5e4e2" width="20%">
+				<span style="color: red; font-weight: bold;">↕</span></td>
+			<td bgcolor="#e5e4e2" width="5%">
+				 </td>
+			<td align="center" bgcolor="#e5e4e2" width="20%">
+				<span style="color: red; font-weight: bold;">↕</span></td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="#bf00bf" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="User Initialization">User Initialization<br />
+				USERINIT.EXE</span> <span style="color: black; background-color: red; font-weight: bold" title="Windows will crash without this critical process"> ! </span></td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="silver" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;">NetLogon<br />
+				NETLOGON.DLL</span></td>
+			<td bgcolor="#e5e4e2" width="5%">
+				<br />
+				<br />
+				 </td>
+			<td bgcolor="#e5e4e2" width="20%">
+				 </td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				↑</td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				<span style="color: red; font-weight: bold;">↕</span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				<span style="color: red; font-weight: bold;">↕</span></td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td bgcolor="#80ff80" colspan="5" width="70%">
+				<span style="color: white; font-weight: bold; font-size: larger;">Local Security Authority Sub-System (<span style="color: white; font-weight: bold; font-size: larger;">LSASS)</span></span></td>
+		</tr>
+		<tr>
+			<td width="5%">
+				<br />
+				<br />
+				 </td>
+			<td align="center" width="20%">
+				↑</td>
+			<td width="5%">
+				 </td>
+			<td bgcolor="#80ff80" width="20%">
+				 </td>
+			<td bgcolor="#80ff80" width="5%">
+				 </td>
+			<td align="center" bgcolor="9f9f9f" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;">NetLogon<br />
+				NETLOGON.DLL</span></td>
+			<td bgcolor="#80ff80" width="5%">
+				<br />
+				<br />
+				 </td>
+			<td align="center" bgcolor="#80ff80" width="20%">
+				<span style="color: red; font-weight: bold;">↕</span></td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td bgcolor="silver" width="20%">
+				<span style="color: white; font-weight: bold;" title="These are the two main authentication packages - there are others ">Authentication package:<br />
+				based on the domain controller (DC):</span></td>
+			<td align="center" bgcolor="#80ff80" width="5%">
+				 </td>
+			<td align="center" bgcolor="#80ff80" width="20%">
+				<span style="color: red; font-weight: bold;">↕</span></td>
+			<td align="center" bgcolor="#80ff80" width="5%">
+				 </td>
+			<td align="center" bgcolor="#80ff80" width="20%">
+				<span style="color: red; font-weight: bold;">↕</span></td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				↑</td>
+			<td width="5%">
+				 </td>
+			<td bgcolor="silver" colspan="2" width="25%">
+				<span style="color: white; font-weight: bold;">No network/DC or disconnected</span></td>
+			<td bgcolor="silver" colspan="2" width="25%">
+				<span style="color: white; font-weight: bold;" title="For legacy authentication">Pre-2000 DC</span></td>
+			<td bgcolor="silver" colspan="2" width="25%">
+				<span style="color: white; font-weight: bold;" title="For current authentication">2000 or later DC</span></td>
+		</tr>
+		<tr>
+			<td width="5%">
+				<br />
+				<br />
+				 </td>
+			<td align="center" width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="grey" class="bordered" width="25%">
+				<span style="color: white; font-weight: bold;">NT LAN Manager<br />
+				MSV1_0.DLL</span> <span style="color: black; background-color: red; font-weight: bold" title="Windows will crash without this critical process"> ! </span></td>
+			<td align="center" bgcolor="silver" width="5%">
+				 </td>
+			<td align="center" bgcolor="#9f9f9f" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;">NT LAN Manager MSV1_0.DLL</span> <span style="color: black; background-color: red; font-weight: bold" title="Windows will crash without this critical process"> ! </span></td>
+			<td align="center" bgcolor="silver" width="5%">
+				 </td>
+			<td align="center" bgcolor="#9f9f9f" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;">Kerberos Client KERBEROS.DLL</span></td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				↑</td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="#80ff80" width="20%">
+				<span style="color: red; font-weight: bold;">↕</span></td>
+			<td bgcolor="#80ff80" width="5%">
+				 </td>
+			<td align="center" bgcolor="#80ff80" width="20%">
+				<span style="color: red; font-weight: bold;">↕</span></td>
+			<td align="center" bgcolor="#80ff80" width="5%">
+				 </td>
+			<td align="center" bgcolor="#80ff80" width="20%">
+				<span style="color: red; font-weight: bold;">↕</span></td>
+		</tr>
+		<tr>
+			<td width="5%">
+				<br />
+				<br />
+				 </td>
+			<td align="center" width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="#00ff00" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;">Security Account Manager (SAM) Server<br />
+				SAMSRV.DLL</span> <span style="color: black; background-color: red; font-weight: bold" title="Windows will crash without this critical process"> ! </span></td>
+			<td align="center" bgcolor="#80ff80" width="5%">
+				<span style="color: red; font-weight: bold;">↔</span><br />
+				<span style="color: red; font-weight: bold;">↔</span></td>
+			<td align="center" bgcolor="#80ff80" width="20%">
+				<span style="color: red; font-weight: bold;">⌟</span><br />
+				<span style="color: red; font-weight: bold;">↔</span></td>
+			<td align="center" bgcolor="#80ff80" width="5%">
+				<br />
+				<span style="color: red; font-weight: bold;">↔</span></td>
+			<td align="center" bgcolor="#80ff80" width="20%">
+				<span style="color: red; font-weight: bold;">↕</span><br />
+				<span style="color: red; font-weight: bold;">⌟</span></td>
+		</tr>
+		<tr>
+			<td width="5%">
+				<br />
+				<br />
+				 </td>
+			<td align="center" width="20%">
+				↑<br />
+				 </td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="#40ff40" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;">SAM database<br />
+				HKLM\SAM</span> <span style="color: black; background-color: red; font-weight: bold" title="Windows will crash without this critical process"> ! </span></td>
+			<td bgcolor="#80ff80" width="5%">
+				 </td>
+			<td bgcolor="#80ff80" width="20%">
+				 </td>
+			<td bgcolor="#80ff80" width="5%">
+				 </td>
+			<td bgcolor="#80ff80" width="20%">
+				 </td>
+		</tr>
+		<tr>
+			<td width="5%">
+				<br />
+				 </td>
+			<td align="center" width="20%">
+				↑</td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="#80ff80" width="20%">
+				<span style="color: red; font-weight: bold;">↕</span></td>
+			<td bgcolor="#80ff80" width="5%">
+				 </td>
+			<td bgcolor="#80ff80" width="20%">
+				 </td>
+			<td bgcolor="#80ff80" width="5%">
+				 </td>
+			<td bgcolor="#80ff80" width="20%">
+				 </td>
+		</tr>
+		<tr>
+			<td width="5%">
+				<br />
+				<br />
+				 </td>
+			<td align="center" bgcolor="#008080" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;">Windows Logon WINLOGON.EXE</span> <span style="color: black; background-color: red; font-weight: bold" title="Windows will crash without this critical process"> ! </span></td>
+			<td align="center" width="5%">
+				<span style="color: red; font-weight: bold;">↔</span></td>
+			<td align="center" bgcolor="#004000" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="Authentication">LSA Server</span> <span style="color: black; background-color: red; font-weight: bold" title="Windows will crash without this critical process"> ! </span></td>
+			<td bgcolor="#80ff80" width="5%">
+				 </td>
+			<td bgcolor="#80ff80" width="20%">
+				 </td>
+			<td bgcolor="#80ff80" width="5%">
+				 </td>
+			<td bgcolor="#80ff80" width="20%">
+				 </td>
+		</tr>
+		<tr>
+			<td width="5%">
+				<br />
+				<br />
+				 </td>
+			<td align="center" bgcolor="#00bfbf" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="Logon User Interface to collect user logon details">Logon User Interface<br />
+				LOGONUI. EXE</span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="#006000" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="For standalone computers stores cached logon details">LSASS database HKLM\SECURITY</span> <span style="color: black; background-color: red; font-weight: bold" title="Windows will crash without this critical process"> ! </span></td>
+			<td bgcolor="#80ff80" width="5%">
+				 </td>
+			<td bgcolor="#80ff80" width="20%">
+				 </td>
+			<td bgcolor="#80ff80" width="5%">
+				 </td>
+			<td bgcolor="#80ff80" width="20%">
+				 </td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="#00ffff" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="Collect passwords, thumb-prints or whatever authentication is needed.">Credential Provider(s)</span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="#80ff80" width="20%">
+				↑</td>
+			<td bgcolor="#80ff80" width="5%">
+				 </td>
+			<td bgcolor="#80ff80" width="20%">
+				 </td>
+			<td bgcolor="#80ff80" width="5%">
+				 </td>
+			<td bgcolor="#80ff80" width="20%">
+				 </td>
+		</tr>
+		<tr>
+			<td width="5%">
+				<br />
+				<br />
+				 </td>
+			<td align="center" width="20%">
+				↑<br />
+				 </td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="green" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="Starts sessions">Local Security Authority Sub-System<br />
+				LSASS.EXE</span> <span style="color: black; background-color: red; font-weight: bold" title="Windows will crash without this critical process"> ! </span></td>
+			<td bgcolor="#80ff80" width="5%">
+				 </td>
+			<td bgcolor="#80ff80" width="20%">
+				 </td>
+			<td bgcolor="#80ff80" width="5%">
+				 </td>
+			<td bgcolor="#80ff80" width="20%">
+				 </td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				↑</td>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				↑</td>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				 </td>
+		</tr>
+		<tr>
+			<td width="5%">
+				<br />
+				<br />
+				 </td>
+			<td width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="#8080ff" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="Starts sessions">Local Session Manager LSM.EXE</span> <span style="color: black; background-color: red; font-weight: bold" title="Windows will crash without this critical process"> ! </span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="#ff00ff" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="Starts sessions">Service Control Manager SCM.EXE</span> <span style="color: black; background-color: red; font-weight: bold" title="Windows will crash without this critical process"> ! </span></td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				↑</td>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				↑</td>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				↑</td>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				↑</td>
+		</tr>
+		<tr>
+			<td width="5%">
+				<br />
+				<br />
+				 </td>
+			<td width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="orange" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="Runs one-off process for Windows">Windows Initialization WININIT.EXE</span> <span style="color: black; background-color: red; font-weight: bold" title="Windows will crash without this critical process"> ! </span></td>
+			<td align="center" width="5%">
+				→<br />
+				→</td>
+			<td align="center" width="20%">
+				⌟<br />
+				→</td>
+			<td align="center" width="5%">
+				<br />
+				→</td>
+			<td align="center" width="20%">
+				↑<br />
+				⌟</td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				↑</td>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				↑</td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+		</tr>
+		<tr>
+			<td width="5%">
+				<br />
+				<br />
+				 </td>
+			<td align="center" bgcolor="#ff0080" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="Provides the operating environment for Windows application programs">Client-Server Runtime Sub-System<br />
+				CSRSS.EXE</span> <span style="color: black; background-color: red; font-weight: bold" title="Windows will crash without this critical process"> ! </span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="#ff0080" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="Provides the operating environment for Windows application programs">Client-Server Runtime Sub-System<br />
+				CSRSS.EXE</span> <span style="color: black; background-color: red; font-weight: bold" title="Windows will crash without this critical process"> ! </span></td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				↑</td>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				↑</td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+		</tr>
+		<tr>
+			<td width="5%">
+				<br />
+				<br />
+				 </td>
+			<td align="center" bgcolor="blue" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="Starts sessions">Session Manager Sub-System<br />
+				SMSS.EXE</span> <span style="color: black; background-color: red; font-weight: bold" title="Windows will crash without this critical process"> ! </span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="blue" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="Starts sessions">Session Manager Sub-System<br />
+				SMSS.EXE</span> <span style="color: black; background-color: red; font-weight: bold" title="Windows will crash without this critical process"> ! </span></td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="#4040ff" width="20%">
+				<span style="color: white; font-weight: bold;">Interactive session(s) 1 to n</span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="#4040ff" width="20%">
+				<span style="color: white; font-weight: bold;">Non interactive session 0</span></td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				↑</td>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				↑</td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				⌞</td>
+			<td align="center" width="5%">
+				←</td>
+			<td align="center" bgcolor="blue" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="Starts sessions">Session Manager Sub-System<br />
+				SMSS.EXE</span> <span style="color: black; background-color: red; font-weight: bold" title="Windows will crash without this critical process"> ! </span></td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+		</tr>
+		<tr>
+			<td colspan="2" width="25%">
+				<span style="color: black; font-weight: bold; font-size: larger;" title="Running at the lowest level of priority">Ring 3 User mode</span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				↑</td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="20%">
+				 </td>
+		</tr>
+	</tbody>
+</table>
+<hr />
+<p>Notice that I included LogonUI with WinLogon as there was no space for it in another column. The benefit of this is that it highlights that LogonUI is a child process of WinLogon which performs the authentication check with LSASS. </p>
+<p> </p>
+<!-- #### END: User-mode system processes #### --><!-- #### START: Both mode components #### -->
+<div class="header1">
+	<a id="both-modes" name="both-modes"></a>The complete diagram for kernel mode and user mode</div>
+<p>As mentioned before here are Diagram 1 and Diagram 2 combined. If you want to combine Diagram 3 then it attaches to the side of Diagram 2.</p>
+<table class="review-details" width="100%">
+	<thead>
+		<tr>
+			<td align="center" bgcolor="#F2F6F9" class="bordered" colspan="8" valign="middle" width="100%">
+				<strong><a id="diagram-both-modes" name="diagram-both-modes"></a>Diagram 4 - An overview of Windows components</strong></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				<br />
+				<span style="color: black; font-weight: bold;">Windows<br />
+				Services</span><br />
+				 </td>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				<span style="color: black; font-weight: bold;">Windows<br />
+				Applications</span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				<span style="color: black; font-weight: bold;">DOS<br />
+				Applications <span style="color: white; background-color: grey; font-weight: bold" title="Applies to 32-bit Windows">32</span></span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" width="20%">
+				<span style="color: black; font-weight: bold;">POSIX<br />
+				Services</span></td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="magenta" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="A Windows service is a process started by the Service Control Manager (SCM)">Windows<br />
+				services</span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="purple" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="An application is a program or group of programs designed for users">Windows<br />
+				application</span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="grey" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="An application which runs on the DOS (Disk Operating System) which Windows used to run on top of">DOS<br />
+				Application </span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="silver" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="Portable Operating System Interface for UNIX-based programs">POSIX<br />
+				application</span></td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="magenta" class="bordered" colspan="1" width="20%">
+				<span style="color: white; font-weight: bold;" title="DLLs used by service processes">Service DLLs</span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="purple" class="bordered" colspan="1" width="20%">
+				<span style="color: white; font-weight: bold;" title="DLLs that are part of an application, i.e. are not part of Windows">Application DLLs</span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="grey" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="DLLs that are part of an application, i.e. are not part of Windows">Application DLLs</span></td>
+			<td width="5%">
+				 </td>
+			<td align="center" bgcolor="silver" class="bordered" colspan="1" width="20%">
+				<span style="color: white; font-weight: bold;" title="DLLs that are part of an application, i.e. are not part of Windows">Application DLLs</span></td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+		</tr>
+		<tr>
+			<td bgcolor="#E5E4E2" colspan="8" width="100%">
+				<span style="color: black; font-weight: bold;" title="The environment in which programs become processes">Windows Environment Sub-system</span></td>
+		</tr>
+		<tr>
+			<td bgcolor="#E5E4E2" width="5%">
+				 </td>
+			<td align="center" bgcolor="#ffa6a6" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold" title="The Windows Sub-System performs this function">Win32</span><br />
+				<span style="color: white">(See below)</span></td>
+			<td bgcolor="#E5E4E2" width="5%">
+				 </td>
+			<td align="center" bgcolor="#ffa6a6" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold" title="The Windows Sub-System performs this function">Win32</span><br />
+				<span style="color: white">(See below)</span></td>
+			<td bgcolor="#E5E4E2" width="5%">
+				 </td>
+			<td align="center" bgcolor="#ffa6a6" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold" title="The Windows Sub-System performs this function">Win32<br />
+				<span style="font-weight: normal">(See below)</span><br />
+				+ VDM DLLs</span></td>
+			<td bgcolor="#E5E4E2" width="5%">
+				 </td>
+			<td align="center" bgcolor="silver" class="bordered" colspan="1" width="20%">
+				<span style="color: white; font-weight: bold;" title="SUA allows POSIX applications to run on Windows">Sub-system for Unix Applications (SUA) API<br />
+				PsxDLL.DLL</span></td>
+		</tr>
+		<tr>
+			<td bgcolor="#E5E4E2" colspan="8" width="100%">
+				<span style="color: black; font-weight: bold;" title="The process that executes a program and provides the environment it runs in">Windows Environment Support Image</span></td>
+		</tr>
+		<tr>
+			<td bgcolor="#E5E4E2" width="5%">
+				 </td>
+			<td align="center" bgcolor="#ffa6a6" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold" title="The Windows Sub-System performs this function">CSRSS.EXE</span><br />
+				<span style="color: white">(See below)</span></td>
+			<td bgcolor="#E5E4E2" width="5%">
+				 </td>
+			<td align="center" bgcolor="#ffa6a6" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold" title="The Windows Sub-System performs this function">CSRSS.EXE<br />
+				<span style="font-weight: normal">See below</span></span></td>
+			<td bgcolor="#E5E4E2" width="5%">
+				 </td>
+			<td align="center" bgcolor="grey" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="Emulates the DOS environment for DOS programs to run in">NT Virtual DOS Machine<br />
+				NTVDM.EXE or<br />
+				Command Interpreter<br />
+				CMD.EXE</span></td>
+			<td bgcolor="#E5E4E2" width="5%">
+				 </td>
+			<td align="center" bgcolor="silver" class="bordered" width="20%">
+				<span style="color: white; font-weight: bold;" title="Executes POSIX programs and provides the operating environment for the process">POSIX.EXE</span></td>
+		</tr>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				<br />
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				<br />
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				<br />
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				<br />
+				↓</td>
+		</tr>
+	</tbody>
+</table>
+<table class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="10%">
+				 </td>
+			<td width="10%">
+				 </td>
+			<td align="center" valign="middle" width="10%">
+				 </td>
+			<td width="10%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="10%">
+				 </td>
+			<td width="10%">
+				 </td>
+			<td width="10%">
+				 </td>
+			<td width="10%">
+				 </td>
+			<td width="5%">
+				 </td>
+		</tr>
+		<tr>
+			<td bgcolor="#ffa6a6" colspan="12" width="100%">
+				<span style="color: black; font-weight: bold; font-size: larger;" title="The Windows operating environment for Windows programs">The Windows Sub-system including the Win32 API </span><span style="color: black; font-weight: bold; background-color: red;"> ! </span></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ffa6a6" colspan="7" width="55%">
+				 </td>
+			<td bgcolor="#ff8080" colspan="4" width="40%">
+				<span style="color: white; font-weight: bold;" title="These four DLLS are the major part of the Win32 API">Client DLLs - major DLLs <span style="color: black; font-weight: bold; background-color: red;"> ! </span></span></td>
+			<td bgcolor="#ffa6a6" width="5%">
+				 </td>
+		</tr>
+		<tr>
+			<td bgcolor="#ffa6a6" width="5%">
+				 </td>
+			<td align="center" bgcolor="#ff0080" colspan="5" width="45%">
+				<span style="color: white; font-weight: bold;" title="Provides the operating environment for Windows application programs">Client Server Runtime Sub-System<br />
+				 CSRSS.EXE <span style="color: black; font-weight: bold; background-color: red;"> ! </span><br />
+				One instance for non-interactive session 0<br />
+				One to n instances for interactive sessions 1-n</span></td>
+			<td align="center" bgcolor="#ffa6a6" width="5%">
+				←<br />
+				→</td>
+			<td align="center" bgcolor="red" class="bordered" width="10%">
+				<span style="color: white; font-weight: bold;" title="Other, often newer and more advanced, features not provided by User, GDI, and Base DLLs">Other<br />
+				 <br />
+				 <br />
+				AdvAPI32<br />
+				.DLL</span></td>
+			<td align="center" bgcolor="red" class="bordered" width="10%">
+				<span style="color: white; font-weight: bold;" title="The base APIs include managing memory and creating processes and threads">BASE<br />
+				 <br />
+				 <br />
+				Kernel32<br />
+				.DLL</span></td>
+			<td align="center" bgcolor="red" class="bordered" width="10%">
+				<span style="color: white; font-weight: bold;" title="Creates the elements of the graphical user interface">USER<br />
+				 <br />
+				 <br />
+				User32<br />
+				.DLL</span></td>
+			<td align="center" bgcolor="red" class="bordered" width="10%">
+				<span style="color: white; font-weight: bold;" title="Draws elements on output devices such as the screen and printer">GDI<br />
+				 <br />
+				 <br />
+				GDI32<br />
+				.DLL</span></td>
+			<td bgcolor="#ffa6a6" width="5%">
+				 </td>
+		</tr>
+		<tr>
+			<td bgcolor="#ffa6a6" colspan="12" width="100%">
+				 </td>
+		</tr>
+		<tr>
+			<td bgcolor="#ffa6a6" colspan="3" width="20%">
+				 </td>
+			<td bgcolor="#ff409f" colspan="3" width="30%">
+				<span style="color: white; font-weight: bold;" title="CSRSS has an instance for every session and loads the server DLLs for each one">Server DLLs - for each CSRSS instance</span> <span style="color: black; font-weight: bold; background-color: red;"> ! </span></td>
+			<td bgcolor="#ffa6a6" width="5%">
+				 </td>
+			<td bgcolor="#d76060" colspan="5" width="45%">
+				<span style="color: white; font-weight: bold;" title="There are many more DLLs providing the Win32 API">Other Win32 DLLs</span> <span style="color: black; font-weight: bold; background-color: red;"> ! </span></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ffa6a6" width="5%">
+				 </td>
+			<td bgcolor="#ffa6a6" width="5%">
+				 </td>
+			<td align="center" bgcolor="#800040" class="bordered" width="10%">
+				<span style="color: white; font-weight: bold;" title="Allows the console window to support drag and drop and Windows themes">Console Host<br />
+				<br />
+				<br />
+				 ConHost<br />
+				.EXE</span></td>
+			<td align="center" bgcolor="#bf0060" class="bordered" width="10%">
+				<span style="color: white; font-weight: bold;" title="Creates and delete processes and threads">BASE<br />
+				 <br />
+				 <br />
+				BaseSrv<br />
+				.DLL</span></td>
+			<td align="center" bgcolor="#bf0060" class="bordered" width="10%">
+				<span style="color: white; font-weight: bold;" title="Handles Side-by-Side (SxS) lists of DLLs with different versions">Multi-user<br />
+				Windows<br />
+				 <br />
+				WinSrv<br />
+				.DLL</span></td>
+			<td align="center" bgcolor="#bf0060" width="10%">
+				<span style="color: white; font-weight: bold;" title="Manages consoles">Client<br />
+				Server<br />
+				Runtime<br />
+				CSRSrv<br />
+				.DLL</span></td>
+			<td bgcolor="#ffa6a6" width="5%">
+				 </td>
+			<td align="center" bgcolor="brown" class="bordered" width="10%">
+				<span style="color: white; font-weight: bold;" title="Provides dialog boxes">Windows Common<br />
+				Dialogs<br />
+				Library<br />
+				ComDlg32<br />
+				.DLL</span></td>
+			<td align="center" bgcolor="brown" class="bordered" width="10%">
+				<span style="color: white; font-weight: bold;" title="Provides buttons, scroll bars and other Windows controls">Windows<br />
+				Common<br />
+				Controls<br />
+				Library<br />
+				ComCtl32<br />
+				.DLL</span></td>
+			<td align="center" bgcolor="brown" width="10%">
+				<span style="color: white; font-weight: bold;" title="Provides access to Windows desktop and user interface objects">Windows<br />
+				Shell<br />
+				Common<br />
+				DLL<br />
+				Shell32<br />
+				.DLL</span></td>
+			<td align="center" bgcolor="brown" width="10%">
+				<span style="color: white; font-weight: bold;" title="Has many utility functions">Shell<br />
+				Light-weight<br />
+				Utility<br />
+				Library<br />
+				ShLWAPI<br />
+				.DLL</span></td>
+			<td align="center" bgcolor="brown" width="5%">
+				<span style="color: white; font-weight: bold;" title="There are more DLLs not listed here">etc.</span></td>
+		</tr>
+		<tr>
+			<td bgcolor="#ffa6a6" colspan="12" width="100%">
+				 </td>
+		</tr>
+	</tbody>
+</table>
+<table class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+		</tr>
+	</tbody>
+</table>
+<table class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td align="center" bgcolor="orange" class="bordered" width="100%">
+				<br />
+				<span style="color: white; font-weight: bold;" title="The API that is available to before the Windows Subsystem (Win32 API) is running">Native Windows API<br />
+				NTDLL .DLL </span><span style="color: black; font-weight: bold; background-color: red;"> ! </span><br />
+				 </td>
+		</tr>
+	</tbody>
+</table>
+<table class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td align="center" valign="middle" width="20%">
+				↓</td>
+		</tr>
+	</tbody>
+</table>
+<table class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td width="100%">
+				<span style="color: black; font-weight: bold; font-size: larger;" title="Running at the lowest level of priority">Ring 3 User mode</span></td>
+		</tr>
+	</tbody>
+</table>
+<hr />
+<table class="review-details" width="100%">
+	<tbody>
+		<tr>
+			<td width="15%">
+				<span style="color: black; font-weight: bold; font-size: larger;" title="Kernel mode means running at the highest privilege level: Ring 0">Ring 0 Kernel mode</span></td>
+			<td width="10%">
+				↓</td>
+			<td width="10%">
+				 </td>
+			<td align="center" width="10%">
+				↓</td>
+			<td width="10%">
+				 </td>
+			<td align="center" width="15%">
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				↓</td>
+			<td width="5%">
+				 </td>
+		</tr>
+		<tr>
+			<td align="center" class="bordered" width="15%">
+				<span style="color: black; font-weight: bold;" title="System threads include the Memory Manager, the Security Reference Monitor, and driver-created threads">System threads</span></td>
+			<td width="10%">
+				 </td>
+			<td width="10%">
+				 </td>
+			<td align="center" width="10%">
+				 </td>
+			<td width="10%">
+				 </td>
+			<td align="center" width="15%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+		</tr>
+		<tr>
+			<td align="center" class="bordered" width="15%">
+				<span style="color: black; font-weight: bold;" title="Every processor has an idle thread to account for when it is not being used">Idle threads</span></td>
+			<td width="10%">
+				↓</td>
+			<td width="10%">
+				 </td>
+			<td align="center" width="10%">
+				↓</td>
+			<td width="10%">
+				 </td>
+			<td align="center" width="15%">
+				↓</td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				↓</td>
+			<td width="5%">
+				 </td>
+		</tr>
+		<tr>
+			<td width="15%">
+				 </td>
+			<td width="10%">
+				 </td>
+			<td width="10%">
+				 </td>
+			<td align="center" width="10%">
+				 </td>
+			<td width="10%">
+				 </td>
+			<td align="center" width="15%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+			<td width="5%">
+				 </td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="blue" colspan="12" width="100%">
+				<span style="color: white; font-weight: bold;" title="Entry to the kernel can be by interrupts, API calls, or other methods. The kernel has a trap to catch each one.">Kernel trap handlers</span></td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="blue" colspan="12" width="100%">
+				<span style="color: white; font-weight: bold;" title="The dispatcher sends the trapped event to the correct kernel-mode component">System Service Dispatcher</span></td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="orange" colspan="5" width="55%">
+				<span style="color: white; font-weight: bold;" title="The kernel has no APIs but the various kernel sub-systems that make up the Executive do">Executive APIs</span><br />
+				 </td>
+			<td align="center" bgcolor="red" colspan="1" width="15%">
+				 </td>
+			<td align="center" bgcolor="red" colspan="3" width="15%">
+				<span style="color: white; font-weight: bold;">Windows sub-System<br />
+				Win32K API</span></td>
+			<td align="center" bgcolor="red" colspan="3" width="15%">
+				 </td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="green" colspan="1" width="15%">
+				<span style="color: white; font-weight: bold;" title="The Input-Output (IO) Manager is the primary interface to non-graphical device drivers.">IO Mgr.</span></td>
+			<td align="center" bgcolor="green" colspan="1" width="10%">
+				<span style="color: white; font-weight: bold;" title="The Security Reference Monitor is the heart of the security systems">SRM</span></td>
+			<td align="center" bgcolor="green" colspan="1" width="10%">
+				<span style="color: white; font-weight: bold;">...</span></td>
+			<td align="center" bgcolor="green" colspan="1" width="10%">
+				<span style="color: white; font-weight: bold;">...</span></td>
+			<td align="center" bgcolor="green" colspan="1" width="10%">
+				<span style="color: white; font-weight: bold;" title="Advanced Local Process Call handles communications between components">ALPC </span><span style="color: white; background-color: green; font-weight: bold" title="New to Windows 7"> 7 </span></td>
+			<td align="center" bgcolor="red" colspan="1" width="15%">
+				<span style="color: white; font-weight: bold;" title="The Window Manager handles input from the keyboard and mouse and output to the screen">Window<br />
+				Manager</span></td>
+			<td align="center" bgcolor="red" colspan="3" width="15%">
+				<span style="color: white; font-weight: bold;">GDI</span></td>
+			<td align="center" bgcolor="red" colspan="3" width="15%">
+				<span style="color: white; font-weight: bold;">DirectX</span></td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="grey" colspan="1" width="15%">
+				<span style="color: white; font-weight: bold;" title="Device drivers are written by third parties, i.e. not just Microsoft, using the Windows Device Driver Kit">Device, File System, Filter,</span></td>
+			<td align="center" bgcolor="green" colspan="4" width="40%">
+				<span style="color: white; font-weight: bold;">Executive</span><br />
+				 </td>
+			<td align="center" bgcolor="red" colspan="1" width="15%">
+				 </td>
+			<td align="center" bgcolor="grey" colspan="6" width="30%">
+				<br />
+				<span style="color: white; font-weight: bold;" title="Graphics device drivers have direct access to hardware">Graphics Device Drivers (WDDM)</span></td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="grey" colspan="1" width="15%">
+				<span style="color: white; font-weight: bold;">and Network<br />
+				Drivers</span></td>
+			<td align="center" bgcolor="green" colspan="4" width="40%">
+				<span style="color: white; font-weight: bold;" title="The Object Manager is used for data structures that are shared or need to be exposed to user-mode processes">Object Manager</span><br />
+				 </td>
+			<td align="center" bgcolor="red" colspan="1" width="15%">
+				 </td>
+			<td align="center" bgcolor="grey" colspan="6" width="30%">
+				<span style="color: white; font-weight: bold;">Interface (DDI) Drivers</span><br />
+				 </td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="grey" colspan="1" width="15%">
+				 </td>
+			<td align="center" bgcolor="blue" colspan="6" width="60">
+				<span style="color: white; font-weight: bold;" title="The Kernel has no APIs and mainly focuses on managing the CPU">Kernel</span><br />
+				 </td>
+			<td align="center" bgcolor="grey" colspan="5" width="25%">
+				 </td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="darkblue" colspan="9" width="85%">
+				<span style="color: white; font-weight: bold;" title="The HAL layer makes Windows more independent of the hardware it runs on">Hardware Abstraction Layer (HAL)</span><br />
+				 </td>
+			<td align="center" bgcolor="grey" colspan="3" width="15%">
+				 </td>
+		</tr>
+		<tr>
+			<td align="center" bgcolor="black" colspan="12" width="100%">
+				<span style="color: white; font-weight: bold;" title="The Hardware Interface manages direct memory access (DMA) and other motherboard hardware.">Hardware Interface</span><br />
+				 </td>
+		</tr>
+	</tbody>
+</table>
+<p> </p>
+<!-- #### END: Both mode components #### --><!-- #### BEGIN: Related Links #### -->
+<div class="header1">
+	Related Links</div>
+<ul>
+	<li>
+		<a href="windows-startup-terminology.htm" target="_blank" title="Read this article first">Windows Startup Terminology</a> summarises terms that are used in this article. The terms generally relate to running programs so there is section on how programs start and run.</li>
+	<li>
+		<a href="windows-7-startup.htm" target="_blank" title="Understand Windows 7 Startup phases and processes">Windows 7 Startup</a> is an overview of the startup phases and activities for Windows 7. It also describes the main Windows components and lists more detailed activities including relevant registry keys and values.</li>
+	<li>
+		<a href="what-everybody-should-know-about-windows-registry.htm" target="_blank" title="Read this article first">What Everybody Should Know About the Windows Registry</a></li>
+</ul>
+<p>Microsoft references:</p>
+<ul>
+	<li>
+		The <a href="http://technet.microsoft.com/en-us/sysinternals/bb963901" target="_blank" title="Go to Microsoft SysInternals">Windows Internals</a> book does not specifically look at Windows startup but it does look at the components involved in many aspects of startup. The 6th Edition looks at Windows 7 and the two volumes are cheap at the moment because the next edition which covers Windows 8 should be available later in 2014.</li>
+</ul>
+<!-- #### END: Related Links#### -->
+<p><a href="windows-7-components-startup.htm#article-top">Back to the top of the article.</a></p>
+<p> </p>
+</div></div></div><section class="field field-name-field-vote field-type-fivestar field-label-above view-mode-full"><h2 class="field-label">Please rate this article:&nbsp;</h2><div class="field-items"><div class="field-item even"><form class="fivestar-widget" action="windows-7-components-startup.htm" method="post" id="fivestar-custom-widget" accept-charset="UTF-8"><div><div  class="clearfix  fivestar-combo-text fivestar-combo-stars fivestar-form-item fivestar-oxygen"><div class="form-item form-type-fivestar form-item-vote">
+ <div class="form-item form-type-select form-item-vote">
+ <select id="edit-vote--2" name="vote" class="form-select"><option value="-">Select rating</option><option value="20">Give Windows 7 Startup Components 1/5</option><option value="40">Give Windows 7 Startup Components 2/5</option><option value="60">Give Windows 7 Startup Components 3/5</option><option value="80">Give Windows 7 Startup Components 4/5</option><option value="100">Give Windows 7 Startup Components 5/5</option><option value="0" selected="selected">Cancel rating</option></select>
+<div class="description"><div class="fivestar-summary fivestar-summary-user"><span class="user-rating">Your rating: <span>None</span></span></div></div>
+</div>
+<div class="fivestar-static-form-item"><div class="form-item form-type-item">
+  <div class="fivestar-oxygen"><div class="fivestar-widget-static fivestar-widget-static-vote fivestar-widget-static-5 clearfix"><div class="star star-1 star-odd star-first"><span class="on">4.38095</span></div><div class="star star-2 star-even"><span class="on"></span></div><div class="star star-3 star-odd"><span class="on"></span></div><div class="star star-4 star-even"><span class="on"></span></div><div class="star star-5 star-odd star-last"><span class="on" style="width: 38.095%"></span></div></div></div>
+<div class="description"><div class="fivestar-summary fivestar-summary-average-count"><span class="average-rating">Average: <span >4.4</span></span> <span class="total-votes">(<span >21</span> votes)</span></div></div>
+</div>
+</div>
+</div>
+</div><input class="fivestar-submit form-submit" type="submit" id="edit-fivestar-submit" name="op" value="Rate" /><input type="hidden" name="form_build_id" value="form-vLoecEr8AE_W3MdTCTgk3c-PluuWY0Ch74jfnQe5x5A" />
+<input type="hidden" name="form_id" value="fivestar_custom_widget" />
+</div></form></div></div></section><div class="likebtn_container"><!-- LikeBtn.com BEGIN -->
+<span class="likebtn-wrapper" data-identifier="node_6920" data-engine="drupal"  data-engine_v="7.80"  data-plugin_v="1.12"  data-item_url="https://www.techsupportalert.com/node/6920"  data-item_title="Windows 7 Startup Components"  data-item_date="2014-08-22T20:12:25+00:00" ></span>
+<script type="text/javascript">if (typeof(LikeBtn) != "undefined") { LikeBtn.init(); }</script>
+<!-- LikeBtn.com END --></div>  </div>
+
+      <nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6920%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6920%23comment-form">register</a> to post comments</span></li><li class="print_html last"><a href="https://www.techsupportalert.com/print/content/windows-7-components-startup.htm" title="Display a printer-friendly version of this page." class="print-page" rel="nofollow"><img class="print-icon print-icon-margin image-style-none" src="../sites/all/modules/print/icons/print_icon.png" width="16px" height="16px" alt="Printer-friendly version" title="Printer-friendly version" />Printer-friendly version</a></li></ul></nav>
+  
+  <p class="show-comments"><section id="comments" class="comment-wrapper">
+
+          <h2 class="comment-title title">Comments</h2>
+      
+  <a id="comment-125446"></a>
+<article class="comment odd first clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/flyinghawk" title="View user profile." class="username">FlyingHawk</a> on <time datetime="2016-02-05T06:02:15Z"><span class="date-time">5. February 2016 - 6:02</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="windows-7-components-startup.htm#comment-125446">(125446)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>Thank you for such a detailed (or simplified by your standard) article. Haven't read through everything yet. Bookmarked and will study more.</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6920%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6920%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article><a id="comment-118376"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/eikelein" title="View user profile." class="username">eikelein</a> on <time datetime="2014-09-04T13:18:29Z"><span class="date-time">4. September 2014 - 13:18</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="windows-7-components-startup.htm#comment-118376">(118376)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>@Remah:<br />
+Wow!<br />
+And THANK YOU!</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6920%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6920%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article><a id="comment-118374"></a>
+<article class="comment odd last clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/ektorbarajas" title="View user profile." class="username">ektorbarajas</a> on <time datetime="2014-09-04T12:31:50Z"><span class="date-time">4. September 2014 - 12:31</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="windows-7-components-startup.htm#comment-118374">(118374)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>Congratulations for such a detailed and very well explained article.<br />
+Very useful</p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/6920%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/6920%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+  
+</section>
+
+  </article>
+</div>
+</div></div>
+</section>
+<div class="region region-content-aside"><div class="region-inner clearfix"><div id="block-block-72" class="clearfix block block-block no-title odd first block-count-7 block-region-content-aside block-72">
+<a href="windows-7-components-startup.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+
+<script>
+var signedin = 'Notsignedin';
+if (signedin == "Notsignedin") {
+if (screen.width > 480) {
+document.write('<scr' + 'ipt data-cfasync="false" type="text/javascript" src="//p425764.clksite.com/adServe/banners?tid=425764_834678_3"></scr' + 'ipt>');
+} else {
+document.write('<scr' + 'ipt data-cfasync="false" type="text/javascript" src="//p425764.clksite.com/adServe/banners?tid=425764_834678_4"></scr' + 'ipt>');
+}
+}
+</script>
+</div>
+</div><div id="block-block-47" class="clearfix block block-block even block-count-8 block-region-content-aside block-47">
+<a href="windows-7-components-startup.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Gizmo&#039;s Freeware Featured Articles</h2>
+<div class="content" class="block-content content">
+<div class="index-block">
+<div>
+		<a href="../best-free-anti-virus-software.htm"><span class="fa fa-shield fa-3x fa-fw" style="color: #DC143C;"> </span><span>Best Free Antivirus</span></a></div>
+<div>
+		<a href="https://www.techsupportalert.com/free-books-kindle"><span class="fa fa-book fa-3x fa-fw" style="color: #00FF00;"> </span><span>Free Kindle Books</span></a></div>
+<div>
+		<a href="best-vpn-services.htm"><span class="fa fa-lock fa-3x fa-fw" style="color: #0000CD;"> </span><span>Best Paid VPN Service</span></a></div>
+<div>
+		<a href="best-free-antivirus-app-android.htm"><span class="fa fa-shield fa-3x fa-fw" style="color: #B22222;"> </span><span>Best Free Antivirus for Android</span></a></div>
+<div>
+		<a href="../best-free-dvd-ripper.htm"><span class="fa fa-file-video-o fa-3x fa-fw" style="color: #2F4F4F;"> </span><span>Best Free DVD Ripper</span></a></div>
+<div>
+		<a href="../best-free-live-wallpapers-android.htm"><span class="fa fa-android fa-3x fa-fw" style="color: green;"> </span><span>Best Free Live Wallpaper for Android</span></a></div>
+</div>
+<p style="clear:both;"> </p>
+</div>
+</div><div id="block-block-31" class="clearfix block block-block no-title odd last block-count-9 block-region-content-aside block-31">
+<a href="windows-7-components-startup.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div style="border-top: 1px solid #999999; border-bottom: 1px solid #999999; padding: 8px;">
+<p style="font-size: 14px; font-weight: bold;">Gizmo's Freeware is Recruiting</p>
+<p><img alt="Gizmos Needs You" src="../files/images/logos/Gizmos-Freeware-63-84.png" style="width: 63px; height: 84px; float: left; padding: 0px 8px 8px 0px;" />We are looking for people with skills or interest in the following areas:<br />
+		 -  Mobile Platform App Reviews for Android and iOS<br />
+		 -  Windows, Mac and Linux software reviews</p>
+<p><strong>Interested?</strong> <a href="../we-need-you.htm">Click here</a></p>
+</div>
+<p> </p>
+</div>
+</div></div></div></div>
+</div>
+<div class="region region-sidebar-second sidebar"><div class="region-inner clearfix"><div id="block-block-75" class="clearfix block block-block no-title odd first block-count-10 block-region-sidebar-second block-75">
+<a href="windows-7-components-startup.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div id="rc-widget-23b966" data-rc-widget data-widget-host="habitat" data-endpoint="//trends.revcontent.com" data-widget-id="181303"></div>
+<script type="text/javascript" src="https://assets.revcontent.com/master/delivery.js" defer="defer"></script></div>
+</div><div id="block-block-22" class="clearfix block block-block even block-count-11 block-region-sidebar-second block-22">
+<a href="windows-7-components-startup.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Best Freeware Lists</h2>
+<div class="content" class="block-content content">
+<div class="content" class="block-content content">
+<style type="text/css">
+.swlist-sidebar a {display:block; width:100%; margin-top:8px; min-height:36px;}
+.swlist-sidebar span.fa, span.fa-stack {height:28px; padding:4px 8px 4px 8px; width:28px; text-align:center; float:left;}
+.swlist-sidebar span.swtitle-sidebar {display:table-cell; height:36px; vertical-align: middle;}
+.swlist-sidebar div {display:table-row;}
+</style>
+<div class="swlist-sidebar">
+<div><a href="../software-finder"><span class="fa fa-search fa-2x" style="color: #4b5cc3;"></span> <span class="swtitle-sidebar">Search with Software Finder</span></a></div>
+<div><a href="../best-free-windows-desktop-software.htm"><span class="fa fa-windows fa-2x" style="color: #70c0f0;"></span> <span class="swtitle-sidebar">Windows Desktop Software</span></a></div>
+<div><a href="../best-free-windows-apps.htm"> <span class="fa fa-windows fa-2x" style="color: #70c0f0;"></span> <span class="swtitle-sidebar">Windows Apps</span></a></div>
+<div><a href="../best-free-portable-programs.htm"> <span class="fa fa-check-square-o fa-2x" style="color: #70c0f0;"></span> <span class="swtitle-sidebar">Windows Portable Apps</span></a></div>
+<div><a href="best-free-software-mac-os.htm"> <span class="fa fa-apple fa-2x" style="color: #1653a8;"></span> <span class="swtitle-sidebar">Mac Software</span></a></div>
+<div><a href="best-free-software-linux.htm"> <span class="fa fa-linux fa-2x" style="color: #404040;"></span> <span class="swtitle-sidebar">Linux Software</span></a></div>
+<div><a href="../best-free-android-apps.htm"> <span class="fa fa-android fa-2x" style="color: #a2c43b;"></span> <span class="swtitle-sidebar">Android Apps</span></a></div>
+<div><a href="../best-free-ipad-apps.htm"> <span class="fa fa-tablet fa-2x" style="color: #404040;"></span> <span class="swtitle-sidebar">iPad Apps</span></a></div>
+<div><a href="../best-free-iphone-apps.htm"> <span class="fa fa-mobile fa-2x" style="color: #404040;"></span> <span class="swtitle-sidebar">iPhone Apps</span></a></div>
+<div><a href="best-free-online-applications-and-services.htm"> <span class="fa fa-globe fa-2x" style="color: #006600;"></span> <span class="swtitle-sidebar">Online Apps</span></a></div>
+<div><a href="https://www.techsupportalert.com/content/50-places-free-books-online.htm"> <span class="fa fa-book fa-2x" style="color: #990000;"></span> <span class="swtitle-sidebar">eBooks /Audiobooks</span></a></div>
+<div><a href="probably-best-free-security-list-world.htm"> <span class="fa fa-exclamation-triangle fa-2x" style="color: #FF3300;"></span> <span class="swtitle-sidebar">Security Software</span></a></div>
+</div>
+<div style="clear:both;">&nbsp;</div>
+</div>
+<style type="text/css">
+.imgContainer{float:left;}
+</style>
+<p><strong>Support Gizmo's Freeware By</strong></p>
+<div>
+    <div class="imgContainer"><a href="../donate.htm"><img src="../files/images/aa/Donating-125-350e.png" height="auto" width="125"/></a></div>
+    <div class="imgContainer"><a href="../become-a-reviewer.htm"><img class="middle-img" src="../files/images/aa/Reviewing-125-350e.png" style="margin-left:2px;" height="auto" width="125"/></a></div>
+</div>
+<div style="clear:both;"></div></div>
+</div><div id="block-block-61" class="clearfix block block-block odd block-count-12 block-region-sidebar-second block-61">
+<a href="windows-7-components-startup.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Get Notified of New Finds</h2>
+<div class="content" class="block-content content">
+<div>
+   <p>
+      <!-- <a href="http://feedburner.google.com/fb/a/mailverify?uri=gizmosbest" title="Subscribe to email..."><i class="fa fa-envelope fa-3x" style="color: #00cc99;"></i></a>&nbsp; -->
+      <a href="http://feeds.feedburner.com/gizmosbest" title="Go to our RSS feeds..."><i class="fa fa-rss-square fa-3x" style="color: #ffb300;"></i></a>&nbsp;
+      <a href="http://www.facebook.com/pages/Gizmos-Freeware/114026985301900" title="Follow us on Facebook..."><i class="fa fa-facebook-square fa-3x" style="color: #3b5889;"></i></a>&nbsp;
+      <a href="http://twitter.com/GizmosFreeware" title="Follow us on Twitter..."><i class="fa fa-twitter-square fa-3x" style="color: #55acee;"></i></a>
+   </p>
+</div>
+<style>
+#block-block-61 { text-align:center; }
+#block-block-61 a { display:inline-block; }
+#block-block-61 a.dropdown-toggle { display: none; }
+#block-block-61 .content{
+   background:#f9f9f9;
+   padding: 10px 10px 5px 10px;
+   margin-top: 10px;
+   margin-right:10px;
+   -webkit-border-radius: 12px;
+   -moz-border-radius: 12px;
+   border-radius: 12px;
+   border:1px solid #ccc;
+}
+#block-block-61 h3 { margin:10px 0; }
+</style>
+
+<div id="right-slidead-popup" style="display:block;">
+   <form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=gizmosbest', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+      <p class="bold-text">Get notified by email of our latest finds:</p>
+      <p><input type="text" style="width:120px" placeholder="Enter email" name="email">
+         <input type="hidden" value="gizmosbest" name="uri">
+         <input type="hidden" name="loc" value="en_US">
+         <input type="submit" value="Subscribe">
+      </p>
+   </form>
+</div>
+</div><div id="block-views-5c6f20eccafaaae472f19682f8491590" class="clearfix block block-views even block-count-13 block-region-sidebar-second block-5c6f20eccafaaae472f19682f8491590">
+<a href="windows-7-components-startup.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Currently Popular</h2>
+<div class="content" class="block-content content">
+<div class="view view-currently-popular-customized view-id-currently_popular_customized view-display-id-block_1 curr-pop view-dom-id-5850d51c4294b6fe3bf1d38bda38725a">
+<div class="view-content">
+<table  class="views-table cols-0">
+       <tbody>
+          <tr  class="odd views-row-first">
+                  <td  class="views-field views-field-title">
+            <a href="best-free-software-linux.htm">Best Free Software for Linux</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="../es/mejores-aplicaciones-y-servicios-gratuitos-online.htm">Mejores Aplicaciones y Servicios Gratuitos Online</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="mejor-software-gratuito-de-64-bits-para-windows-7vista.htm">Mejor Software Gratuito para Windows de 64 bits</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="time-say-farewell.htm">Time to Say Farewell</a>          </td>
+              </tr>
+          <tr  class="odd views-row-last">
+                  <td  class="views-field views-field-title">
+            <a href="../es/mejor-software-para-linux-gratuito.htm">Mejor Software para Linux Gratuito</a>          </td>
+              </tr>
+      </tbody>
+</table>
+</div>
+
+<div class="more-link">
+  <a href="../currently-popular-customized.htm">
+    more  </a>
+</div>
+</div>
+</div>
+</div><div id="block-views-articles-by-user-block-1" class="clearfix block block-views odd last block-count-14 block-region-sidebar-second block-articles-by-user-block-1">
+<a href="windows-7-components-startup.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Top Rated</h2>
+<div class="content" class="block-content content">
+<div class="view view-articles-by-user view-id-articles_by_user view-display-id-block_1 view-currently-popular-customized more-link curr-pop view-dom-id-6f78dcd4205ff54d64271d8e408e700f">
+<div class="view-content">
+<table  class="views-table cols-1">
+         <thead>
+      <tr>
+                  <th  class="views-field views-field-title" scope="col">
+            <a href="https://www.techsupportalert.com/content/windows-7-components-startup.htm?order=title&amp;sort=asc" title="sort by " class="active"></a>          </th>
+              </tr>
+    </thead>
+    <tbody>
+          <tr  class="odd views-row-first">
+                  <td  class="views-field views-field-title">
+            <a href="create-your-own-blob-opera-google-s-new-musical-experiment.htm">Create Your Own “Blob Opera” with Google’s New Musical Experiment</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="amazing-act-generosity.htm">An Amazing Act of Generosity</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="jpg-optimizer-works-entirely-your-browser.htm">This JPG Optimizer Works Entirely in Your Browser</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="instantly-add-color-black-and-white-photos-image-colorizer.htm">Instantly Add Color to Black and White Photos with Image Colorizer</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="fond-farewell-me.htm">A Fond Farewell From Me</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="get-authoritative-answers-all-your-questions-online-encyclopedia.htm">Get Authoritative Answers to All Your Questions With This Online Encyclopedia</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="rain-alarm-be-notified-approaching-rain-or-snow.htm">Rain Alarm - Be Notified of Approaching Rain or Snow</a>          </td>
+              </tr>
+          <tr  class="even views-row-last">
+                  <td  class="views-field views-field-title">
+            <a href="get-easy-access-frequently-used-symbols-not-your-keyboard.htm">Get Easy Access to Frequently Used Symbols Not on Your Keyboard</a>          </td>
+              </tr>
+      </tbody>
+</table>
+</div>
+
+<div class="more-link">
+  <a href="https://www.techsupportalert.com/articles-user">
+    more  </a>
+</div>
+</div>
+</div>
+</div></div></div></div>
+</div>
+<footer id="footer" role="contentinfo">
+<div id="footer-inner" class="clearfix">
+<div class="region region-footer"><div class="region-inner clearfix"><div id="block-block-3" class="clearfix block block-block no-title odd first last block-count-15 block-region-footer block-3">
+<a href="windows-7-components-startup.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<p class="rtecenter"><a href="../terms-and-conditions.htm">Terms &amp; Conditions</a> | <a href="https://www.techsupportalert.com/privacy-policy.htm">Privacy Policy</a> | <a href="contact-us.htm">Contact</a> | <a href="../about-this-site">About</a></p>
+</div>
+</div></div></div><p class="attribute-creator"></p>
+</div>
+</footer>
+</div>
+</div>
+<style type="text/css">.invis{visibility:hidden;display:none}.vis{visibility:visible;display:inline}#more{display:none}#show,#hide{text-decoration:none;cursor:pointer;color:#3452c9;font-weight:bold;padding-left:20px}#show{background:transparent url(../files/images/icons/down.png) no-repeat left}#hide{background:transparent url(../files/images/icons/up.png) no-repeat left}select.dropdown{border:1px solid #cbcec3;background-color:#f2f6f9;font-size:1.1em;height:2em}select.dropdown-width{width:50%}@media only screen and (max-width:1024px){select.dropdown-width{width:100%}}span.cat-title{height:58px;display:table;font-size:1.3em;font-weight:bold}span.vert-align{display:table-cell;vertical-align:middle}img.cat-icon{width:82px;height:58px;float:left;padding-right:15px}.show-more{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:120px;padding:0 4px 0 4px}.show-review{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:120px;padding:0 4px 0 4px}.show-comments{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#eef0f8;border:1px solid #009;border-radius:2px;width:140px;padding:4px 8px 4px 8px}.gizmoslist-button{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:130px;padding:0 4px 0 4px}.gizmoslist-button:hover{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#e8e8e8;border:1px solid #999;border-radius:2px;width:130px;padding:0 4px 0 4px}</style>
+<script language="javascript" type="text/javascript">/*<![CDATA[*/var cn="invis";var ids=new Array("pg01","pg02","pg03","pg04","pg05","pg06","pg07","pg08","pg09","pg10","pg11","pg12");function doSwap(){cn=="vis"?cn="invis":cn="vis";for(var a=0;a<ids.length;a++){document.getElementById(ids[a]).className=cn}}jQuery(document).ready(function(){jQuery("#page_select").bind("change",function(){var a=jQuery(this).val();if(a){window.location.replace(a)}return false});jQuery("#category_select").bind("change",function(){var a=jQuery(this).val();if(a){window.location=a}return false})});jQuery(document).ready(function(){jQuery(".hidden").hide();jQuery(".show-more").html("Show more...");jQuery(".show-review").html("Show review...");jQuery(".show-comments").html("Hide Comments...");jQuery(".toggle").click(function(){jQuery("#show").toggle();jQuery("#more").toggle()});jQuery(".show-more").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).prev().slideUp();jQuery(this).removeClass("clicked");jQuery(this).html("Show more...")}else{jQuery(this).addClass("clicked");jQuery(this).prev().slideDown();jQuery(this).html("...Show less")}});jQuery(".show-review").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).prev().slideUp();jQuery(this).removeClass("clicked");jQuery(this).html("Show review...")}else{jQuery(this).addClass("clicked");jQuery(this).prev().slideDown();jQuery(this).html("...Hide review")}});jQuery(".show-comments").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).next().slideDown();jQuery(this).removeClass("clicked");jQuery(this).html("Hide Comments...")}else{jQuery(this).addClass("clicked");jQuery(this).next().slideUp();jQuery(this).html("Show Comments...")}})});jQuery(document).ready(function(){var a=jQuery("[rel~=tooltip]"),c=false,b=false,d=false;a.bind("mouseenter",function(){c=jQuery(this);tip=c.attr("title");b=jQuery('<div id="tooltip"></div>');if(!tip||tip==""){return false}c.removeAttr("title");b.css("opacity",0).html(tip).appendTo("body");var f=function(){if(jQuery(window).width()<b.outerWidth()*1.5){b.css("max-width",jQuery(window).width()/2)}else{b.css("max-width",340)}var g=c.offset().left+(c.outerWidth()/2)-(b.outerWidth()/2),h=c.offset().top-b.outerHeight()-20;if(g<0){g=c.offset().left+c.outerWidth()/2-20;b.addClass("left")}else{b.removeClass("left")}if(g+b.outerWidth()>jQuery(window).width()){g=c.offset().left-b.outerWidth()+c.outerWidth()/2+20;b.addClass("right")}else{b.removeClass("right")}if(h<0){var h=c.offset().top+c.outerHeight();b.addClass("top")}else{b.removeClass("top")}b.css({left:g,top:h}).animate({top:"+=10",opacity:1},50)};f();jQuery(window).resize(f);var e=function(){b.animate({top:"-=10",opacity:0},50,function(){jQuery(this).remove()});c.attr("title",tip)};c.bind("mouseleave",e);b.bind("click",e)})});/*]]>*/</script>   <script type="text/javascript" src="https://s.skimresources.com/js/91960x1545845.skimlinks.js"></script>
+<script type="text/javascript" src="../files/advagg_js/js__TMbgkTyBUQQ_HgBfUgRbT7qnkhUF67VaeCPrRurSSyQ__R579VV3CWa_6pCbnNdQK0EGL-QIicH7Gtzh0Mu2GPDY__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var switchTo5x = true;var __st_loadLate = true;var useFastShare = 0;
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+if (typeof stLight !== 'undefined') { stLight.options({"publisher":"dr-cb3fca8f-ba75-779c-5a90-b433fac7efb0","version":"5x","newOrZero":"zero","shorten":"false","servicePopup":true,"lang":"en"}); }
+//--><!]]>
+</script>
+<script type="text/javascript" src="../files/advagg_js/js__8q4Ri8u0Oy1si5uwfNTlks0A6nMFTDjDszJiNP4i5uA__tV1Gvr51dciEodFNuAL3X5GplamBbcIkiRUEhk_oOdE__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(d, e, s) {a = d.createElement(e);m = d.getElementsByTagName(e)[0];a.async = 1;a.src = s;m.parentNode.insertBefore(a, m)})(document, 'script', '//w.likebtn.com/js/w/widget.js'); if (typeof(LikeBtn) != "undefined") { LikeBtn.init(); }
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var skimlinks_domain = "exit.techsupportalert.com";
+//--><!]]>
+</script>
+</body>
+</html>

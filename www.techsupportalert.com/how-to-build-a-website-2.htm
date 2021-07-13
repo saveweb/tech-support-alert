@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en" dir="ltr"><!--<![endif]-->
+<head>
+   <!--[if IE]><![endif]-->
+<meta charset="utf-8" />
+<link rel="shortcut icon" href="sites/all/themes/gizmoslist/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="- a multi-part series on creating your first website - Part 2 - Building a small site the easy way First steps Let&#039;s start with the assumption that you&#039;re going to build a simple site with a few pages for your family, or a local group that has a fairly simple agenda. In this case we can use the normal web page type of site, and there&#039;ll be maybe 10 pages or less. This will be" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="how-to-build-a-website-2.htm" />
+<link rel="shortlink" href="https://www.techsupportalert.com/node/1682" />
+<meta property="og:site_name" content="Gizmo&#039;s Freeware" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.techsupportalert.com/how-to-build-a-website-2.htm" />
+<meta property="og:title" content="How to build and host a website for free - 2" />
+<meta property="og:description" content="- a multi-part series on creating your first website - Part 2 - Building a small site the easy way First steps Let&#039;s start with the assumption that you&#039;re going to build a simple site with a few pages for your family, or a local group that has a fairly simple agenda. In this case we can use the normal web page type of site, and there&#039;ll be maybe 10 pages or less. This will be what is called an HTML site / a flat site / a hard-coded site / a hand-coded site." />
+<meta property="og:updated_time" content="2020-11-25T11:59:33+00:00" />
+<meta property="article:published_time" content="2009-05-05T09:11:21+00:00" />
+<meta property="article:modified_time" content="2020-11-25T11:59:33+00:00" />
+   <title>How to build and host a website for free - 2 | Gizmo's Freeware</title>
+   <link type="text/css" rel="stylesheet" href="files/advagg_css/css__K1Zxkb7B9uRMTvKGWwqJbpPSUxPwhcczKcp6degok28__HeSIUBSByKemgY9AJL8p07c1i2IHEDyYO6cKTWBN3Pw__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.css" media="all" />
+
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="https://www.techsupportalert.com/files/advagg_css/css__I8Q7DkdK2zJceaJBCwEwz0vYYbloOjCrssUsWAaHyIM__qjMhJvPdluz-vOJRX3dztEqH8G31Y32rQ_NKwUhoC1Y__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.css" media="screen" />
+<![endif]-->
+   <!--[if lt IE 9]>
+   <link rel=stylesheet type=text/css href=/sites/all/themes/gizmoslist/css/ie7-and-down.css />
+   <![endif]-->
+   <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript" src="files/advagg_js/js__B1KiKqJbKO-n3ZXTCs35IBdGFYs11f-fUM6Y72B9wEg__5zx4JiTNwUOifd--hiFOiQb-OZHPEiMORfGWeCF9Yyk__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.techsupportalert.com/files/googleanalytics/analytics.js?qv3qpt","ga");ga("create", "UA-279220-2", {"cookieDomain":"auto"});ga("require", "linkid", "linkid.js");ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"gizmoslist","theme_token":"OeiJWyUOpW2IQtnr0NI-KbbnlxLofFAl4xyuNLh6Fwo","jquery_version":"1.7","css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/aggregator\/aggregator.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/google_cse\/google_cse.css":1,"modules\/node\/node.css":1,"modules\/poll\/poll.css":1,"modules\/search\/search.css":1,"sites\/all\/modules\/slidead\/slidead.css":1,"modules\/user\/user.css":1,"modules\/forum\/forum.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/comment_notify\/comment_notify.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/panels\/css\/panels.css":1,"sites\/all\/modules\/print\/print_ui\/css\/print_ui.theme.css":1,"public:\/\/spamicide\/user_pw.css":1,"sites\/all\/modules\/fivestar\/css\/fivestar.css":1,"sites\/all\/modules\/fivestar\/widgets\/oxygen\/oxygen.css":1,"sites\/all\/libraries\/superfish\/css\/superfish.css":1,"sites\/all\/libraries\/superfish\/css\/superfish-navbar.css":1,"sites\/all\/libraries\/superfish\/style\/graphite.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.settings.style.headings.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.settings.style.image.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.layout.css":1,"sites\/all\/themes\/gizmoslist\/color\/colors.css":1,"sites\/all\/themes\/pixture_reloaded\/css\/pixture_reloaded.css":1,"sites\/all\/themes\/pixture_reloaded\/css\/pixture_reloaded.settings.style.css":1,"sites\/all\/themes\/gizmoslist\/css\/styles.custom.css":1,"sites\/all\/themes\/gizmoslist\/generated_files\/gizmoslist.custom.css":1,"sites\/all\/themes\/gizmoslist\/fonts\/gizmoslogo\/gizmoslogo.css":1,"sites\/all\/themes\/gizmoslist\/fonts\/font-awesome\/font-awesome.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.responsive.layout.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.fonts.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.responsive.styles.css":1,"public:\/\/adaptivetheme\/gizmoslist_files\/gizmoslist.lt-ie9.layout.css":1},"js":{"\/\/s.skimresources.com\/js\/91960x1545845.skimlinks.js":1,"sites\/all\/modules\/google_cse\/google_cse.js":1,"sites\/all\/modules\/slidead\/slidead.js":1,"sites\/all\/modules\/comment_notify\/comment_notify.js":1,"sites\/all\/themes\/gizmoslist\/script\/bootstrap.min.js":1,"sites\/all\/themes\/gizmoslist\/script\/enscroll-0.4.0.min.js":1,"sites\/all\/themes\/gizmoslist\/script\/script.js":1,"sites\/all\/modules\/adsense\/contrib\/adsense_click\/adsense_click.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"misc\/progress.js":1,"sites\/all\/modules\/fivestar\/js\/fivestar.ajax.js":1,"sites\/all\/modules\/fivestar\/js\/fivestar.js":1,"sites\/all\/libraries\/superfish\/supposition.js":1,"sites\/all\/libraries\/superfish\/superfish.js":1,"sites\/all\/modules\/superfish\/superfish.js":1,"https:\/\/ws.sharethis.com\/button\/buttons.js":1,"sites\/all\/modules\/jquery_update\/replace\/jquery\/1.7\/jquery.min.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery-html-prefilter-3.5.0-backport.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/all\/modules\/jquery_update\/replace\/misc\/jquery.form.min.js":1,"misc\/ajax.js":1,"sites\/all\/modules\/jquery_update\/js\/jquery_update.js":1}},"googleCSE":{"cx":"partner-pub-4337260311855789:5365410881","language":"","resultsWidth":400,"domain":"www.google.com","showWaterMark":true},"slideAd":{"width":"300"},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"},"urlIsAjaxTrusted":{"\/search\/node":true,"\/how-to-build-a-website-2.htm":true,"\/how-to-build-a-website-2.htm?destination=node\/1682":true,"\/system\/ajax":true},"superfish":{"1":{"id":"1","sf":{"animation":{"opacity":"show","height":"show"},"speed":"\u0027fast\u0027","autoArrows":false,"dropShadows":true,"disableHI":false},"plugins":{"supposition":true,"bgiframe":false}}},"ajax":{"edit-vote--2":{"callback":"fivestar_ajax_submit","event":"change","url":"\/system\/ajax","submit":{"_triggering_element_name":"vote"}}},"adaptivetheme":{"gizmoslist":{"layout_settings":{"bigscreen":"three-col-grail","tablet_landscape":"three-col-grail","tablet_portrait":"one-col-vert","smalltouch_landscape":"one-col-vert","smalltouch_portrait":"one-col-stack"},"media_query_settings":{"bigscreen":"only screen and (min-width:1025px)","tablet_landscape":"only screen and (min-width:769px) and (max-width:1024px)","tablet_portrait":"only screen and (min-width:481px) and (max-width:768px)","smalltouch_landscape":"only screen and (min-width:321px) and (max-width:480px)","smalltouch_portrait":"only screen and (max-width:320px)"}}}});
+//--><!]]>
+</script>
+   <!--[if lt IE 9]>
+<script src="https://www.techsupportalert.com/sites/all/themes/adaptivetheme/at_core/scripts/html5.js?qv3qpt"></script>
+<![endif]-->
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" /> <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script> <script> window.addEventListener("load", function(){ window.cookieconsent.initialise({ "palette": { "popup": { "background": "#edeff5", "text": "#838391" }, "button": { "background": "#4b81e8" } } })}); </script>
+   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+   <script data-ad-client="ca-pub-1584315025436785" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+   <meta name="wot-verification" content="22efc80013d585910ca0"/>
+   <meta name="propeller" content="3dda2330fd32fcfca29de21325f076f3">
+</head>
+
+<body class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-1682 node-type-article site-name-hidden site-name-gizmoamp039s-freeware section-how-to-build-a-website-2htm color-scheme-custom gizmoslist bs-n bb-n mb-dd mbp-l rc-0">
+   <div id=skip-link class=nocontent><a href="how-to-build-a-website-2.htm#main-content" class="element-invisible element-focusable">Skip to main content</a></div>
+      <div class="texture-overlay">
+<div id="page" class="container page ssc-n ssw-n ssa-l sss-n btc-n btw-b bta-l bts-n ntc-n ntw-b nta-l nts-n ctc-n ctw-b cta-l cts-n ptc-n ptw-b pta-l pts-n">
+<header id="header" class="clearfix" role="banner" data-position="fixed">
+<div class="header-inner clearfix">
+<div id="mobile-menu">
+<span class="mobile-socialmenu">social</span>
+<span class="mobile-search">search</span>
+</div>
+<span id="mobile-nav">Menu</span>
+<div id="branding" class="branding-elements clearfix">
+<div id="logo">
+<a href="index.html" title="Go to our home page..." class="active" style="text-decoration:none"><div class="icon-Final-freeware" style="color:#f0f0f0;font-size:68px;padding-bottom:8px"></div></a>
+</div>
+<div id="logomobile">
+<a href="index.html" title="Go to our home page..." class="active" style="text-decoration:none"><div class="icon-Final-freeware" style="color:#f0f0f0;font-size:40px;padding-left:8px"></div></a>
+</div>
+<div id="name-and-slogan" class="element-invisible h-group" id="name-and-slogan">
+<h1 id="site-name" class="element-invisible" id="site-name"><a href="index.html" title="Home page">Gizmo&#039;s Freeware</a></h1>
+</div>
+</div>
+<div class="region region-header"><div class="region-inner clearfix"><div id="block-block-58" class="clearfix block block-block no-title odd first block-count-1 block-region-header block-58">
+<a href="how-to-build-a-website-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div id="header-middle"><a href="http://www.xmarks.com/site/www.techsupportalert.com/#r"><img alt="" src="files/images/icons/_thumb_13506.png" /> </a><a href="http://www.pcmag.com/article2/0,2817,2367733,00.asp"> <img alt="" src="files/images/icons/_thumb_13505.png" /></a></div>
+</div>
+</div><div id="block-block-57" class="clearfix block block-block no-title even block-count-2 block-region-header block-57">
+<a href="how-to-build-a-website-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<p><a href="http://feeds.feedburner.com/gizmosbest" title="Go to our RSS feeds..."><i class="fa fa-rss-square fa-2x" style="color: #ffb300;"></i></a>&nbsp;&nbsp; <a href="http://feedburner.google.com/fb/a/mailverify?uri=gizmosbest" title="Subscribe to email..."><i class="fa fa-envelope fa-2x" style="color: #f0f0f0;"></i></a>&nbsp;&nbsp; <a href="http://www.facebook.com/pages/Gizmos-Freeware/114026985301900" title="Follow us on Facebook..."><i class="fa fa-facebook-square fa-2x" style="color: #d0d0ff;"></i></a>&nbsp;&nbsp; <a href="http://twitter.com/GizmosFreeware" title="Follow us on Twitter..."><i class="fa fa-twitter-square fa-2x" style="color: #70c0f0;"></i></a></p>
+</div>
+</div><div id="block-search-form" class="clearfix block block-search no-title odd block-count-3 block-region-header block-form" role="search">
+<a href="how-to-build-a-website-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<form action="how-to-build-a-website-2.htm" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="search" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-h23ChN-eynNL4ToJVLMNsAz7xBbSwWv5nQ3Cp_V3tn8" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form></div>
+</div><div id="block-user-login" class="clearfix block block-user even last block-count-4 block-region-header block-login" role="form">
+<a href="how-to-build-a-website-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Login / Register</h2>
+<div class="content" class="block-content content">
+<form action="https://www.techsupportalert.com/how-to-build-a-website-2.htm?destination=node/1682" method="post" id="user-login-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">Username <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-name" name="name" value="" size="15" maxlength="60" class="form-text required" />
+</div>
+<div class="form-item form-type-password form-item-pass">
+  <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" id="edit-pass" name="pass" size="15" maxlength="128" class="form-text required" />
+</div>
+<div class="item-list"><ul><li class="even first"><a href="user/register" title="Create a new user account.">Create new account</a></li><li class="odd last"><a href="https://www.techsupportalert.com/user/password" title="Request new password via e-mail.">Request new password</a></li></ul></div><input type="hidden" name="form_build_id" value="form-i4PV13G1pgMuFZutvvRs75Z_PpsXGTttc0pTFP5LPw4" />
+<input type="hidden" name="form_id" value="user_login_block" />
+<div class="edit-user-pw-wrapper"><div class="form-item form-type-textfield form-item-user-pw">
+  <label for="edit-user-pw">user pw </label>
+ <input type="text" id="edit-user-pw" name="user_pw" value="" size="20" maxlength="128" class="form-text" />
+<div class="description">Do not type anything in this box</div>
+</div>
+</div><div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Log in" class="form-submit" /></div></div></form></div>
+</div></div></div></div>
+</header>
+   <!-- Start: Ad blocker check
+   <style>#svCYxPorrige{display:none;margin-bottom:0px;padding:20px 10px;background:#D30000;text-align:center;font-weight:bold;color:#fff;border-radius: 0px;}</style>
+   <div id="svCYxPorrige">Oops, it looks like you are using an ad blocker.<br>We work hard to provide you our software news and we keep our ads non-intrusive.<br>Please support us keeping our content free by disabling your ad blocker.</div>
+   <script src="/ads.js" type="text/javascript"></script>
+   <script type="text/javascript">if(!document.getElementById('YzIkKlMbayUm')){document.getElementById('svCYxPorrige').style.display='block';}</script>
+   End: Ad blocker check -->
+<div id="menu-bar" class="nav clearfix"><div id="block-superfish-1" class="clearfix block block-superfish menu-wrapper menu-bar-wrapper clearfix odd first last block-count-5 block-region-menu-bar block-1">
+<a href="how-to-build-a-website-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="element-invisible block-title" class="block-title">Main menu</h2>
+<div class="content" class="block-content content clearfix">
+<ul id="superfish-1" class="menu sf-menu sf-main-menu sf-navbar sf-style-graphite sf-total-items-12 sf-parent-items-5 sf-single-items-7"><li id="menu-175-1" class="first odd sf-item-1 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="index.html" title="This site&#039;s home page" class="sf-depth-1 menuparent">Home</a><ul><li id="menu-13310-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="index.html" title="The front page of Gizmo&#039;s Freeware" class="sf-depth-2">Homepage</a></li><li id="menu-13306-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="user/login" title="Login to Gizmos using your site account" class="sf-depth-2">Login</a></li><li id="menu-13307-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="user" title="Login to Gizmos using your site account. Here you can change your password or store bookmarks" class="sf-depth-2">My account/Change PW</a></li><li id="menu-13309-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="user/register" title="Create an account at Gizmos Freeware so you can post comments to articles and in the forum" class="sf-depth-2">Register</a></li></ul></li><li id="menu-12522-1" class="middle even sf-item-2 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="windows" title="The Best Free Windows Programs" class="sf-depth-1 menuparent">Windows</a><ul><li id="menu-12538-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="windows" title="The best free Windows desktop software by category plus our Editors&#039; Choice selections" class="sf-depth-2">Desktop Software</a></li><li id="menu-12539-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="best-free-windows-apps.htm" title="The best free Windows apps as selected by our editors" class="sf-depth-2">Windows Apps</a></li><li id="menu-12540-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="best-free-portable-programs.htm" title="Our Editor&#039;s Choice Selections of the Best Free Portable Apps" class="sf-depth-2">Portable Apps</a></li><li id="menu-12541-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="best-free-windows7-vista-64-bit-software.htm" title="Our Editor&#039;s selections of the best free Windows 64 bit software" class="sf-depth-2">Windows 64 bit Software</a></li></ul></li><li id="menu-12523-1" class="middle odd sf-item-3 sf-depth-1 sf-no-children"><a href="content/best-free-software-mac-os.htm" title="The Best Free Mac OS X Programs" class="sf-depth-1">Mac</a></li><li id="menu-12524-1" class="middle even sf-item-4 sf-depth-1 sf-no-children"><a href="linux" title="The Best Free Linux Programs" class="sf-depth-1">Linux</a></li><li id="menu-12526-1" class="middle odd sf-item-5 sf-depth-1 sf-no-children"><a href="android" title="The Best Free Android Apps" class="sf-depth-1">Android</a></li><li id="menu-12525-1" class="middle even sf-item-6 sf-depth-1 sf-no-children"><a href="ios" title="The Best Free Apps for iPhone and iPad" class="sf-depth-1">iOS</a></li><li id="menu-13312-1" class="middle odd sf-item-7 sf-depth-1 sf-no-children"><a href="content/best-free-online-applications-and-services.htm" title="Best web based applications and services" class="sf-depth-1">Online Apps</a></li><li id="menu-9299-1" class="middle even sf-item-8 sf-depth-1 sf-no-children"><a href="free-ebooks-audio-books-read-online-download.htm" title="Here&#039;s a list of dozens of articles on this showing you the best places to get free eBooks and Audio Books" class="sf-depth-1">eBooks</a></li><li id="menu-12530-1" class="middle odd sf-item-9 sf-depth-1 sf-total-children-4 sf-parent-children-0 sf-single-children-4 menuparent"><a href="view/hot_expanded" title="New and recently updated articles" class="sf-depth-1 menuparent">New</a><ul><li id="menu-3760-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="view/hot_expanded" title="The Most Recent Additions to Gizmo&#039;s Freeware" class="sf-depth-2">New Articles</a></li><li id="menu-3761-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="tracker_updated_only" title="Articles we have recently revised or re-written" class="sf-depth-2">Recently Updated Articles</a></li><li id="menu-3759-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="https://www.techsupportalert.com/recent-comments" title="Comments on reviews and articles posted by our users" class="sf-depth-2">Recent Comments</a></li><li id="menu-105-1" class="last even sf-item-4 sf-depth-2 sf-no-children"><a href="all-articles-by-rating" title="The articles our users have given the highest ratings" class="sf-depth-2">Highest Rated</a></li></ul></li><li id="menu-210-1" class="middle even sf-item-10 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent"><a href="freeware-updates.htm" title="The latest freeware releases and news from 10 top freeware sites" class="sf-depth-1 menuparent">Resources</a><ul><li id="menu-9285-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="freeware-updates.htm" title="The latest product updates and news from the web&#039;s most popular download sites" class="sf-depth-2">News</a></li><li id="menu-12533-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="view/tips" title="Handy Windows Tips and Tricks" class="sf-depth-2">Tips</a></li><li id="menu-14525-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="videos.htm" title="Keep up to date with tech the easy way by watching these interesting videos" class="sf-depth-2">Tech videos</a></li><li id="menu-9287-1" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="sec" title="Want to clean a malware infection from your computer? Want to keep it clean and safe in the future? Then check out these guides." class="sf-depth-2">Security Guides &amp; Articles</a></li><li id="menu-9286-1" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="tutorials" title="Want to know how to do something? You may well find it here." class="sf-depth-2">How-to Guides &amp; Tutorials</a></li><li id="menu-9283-1" class="middle even sf-item-6 sf-depth-2 sf-no-children"><a href="content/best-freeware-download-sites.htm" title="The safest and most reliable places to download freeware" class="sf-depth-2">Best Download Sites</a></li><li id="menu-9284-1" class="last odd sf-item-7 sf-depth-2 sf-no-children"><a href="content/best-free-technical-support-sites.htm" title="Got a hardware or software problem? Try one of these free support sites" class="sf-depth-2">Best Tech Support Sites</a></li></ul></li><li id="menu-1139-1" class="middle odd sf-item-11 sf-depth-1 sf-no-children"><a href="https://www.techsupportalert.com/freeware-forum" title="Got a computer question to ask?  Then this is the place and it&#039;s 100% free." class="sf-depth-1">Forum</a></li><li id="menu-109-1" class="last even sf-item-12 sf-depth-1 sf-total-children-6 sf-parent-children-0 sf-single-children-6 menuparent"><a href="about-this-site" class="sf-depth-1 menuparent">About</a><ul><li id="menu-12560-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="about-this-site" title="How this site started and what it attempts to achieve" class="sf-depth-2">About</a></li><li id="menu-12559-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="content/contact-us.htm" title="How to contact Gizmo&#039;s Freeware / Press" class="sf-depth-2">Contact</a></li><li id="menu-12552-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="faq" title="Answers to the most common questions we get asked" class="sf-depth-2">FAQ</a></li><li id="menu-13311-1" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="contribute" title="Several ways you can help this community website" class="sf-depth-2">Contribute</a></li><li id="menu-12554-1" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="privacy_policy.htm" title="The Privacy Policy of the Gizmo&#039;s Freeware Website" class="sf-depth-2">Privacy Policy</a></li><li id="menu-12553-1" class="last even sf-item-6 sf-depth-2 sf-no-children"><a href="terms-and-conditions.htm" title="These are the conditions we offer and you accept for the use of this site" class="sf-depth-2">Condition of Use</a></li></ul></li></ul></div>
+</div></div><div id="columns">
+<div class="columns-inner clearfix">
+<div id="content-column">
+<div class="content-inner">
+<section id="main-content" role="main">
+<header id="main-content-header" class="clearfix">
+<h1 id="page-title">How to build and host a website for free - 2</h1>
+</header>
+<div id="content">
+
+
+<div id="block-system-main" class="clearfix block block-system no-title odd first last block-count-6 block-region-content block-main">
+<a href="how-to-build-a-website-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<article id="node-1682" class="node node-article article odd node-full ia-n clearfix" role="article">
+  
+  
+      <footer class="submitted">
+            <!-- <p class="author-datetime">Submitted by <a href="/users/chrisp" title="View user profile." class="username">chris.p</a> on <time datetime="2009-05-05T09:11:21+0000">5. May 2009 - 9:11</time></p> -->
+      <p class="author-datetime">Last updated by <a href="https://www.techsupportalert.com/users/chrisp" title="View user profile." class="username">chris.p</a> on 25. November 2020 - 11:59</p>
+    </footer>
+  
+  <div class="node-content">
+    <div class="sharethis-buttons"><div class="sharethis-wrapper"><span st_url="https://www.techsupportalert.com/how-to-build-a-website-2.htm" st_title="How%20to%20build%20and%20host%20a%20website%20for%20free%20-%202" class="st_facebook"></span>
+<span st_url="https://www.techsupportalert.com/how-to-build-a-website-2.htm" st_title="How%20to%20build%20and%20host%20a%20website%20for%20free%20-%202" class="st_twitter" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/how-to-build-a-website-2.htm" st_title="How%20to%20build%20and%20host%20a%20website%20for%20free%20-%202" class="st_linkedin" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/how-to-build-a-website-2.htm" st_title="How%20to%20build%20and%20host%20a%20website%20for%20free%20-%202" class="st_email" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/how-to-build-a-website-2.htm" st_title="How%20to%20build%20and%20host%20a%20website%20for%20free%20-%202" class="st_sharethis" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/how-to-build-a-website-2.htm" st_title="How%20to%20build%20and%20host%20a%20website%20for%20free%20-%202" class="st_pinterest" st_via="" st_username=""></span>
+<span st_url="https://www.techsupportalert.com/how-to-build-a-website-2.htm" st_title="How%20to%20build%20and%20host%20a%20website%20for%20free%20-%202" class="st_fblike" st_via="" st_username=""></span>
+</div></div>
+<div class="field field-name-body field-type-text-with-summary field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p> </p>
+<p><br />
+	- a multi-part series on creating your first website -</p>
+<h3>
+	Part 2 - Building a small site the easy way</h3>
+<p> </p>
+<p><strong>First steps</strong><br />
+	Let's start with the assumption that you're going to build a simple site with a few pages for your family, or a local group that has a fairly simple agenda. In this case we can use the normal web page type of site, and there'll be maybe 10 pages or less. This will be what is called an HTML site / a flat site / a hard-coded site / a hand-coded site.<br />
+	<br />
+	As we saw in Part 1, you will need to do these things:<br />
+	<br />
+	- buy a domain name<br />
+	- choose a web page editor<br />
+	- build the site<br />
+	- choose a host<br />
+	- upload the pages to the server</p>
+<p> </p>
+<p><strong>Web page editors</strong><br />
+	These come in two basic types: text code editors (aka HTML editors or raw code editor) and visual (aka wysiwyg) editors. Visual editors are what most of us use, including me - I build the first stage in a visual editor then adjust the code in an HTML editor - and a what-you-see-is-what-you-get editor is just fine for now.<br />
+	<br />
+	There are two types of these: the popular type like Kompozer (free) and Dreamweaver (commercial), which can all work with HTML files - and the one-way rapid layout type like WebDwarf (free) or SiteSpinner (commercial), which work in a proprietary code then export to HTML, but cannot import or work with HTML pages.<br />
+	<br />
+	In addition there are online versions of the visual type that are normally called sitebuilder apps or something similar.</p>
+<p> </p>
+<p><strong>The 2 easy ways to build a web page</strong><br />
+	Here's my take on this: the single hardest thing for any newcomer is laying out a web page so that it looks like what you want, and the bits go where you want them and stay there.<br />
+	<br />
+	This is so difficult for a newcomer that I cannot even start to recommend a visual editor of the Dreamweaver or Kompozer type, unless a template solution of some kind is used - otherwise you'll simply spend days trying to get the tool to work. And your page still won't look how you want, because your aspirations will be handicapped by what you can do with the tools. You'll know exactly what I mean if you ever started on a website and just gave up because it was too difficult - and that applies to tens of thousands of people. <br />
+	<br />
+	You really don't want to go this route because it might put you off websites for ever.</p>
+<p> </p>
+<p><strong>Easy method 1</strong><br />
+	However, as stated, if you use pre-built templates then it is much easier. It works just fine, if you can find the template you need. Search 'free website templates' and you can find plenty of resources.<br />
+	<br />
+	Online and host-supplied template site-builders work in exactly the same way, you pick one then add your content. Again, this is fine if you like what's on offer. Their template entirely determines what your site looks like. The advantages are that you get your site up fast, and the design will be OK - in contrast to what will happen if you try to go it alone the first time. The disadvantage is that you may need to search for a time, to find a template that is acceptable to you.</p>
+<p> </p>
+<p><strong>Easy method 2</strong><br />
+	On the other hand my preferred method is to use a rapid-layout app because that way you get exactly what you want, without the layout hassles. You can layout a page exactly how you want almost immediately, and move anything anywhere instantly. There are none of the issues that you have with Kompozer, for example, trying to get stuff to stick on the page where you want it. But the fast layout apps have two disadvantages: they are one-way only, they work in a proprietary file format and then export to HTML - you can't tweak an existing page, you can only rework the master file and then re-export it. And also you have to design the page yourself, there are few templates for use with these apps.</p>
+<p>Nevertheless, this is my preferred solution. One you can try is WebDwarf, which is free. The best commercial version that I know of is SiteSpinner. These applications export to HTML based on divs and CSS, which is a layered, vector technology that is now recognised as the best (and now of course the only acceptable) system. They did so years before Dreamweaver had cottoned on to this, and was still using tables for layout. Table-based layout is the old, 90s-era method, that is now long superseded except for tables of data.<br />
+	<br />
+	WebDwarf is a free version of SiteSpinner and is still developed, CoolPage is similar but ceased being supported in 2002, though it is still viable for specialist use. WebDwarf validates to HTML Transitional but not Strict, meaning that it is not of the highest quality but acceptable for our purposes.<br />
+	<br />
+	My easy web page build method is quite simple: build the page in a rapid-layout app, then clean it up in a text code editor. In your case you will use a simple visual editor like Kompozer for this second stage.<br />
+	<br />
+	As it's not easy to find a quick review of webpage editors from someone who puts usability as the #1 feature for any tool anywhere, and a review having the potential to save you you a huge amount of grief, I figured I'd oblige. ==&gt;<br />
+	<br />
+	<em>Dreamweaver</em><br />
+	One of the best web page editors. Does everything - visual and code, layers or table-based, HTML / PHP / ASP. Extremely hard to use for the beginner, like Photoshop, but probably even harder to get the result you want. Good for improvers, very good for experts. Much of the benefit comes from all the add-on features, like the very good validation tools.<br />
+	<br />
+	<em>SiteSpinner </em><br />
+	Another of the top apps. Was using the current code layout system of divs and CSS a long time before Dreamweaver. A one-way fast layout program with capabilities similar to Dreamweaver, but far easier to use. Builds the same page in about a tenth of the time it takes in Dreamweaver, as it works in real code and with layers. The page is output to .ims format, which is then exported to HTML.<br />
+	<br />
+	<em>Frontpage</em><br />
+	Microsoft's venerable web page editor. Was a good tool in the 90s when pages were built with cells and tables - very low quality by any modern measurement. Produces poor-quality code, with low accessibility and code validation scores. Using it with Frontpage Extensions on a server provides hackers with lots of nice attack vectors. Hard to lay pages out correctly until you learn its ways (like many web editors though). Frontpage-created websites are often crude, due to the restrictions imposed by the creaking method of page construction using cells. RIP!!<br />
+	<br />
+	<em>NetObjects Fusion</em><br />
+	Another one-way app. An alternative to SiteSpinner, but on balance SS is better. In theory NetObjects can read / import HTML pages but you need to see the result - 'not usable' is a polite description.<br />
+	<br />
+	<em>CoolPage</em><br />
+	One of the leading layer-based web editors back in the day, around 2001, this is one-way quick layout app was maybe 5 years ahead of most other apps. Developed by a brilliant coder who was years ahead of his time, this is the fastest of all web editors - you can layout a complex page in a couple of minutes, to pixel-perfect positions, with anything wherever you want. However there are numerous drawbacks to this program now and I certainly don't advise you to use it, it's a fascinating example of what could have been if it had sold and was still supported. The code isn't good now, it's old HTML, upper case, validates to HTML Transitional with a little work. Not for use except by experts who can clean up the resulting code - but the best there is for concept layouts.<br />
+	<br />
+	<em>Kompozer</em><br />
+	This is an update of Nvu, the open-source web editor which ceased being supported. Kompozer is also not one of the busiest projects. It's basically a simpler version of Dreamweaver - you'd use it if you like that style of working but don't want the complexity. Not a bad editor in this style. For novices, its best use is for adding stuff to a page created in a basic rapid-layout app like WebDwarf. You can build a page fast in WebDwarf, export it to HTML, then touch it up with Kompozer.<br />
+	<br />
+	<em>MS Sharepoint Designer</em><br />
+	Lots of arguments about whether this is a valid choice or not as a web editor. Some say it can only be used within the Sharepoint system (and this seems to be Microsoft's stance), others that it's OK, and yet others that it somehow caused system problems and had to be uninstalled. Given the latter I think this one is best avoided, since there are plenty of alternatives.<br />
+	<br />
+	There are also of course a very large number of other choices in free web editors - check out the page on this site:</p>
+<p><a href="best-free-html-editor.htm">Best Free HTML Editor</a></p>
+<p><br />
+	<br />
+	I'm not familiar with the editors on that page so perhaps one there is a better choice than the one I'll suggest for you. You need to ask two important questions though:<br />
+	<br />
+	1. Can you lay out a page fast with it?<br />
+	2. Does the code validate?<br />
+	<br />
+	These are the crucial issues with web editors now, due to real-world requirements that include time constraints and commercial results. If the answer is no to both, then I think it wise to look elsewhere. The ideal web editor builds a page very fast in rapid-layout mode, and the resulting code validates to a Strict doctype (a Transitional doctype is basically a bodge-up that puts a browser into quirks mode). The only one I know that complies is SiteSpinner, though since this isn't my game any more (I only work with CMS and ecommerce now), I can't state this as fact.<br />
+	<br />
+	<em>WebDwarf</em><br />
+	The free version of SiteSpinner, this is the web page editor I advise if you're interested in usability. For me this is vital as I just want to lay the page out quickly and get on with other stuff. It's a one-way app that doesn't work in HTML, it builds the page in a proprietary code (.ims) then exports it to web format. This is a fast way to build a page that has a lot of advantages over the Dreamweaver type that only work in HTML native. The problem with native HTML apps is that you can't really do much in HTML, it's a pig to work with and very limited - much better to work in real code and then export it. However, this means you can't import and work with a web page.<br />
+	<a href="http://www.virtualmechanics.com/products/dwarf/download.html">Download WebDwarf</a></p>
+<p> </p>
+<p><strong>Build that site</strong><br />
+	Let's go ahead using WebDwarf. We'll build a small, simple site, and upload it to our chosen host. You'll need these basic pages:<br />
+	<br />
+	1 - the index page, aka front page or home page<br />
+	2 - some 'inside' pages with your desired content<br />
+	3 - an About Us page, with your name &amp; address, and what the site's purpose is<br />
+	4 - a Contact page, with quick-contact details such as your email and phone number<br />
+	5 - a Links page, for weblinks to other useful sites, and for building reciprocal links<br />
+	6 - a TOS page, with your terms of use for the site and any conditions, copyright etc<br />
+	<br />
+	So you can start with 4 to 6 pages or so, and that will do fine. But note: if you are definitely going to have 10 pages or more, don't use this method - I advise you to use the micro-cms method we will look at later on. It's far less painful and it's the modern way. In the hands of novices (of course it's different for experts), the HTML page method is suitable for very small sites with a limited agenda.</p>
+<p> </p>
+<p><strong>Local site folder</strong><br />
+	You need a folder for your local site, ie the master files on your PC. Create a folder within My Documents or wherever else you think best, and call it 'website' or whatever. Inside it create three folders: html, gfx, and master. These folders hold the web pages, the graphics used, and the master files or source materials.<br />
+	<br />
+	Set up WebDwarf to open in and save to the master folder. We should start with the index page or index.html - this is the filename of the front page (and is always this name or a close variant). I advise you to use the .html file extension, out of the possible variants such as .html, .htm, .php, and .asp.</p>
+<p> </p>
+<p><strong>Building pages</strong><br />
+	How to actually build pages and link them is really the subject of another tute, if we can organise that. For now - just experiment. An outline of what you need to do is as follows: in WebDwarf, create your first page either from scratch or by using a template. I recommend the latter for your first-ever page, using one of the templates they provide, or simply by modifying the start page they give you.<br />
+	<br />
+	Save the page as 'master' (the page filename). Use it as your own template, and build all your pages from it as a master layout guide. After making this basic page, you'll use it as the basis for all the site pages. So:</p>
+<ul>
+	<li>
+		save the master</li>
+	<li>
+		export to html</li>
+	<li>
+		view the page and check it</li>
+	<li>
+		create a template</li>
+	<li>
+		build more pages</li>
+</ul>
+<p> </p>
+<p> </p>
+<p> </p>
+<table class="review" style="border: 1px dotted rgb(211, 211, 211);">
+	<tbody>
+		<tr>
+			<td class="review-title" style="border: 1px dotted rgb(211, 211, 211); font-family: Arial,Verdana,sans-serif; font-size: 12px;">
+				<div class="review-title">
+					Related Link</div>
+			</td>
+		</tr>
+		<tr>
+			<td style="border: 1px dotted rgb(211, 211, 211); font-family: Arial,Verdana,sans-serif; font-size: 12px;">
+				<div>
+					 </div>
+				<ul>
+					<li class="leaf">
+						<a href="how-to-build-a-website-1.htm" style="text-decoration: none;" target="_blank">How to build and host a website for free - 1</a></li>
+				</ul>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p> </p>
+<p>This tutorial is by volunteer editor Chris Price. In the computing area his interests include website software, web usability, and running his <a href="http://www.a3webtech.com/index.php/web-business-management.html">web business manager</a> service.<br />
+	Registered site visitors can contact Chris by <a href="http://www.techsupportalert.com/dr/user/6/contact/">clicking here</a>. </p>
+</div></div></div><section class="field field-name-field-vote field-type-fivestar field-label-above view-mode-full"><h2 class="field-label">Please rate this article:&nbsp;</h2><div class="field-items"><div class="field-item even"><form class="fivestar-widget" action="how-to-build-a-website-2.htm" method="post" id="fivestar-custom-widget" accept-charset="UTF-8"><div><div  class="clearfix  fivestar-combo-text fivestar-combo-stars fivestar-form-item fivestar-oxygen"><div class="form-item form-type-fivestar form-item-vote">
+ <div class="form-item form-type-select form-item-vote">
+ <select id="edit-vote--2" name="vote" class="form-select"><option value="-">Select rating</option><option value="20">Give How to build and host a website for free - 2 1/5</option><option value="40">Give How to build and host a website for free - 2 2/5</option><option value="60">Give How to build and host a website for free - 2 3/5</option><option value="80">Give How to build and host a website for free - 2 4/5</option><option value="100">Give How to build and host a website for free - 2 5/5</option><option value="0" selected="selected">Cancel rating</option></select>
+<div class="description"><div class="fivestar-summary fivestar-summary-user"><span class="user-rating">Your rating: <span>None</span></span></div></div>
+</div>
+<div class="fivestar-static-form-item"><div class="form-item form-type-item">
+  <div class="fivestar-oxygen"><div class="fivestar-widget-static fivestar-widget-static-vote fivestar-widget-static-5 clearfix"><div class="star star-1 star-odd star-first"><span class="on">4.714285</span></div><div class="star star-2 star-even"><span class="on"></span></div><div class="star star-3 star-odd"><span class="on"></span></div><div class="star star-4 star-even"><span class="on"></span></div><div class="star star-5 star-odd star-last"><span class="on" style="width: 71.4285%"></span></div></div></div>
+<div class="description"><div class="fivestar-summary fivestar-summary-average-count"><span class="average-rating">Average: <span >4.7</span></span> <span class="total-votes">(<span >35</span> votes)</span></div></div>
+</div>
+</div>
+</div>
+</div><input class="fivestar-submit form-submit" type="submit" id="edit-fivestar-submit" name="op" value="Rate" /><input type="hidden" name="form_build_id" value="form-2mHEmiv1b9iQpn28IqsKJBFUNhi7a_0OoZWM8MrsR7w" />
+<input type="hidden" name="form_id" value="fivestar_custom_widget" />
+</div></form></div></div></section><div class="likebtn_container"><!-- LikeBtn.com BEGIN -->
+<span class="likebtn-wrapper" data-identifier="node_1682" data-engine="drupal"  data-engine_v="7.80"  data-plugin_v="1.12"  data-item_url="https://www.techsupportalert.com/node/1682"  data-item_title="How to build and host a website for free - 2"  data-item_date="2009-05-05T09:11:21+00:00" ></span>
+<script type="text/javascript">if (typeof(LikeBtn) != "undefined") { LikeBtn.init(); }</script>
+<!-- LikeBtn.com END --></div>  </div>
+
+      <nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first"><span><a href="https://www.techsupportalert.com/user/login?destination=node/1682%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/1682%23comment-form">register</a> to post comments</span></li><li class="print_html last"><a href="https://www.techsupportalert.com/print/how-to-build-a-website-2.htm" title="Display a printer-friendly version of this page." class="print-page" rel="nofollow"><img class="print-icon print-icon-margin image-style-none" src="sites/all/modules/print/icons/print_icon.png" width="16px" height="16px" alt="Printer-friendly version" title="Printer-friendly version" />Printer-friendly version</a></li></ul></nav>
+  
+  <p class="show-comments"><section id="comments" class="comment-wrapper">
+
+          <h2 class="comment-title title">Comments</h2>
+      
+  <a id="comment-117287"></a>
+<article class="comment comment-by-node-author odd first clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/chrisp" title="View user profile." class="username">chris.p</a> on <time datetime="2014-07-12T12:45:27Z"><span class="date-time">12. July 2014 - 12:45</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-to-build-a-website-2.htm#comment-117287">(117287)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">Remember that if you use a free hosting service, you will probably need to login and make some edits every now and then. Otherwise, they may delete your site. Take a look at their ToS first.</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/1682%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/1682%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article><a id="comment-112774"></a>
+<article class="comment even clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/prancerpro" title="View user profile." class="username">prancer_pro</a> on <time datetime="2013-12-05T07:36:00Z"><span class="date-time">5. December 2013 - 7:36</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-to-build-a-website-2.htm#comment-112774">(112774)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even"><p>I have had started learning XXXX since seven months by now. I have had understood how to use HTML and CSS. I am a graphic designer as a profession. I want to create a website by my own, where i want to keep my designs and sort of portfolio thing as gallery. Can you please guide me with this - that do i need to have a database or what sort of procedure i need to go though? I really appreciate anyone's guiding process whatsoever...<br />
+I'll wait impatiently for the same...<br />
+Thx...</p>
+<p>Moderators comment:  We do not provide support for commercial applications. If you need advice regarding freeware applications to perform this task, please post here in our forum. MC - Site Manager.<br />
+<a href="http://www.techsupportalert.com/freeware-forum/website-design-support-and-maintenance/">http://www.techsupportalert.com/freeware-forum/website-design-support-an...</a></p>
+</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/1682%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/1682%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article>
+<div class="indented"><a id="comment-117283"></a>
+<article class="comment comment-by-node-author odd last clearfix">
+<script type="text/javascript">/*<![CDATA[*/var myElements=document.getElementsByClassName("comment-unpublished");for(var i=0;i<myElements.length;i++){myElements[i].style.backgroundColor="#fff4f4"};/*]]>*/</script>
+<footer class="submitted" style="background-color:#e0e0e0;font-style:italic">
+<div class="author-datetime" style="float:left;padding:2px 0 4px 8px">Submitted by <a href="https://www.techsupportalert.com/users/chrisp" title="View user profile." class="username">chris.p</a> on <time datetime="2014-07-12T12:15:38Z"><span class="date-time">12. July 2014 - 12:15</span></time></div><div style="padding:2px 8px 4px 2px;text-align:right"><a class="active" href="how-to-build-a-website-2.htm#comment-117283">(117283)</a></div>
+</footer>
+<div class="comment-content">
+<div class="field field-name-comment-body field-type-text-long field-label-hidden view-mode-full"><div class="field-items"><div class="field-item even">My opinion - not shared by everyone of course - is that (1) unless you know for certain that your website will be of less than 4 or 5 pages, or (2) you are keen to learn HTML/CSS website coding, then you should use a simple dynamic site, aka a CMS. This is a prebuilt website application that uses a database. One of the simplest of all is Wordpress, a micro-cms that absolutely anyone can create a website with immediately. If you envisage a site with more capability, then use Joomla, a full-feature CMS - but it's a little harder to use initially.
+
+If you want to learn how it all works then by all means code a 'real' website with HTML and CSS, according to the instructions given above. There is nothing better as a foundation for future web projects as you will then understand what the code does.
+
+If it's for speed and ease of set up, use a CMS or micro-cms. If you are keen to learn, use HTML as it's the bricks &amp; mortar that everything else uses. 
+
+If you want an impressive brochure site then Joomla is the answer. Don't expect to be given everything on a plate though - Joomla is the most customisable CMS out there, and it's designed as a framework: the basic install out of the box will almost certainly not be what you want, you need to add/improve, and that means learning about the world of CMS.</div></div></div></div>
+<nav class="clearfix"><ul class="links inline"><li class="comment_forbidden first last"><span><a href="https://www.techsupportalert.com/user/login?destination=node/1682%23comment-form">Log in</a> or <a href="https://www.techsupportalert.com/user/register?destination=node/1682%23comment-form">register</a> to post comments</span></li></ul></nav>
+</article></div>
+  
+</section>
+
+  </article>
+</div>
+</div></div>
+</section>
+<div class="region region-content-aside"><div class="region-inner clearfix"><div id="block-block-74" class="clearfix block block-block no-title odd first block-count-7 block-region-content-aside block-74">
+<a href="how-to-build-a-website-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div id="rc-widget-4c49f0" data-rc-widget data-widget-host="habitat" data-endpoint="//trends.revcontent.com" data-widget-id="179478"></div>
+<script type="text/javascript" src="https://assets.revcontent.com/master/delivery.js" defer="defer"></script></div>
+</div><div id="block-block-47" class="clearfix block block-block even block-count-8 block-region-content-aside block-47">
+<a href="how-to-build-a-website-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Gizmo&#039;s Freeware Featured Articles</h2>
+<div class="content" class="block-content content">
+<div class="index-block">
+<div>
+		<a href="best-free-anti-virus-software.htm"><span class="fa fa-shield fa-3x fa-fw" style="color: #DC143C;"> </span><span>Best Free Antivirus</span></a></div>
+<div>
+		<a href="https://www.techsupportalert.com/free-books-kindle"><span class="fa fa-book fa-3x fa-fw" style="color: #00FF00;"> </span><span>Free Kindle Books</span></a></div>
+<div>
+		<a href="content/best-vpn-services.htm"><span class="fa fa-lock fa-3x fa-fw" style="color: #0000CD;"> </span><span>Best Paid VPN Service</span></a></div>
+<div>
+		<a href="content/best-free-antivirus-app-android.htm"><span class="fa fa-shield fa-3x fa-fw" style="color: #B22222;"> </span><span>Best Free Antivirus for Android</span></a></div>
+<div>
+		<a href="best-free-dvd-ripper.htm"><span class="fa fa-file-video-o fa-3x fa-fw" style="color: #2F4F4F;"> </span><span>Best Free DVD Ripper</span></a></div>
+<div>
+		<a href="best-free-live-wallpapers-android.htm"><span class="fa fa-android fa-3x fa-fw" style="color: green;"> </span><span>Best Free Live Wallpaper for Android</span></a></div>
+</div>
+<p style="clear:both;"> </p>
+</div>
+</div><div id="block-block-31" class="clearfix block block-block no-title odd block-count-9 block-region-content-aside block-31">
+<a href="how-to-build-a-website-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<div style="border-top: 1px solid #999999; border-bottom: 1px solid #999999; padding: 8px;">
+<p style="font-size: 14px; font-weight: bold;">Gizmo's Freeware is Recruiting</p>
+<p><img alt="Gizmos Needs You" src="files/images/logos/Gizmos-Freeware-63-84.png" style="width: 63px; height: 84px; float: left; padding: 0px 8px 8px 0px;" />We are looking for people with skills or interest in the following areas:<br />
+		 -  Mobile Platform App Reviews for Android and iOS<br />
+		 -  Windows, Mac and Linux software reviews</p>
+<p><strong>Interested?</strong> <a href="we-need-you.htm">Click here</a></p>
+</div>
+<p> </p>
+</div>
+</div><div id="block-block-70" class="clearfix block block-block no-title even last block-count-10 block-region-content-aside block-70">
+<a href="how-to-build-a-website-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<script async='async' data-cfasync='false' src='https://upgulpinon.com/1?z=3924060'></script></div>
+</div></div></div></div>
+</div>
+<div class="region region-sidebar-second sidebar"><div class="region-inner clearfix"><div id="block-block-22" class="clearfix block block-block odd first block-count-11 block-region-sidebar-second block-22">
+<a href="how-to-build-a-website-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Best Freeware Lists</h2>
+<div class="content" class="block-content content">
+<div class="content" class="block-content content">
+<style type="text/css">
+.swlist-sidebar a {display:block; width:100%; margin-top:8px; min-height:36px;}
+.swlist-sidebar span.fa, span.fa-stack {height:28px; padding:4px 8px 4px 8px; width:28px; text-align:center; float:left;}
+.swlist-sidebar span.swtitle-sidebar {display:table-cell; height:36px; vertical-align: middle;}
+.swlist-sidebar div {display:table-row;}
+</style>
+<div class="swlist-sidebar">
+<div><a href="software-finder"><span class="fa fa-search fa-2x" style="color: #4b5cc3;"></span> <span class="swtitle-sidebar">Search with Software Finder</span></a></div>
+<div><a href="best-free-windows-desktop-software.htm"><span class="fa fa-windows fa-2x" style="color: #70c0f0;"></span> <span class="swtitle-sidebar">Windows Desktop Software</span></a></div>
+<div><a href="best-free-windows-apps.htm"> <span class="fa fa-windows fa-2x" style="color: #70c0f0;"></span> <span class="swtitle-sidebar">Windows Apps</span></a></div>
+<div><a href="best-free-portable-programs.htm"> <span class="fa fa-check-square-o fa-2x" style="color: #70c0f0;"></span> <span class="swtitle-sidebar">Windows Portable Apps</span></a></div>
+<div><a href="content/best-free-software-mac-os.htm"> <span class="fa fa-apple fa-2x" style="color: #1653a8;"></span> <span class="swtitle-sidebar">Mac Software</span></a></div>
+<div><a href="content/best-free-software-linux.htm"> <span class="fa fa-linux fa-2x" style="color: #404040;"></span> <span class="swtitle-sidebar">Linux Software</span></a></div>
+<div><a href="best-free-android-apps.htm"> <span class="fa fa-android fa-2x" style="color: #a2c43b;"></span> <span class="swtitle-sidebar">Android Apps</span></a></div>
+<div><a href="best-free-ipad-apps.htm"> <span class="fa fa-tablet fa-2x" style="color: #404040;"></span> <span class="swtitle-sidebar">iPad Apps</span></a></div>
+<div><a href="best-free-iphone-apps.htm"> <span class="fa fa-mobile fa-2x" style="color: #404040;"></span> <span class="swtitle-sidebar">iPhone Apps</span></a></div>
+<div><a href="content/best-free-online-applications-and-services.htm"> <span class="fa fa-globe fa-2x" style="color: #006600;"></span> <span class="swtitle-sidebar">Online Apps</span></a></div>
+<div><a href="https://www.techsupportalert.com/content/50-places-free-books-online.htm"> <span class="fa fa-book fa-2x" style="color: #990000;"></span> <span class="swtitle-sidebar">eBooks /Audiobooks</span></a></div>
+<div><a href="content/probably-best-free-security-list-world.htm"> <span class="fa fa-exclamation-triangle fa-2x" style="color: #FF3300;"></span> <span class="swtitle-sidebar">Security Software</span></a></div>
+</div>
+<div style="clear:both;">&nbsp;</div>
+</div>
+<style type="text/css">
+.imgContainer{float:left;}
+</style>
+<p><strong>Support Gizmo's Freeware By</strong></p>
+<div>
+    <div class="imgContainer"><a href="donate.htm"><img src="files/images/aa/Donating-125-350e.png" height="auto" width="125"/></a></div>
+    <div class="imgContainer"><a href="become-a-reviewer.htm"><img class="middle-img" src="files/images/aa/Reviewing-125-350e.png" style="margin-left:2px;" height="auto" width="125"/></a></div>
+</div>
+<div style="clear:both;"></div></div>
+</div><div id="block-block-61" class="clearfix block block-block even block-count-12 block-region-sidebar-second block-61">
+<a href="how-to-build-a-website-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Get Notified of New Finds</h2>
+<div class="content" class="block-content content">
+<div>
+   <p>
+      <!-- <a href="http://feedburner.google.com/fb/a/mailverify?uri=gizmosbest" title="Subscribe to email..."><i class="fa fa-envelope fa-3x" style="color: #00cc99;"></i></a>&nbsp; -->
+      <a href="http://feeds.feedburner.com/gizmosbest" title="Go to our RSS feeds..."><i class="fa fa-rss-square fa-3x" style="color: #ffb300;"></i></a>&nbsp;
+      <a href="http://www.facebook.com/pages/Gizmos-Freeware/114026985301900" title="Follow us on Facebook..."><i class="fa fa-facebook-square fa-3x" style="color: #3b5889;"></i></a>&nbsp;
+      <a href="http://twitter.com/GizmosFreeware" title="Follow us on Twitter..."><i class="fa fa-twitter-square fa-3x" style="color: #55acee;"></i></a>
+   </p>
+</div>
+<style>
+#block-block-61 { text-align:center; }
+#block-block-61 a { display:inline-block; }
+#block-block-61 a.dropdown-toggle { display: none; }
+#block-block-61 .content{
+   background:#f9f9f9;
+   padding: 10px 10px 5px 10px;
+   margin-top: 10px;
+   margin-right:10px;
+   -webkit-border-radius: 12px;
+   -moz-border-radius: 12px;
+   border-radius: 12px;
+   border:1px solid #ccc;
+}
+#block-block-61 h3 { margin:10px 0; }
+</style>
+
+<div id="right-slidead-popup" style="display:block;">
+   <form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=gizmosbest', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+      <p class="bold-text">Get notified by email of our latest finds:</p>
+      <p><input type="text" style="width:120px" placeholder="Enter email" name="email">
+         <input type="hidden" value="gizmosbest" name="uri">
+         <input type="hidden" name="loc" value="en_US">
+         <input type="submit" value="Subscribe">
+      </p>
+   </form>
+</div>
+</div><div id="block-views-5c6f20eccafaaae472f19682f8491590" class="clearfix block block-views odd block-count-13 block-region-sidebar-second block-5c6f20eccafaaae472f19682f8491590">
+<a href="how-to-build-a-website-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Currently Popular</h2>
+<div class="content" class="block-content content">
+<div class="view view-currently-popular-customized view-id-currently_popular_customized view-display-id-block_1 curr-pop view-dom-id-e7d562d83ed10eaf58acd91a9f1faa9c">
+<div class="view-content">
+<table  class="views-table cols-0">
+       <tbody>
+          <tr  class="odd views-row-first">
+                  <td  class="views-field views-field-title">
+            <a href="content/best-free-software-linux.htm">Best Free Software for Linux</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="es/mejores-aplicaciones-y-servicios-gratuitos-online.htm">Mejores Aplicaciones y Servicios Gratuitos Online</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/mejor-software-gratuito-de-64-bits-para-windows-7vista.htm">Mejor Software Gratuito para Windows de 64 bits</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="es/mejor-software-para-linux-gratuito.htm">Mejor Software para Linux Gratuito</a>          </td>
+              </tr>
+          <tr  class="odd views-row-last">
+                  <td  class="views-field views-field-title">
+            <a href="content/gizmo-retiring-gizmo-s-freeware-goes.htm">Gizmo is Retiring but Gizmo’s Freeware Goes On</a>          </td>
+              </tr>
+      </tbody>
+</table>
+</div>
+
+<div class="more-link">
+  <a href="currently-popular-customized.htm">
+    more  </a>
+</div>
+</div>
+</div>
+</div><div id="block-views-articles-by-user-block-1" class="clearfix block block-views even last block-count-14 block-region-sidebar-second block-articles-by-user-block-1">
+<a href="how-to-build-a-website-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<h2 class="block-title" class="block-title">Top Rated</h2>
+<div class="content" class="block-content content">
+<div class="view view-articles-by-user view-id-articles_by_user view-display-id-block_1 view-currently-popular-customized more-link curr-pop view-dom-id-e2e11bb1f9ce0c05d9439f82452b53fc">
+<div class="view-content">
+<table  class="views-table cols-1">
+         <thead>
+      <tr>
+                  <th  class="views-field views-field-title" scope="col">
+            <a href="https://www.techsupportalert.com/how-to-build-a-website-2.htm?order=title&amp;sort=asc" title="sort by " class="active"></a>          </th>
+              </tr>
+    </thead>
+    <tbody>
+          <tr  class="odd views-row-first">
+                  <td  class="views-field views-field-title">
+            <a href="content/amazing-act-generosity.htm">An Amazing Act of Generosity</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/jpg-optimizer-works-entirely-your-browser.htm">This JPG Optimizer Works Entirely in Your Browser</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/create-your-own-blob-opera-google-s-new-musical-experiment.htm">Create Your Own “Blob Opera” with Google’s New Musical Experiment</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/instantly-add-color-black-and-white-photos-image-colorizer.htm">Instantly Add Color to Black and White Photos with Image Colorizer</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/fond-farewell-me.htm">A Fond Farewell From Me</a>          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            <a href="content/get-authoritative-answers-all-your-questions-online-encyclopedia.htm">Get Authoritative Answers to All Your Questions With This Online Encyclopedia</a>          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            <a href="content/rain-alarm-be-notified-approaching-rain-or-snow.htm">Rain Alarm - Be Notified of Approaching Rain or Snow</a>          </td>
+              </tr>
+          <tr  class="even views-row-last">
+                  <td  class="views-field views-field-title">
+            <a href="content/get-easy-access-frequently-used-symbols-not-your-keyboard.htm">Get Easy Access to Frequently Used Symbols Not on Your Keyboard</a>          </td>
+              </tr>
+      </tbody>
+</table>
+</div>
+
+<div class="more-link">
+  <a href="https://www.techsupportalert.com/articles-user">
+    more  </a>
+</div>
+</div>
+</div>
+</div></div></div></div>
+</div>
+<footer id="footer" role="contentinfo">
+<div id="footer-inner" class="clearfix">
+<div class="region region-footer"><div class="region-inner clearfix"><div id="block-block-3" class="clearfix block block-block no-title odd first last block-count-15 block-region-footer block-3">
+<a href="how-to-build-a-website-2.htm#" class="dropdown-toggle block-toggle" data-toggle="dropdown">toggle-button</a>
+<div class="content" class="block-content content">
+<p class="rtecenter"><a href="terms-and-conditions.htm">Terms &amp; Conditions</a> | <a href="https://www.techsupportalert.com/privacy-policy.htm">Privacy Policy</a> | <a href="content/contact-us.htm">Contact</a> | <a href="about-this-site">About</a></p>
+</div>
+</div></div></div><p class="attribute-creator"></p>
+</div>
+</footer>
+</div>
+</div>
+<style type="text/css">.invis{visibility:hidden;display:none}.vis{visibility:visible;display:inline}#more{display:none}#show,#hide{text-decoration:none;cursor:pointer;color:#3452c9;font-weight:bold;padding-left:20px}#show{background:transparent url(files/images/icons/down.png) no-repeat left}#hide{background:transparent url(files/images/icons/up.png) no-repeat left}select.dropdown{border:1px solid #cbcec3;background-color:#f2f6f9;font-size:1.1em;height:2em}select.dropdown-width{width:50%}@media only screen and (max-width:1024px){select.dropdown-width{width:100%}}span.cat-title{height:58px;display:table;font-size:1.3em;font-weight:bold}span.vert-align{display:table-cell;vertical-align:middle}img.cat-icon{width:82px;height:58px;float:left;padding-right:15px}.show-more{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:120px;padding:0 4px 0 4px}.show-review{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:120px;padding:0 4px 0 4px}.show-comments{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#eef0f8;border:1px solid #009;border-radius:2px;width:140px;padding:4px 8px 4px 8px}.gizmoslist-button{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#f8f8f8;border:1px solid #999;border-radius:2px;width:130px;padding:0 4px 0 4px}.gizmoslist-button:hover{cursor:pointer;color:#3452c9;display:block;text-align:left;background-color:#e8e8e8;border:1px solid #999;border-radius:2px;width:130px;padding:0 4px 0 4px}</style>
+<script language="javascript" type="text/javascript">/*<![CDATA[*/var cn="invis";var ids=new Array("pg01","pg02","pg03","pg04","pg05","pg06","pg07","pg08","pg09","pg10","pg11","pg12");function doSwap(){cn=="vis"?cn="invis":cn="vis";for(var a=0;a<ids.length;a++){document.getElementById(ids[a]).className=cn}}jQuery(document).ready(function(){jQuery("#page_select").bind("change",function(){var a=jQuery(this).val();if(a){window.location.replace(a)}return false});jQuery("#category_select").bind("change",function(){var a=jQuery(this).val();if(a){window.location=a}return false})});jQuery(document).ready(function(){jQuery(".hidden").hide();jQuery(".show-more").html("Show more...");jQuery(".show-review").html("Show review...");jQuery(".show-comments").html("Hide Comments...");jQuery(".toggle").click(function(){jQuery("#show").toggle();jQuery("#more").toggle()});jQuery(".show-more").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).prev().slideUp();jQuery(this).removeClass("clicked");jQuery(this).html("Show more...")}else{jQuery(this).addClass("clicked");jQuery(this).prev().slideDown();jQuery(this).html("...Show less")}});jQuery(".show-review").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).prev().slideUp();jQuery(this).removeClass("clicked");jQuery(this).html("Show review...")}else{jQuery(this).addClass("clicked");jQuery(this).prev().slideDown();jQuery(this).html("...Hide review")}});jQuery(".show-comments").click(function(){if(this.className.indexOf("clicked")!=-1){jQuery(this).next().slideDown();jQuery(this).removeClass("clicked");jQuery(this).html("Hide Comments...")}else{jQuery(this).addClass("clicked");jQuery(this).next().slideUp();jQuery(this).html("Show Comments...")}})});jQuery(document).ready(function(){var a=jQuery("[rel~=tooltip]"),c=false,b=false,d=false;a.bind("mouseenter",function(){c=jQuery(this);tip=c.attr("title");b=jQuery('<div id="tooltip"></div>');if(!tip||tip==""){return false}c.removeAttr("title");b.css("opacity",0).html(tip).appendTo("body");var f=function(){if(jQuery(window).width()<b.outerWidth()*1.5){b.css("max-width",jQuery(window).width()/2)}else{b.css("max-width",340)}var g=c.offset().left+(c.outerWidth()/2)-(b.outerWidth()/2),h=c.offset().top-b.outerHeight()-20;if(g<0){g=c.offset().left+c.outerWidth()/2-20;b.addClass("left")}else{b.removeClass("left")}if(g+b.outerWidth()>jQuery(window).width()){g=c.offset().left-b.outerWidth()+c.outerWidth()/2+20;b.addClass("right")}else{b.removeClass("right")}if(h<0){var h=c.offset().top+c.outerHeight();b.addClass("top")}else{b.removeClass("top")}b.css({left:g,top:h}).animate({top:"+=10",opacity:1},50)};f();jQuery(window).resize(f);var e=function(){b.animate({top:"-=10",opacity:0},50,function(){jQuery(this).remove()});c.attr("title",tip)};c.bind("mouseleave",e);b.bind("click",e)})});/*]]>*/</script>   <script type="text/javascript" src="https://s.skimresources.com/js/91960x1545845.skimlinks.js"></script>
+<script type="text/javascript" src="files/advagg_js/js__TMbgkTyBUQQ_HgBfUgRbT7qnkhUF67VaeCPrRurSSyQ__R579VV3CWa_6pCbnNdQK0EGL-QIicH7Gtzh0Mu2GPDY__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var switchTo5x = true;var __st_loadLate = true;var useFastShare = 0;
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+if (typeof stLight !== 'undefined') { stLight.options({"publisher":"dr-cb3fca8f-ba75-779c-5a90-b433fac7efb0","version":"5x","newOrZero":"zero","shorten":"false","servicePopup":true,"lang":"en"}); }
+//--><!]]>
+</script>
+<script type="text/javascript" src="files/advagg_js/js__8q4Ri8u0Oy1si5uwfNTlks0A6nMFTDjDszJiNP4i5uA__tV1Gvr51dciEodFNuAL3X5GplamBbcIkiRUEhk_oOdE__e3F6ohpkyFHLX9v0QUEzpvu57lQiYhgxAWGUpa43QyU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(d, e, s) {a = d.createElement(e);m = d.getElementsByTagName(e)[0];a.async = 1;a.src = s;m.parentNode.insertBefore(a, m)})(document, 'script', '//w.likebtn.com/js/w/widget.js'); if (typeof(LikeBtn) != "undefined") { LikeBtn.init(); }
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var skimlinks_domain = "exit.techsupportalert.com";
+//--><!]]>
+</script>
+</body>
+</html>
