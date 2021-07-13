@@ -4,7 +4,7 @@ This is A BACKUP of [Gizmo's Tech Support Alert - Gizmo's Freeware](www.techsupp
 
 **Note: Some css/image/js files are not downloaded/Processed well.**
 
-**Note: Github page treats no-suffix html file as a "file", not web pages. This will cause some URLs unable to be accessed normally. We are trying other options.**
+**Note: Github page treats no-suffix html file as a "file" Instead of web pages. This will cause some URLs unable to be accessed normally. We are trying other options.**
 
 ---
 
